@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="pref_key_storage_settings"
+        android:title="@string/pref_map_layer_title" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_bicycle_lane"
+            android:title="@string/pref_bicycle_lane" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_signed_bike_route"
+            android:title="@string/pref_signed_bike_route" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_hiking_trail"
+            android:title="@string/pref_hiking_trail" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_paved_multi_use_trail"
+            android:title="@string/pref_paved_multi_use_trail" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_unmarked_dirt_trail"
+            android:title="@string/pref_unmarked_dirt_trail" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_unpaved_multi_use_trail"
+            android:title="@string/pref_unpaved_multi_use_trail" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:key="pref_about"
+        android:title="@string/pref_about_title" >
+        <Preference
+            android:key="pref_about_devloper"
+            android:title="@string/pref_about_developer"
+            android:summary="@string/pref_about_developer_summary" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

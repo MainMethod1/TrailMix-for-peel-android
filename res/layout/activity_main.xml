@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical" >
+ <TextView
+        android:id="@+id/welcomenote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:typeface="monospace"
+        android:textStyle="bold"
+        android:textColor="#007f00"
+        android:text="What do you feel like doing today?" />
+ 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="250dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+   
+   <Button
+            android:id="@+id/button_run"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:drawableTop="@drawable/ic_running"
+      
+            android:scaleType="fitCenter"
+            android:text="Bike" />
+        <Button
+            android:id="@+id/button_bike"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:drawableTop="@drawable/ic_cycling"
+            android:scaleType="fitCenter"
+            android:text="Bike" />
+
+        <Button
+            android:id="@+id/button_hike"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:drawableTop="@drawable/ic_cycling"
+            android:scaleType="fitCenter"
+            android:text="Bike" />
+    </LinearLayout>
+
+</LinearLayout>
