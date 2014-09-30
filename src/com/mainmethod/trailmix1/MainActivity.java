@@ -4,14 +4,17 @@ package com.mainmethod.trailmix1;
 
 import com.mainmethod.trailmix1.R;
 import com.mainmethod.trailmix1.preferences.PrefActivity;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import android.app.Activity;
 //import android.app.Activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 	private String[] menuItems;
 	private ListView listView;
 	private DrawerLayout drawerLayout;
@@ -32,6 +35,15 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_navigationdrawer);
+		
+		// to make the statusbar tinted in API 19 or above, won't make any
+				// difference in other devices
+				SystemBarTintManager tintManager = new SystemBarTintManager(this);
+				// enable status bar tint
+				tintManager.setStatusBarTintEnabled(true);
+				// enable navigation bar tint
+				tintManager.setNavigationBarTintEnabled(true);
+				tintManager.setTintColor(Color.parseColor("#00796b"));
 
 		menuItems = getResources().getStringArray(R.array.menu_items);
 		listView = (ListView) findViewById(R.id.left_drawer);
@@ -73,7 +85,7 @@ public class MainActivity extends Activity {
 				openMap(v);
 			}
 		});
-		
+
 		final Button button_bike = (Button) findViewById(R.id.button_bike);
 		button_bike.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -81,7 +93,7 @@ public class MainActivity extends Activity {
 				openMap(v);
 			}
 		});
-		
+
 		final Button button_hike = (Button) findViewById(R.id.button_hike);
 		button_hike.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -89,7 +101,6 @@ public class MainActivity extends Activity {
 				openMap(v);
 			}
 		});
-		
 
 	}
 
@@ -125,7 +136,7 @@ public class MainActivity extends Activity {
 			Intent settingsIntent = new Intent(this, PrefActivity.class);
 			startActivity(settingsIntent);
 			break;
-	
+
 		default:
 			break;
 

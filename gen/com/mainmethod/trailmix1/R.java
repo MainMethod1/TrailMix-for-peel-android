@@ -424,22 +424,22 @@ containing a value of this type.
     public static final class id {
         public static final int action_preferences=0x7f08001f;
         public static final int book_now=0x7f080010;
-        public static final int button_bike=0x7f080017;
-        public static final int button_hike=0x7f080018;
-        public static final int button_run=0x7f080016;
+        public static final int button_bike=0x7f080018;
+        public static final int button_hike=0x7f080019;
+        public static final int button_run=0x7f080017;
         public static final int buyButton=0x7f08000a;
         public static final int buy_now=0x7f08000f;
         public static final int buy_with_google=0x7f08000e;
         public static final int classic=0x7f080011;
-        public static final int content_frame=0x7f08001a;
-        public static final int drawer_layout=0x7f080019;
-        public static final int drawer_list_item=0x7f08001c;
+        public static final int content_frame=0x7f080015;
+        public static final int drawer_layout=0x7f080014;
+        public static final int drawer_list_item=0x7f08001b;
         public static final int grayscale=0x7f080012;
         public static final int holo_dark=0x7f080005;
         public static final int holo_light=0x7f080006;
         public static final int hybrid=0x7f080004;
-        public static final int left_drawer=0x7f08001b;
-        public static final int map=0x7f08001d;
+        public static final int left_drawer=0x7f08001a;
+        public static final int map=0x7f08001c;
         public static final int match_parent=0x7f08000c;
         public static final int monochrome=0x7f080013;
         public static final int none=0x7f080000;
@@ -451,21 +451,18 @@ containing a value of this type.
         public static final int selectionDetails=0x7f08000b;
         public static final int strict_sandbox=0x7f080009;
         public static final int terrain=0x7f080003;
-        public static final int textView1=0x7f080014;
-        public static final int welcomenote=0x7f080015;
+        public static final int textView1=0x7f08001d;
+        public static final int welcomenote=0x7f080016;
         public static final int wrap_content=0x7f08000d;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f090000;
     }
     public static final class layout {
-        public static final int activity_about=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_main_navigationdrawer=0x7f030002;
-        public static final int activity_main_navigationdrawerlistitem=0x7f030003;
-        public static final int activity_map=0x7f030004;
-        public static final int activity_settings=0x7f030005;
-        public static final int activity_viewtrails=0x7f030006;
+        public static final int activity_main_navigationdrawer=0x7f030000;
+        public static final int activity_main_navigationdrawerlistitem=0x7f030001;
+        public static final int activity_map=0x7f030002;
+        public static final int activity_viewtrails=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -590,15 +587,6 @@ containing a value of this type.
     }
     public static final class style {
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -610,11 +598,29 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f050005;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
+        public static final int AppBaseTheme=0x7f050007;
+        /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+        Base application theme for API 19+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml, res/values-v14/styles.xml on API 19+ devices.
+
+    
          */
-        public static final int AppTheme=0x7f050006;
+        public static final int CustomActionBarStyle=0x7f050005;
+        /**  the theme applied to the application or activity 
+ the theme applied to the application or activity 
+         */
+        public static final int CustomActionBarTheme=0x7f050008;
+        /**  ActionBar styles 
+ ActionBar styles 
+ ActionBar styles 
+ ActionBar styles 
+         */
+        public static final int MyActionBar=0x7f050006;
         public static final int Theme_IAPTheme=0x7f050000;
         public static final int WalletFragmentDefaultButtonTextAppearance=0x7f050003;
         public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f050002;
