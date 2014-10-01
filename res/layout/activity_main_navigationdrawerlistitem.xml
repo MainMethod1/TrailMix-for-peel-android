@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/drawer_list_item"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="@android:color/primary_text_light_nodisable"
-    android:textSize="22sp"
-    android:gravity="center_vertical"
-    android:paddingStart="14.5dp"
-    android:paddingEnd="14.5dp"
-    android:minHeight="35dp"
-/>
+    android:layout_height="75dp"
+    android:background="?android:attr/activatedBackgroundIndicator" >
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" />
+
+    <TextView
+        android:id="@+id/drawer_list_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/ivIcon"
+        android:textSize="18sp" />
+
+</RelativeLayout>

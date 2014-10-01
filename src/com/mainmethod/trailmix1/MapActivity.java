@@ -22,14 +22,7 @@ public class MapActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// to make the statusbar tinted in API 19 or above, won't make any
-		// difference in other devices
-		SystemBarTintManager tintManager = new SystemBarTintManager(this);
-		// enable status bar tint
-		tintManager.setStatusBarTintEnabled(true);
-		// enable navigation bar tint
-		tintManager.setNavigationBarTintEnabled(true);
-		tintManager.setTintColor(Color.parseColor("#00796b"));
+		
 
 		if (servicesOK()) {
 

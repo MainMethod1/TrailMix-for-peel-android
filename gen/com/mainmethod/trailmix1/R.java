@@ -344,6 +344,7 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_pressed=0x7f070005;
         public static final int common_signin_btn_text_dark=0x7f070017;
         public static final int common_signin_btn_text_light=0x7f070018;
+        public static final int list_item=0x7f070019;
         public static final int wallet_bright_foreground_disabled_holo_light=0x7f07000f;
         /** 
          Wallet colors to support consistent Wallet fragment holo dark UI in client application
@@ -362,8 +363,8 @@ containing a value of this type.
         public static final int wallet_hint_foreground_holo_light=0x7f070011;
         public static final int wallet_holo_blue_light=0x7f070015;
         public static final int wallet_link_text_light=0x7f070016;
-        public static final int wallet_primary_text_holo_light=0x7f070019;
-        public static final int wallet_secondary_text_holo_dark=0x7f07001a;
+        public static final int wallet_primary_text_holo_light=0x7f07001a;
+        public static final int wallet_secondary_text_holo_dark=0x7f07001b;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -406,40 +407,54 @@ containing a value of this type.
         public static final int cycling=0x7f020018;
         public static final int drawer_shadow=0x7f020019;
         public static final int hiking=0x7f02001a;
-        public static final int ic_action_search=0x7f02001b;
-        public static final int ic_cycling=0x7f02001c;
-        public static final int ic_drawer=0x7f02001d;
-        public static final int ic_events=0x7f02001e;
-        public static final int ic_launcher=0x7f02001f;
-        public static final int ic_map=0x7f020020;
-        public static final int ic_plusone_medium_off_client=0x7f020021;
-        public static final int ic_plusone_small_off_client=0x7f020022;
-        public static final int ic_plusone_standard_off_client=0x7f020023;
-        public static final int ic_plusone_tall_off_client=0x7f020024;
-        public static final int ic_running=0x7f020025;
-        public static final int jogging=0x7f020026;
-        public static final int powered_by_google_dark=0x7f020027;
-        public static final int powered_by_google_light=0x7f020028;
+        public static final int ic_action_event=0x7f02001b;
+        public static final int ic_action_search=0x7f02001c;
+        public static final int ic_core_overflow=0x7f02001d;
+        public static final int ic_cycling=0x7f02001e;
+        public static final int ic_drawer=0x7f02001f;
+        public static final int ic_drawer_events=0x7f020020;
+        public static final int ic_drawer_explore_trails=0x7f020021;
+        public static final int ic_drawer_home=0x7f020022;
+        public static final int ic_drawer_tracker=0x7f020023;
+        public static final int ic_events=0x7f020024;
+        public static final int ic_launcher=0x7f020025;
+        public static final int ic_map=0x7f020026;
+        public static final int ic_navigation_drawer=0x7f020027;
+        public static final int ic_plusone_medium_off_client=0x7f020028;
+        public static final int ic_plusone_small_off_client=0x7f020029;
+        public static final int ic_plusone_standard_off_client=0x7f02002a;
+        public static final int ic_plusone_tall_off_client=0x7f02002b;
+        public static final int ic_running=0x7f02002c;
+        public static final int jogging=0x7f02002d;
+        public static final int list_activated_background=0x7f02002e;
+        public static final int powered_by_google_dark=0x7f02002f;
+        public static final int powered_by_google_light=0x7f020030;
     }
     public static final class id {
-        public static final int action_preferences=0x7f08001f;
+        public static final int action_preferences=0x7f080025;
         public static final int book_now=0x7f080010;
-        public static final int button_bike=0x7f080018;
-        public static final int button_hike=0x7f080019;
-        public static final int button_run=0x7f080017;
+        public static final int button_bike=0x7f080021;
+        public static final int button_hike=0x7f080022;
+        public static final int button_run=0x7f080020;
         public static final int buyButton=0x7f08000a;
         public static final int buy_now=0x7f08000f;
         public static final int buy_with_google=0x7f08000e;
         public static final int classic=0x7f080011;
         public static final int content_frame=0x7f080015;
+        public static final int date=0x7f08001d;
         public static final int drawer_layout=0x7f080014;
-        public static final int drawer_list_item=0x7f08001b;
+        public static final int drawer_list_item=0x7f080018;
+        public static final int eventName=0x7f08001b;
+        public static final int eventsFragment=0x7f08001a;
+        public static final int exploreTrailsFragment=0x7f08001e;
         public static final int grayscale=0x7f080012;
         public static final int holo_dark=0x7f080005;
         public static final int holo_light=0x7f080006;
         public static final int hybrid=0x7f080004;
-        public static final int left_drawer=0x7f08001a;
-        public static final int map=0x7f08001c;
+        public static final int ivIcon=0x7f080017;
+        public static final int left_drawer=0x7f080016;
+        public static final int location=0x7f08001c;
+        public static final int map=0x7f080019;
         public static final int match_parent=0x7f08000c;
         public static final int monochrome=0x7f080013;
         public static final int none=0x7f080000;
@@ -447,12 +462,12 @@ containing a value of this type.
         public static final int production=0x7f080007;
         public static final int sandbox=0x7f080008;
         public static final int satellite=0x7f080002;
-        public static final int searchOption=0x7f08001e;
+        public static final int searchOption=0x7f080024;
         public static final int selectionDetails=0x7f08000b;
         public static final int strict_sandbox=0x7f080009;
         public static final int terrain=0x7f080003;
-        public static final int textView1=0x7f08001d;
-        public static final int welcomenote=0x7f080016;
+        public static final int trackerFragment=0x7f080023;
+        public static final int welcomenote=0x7f08001f;
         public static final int wrap_content=0x7f08000d;
     }
     public static final class integer {
@@ -462,7 +477,11 @@ containing a value of this type.
         public static final int activity_main_navigationdrawer=0x7f030000;
         public static final int activity_main_navigationdrawerlistitem=0x7f030001;
         public static final int activity_map=0x7f030002;
-        public static final int activity_viewtrails=0x7f030003;
+        public static final int events_fragment=0x7f030003;
+        public static final int events_list_item=0x7f030004;
+        public static final int explore_trails_fragment=0x7f030005;
+        public static final int home_fragment=0x7f030006;
+        public static final int tracker_fragment=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -598,15 +617,17 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f050007;
+        public static final int AppBaseTheme=0x7f050008;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
         Base application theme for API 19+. This theme completely replaces
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml, res/values-v14/styles.xml on API 19+ devices.
+
 
     
          */
@@ -614,13 +635,19 @@ containing a value of this type.
         /**  the theme applied to the application or activity 
  the theme applied to the application or activity 
          */
-        public static final int CustomActionBarTheme=0x7f050008;
+        public static final int CustomActionBarTheme=0x7f050009;
         /**  ActionBar styles 
  ActionBar styles 
  ActionBar styles 
  ActionBar styles 
          */
         public static final int MyActionBar=0x7f050006;
+        /**  Overflow icon color change style 
+ Overflow icon color change style 
+ Overflow icon color change style 
+ Overflow icon color change style 
+         */
+        public static final int OverFlow=0x7f050007;
         public static final int Theme_IAPTheme=0x7f050000;
         public static final int WalletFragmentDefaultButtonTextAppearance=0x7f050003;
         public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f050002;
