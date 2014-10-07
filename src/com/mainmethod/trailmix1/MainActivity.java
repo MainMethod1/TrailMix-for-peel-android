@@ -1,6 +1,9 @@
 package com.mainmethod.trailmix1;
 
+import java.io.InputStream;
+
 import com.mainmethod.trailmix1.preferences.PrefActivity;
+import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import android.content.Intent;
@@ -19,7 +22,14 @@ public class MainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_navigationdrawer);
-
+		
+		  InputStream ins = getResources().openRawResource(
+	                getResources().getIdentifier("unpaved_multi_use_trails",
+	                "raw", getPackageName()));
+		  
+		//DatabaseHelper db;
+		//db = new DatabaseHelper(getApplicationContext(), ins);
+		
 		// to make the statusbar tinted in API 19 or above, won't make any
 		// difference in other devices
 		SystemBarTintManager tintManager = new SystemBarTintManager(this);
