@@ -1,0 +1,2536 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 149.373
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>149.373</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.627261,43.529926,0.0 -79.627166,43.52991,0.0 -79.627101,43.529894,0.0 -79.627032,43.529859,0.0 -79.626988,43.529842,0.0 -79.626929,43.529843,0.0 -79.626793,43.529881,0.0 -79.626686,43.529916,0.0 -79.626547,43.529986,0.0 -79.626513,43.530003,0.0 -79.626469,43.529995,0.0 -79.626423,43.529987,0.0 -79.626327,43.530018,0.0 -79.62618,43.530073,0.0 -79.62604,43.530127,0.0 -79.625909,43.530189,0.0 -79.625821,43.530221,0.0 -79.62573,43.530247,0.0 -79.62568,43.530263,0.0 -79.625664,43.530295,0.0 -79.625655,43.530324,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 170.977
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>170.977</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.601014,43.601508,0.0 -79.601042,43.601525,0.0 -79.601084,43.601565,0.0 -79.601131,43.601637,0.0 -79.601192,43.601751,0.0 -79.601274,43.60187,0.0 -79.601309,43.601917,0.0 -79.601358,43.60197,0.0 -79.601904,43.602386,0.0 -79.601989,43.602461,0.0 -79.60212,43.602608,0.0 -79.602211,43.602723,0.0 -79.602229,43.60275,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 69.7594
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>69.7594</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.601798,43.601291,0.0 -79.601752,43.601312,0.0 -79.601651,43.601296,0.0 -79.601562,43.60129,0.0 -79.601488,43.601309,0.0 -79.601412,43.60133,0.0 -79.601331,43.601365,0.0 -79.601164,43.601462,0.0 -79.601042,43.601525,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 335.081
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>335.081</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.620164,43.623739,0.0 -79.620291,43.623728,0.0 -79.620323,43.623712,0.0 -79.620474,43.623564,0.0 -79.62049,43.623525,0.0 -79.620489,43.623487,0.0 -79.620467,43.623453,0.0 -79.620426,43.623414,0.0 -79.620363,43.623371,0.0 -79.620296,43.623334,0.0 -79.620126,43.623261,0.0 -79.619945,43.623193,0.0 -79.619877,43.623129,0.0 -79.619809,43.623086,0.0 -79.619723,43.623049,0.0 -79.619612,43.623013,0.0 -79.619544,43.623,0.0 -79.619426,43.622977,0.0 -79.619326,43.622953,0.0 -79.619248,43.622923,0.0 -79.619151,43.622871,0.0 -79.619098,43.622823,0.0 -79.619026,43.62275,0.0 -79.618947,43.622697,0.0 -79.618868,43.622696,0.0 -79.618767,43.622724,0.0 -79.618753,43.622727,0.0 -79.618551,43.622767,0.0 -79.618433,43.622785,0.0 -79.618362,43.622796,0.0 -79.61819,43.62282,0.0 -79.617956,43.622832,0.0 -79.617736,43.622807,0.0 -79.617621,43.622791,0.0 -79.617542,43.622774,0.0 -79.617418,43.622766,0.0 -79.617292,43.62276,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 83.064
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>83.064</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.618712,43.622069,0.0 -79.618612,43.622419,0.0 -79.618601,43.622435,0.0 -79.618553,43.622503,0.0 -79.618472,43.622673,0.0 -79.618453,43.622745,0.0 -79.618433,43.622785,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 36.4456
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>36.4456</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.618601,43.622435,0.0 -79.618625,43.622489,0.0 -79.618639,43.622579,0.0 -79.618644,43.622626,0.0 -79.618679,43.622664,0.0 -79.61872,43.622695,0.0 -79.618767,43.622724,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 180.593
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>180.593</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.587546,43.619616,0.0 -79.587815,43.619782,0.0 -79.588146,43.619994,0.0 -79.588324,43.620086,0.0 -79.58852,43.620217,0.0 -79.588622,43.620333,0.0 -79.588667,43.620516,0.0 -79.589007,43.62074,0.0 -79.589018,43.620732,0.0 -79.58905,43.620749,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 159.689
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>159.689</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.589609,43.620132,0.0 -79.589218,43.619902,0.0 -79.588651,43.619558,0.0 -79.588081,43.619219,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 15.9488
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>15.9488</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.617451,43.65043,0.0 -79.617444,43.650441,0.0 -79.617434,43.650451,0.0 -79.617422,43.65046,0.0 -79.617408,43.650467,0.0 -79.617393,43.650472,0.0 -79.617376,43.650476,0.0 -79.617359,43.650477,0.0 -79.617342,43.650476,0.0 -79.617326,43.650473,0.0 -79.617284,43.650461,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Etobicoke Creek Trail</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Etobicoke Creek Trail<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 87.8511
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>87.8511</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.603894,43.644818,0.0 -79.603786,43.644897,0.0 -79.603732,43.644954,0.0 -79.603695,43.644987,0.0 -79.603626,43.645015,0.0 -79.603583,43.644998,0.0 -79.60355,43.644981,0.0 -79.603478,43.644986,0.0 -79.603443,43.644983,0.0 -79.603408,43.644973,0.0 -79.603366,43.644952,0.0 -79.603299,43.644944,0.0 -79.603223,43.644949,0.0 -79.603147,43.64493,0.0 -79.603052,43.644889,0.0 -79.602982,43.64486,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 159.682
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>159.682</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.605093,43.611229,0.0 -79.605053,43.611435,0.0 -79.604958,43.611727,0.0 -79.604823,43.612485,0.0 -79.604793,43.612648,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 83.1299
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>83.1299</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.665679,43.53113,0.0 -79.665667,43.531032,0.0 -79.665654,43.530936,0.0 -79.665585,43.53077,0.0 -79.665533,43.530586,0.0 -79.665523,43.530394,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 315.606
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>315.606</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.624223,43.566405,0.0 -79.624287,43.566369,0.0 -79.624328,43.566347,0.0 -79.624552,43.566203,0.0 -79.624748,43.56607,0.0 -79.624902,43.565981,0.0 -79.624967,43.565964,0.0 -79.625041,43.56597,0.0 -79.625089,43.565955,0.0 -79.625158,43.565883,0.0 -79.625173,43.565867,0.0 -79.625267,43.565792,0.0 -79.625411,43.565731,0.0 -79.625467,43.565737,0.0 -79.625568,43.565769,0.0 -79.625668,43.565839,0.0 -79.62571,43.565876,0.0 -79.625705,43.565959,0.0 -79.625685,43.565997,0.0 -79.625529,43.566083,0.0 -79.625387,43.566162,0.0 -79.625323,43.566201,0.0 -79.62529,43.56627,0.0 -79.625285,43.566337,0.0 -79.625313,43.566381,0.0 -79.625348,43.566423,0.0 -79.625343,43.566471,0.0 -79.625305,43.566517,0.0 -79.625204,43.566545,0.0 -79.62512,43.56658,0.0 -79.624987,43.566692,0.0 -79.624969,43.566774,0.0 -79.624981,43.56681,0.0 -79.625004,43.566877,0.0 -79.625042,43.56704,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 40.5668
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>40.5668</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.625175,43.56552,0.0 -79.625159,43.565585,0.0 -79.625149,43.565679,0.0 -79.625137,43.565746,0.0 -79.625143,43.565808,0.0 -79.625158,43.565883,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 78.1013
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>78.1013</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.624287,43.566369,0.0 -79.624461,43.566408,0.0 -79.624603,43.566446,0.0 -79.624738,43.566536,0.0 -79.624812,43.566625,0.0 -79.624837,43.566671,0.0 -79.624981,43.56681,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 67.4266
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>67.4266</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.645884,43.563944,0.0 -79.645847,43.563982,0.0 -79.645419,43.564239,0.0 -79.645277,43.564357,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 120.87
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>120.87</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.663395,43.561838,0.0 -79.662877,43.562293,0.0 -79.662646,43.562122,0.0 -79.662334,43.562243,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Packed Gravel<br>
+<b>Length (meters):</b> 254.039
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Packed Gravel</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>254.039</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.664872,43.565657,0.0 -79.664371,43.566011,0.0 -79.663892,43.565698,0.0 -79.663624,43.565542,0.0 -79.663377,43.565382,0.0 -79.663126,43.565234,0.0 -79.662915,43.565088,0.0 -79.662729,43.564971,0.0 -79.662649,43.564935,0.0 -79.662496,43.564874,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 50.4499
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>50.4499</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.725532,43.576631,0.0 -79.725451,43.57664,0.0 -79.725165,43.576481,0.0 -79.725028,43.576395,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 113.023
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>113.023</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.720366,43.594024,0.0 -79.719969,43.594025,0.0 -79.719186,43.594052,0.0 -79.718979,43.594105,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 560.23
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>560.23</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.718539,43.606568,0.0 -79.717995,43.606473,0.0 -79.717538,43.606376,0.0 -79.717417,43.606357,0.0 -79.717248,43.606304,0.0 -79.717033,43.606195,0.0 -79.716988,43.606161,0.0 -79.716799,43.605965,0.0 -79.716498,43.605731,0.0 -79.716481,43.605722,0.0 -79.716462,43.605715,0.0 -79.716442,43.60571,0.0 -79.716421,43.605708,0.0 -79.7164,43.605708,0.0 -79.71638,43.605711,0.0 -79.716134,43.605748,0.0 -79.716108,43.605757,0.0 -79.716085,43.605768,0.0 -79.716064,43.605781,0.0 -79.716046,43.605797,0.0 -79.716032,43.605815,0.0 -79.715966,43.605885,0.0 -79.715925,43.605918,0.0 -79.71588,43.605949,0.0 -79.715832,43.605977,0.0 -79.715799,43.605994,0.0 -79.715769,43.606015,0.0 -79.715743,43.606039,0.0 -79.715723,43.606065,0.0 -79.715693,43.606107,0.0 -79.715655,43.606147,0.0 -79.715609,43.606182,0.0 -79.71558,43.606199,0.0 -79.715554,43.60622,0.0 -79.715534,43.606244,0.0 -79.715519,43.60627,0.0 -79.71551,43.606297,0.0 -79.715506,43.606338,0.0 -79.715495,43.606379,0.0 -79.715477,43.606419,0.0 -79.715453,43.606456,0.0 -79.715413,43.606497,0.0 -79.715366,43.606533,0.0 -79.715314,43.606565,0.0 -79.715233,43.606628,0.0 -79.715172,43.606686,0.0 -79.715164,43.606697,0.0 -79.715158,43.606709,0.0 -79.715155,43.606721,0.0 -79.715155,43.606734,0.0 -79.715157,43.606746,0.0 -79.715163,43.606758,0.0 -79.715171,43.606769,0.0 -79.715181,43.606779,0.0 -79.715194,43.606788,0.0 -79.715405,43.606907,0.0 -79.715544,43.606965,0.0 -79.715672,43.607048,0.0 -79.71607,43.607272,0.0 -79.716239,43.607368,0.0 -79.716253,43.607374,0.0 -79.716265,43.607382,0.0 -79.716276,43.607392,0.0 -79.716284,43.607402,0.0 -79.71629,43.607413,0.0 -79.716294,43.607425,0.0 -79.716295,43.607437,0.0 -79.716293,43.607449,0.0 -79.716289,43.60746,0.0 -79.716255,43.607575,0.0 -79.716217,43.607617,0.0 -79.716133,43.607694,0.0 -79.7161,43.607732,0.0 -79.716073,43.607772,0.0 -79.716051,43.607813,0.0 -79.716029,43.607895,0.0 -79.715984,43.608026,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 329.975
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>329.975</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.717248,43.606304,0.0 -79.717295,43.606438,0.0 -79.717357,43.606578,0.0 -79.717333,43.606688,0.0 -79.717367,43.606796,0.0 -79.717391,43.607058,0.0 -79.717459,43.607302,0.0 -79.717513,43.607606,0.0 -79.717575,43.607863,0.0 -79.717624,43.608053,0.0 -79.717639,43.608234,0.0 -79.717808,43.608391,0.0 -79.717846,43.608466,0.0 -79.717922,43.608621,0.0 -79.718059,43.608793,0.0 -79.718191,43.60896,0.0 -79.718249,43.609129,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 441.355
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>441.355</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.718059,43.608793,0.0 -79.717968,43.608889,0.0 -79.717935,43.608902,0.0 -79.7179,43.608913,0.0 -79.717852,43.608925,0.0 -79.717804,43.608933,0.0 -79.717754,43.608939,0.0 -79.717513,43.608931,0.0 -79.717394,43.60893,0.0 -79.717323,43.608953,0.0 -79.717224,43.608983,0.0 -79.71708,43.609037,0.0 -79.717024,43.609063,0.0 -79.716981,43.609077,0.0 -79.716935,43.609086,0.0 -79.716888,43.60909,0.0 -79.71684,43.609089,0.0 -79.716756,43.609076,0.0 -79.716673,43.609059,0.0 -79.716593,43.609037,0.0 -79.716515,43.609011,0.0 -79.71644,43.608981,0.0 -79.716371,43.608968,0.0 -79.716301,43.608959,0.0 -79.716234,43.608939,0.0 -79.71617,43.608912,0.0 -79.716112,43.60888,0.0 -79.71606,43.608847,0.0 -79.716004,43.608818,0.0 -79.715945,43.608793,0.0 -79.715888,43.608767,0.0 -79.715836,43.608734,0.0 -79.715791,43.608697,0.0 -79.715757,43.608645,0.0 -79.715729,43.60859,0.0 -79.715638,43.608497,0.0 -79.715516,43.6084,0.0 -79.715507,43.60839,0.0 -79.715501,43.608379,0.0 -79.715498,43.608368,0.0 -79.715497,43.608356,0.0 -79.715498,43.608344,0.0 -79.715502,43.608332,0.0 -79.715509,43.608321,0.0 -79.715518,43.608311,0.0 -79.715739,43.6081,0.0 -79.715806,43.608071,0.0 -79.715984,43.608026,0.0 -79.716141,43.60805,0.0 -79.716243,43.608058,0.0 -79.716315,43.608033,0.0 -79.716415,43.607979,0.0 -79.716508,43.607947,0.0 -79.716604,43.607921,0.0 -79.716703,43.6079,0.0 -79.716804,43.607885,0.0 -79.716999,43.607863,0.0 -79.717195,43.607847,0.0 -79.717575,43.607863,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 28.9828
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>28.9828</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.717295,43.606438,0.0 -79.717263,43.606522,0.0 -79.717276,43.606571,0.0 -79.717333,43.606688,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 25.2222
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>25.2222</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.718191,43.60896,0.0 -79.718126,43.608975,0.0 -79.718032,43.608958,0.0 -79.71796,43.608939,0.0 -79.7179,43.608913,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 164.905
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>164.905</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.676031,43.603815,0.0 -79.675935,43.603813,0.0 -79.675891,43.603792,0.0 -79.675863,43.60373,0.0 -79.67575,43.603711,0.0 -79.675589,43.60367,0.0 -79.675466,43.603623,0.0 -79.675316,43.603572,0.0 -79.675108,43.603519,0.0 -79.674902,43.603461,0.0 -79.67469,43.603378,0.0 -79.674581,43.603331,0.0 -79.674371,43.60329,0.0 -79.674251,43.603281,0.0 -79.674205,43.603246,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 183.9
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>183.9</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.674959,43.602423,0.0 -79.674901,43.602565,0.0 -79.674719,43.602763,0.0 -79.674557,43.602896,0.0 -79.674439,43.603027,0.0 -79.674245,43.603194,0.0 -79.674205,43.603246,0.0 -79.67408,43.603358,0.0 -79.673937,43.60386,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 202.038
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>202.038</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.772879,43.597539,0.0 -79.772825,43.597639,0.0 -79.772764,43.597803,0.0 -79.772725,43.597965,0.0 -79.77273,43.598069,0.0 -79.77274,43.598127,0.0 -79.772678,43.598179,0.0 -79.772624,43.598225,0.0 -79.772478,43.598262,0.0 -79.772223,43.598299,0.0 -79.772,43.598275,0.0 -79.77187,43.598283,0.0 -79.771771,43.598311,0.0 -79.771672,43.59827,0.0 -79.771522,43.598192,0.0 -79.771379,43.598173,0.0 -79.771296,43.598134,0.0 -79.771231,43.598108,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Millgrove Trail</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Millgrove Trail<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 103.733
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>103.733</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.756538,43.573552,0.0 -79.756509,43.573509,0.0 -79.756448,43.573483,0.0 -79.756356,43.573435,0.0 -79.755747,43.573119,0.0 -79.755535,43.572979,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 537.052
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>537.052</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.765504,43.576003,0.0 -79.765095,43.576341,0.0 -79.764994,43.576405,0.0 -79.765012,43.576435,0.0 -79.765068,43.576488,0.0 -79.765113,43.576544,0.0 -79.765151,43.576599,0.0 -79.765158,43.576629,0.0 -79.76514,43.576673,0.0 -79.765063,43.57672,0.0 -79.764966,43.576759,0.0 -79.76493,43.576778,0.0 -79.764898,43.576801,0.0 -79.764872,43.576828,0.0 -79.764853,43.576857,0.0 -79.764841,43.576888,0.0 -79.764836,43.576921,0.0 -79.764838,43.576953,0.0 -79.764937,43.577208,0.0 -79.764989,43.57725,0.0 -79.765043,43.577279,0.0 -79.765111,43.577305,0.0 -79.765173,43.577319,0.0 -79.76568,43.577387,0.0 -79.76587,43.577433,0.0 -79.765992,43.577445,0.0 -79.76622,43.577444,0.0 -79.766364,43.577459,0.0 -79.766458,43.57751,0.0 -79.766507,43.577531,0.0 -79.76657,43.577534,0.0 -79.766612,43.577513,0.0 -79.766654,43.577507,0.0 -79.766799,43.577582,0.0 -79.766868,43.577582,0.0 -79.766933,43.57757,0.0 -79.766979,43.577585,0.0 -79.767027,43.577616,0.0 -79.767026,43.577645,0.0 -79.766981,43.577677,0.0 -79.766897,43.577707,0.0 -79.766694,43.577736,0.0 -79.766848,43.577835,0.0 -79.766645,43.577943,0.0 -79.76661,43.577974,0.0 -79.766586,43.578004,0.0 -79.766611,43.57804,0.0 -79.766658,43.578076,0.0 -79.766881,43.578202,0.0 -79.766936,43.578245,0.0 -79.766933,43.578317,0.0 -79.766903,43.578364,0.0 -79.766793,43.578489,0.0 -79.766672,43.578573,0.0 -79.766528,43.578682,0.0 -79.766441,43.578756,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 34.0686
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>34.0686</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.766848,43.577835,0.0 -79.767003,43.577929,0.0 -79.767058,43.577987,0.0 -79.76714,43.578054,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 101.842
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>101.842</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.766412,43.576653,0.0 -79.766331,43.576742,0.0 -79.766337,43.576888,0.0 -79.766337,43.576894,0.0 -79.766427,43.577096,0.0 -79.766516,43.577222,0.0 -79.766605,43.577374,0.0 -79.766609,43.577437,0.0 -79.766612,43.577513,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 102.893
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>102.893</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.765158,43.576629,0.0 -79.76528,43.576652,0.0 -79.765361,43.57665,0.0 -79.76546,43.576637,0.0 -79.765525,43.576641,0.0 -79.765606,43.576666,0.0 -79.76573,43.576683,0.0 -79.765872,43.576691,0.0 -79.765929,43.576704,0.0 -79.766052,43.57676,0.0 -79.766138,43.576819,0.0 -79.766285,43.576877,0.0 -79.766337,43.576888,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 84.5206
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>84.5206</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.725151,43.600093,0.0 -79.725236,43.600302,0.0 -79.725242,43.600377,0.0 -79.725263,43.600402,0.0 -79.725346,43.600433,0.0 -79.725455,43.600466,0.0 -79.72554,43.600499,0.0 -79.725607,43.600566,0.0 -79.725703,43.600679,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 91.3816
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>91.3816</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.735839,43.624126,0.0 -79.735682,43.624298,0.0 -79.735596,43.624361,0.0 -79.73553,43.624457,0.0 -79.73546,43.624554,0.0 -79.735426,43.624598,0.0 -79.73542,43.62462,0.0 -79.735414,43.624634,0.0 -79.735412,43.624648,0.0 -79.735413,43.624663,0.0 -79.735417,43.624677,0.0 -79.735424,43.62469,0.0 -79.735435,43.624703,0.0 -79.735448,43.624714,0.0 -79.735529,43.624776,0.0 -79.735576,43.624813,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 651.938
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>651.938</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.735089,43.624611,0.0 -79.734954,43.62464,0.0 -79.734866,43.62467,0.0 -79.734799,43.624677,0.0 -79.73468,43.624664,0.0 -79.734584,43.62459,0.0 -79.734515,43.624559,0.0 -79.734126,43.624413,0.0 -79.734008,43.624409,0.0 -79.733749,43.624408,0.0 -79.733284,43.624556,0.0 -79.733056,43.624689,0.0 -79.732784,43.624853,0.0 -79.732689,43.624908,0.0 -79.732624,43.624912,0.0 -79.732571,43.624836,0.0 -79.732492,43.624686,0.0 -79.732622,43.624246,0.0 -79.732657,43.624175,0.0 -79.732746,43.624113,0.0 -79.732854,43.624039,0.0 -79.732931,43.624011,0.0 -79.73298,43.624002,0.0 -79.732999,43.623998,0.0 -79.73305,43.623965,0.0 -79.733089,43.623905,0.0 -79.733175,43.623723,0.0 -79.733221,43.623485,0.0 -79.733292,43.623362,0.0 -79.733358,43.623263,0.0 -79.73341,43.623107,0.0 -79.733476,43.622939,0.0 -79.733526,43.622902,0.0 -79.733593,43.622885,0.0 -79.733654,43.622872,0.0 -79.733745,43.622878,0.0 -79.733842,43.622887,0.0 -79.73392,43.622873,0.0 -79.734023,43.622875,0.0 -79.734114,43.622858,0.0 -79.734186,43.622849,0.0 -79.734255,43.622829,0.0 -79.734325,43.622797,0.0 -79.734395,43.622742,0.0 -79.73449,43.622629,0.0 -79.734603,43.622476,0.0 -79.734681,43.622341,0.0 -79.734782,43.622269,0.0 -79.734908,43.622191,0.0 -79.734994,43.622165,0.0 -79.735075,43.622156,0.0 -79.7352,43.622143,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 137.236
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>137.236</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.734475,43.62376,0.0 -79.73437,43.623777,0.0 -79.734338,43.623801,0.0 -79.7343,43.623848,0.0 -79.734229,43.62386,0.0 -79.734068,43.623912,0.0 -79.733873,43.623968,0.0 -79.733762,43.62397,0.0 -79.733663,43.623997,0.0 -79.733591,43.624037,0.0 -79.733424,43.62409,0.0 -79.733229,43.624134,0.0 -79.733093,43.624095,0.0 -79.733043,43.624068,0.0 -79.73298,43.624002,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 536.74
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>536.74</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.735501,43.625471,0.0 -79.735569,43.625575,0.0 -79.735647,43.625637,0.0 -79.735693,43.62571,0.0 -79.735726,43.625768,0.0 -79.73579,43.625811,0.0 -79.735834,43.625848,0.0 -79.735994,43.626014,0.0 -79.736155,43.626178,0.0 -79.736298,43.626329,0.0 -79.736553,43.626627,0.0 -79.736798,43.626896,0.0 -79.736922,43.627056,0.0 -79.737084,43.627219,0.0 -79.737392,43.62751,0.0 -79.737513,43.627657,0.0 -79.737765,43.627974,0.0 -79.737971,43.62814,0.0 -79.738111,43.628228,0.0 -79.738448,43.628483,0.0 -79.73855,43.628559,0.0 -79.738601,43.628619,0.0 -79.738615,43.628702,0.0 -79.738599,43.628846,0.0 -79.738582,43.628895,0.0 -79.738537,43.628925,0.0 -79.738442,43.628957,0.0 -79.738246,43.629007,0.0 -79.738076,43.629057,0.0 -79.737975,43.629075,0.0 -79.737895,43.62906,0.0 -79.737762,43.628986,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 101.723
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>101.723</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.734846,43.632267,0.0 -79.734888,43.632266,0.0 -79.734929,43.632261,0.0 -79.734969,43.632252,0.0 -79.735007,43.632238,0.0 -79.735041,43.632221,0.0 -79.735071,43.632199,0.0 -79.735096,43.632175,0.0 -79.735114,43.632153,0.0 -79.735128,43.632128,0.0 -79.735136,43.632103,0.0 -79.735139,43.632091,0.0 -79.735144,43.63208,0.0 -79.735152,43.632069,0.0 -79.735163,43.63206,0.0 -79.735175,43.632052,0.0 -79.735189,43.632046,0.0 -79.735204,43.632041,0.0 -79.735221,43.632039,0.0 -79.735237,43.632038,0.0 -79.735253,43.63204,0.0 -79.735269,43.632043,0.0 -79.735296,43.632056,0.0 -79.735319,43.632072,0.0 -79.735338,43.632091,0.0 -79.735353,43.632111,0.0 -79.735365,43.632133,0.0 -79.735381,43.632153,0.0 -79.735402,43.63217,0.0 -79.735427,43.632185,0.0 -79.735454,43.632197,0.0 -79.735478,43.632201,0.0 -79.735502,43.632203,0.0 -79.735526,43.632201,0.0 -79.73555,43.632197,0.0 -79.735572,43.63219,0.0 -79.735592,43.63218,0.0 -79.73561,43.632171,0.0 -79.735626,43.63216,0.0 -79.735639,43.632148,0.0 -79.73565,43.632135,0.0 -79.735715,43.63203,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 96.2145
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>96.2145</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.65197,43.716769,0.0 -79.65193,43.716509,0.0 -79.651958,43.716084,0.0 -79.651993,43.715907,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 41.2016
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>41.2016</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.643972,43.724481,0.0 -79.643935,43.724489,0.0 -79.643736,43.724482,0.0 -79.643546,43.724446,0.0 -79.643474,43.724466,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 48.0428
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>48.0428</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.768075,43.6092,0.0 -79.767993,43.609282,0.0 -79.767923,43.609353,0.0 -79.767855,43.609422,0.0 -79.767803,43.609506,0.0 -79.767739,43.609554,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 101.744
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>101.744</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.741937,43.661209,0.0 -79.742175,43.661497,0.0 -79.742235,43.661553,0.0 -79.742414,43.661674,0.0 -79.742582,43.661827,0.0 -79.742614,43.661892,0.0 -79.742612,43.661959,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 171.629
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>171.629</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.740778,43.664703,0.0 -79.740658,43.664724,0.0 -79.740137,43.664737,0.0 -79.739589,43.66472,0.0 -79.739116,43.664723,0.0 -79.73901,43.664724,0.0 -79.738776,43.664715,0.0 -79.738655,43.664723,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 106.496
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>106.496</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.738687,43.664702,0.0 -79.738764,43.664686,0.0 -79.739021,43.664603,0.0 -79.739166,43.664556,0.0 -79.739402,43.66447,0.0 -79.739633,43.664398,0.0 -79.739775,43.66435,0.0 -79.739879,43.664296,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 104.038
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>104.038</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.733353,43.677634,0.0 -79.733177,43.677708,0.0 -79.733079,43.677799,0.0 -79.73298,43.67787,0.0 -79.732503,43.678326,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 191.765
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>191.765</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.790239,43.699194,0.0 -79.790437,43.699333,0.0 -79.790546,43.699419,0.0 -79.790866,43.699661,0.0 -79.791086,43.699827,0.0 -79.791191,43.699901,0.0 -79.791308,43.699994,0.0 -79.79137,43.700031,0.0 -79.791452,43.700058,0.0 -79.791538,43.70008,0.0 -79.791626,43.700097,0.0 -79.791715,43.700109,0.0 -79.791805,43.700115,0.0 -79.791867,43.700118,0.0 -79.791929,43.700117,0.0 -79.79199,43.700111,0.0 -79.79205,43.700101,0.0 -79.792108,43.700085,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 13.4473
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>13.4473</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.790559,43.725597,0.0 -79.790542,43.725536,0.0 -79.790527,43.725478,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 15.7083
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>15.7083</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.794901,43.727312,0.0 -79.794937,43.727327,0.0 -79.795009,43.727382,0.0 -79.795058,43.727381,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Esker Lake Trail</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Esker Lake Trail<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 551.041
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>551.041</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.777164,43.729213,0.0 -79.777205,43.729326,0.0 -79.777419,43.729785,0.0 -79.777532,43.730078,0.0 -79.777546,43.73014,0.0 -79.777555,43.730203,0.0 -79.777557,43.730265,0.0 -79.777553,43.730328,0.0 -79.777553,43.730381,0.0 -79.77756,43.730434,0.0 -79.777576,43.730486,0.0 -79.777599,43.730536,0.0 -79.77763,43.730584,0.0 -79.777668,43.730629,0.0 -79.777714,43.730687,0.0 -79.777767,43.730741,0.0 -79.777828,43.73079,0.0 -79.777894,43.730836,0.0 -79.777967,43.730876,0.0 -79.778044,43.730911,0.0 -79.778126,43.730941,0.0 -79.778223,43.730958,0.0 -79.778321,43.730971,0.0 -79.77842,43.730978,0.0 -79.77852,43.730981,0.0 -79.77862,43.730979,0.0 -79.778694,43.730972,0.0 -79.778768,43.730971,0.0 -79.778842,43.730976,0.0 -79.778915,43.730988,0.0 -79.778985,43.731006,0.0 -79.779052,43.731029,0.0 -79.779124,43.731064,0.0 -79.779191,43.731104,0.0 -79.779253,43.731148,0.0 -79.779308,43.731196,0.0 -79.779342,43.731228,0.0 -79.779368,43.731264,0.0 -79.779385,43.731303,0.0 -79.779395,43.731343,0.0 -79.779395,43.731384,0.0 -79.779414,43.731469,0.0 -79.779442,43.731553,0.0 -79.779479,43.731636,0.0 -79.779525,43.731716,0.0 -79.77958,43.731793,0.0 -79.779643,43.731866,0.0 -79.779711,43.731904,0.0 -79.779783,43.731936,0.0 -79.779859,43.731964,0.0 -79.779938,43.731986,0.0 -79.780019,43.732003,0.0 -79.780103,43.732015,0.0 -79.780251,43.732014,0.0 -79.780399,43.732008,0.0 -79.780547,43.731995,0.0 -79.780605,43.731994,0.0 -79.780664,43.732,0.0 -79.78072,43.732012,0.0 -79.780773,43.73203,0.0 -79.780821,43.732055,0.0 -79.780876,43.732089,0.0 -79.780936,43.732119,0.0 -79.780999,43.732144,0.0 -79.781066,43.732164,0.0 -79.781135,43.732179,0.0 -79.781206,43.732188,0.0 -79.781255,43.732186,0.0 -79.781303,43.732189,0.0 -79.78135,43.732197,0.0 -79.781395,43.732211,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 537.449
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>537.449</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.779397,43.729894,0.0 -79.779375,43.72987,0.0 -79.779358,43.729844,0.0 -79.779347,43.729816,0.0 -79.779343,43.729787,0.0 -79.779345,43.729759,0.0 -79.779354,43.72973,0.0 -79.779369,43.729703,0.0 -79.779401,43.729643,0.0 -79.779438,43.729585,0.0 -79.779482,43.729529,0.0 -79.77953,43.729475,0.0 -79.780012,43.729036,0.0 -79.780144,43.728877,0.0 -79.780199,43.728834,0.0 -79.780325,43.728721,0.0 -79.780501,43.728579,0.0 -79.780712,43.728464,0.0 -79.78092,43.728349,0.0 -79.781098,43.728242,0.0 -79.78125,43.72814,0.0 -79.781357,43.728058,0.0 -79.781494,43.727991,0.0 -79.78171,43.727932,0.0 -79.782134,43.727894,0.0 -79.782438,43.727843,0.0 -79.782703,43.727835,0.0 -79.782888,43.727688,0.0 -79.783276,43.727352,0.0 -79.783608,43.727047,0.0 -79.783735,43.726955,0.0 -79.783763,43.72693,0.0 -79.783796,43.72691,0.0 -79.783834,43.726894,0.0 -79.783875,43.726883,0.0 -79.783918,43.726878,0.0 -79.783961,43.726877,0.0 -79.784004,43.726882,0.0 -79.784045,43.726892,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 272.154
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>272.154</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.779397,43.729894,0.0 -79.779334,43.729903,0.0 -79.779273,43.729918,0.0 -79.779216,43.729939,0.0 -79.779164,43.729967,0.0 -79.779118,43.73,0.0 -79.778742,43.730369,0.0 -79.778412,43.730631,0.0 -79.778126,43.730941,0.0 -79.777939,43.731154,0.0 -79.777767,43.731357,0.0 -79.777637,43.731491,0.0 -79.777572,43.731533,0.0 -79.777313,43.731782,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 42.9522
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>42.9522</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.790228,43.733015,0.0 -79.789879,43.733166,0.0 -79.789848,43.733189,0.0 -79.789802,43.733238,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 133.853
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>133.853</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.804934,43.740491,0.0 -79.805149,43.740576,0.0 -79.805348,43.740608,0.0 -79.80592,43.740596,0.0 -79.806106,43.740605,0.0 -79.806478,43.740714,0.0 -79.806516,43.740741,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 476.835
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>476.835</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.710142,43.798082,0.0 -79.710389,43.798163,0.0 -79.711714,43.798521,0.0 -79.711855,43.798561,0.0 -79.712339,43.798898,0.0 -79.712394,43.79892,0.0 -79.712452,43.798937,0.0 -79.712514,43.798946,0.0 -79.712576,43.79895,0.0 -79.712639,43.798946,0.0 -79.7127,43.798935,0.0 -79.712846,43.79889,0.0 -79.712896,43.798847,0.0 -79.712979,43.798839,0.0 -79.713061,43.798826,0.0 -79.713142,43.798808,0.0 -79.71322,43.798785,0.0 -79.713259,43.798783,0.0 -79.713298,43.798785,0.0 -79.713336,43.798791,0.0 -79.713373,43.798802,0.0 -79.713406,43.798818,0.0 -79.713466,43.798847,0.0 -79.713523,43.798881,0.0 -79.713574,43.798919,0.0 -79.71362,43.79896,0.0 -79.71366,43.798986,0.0 -79.713704,43.799008,0.0 -79.713754,43.799024,0.0 -79.713806,43.799034,0.0 -79.713866,43.79904,0.0 -79.713924,43.799052,0.0 -79.713979,43.799071,0.0 -79.714028,43.799096,0.0 -79.714072,43.799126,0.0 -79.714096,43.799164,0.0 -79.714127,43.7992,0.0 -79.714163,43.799233,0.0 -79.714192,43.799238,0.0 -79.71422,43.799246,0.0 -79.714245,43.799258,0.0 -79.714267,43.799273,0.0 -79.714285,43.79929,0.0 -79.714299,43.799309,0.0 -79.714309,43.799329,0.0 -79.714363,43.799405,0.0 -79.714603,43.799842,0.0 -79.714808,43.800011,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 207.569
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>207.569</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.784275,43.72901,0.0 -79.784208,43.728907,0.0 -79.784205,43.728847,0.0 -79.784194,43.728802,0.0 -79.78417,43.728785,0.0 -79.784126,43.728765,0.0 -79.784073,43.728758,0.0 -79.784022,43.728763,0.0 -79.783878,43.728771,0.0 -79.783734,43.728736,0.0 -79.783662,43.7287,0.0 -79.783606,43.728662,0.0 -79.783574,43.728608,0.0 -79.783544,43.728556,0.0 -79.783542,43.72842,0.0 -79.783538,43.72833,0.0 -79.783479,43.728269,0.0 -79.783363,43.728198,0.0 -79.7833,43.728176,0.0 -79.783265,43.728144,0.0 -79.783253,43.728088,0.0 -79.78322,43.728029,0.0 -79.783191,43.727992,0.0 -79.783123,43.727937,0.0 -79.782959,43.727887,0.0 -79.782869,43.727875,0.0 -79.782809,43.72785,0.0 -79.782703,43.727835,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 105.012
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>105.012</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.721855,43.876036,0.0 -79.72166,43.876002,0.0 -79.721086,43.875967,0.0 -79.721116,43.875835,0.0 -79.721157,43.875587,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 667.901
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>667.901</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.575902,43.581547,0.0 -79.576112,43.581698,0.0 -79.576222,43.58176,0.0 -79.576427,43.581957,0.0 -79.576582,43.582092,0.0 -79.576648,43.58214,0.0 -79.576686,43.582153,0.0 -79.576797,43.582142,0.0 -79.576927,43.582142,0.0 -79.576996,43.582147,0.0 -79.577048,43.582143,0.0 -79.577272,43.582145,0.0 -79.577401,43.582142,0.0 -79.577467,43.582142,0.0 -79.577556,43.582124,0.0 -79.577651,43.582101,0.0 -79.577723,43.582086,0.0 -79.577861,43.582081,0.0 -79.577963,43.58208,0.0 -79.578077,43.582088,0.0 -79.578191,43.582104,0.0 -79.578254,43.582111,0.0 -79.578321,43.582099,0.0 -79.578426,43.582056,0.0 -79.57853,43.582001,0.0 -79.578579,43.581988,0.0 -79.578625,43.582006,0.0 -79.578664,43.582033,0.0 -79.578708,43.58207,0.0 -79.578754,43.582089,0.0 -79.578847,43.582113,0.0 -79.579017,43.582145,0.0 -79.579082,43.582152,0.0 -79.57917,43.582184,0.0 -79.57924,43.582208,0.0 -79.579305,43.582227,0.0 -79.579367,43.582252,0.0 -79.579408,43.582267,0.0 -79.579483,43.582336,0.0 -79.579515,43.58236,0.0 -79.579545,43.582383,0.0 -79.579587,43.582405,0.0 -79.579644,43.582451,0.0 -79.579695,43.58249,0.0 -79.579779,43.582524,0.0 -79.579859,43.58254,0.0 -79.579929,43.582581,0.0 -79.579978,43.582629,0.0 -79.580016,43.582682,0.0 -79.580022,43.582764,0.0 -79.580017,43.582837,0.0 -79.580058,43.582873,0.0 -79.580177,43.582938,0.0 -79.580234,43.582963,0.0 -79.580308,43.583028,0.0 -79.580405,43.58312,0.0 -79.580505,43.583231,0.0 -79.580549,43.583273,0.0 -79.580607,43.583298,0.0 -79.580714,43.583344,0.0 -79.580777,43.583386,0.0 -79.580827,43.583431,0.0 -79.580943,43.583551,0.0 -79.581055,43.583664,0.0 -79.58108,43.583708,0.0 -79.581076,43.583782,0.0 -79.581101,43.583817,0.0 -79.581125,43.583898,0.0 -79.581123,43.583976,0.0 -79.581117,43.584014,0.0 -79.581074,43.584042,0.0 -79.581001,43.584085,0.0 -79.580947,43.584123,0.0 -79.580876,43.584181,0.0 -79.580822,43.584217,0.0 -79.580741,43.584246,0.0 -79.580662,43.584267,0.0 -79.580593,43.584294,0.0 -79.58054,43.584334,0.0 -79.580514,43.584379,0.0 -79.580478,43.584418,0.0 -79.580432,43.584463,0.0 -79.580368,43.584511,0.0 -79.580328,43.58454,0.0 -79.580316,43.584551,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 476.671
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>476.671</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.580896,43.585004,0.0 -79.580805,43.584951,0.0 -79.580743,43.584888,0.0 -79.580697,43.584827,0.0 -79.580674,43.584785,0.0 -79.580659,43.584736,0.0 -79.580657,43.584698,0.0 -79.580636,43.584676,0.0 -79.58061,43.584658,0.0 -79.580555,43.58464,0.0 -79.580476,43.584627,0.0 -79.580395,43.584595,0.0 -79.580336,43.584559,0.0 -79.580316,43.584551,0.0 -79.580216,43.584517,0.0 -79.58016,43.584489,0.0 -79.580083,43.584453,0.0 -79.580038,43.584428,0.0 -79.580009,43.584389,0.0 -79.579988,43.584359,0.0 -79.579926,43.5843,0.0 -79.579874,43.584231,0.0 -79.579843,43.584196,0.0 -79.579804,43.584168,0.0 -79.579731,43.584123,0.0 -79.579657,43.584087,0.0 -79.579611,43.584061,0.0 -79.579559,43.584031,0.0 -79.579501,43.583989,0.0 -79.57946,43.583954,0.0 -79.579409,43.58391,0.0 -79.579371,43.583854,0.0 -79.57932,43.583812,0.0 -79.579242,43.583749,0.0 -79.579171,43.583691,0.0 -79.579058,43.583625,0.0 -79.578941,43.583562,0.0 -79.57882,43.583503,0.0 -79.57863,43.583408,0.0 -79.578437,43.583314,0.0 -79.578363,43.583271,0.0 -79.578293,43.583224,0.0 -79.578227,43.583175,0.0 -79.57814,43.583095,0.0 -79.578058,43.583011,0.0 -79.577983,43.582925,0.0 -79.577916,43.58286,0.0 -79.577844,43.582798,0.0 -79.577766,43.582741,0.0 -79.577683,43.582686,0.0 -79.577595,43.582637,0.0 -79.577523,43.582613,0.0 -79.577448,43.582596,0.0 -79.577371,43.582586,0.0 -79.577333,43.582575,0.0 -79.577298,43.58256,0.0 -79.577267,43.582541,0.0 -79.577108,43.582428,0.0 -79.57703,43.582395,0.0 -79.576927,43.582333,0.0 -79.576833,43.582279,0.0 -79.576703,43.582183,0.0 -79.576686,43.582153,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 14.1157
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>14.1157</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.576686,43.582153,0.0 -79.576624,43.582204,0.0 -79.576589,43.582257,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 413.048
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>413.048</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.575903,43.581494,0.0 -79.575806,43.58146,0.0 -79.575716,43.581399,0.0 -79.575444,43.581217,0.0 -79.57505,43.580958,0.0 -79.574668,43.580693,0.0 -79.574292,43.580424,0.0 -79.574182,43.580365,0.0 -79.574047,43.580265,0.0 -79.573613,43.579987,0.0 -79.573346,43.579777,0.0 -79.573009,43.579529,0.0 -79.572992,43.579494,0.0 -79.572817,43.579345,0.0 -79.572732,43.579256,0.0 -79.572653,43.579164,0.0 -79.572582,43.579069,0.0 -79.572563,43.579031,0.0 -79.572552,43.578992,0.0 -79.572548,43.578953,0.0 -79.572553,43.578913,0.0 -79.572569,43.578797,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 15.4601
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>15.4601</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.574182,43.580365,0.0 -79.574049,43.580466,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 70.1701
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>70.1701</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.578625,43.582006,0.0 -79.578622,43.581925,0.0 -79.578644,43.581827,0.0 -79.578659,43.581636,0.0 -79.578656,43.581539,0.0 -79.578645,43.581437,0.0 -79.578645,43.581376,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 229.727
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>229.727</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.576155,43.58023,0.0 -79.575986,43.580146,0.0 -79.575865,43.580114,0.0 -79.57572,43.580089,0.0 -79.575605,43.580046,0.0 -79.57558,43.580014,0.0 -79.575541,43.579986,0.0 -79.575464,43.579955,0.0 -79.575417,43.579939,0.0 -79.575349,43.579931,0.0 -79.575279,43.579923,0.0 -79.575256,43.5799,0.0 -79.575258,43.579851,0.0 -79.575253,43.579805,0.0 -79.575187,43.579733,0.0 -79.575118,43.579678,0.0 -79.575075,43.579653,0.0 -79.575038,43.579632,0.0 -79.575002,43.57961,0.0 -79.574954,43.579573,0.0 -79.574925,43.579539,0.0 -79.574852,43.579514,0.0 -79.574773,43.579502,0.0 -79.574687,43.579474,0.0 -79.574608,43.579452,0.0 -79.574525,43.579439,0.0 -79.574469,43.57941,0.0 -79.574405,43.579394,0.0 -79.574336,43.579382,0.0 -79.574283,43.579349,0.0 -79.574266,43.579323,0.0 -79.574263,43.579291,0.0 -79.57429,43.579248,0.0 -79.574315,43.579191,0.0 -79.574338,43.57914,0.0 -79.574333,43.579092,0.0 -79.574322,43.579053,0.0 -79.574304,43.579017,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 587.806
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>587.806</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.606367,43.540185,0.0 -79.60626,43.540341,0.0 -79.606263,43.540361,0.0 -79.606269,43.54038,0.0 -79.606281,43.540398,0.0 -79.606296,43.540414,0.0 -79.606315,43.540428,0.0 -79.606426,43.540513,0.0 -79.606534,43.540599,0.0 -79.606573,43.540633,0.0 -79.606606,43.54067,0.0 -79.606635,43.540709,0.0 -79.606669,43.540747,0.0 -79.60671,43.540782,0.0 -79.606758,43.540813,0.0 -79.606826,43.540854,0.0 -79.606931,43.540936,0.0 -79.606998,43.540949,0.0 -79.607043,43.540957,0.0 -79.607161,43.540986,0.0 -79.60726,43.541014,0.0 -79.607336,43.541022,0.0 -79.607447,43.541028,0.0 -79.607537,43.541046,0.0 -79.607602,43.541069,0.0 -79.607704,43.541113,0.0 -79.607799,43.541151,0.0 -79.607902,43.541199,0.0 -79.608014,43.541244,0.0 -79.608111,43.541269,0.0 -79.608183,43.541277,0.0 -79.608335,43.541254,0.0 -79.608411,43.541252,0.0 -79.608466,43.541248,0.0 -79.608509,43.541256,0.0 -79.608552,43.54127,0.0 -79.608589,43.541291,0.0 -79.60865,43.541356,0.0 -79.608746,43.54139,0.0 -79.608892,43.541401,0.0 -79.609015,43.541434,0.0 -79.609107,43.541454,0.0 -79.609223,43.541455,0.0 -79.609426,43.541422,0.0 -79.609487,43.541409,0.0 -79.609605,43.541384,0.0 -79.609682,43.541389,0.0 -79.609764,43.541415,0.0 -79.609837,43.541459,0.0 -79.609876,43.541492,0.0 -79.609913,43.541547,0.0 -79.609961,43.541594,0.0 -79.610027,43.541616,0.0 -79.610093,43.54164,0.0 -79.610135,43.541682,0.0 -79.610182,43.541709,0.0 -79.610248,43.54171,0.0 -79.61029,43.541716,0.0 -79.610466,43.541812,0.0 -79.610522,43.541817,0.0 -79.610596,43.541807,0.0 -79.610707,43.541804,0.0 -79.610768,43.54181,0.0 -79.61083,43.541818,0.0 -79.610877,43.541839,0.0 -79.610924,43.541876,0.0 -79.610986,43.541964,0.0 -79.611037,43.542004,0.0 -79.611064,43.542023,0.0 -79.61113,43.542036,0.0 -79.611223,43.542025,0.0 -79.61133,43.542007,0.0 -79.611408,43.541993,0.0 -79.611484,43.541992,0.0 -79.611593,43.541985,0.0 -79.611661,43.541982,0.0 -79.611694,43.541987,0.0 -79.611721,43.542005,0.0 -79.611745,43.542023,0.0 -79.611776,43.542031,0.0 -79.611811,43.542041,0.0 -79.611839,43.542061,0.0 -79.611975,43.542303,0.0 -79.612006,43.542351,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Albion Hills Conservation Area - S - Ridge Run</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Albion Hills Conservation Area - S - Ridge Run<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 305.202
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>305.202</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.828118,43.927825,0.0 -79.828202,43.927934,0.0 -79.828215,43.927974,0.0 -79.82821,43.928011,0.0 -79.828188,43.928041,0.0 -79.828146,43.928063,0.0 -79.828088,43.928076,0.0 -79.828011,43.928081,0.0 -79.827911,43.928074,0.0 -79.827818,43.928058,0.0 -79.827588,43.927979,0.0 -79.827457,43.927917,0.0 -79.827333,43.927809,0.0 -79.827278,43.927773,0.0 -79.827119,43.927724,0.0 -79.826993,43.927675,0.0 -79.82694,43.927678,0.0 -79.826901,43.927708,0.0 -79.826893,43.927746,0.0 -79.826918,43.9278,0.0 -79.826907,43.92782,0.0 -79.826889,43.927831,0.0 -79.826836,43.927845,0.0 -79.82677,43.927847,0.0 -79.826729,43.927835,0.0 -79.826703,43.927812,0.0 -79.826672,43.927742,0.0 -79.826636,43.927542,0.0 -79.826665,43.927477,0.0 -79.826733,43.927427,0.0 -79.826788,43.927412,0.0 -79.826853,43.927411,0.0 -79.826923,43.927422,0.0 -79.827055,43.927462,0.0 -79.827166,43.927459,0.0 -79.827195,43.927487,0.0 -79.82722,43.927578,0.0 -79.827244,43.927594,0.0 -79.827264,43.927589,0.0 -79.827324,43.927549,0.0 -79.827476,43.927508,0.0 -79.827496,43.927494,0.0 -79.827531,43.927455,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Albion Hills Conservation Area - T - In Speed We Trust</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Albion Hills Conservation Area - T - In Speed We Trust<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 376.828
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>376.828</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.829171,43.927597,0.0 -79.829087,43.927587,0.0 -79.829059,43.927544,0.0 -79.829008,43.927508,0.0 -79.828864,43.927439,0.0 -79.828793,43.927424,0.0 -79.828612,43.927418,0.0 -79.828547,43.927404,0.0 -79.828485,43.927381,0.0 -79.828413,43.927338,0.0 -79.828231,43.927184,0.0 -79.828162,43.927153,0.0 -79.828084,43.927152,0.0 -79.828017,43.927169,0.0 -79.828097,43.927223,0.0 -79.828117,43.927264,0.0 -79.828103,43.92728,0.0 -79.828034,43.927303,0.0 -79.82799,43.927352,0.0 -79.827915,43.927341,0.0 -79.827883,43.927368,0.0 -79.827828,43.927359,0.0 -79.827736,43.927325,0.0 -79.827693,43.927299,0.0 -79.827695,43.927291,0.0 -79.827731,43.927276,0.0 -79.827743,43.927255,0.0 -79.827739,43.927218,0.0 -79.827718,43.927187,0.0 -79.827684,43.927168,0.0 -79.827564,43.927138,0.0 -79.82754,43.927118,0.0 -79.827537,43.927096,0.0 -79.827558,43.927066,0.0 -79.827609,43.927029,0.0 -79.827905,43.92687,0.0 -79.828004,43.926834,0.0 -79.828088,43.92683,0.0 -79.828316,43.926905,0.0 -79.828361,43.926974,0.0 -79.828416,43.927027,0.0 -79.828512,43.927092,0.0 -79.828606,43.927143,0.0 -79.828757,43.927151,0.0 -79.828926,43.927121,0.0 -79.828991,43.927134,0.0 -79.829014,43.927151,0.0 -79.82902,43.927173,0.0 -79.828969,43.927238,0.0 -79.828969,43.927257,0.0 -79.829058,43.92731,0.0 -79.829098,43.927323,0.0 -79.82916,43.927317,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 959.322
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>959.322</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.68031,43.509062,0.0 -79.680161,43.509236,0.0 -79.68004,43.509374,0.0 -79.6798,43.509528,0.0 -79.679679,43.509624,0.0 -79.67954,43.509799,0.0 -79.679416,43.509957,0.0 -79.679302,43.510077,0.0 -79.679143,43.51019,0.0 -79.678962,43.510331,0.0 -79.67881,43.510411,0.0 -79.678724,43.510445,0.0 -79.678572,43.510638,0.0 -79.678488,43.510745,0.0 -79.678373,43.510815,0.0 -79.67824,43.510898,0.0 -79.678159,43.510969,0.0 -79.677866,43.51126,0.0 -79.677591,43.511558,0.0 -79.677438,43.511684,0.0 -79.677227,43.511859,0.0 -79.676931,43.512097,0.0 -79.676733,43.512242,0.0 -79.676652,43.512331,0.0 -79.676541,43.512483,0.0 -79.676464,43.512598,0.0 -79.676371,43.512709,0.0 -79.676258,43.512821,0.0 -79.676105,43.512926,0.0 -79.675931,43.513014,0.0 -79.675755,43.513106,0.0 -79.675691,43.513151,0.0 -79.675593,43.513247,0.0 -79.675486,43.513381,0.0 -79.675445,43.5135,0.0 -79.675387,43.513618,0.0 -79.675296,43.513698,0.0 -79.675157,43.513799,0.0 -79.67499,43.513901,0.0 -79.674807,43.514024,0.0 -79.674655,43.514123,0.0 -79.674525,43.514247,0.0 -79.674339,43.514524,0.0 -79.674269,43.514611,0.0 -79.674187,43.514676,0.0 -79.674064,43.514747,0.0 -79.673955,43.5148,0.0 -79.673852,43.514857,0.0 -79.673756,43.514921,0.0 -79.673645,43.515032,0.0 -79.673536,43.515159,0.0 -79.673426,43.515287,0.0 -79.67332,43.515388,0.0 -79.673196,43.51547,0.0 -79.673013,43.51561,0.0 -79.672912,43.515673,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 21.5094
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>21.5094</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.672912,43.515673,0.0 -79.672801,43.515669,0.0 -79.672652,43.515639,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 67.7406
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>67.7406</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.672912,43.515673,0.0 -79.672891,43.5158,0.0 -79.672907,43.515905,0.0 -79.672896,43.515995,0.0 -79.672857,43.51607,0.0 -79.672674,43.516227,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 160.288
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>160.288</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.721683,43.879085,0.0 -79.721977,43.879431,0.0 -79.722023,43.879487,0.0 -79.722046,43.879534,0.0 -79.72213,43.879638,0.0 -79.722255,43.879782,0.0 -79.722298,43.87982,0.0 -79.722358,43.879895,0.0 -79.722416,43.879952,0.0 -79.72247,43.879996,0.0 -79.722551,43.880022,0.0 -79.722614,43.880036,0.0 -79.722647,43.880091,0.0 -79.722634,43.88017,0.0 -79.722673,43.880236,0.0 -79.722685,43.880278,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 376.752
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>376.752</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.755757,43.635934,0.0 -79.755774,43.63562,0.0 -79.755772,43.635478,0.0 -79.755773,43.635433,0.0 -79.755782,43.635388,0.0 -79.755799,43.635345,0.0 -79.755823,43.635303,0.0 -79.755854,43.635264,0.0 -79.755892,43.635228,0.0 -79.756269,43.634895,0.0 -79.756354,43.634843,0.0 -79.756376,43.634831,0.0 -79.756401,43.634821,0.0 -79.756428,43.634814,0.0 -79.756456,43.634811,0.0 -79.756484,43.634811,0.0 -79.756512,43.634815,0.0 -79.756538,43.634822,0.0 -79.756563,43.634832,0.0 -79.756584,43.634845,0.0 -79.757003,43.635218,0.0 -79.757144,43.635345,0.0 -79.757164,43.635363,0.0 -79.757187,43.635379,0.0 -79.757214,43.635392,0.0 -79.757242,43.635401,0.0 -79.757275,43.635408,0.0 -79.757309,43.63541,0.0 -79.757343,43.635409,0.0 -79.757377,43.635403,0.0 -79.757408,43.635393,0.0 -79.757437,43.63538,0.0 -79.757549,43.635304,0.0 -79.757655,43.635225,0.0 -79.757757,43.635142,0.0 -79.757853,43.635056,0.0 -79.758119,43.634832,0.0 -79.758269,43.634689,0.0 -79.7583,43.634614,0.0 -79.758342,43.634535,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 135.29
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>135.29</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.758269,43.634689,0.0 -79.758284,43.634727,0.0 -79.758305,43.634765,0.0 -79.75833,43.6348,0.0 -79.758361,43.634834,0.0 -79.758688,43.635154,0.0 -79.758703,43.635172,0.0 -79.758715,43.635192,0.0 -79.758722,43.635212,0.0 -79.758726,43.635233,0.0 -79.758726,43.635255,0.0 -79.758702,43.635403,0.0 -79.758694,43.635427,0.0 -79.758682,43.635449,0.0 -79.758664,43.63547,0.0 -79.758642,43.635488,0.0 -79.758616,43.635503,0.0 -79.758552,43.635532,0.0 -79.758518,43.635551,0.0 -79.758489,43.635574,0.0 -79.758466,43.6356,0.0 -79.75845,43.635629,0.0 -79.758434,43.63573,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 20.1793
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>20.1793</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.758361,43.634834,0.0 -79.758322,43.634823,0.0 -79.758282,43.634816,0.0 -79.75824,43.634813,0.0 -79.758198,43.634815,0.0 -79.758158,43.634822,0.0 -79.758119,43.634832,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 63.8921
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>63.8921</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.777723,43.719847,0.0 -79.777803,43.719784,0.0 -79.777872,43.719775,0.0 -79.777977,43.719766,0.0 -79.778036,43.719756,0.0 -79.778096,43.719743,0.0 -79.778178,43.719727,0.0 -79.778245,43.719704,0.0 -79.778312,43.719685,0.0 -79.778382,43.719672,0.0 -79.778454,43.719666,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Leash Free Park</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Leash Free Park<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 553.76
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>553.76</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.729643,43.856956,0.0 -79.729454,43.85682,0.0 -79.729423,43.856786,0.0 -79.728939,43.856504,0.0 -79.728911,43.856489,0.0 -79.728861,43.856511,0.0 -79.728814,43.856536,0.0 -79.728773,43.856566,0.0 -79.728736,43.856599,0.0 -79.728705,43.856634,0.0 -79.72868,43.856673,0.0 -79.728679,43.856692,0.0 -79.728674,43.856711,0.0 -79.728665,43.856729,0.0 -79.728653,43.856746,0.0 -79.728637,43.856761,0.0 -79.728558,43.856817,0.0 -79.728522,43.856853,0.0 -79.728466,43.856951,0.0 -79.728418,43.857032,0.0 -79.728327,43.857072,0.0 -79.728042,43.857275,0.0 -79.727854,43.857411,0.0 -79.72773,43.857502,0.0 -79.727712,43.857513,0.0 -79.727694,43.857522,0.0 -79.727656,43.857537,0.0 -79.727615,43.857548,0.0 -79.727514,43.857552,0.0 -79.727479,43.857562,0.0 -79.727447,43.857576,0.0 -79.727417,43.857593,0.0 -79.727392,43.857614,0.0 -79.727352,43.857674,0.0 -79.727306,43.857732,0.0 -79.727254,43.857787,0.0 -79.727195,43.857839,0.0 -79.727131,43.857887,0.0 -79.727078,43.857951,0.0 -79.72703,43.85799,0.0 -79.727017,43.858005,0.0 -79.727008,43.858021,0.0 -79.727002,43.858038,0.0 -79.727001,43.858055,0.0 -79.727003,43.858073,0.0 -79.727009,43.85809,0.0 -79.727019,43.858106,0.0 -79.727033,43.85812,0.0 -79.727148,43.858187,0.0 -79.727257,43.858258,0.0 -79.727304,43.858284,0.0 -79.727356,43.858305,0.0 -79.727411,43.85832,0.0 -79.727438,43.858327,0.0 -79.727467,43.85833,0.0 -79.727496,43.85833,0.0 -79.727525,43.858327,0.0 -79.727553,43.858321,0.0 -79.727579,43.858311,0.0 -79.727603,43.858299,0.0 -79.727731,43.858236,0.0 -79.727826,43.858214,0.0 -79.727891,43.85819,0.0 -79.727952,43.858161,0.0 -79.728008,43.858128,0.0 -79.728058,43.858089,0.0 -79.728102,43.858048,0.0 -79.728109,43.858038,0.0 -79.728138,43.857995,0.0 -79.728158,43.85795,0.0 -79.728169,43.857902,0.0 -79.728171,43.857855,0.0 -79.728165,43.857807,0.0 -79.728165,43.85775,0.0 -79.728173,43.857692,0.0 -79.728188,43.857636,0.0 -79.72821,43.857581,0.0 -79.728226,43.857522,0.0 -79.72825,43.857465,0.0 -79.728282,43.85741,0.0 -79.728321,43.857357,0.0 -79.728367,43.857307,0.0 -79.72842,43.857261,0.0 -79.728447,43.85724,0.0 -79.728469,43.857216,0.0 -79.728486,43.85719,0.0 -79.728497,43.857162,0.0 -79.728501,43.857133,0.0 -79.7285,43.857105,0.0 -79.728418,43.857032,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Leash Free Park</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Leash Free Park<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 79.5695
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>79.5695</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.727694,43.857522,0.0 -79.727694,43.857957,0.0 -79.727708,43.858181,0.0 -79.727731,43.858236,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Leash Free Park</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Leash Free Park<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 80.9947
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>80.9947</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.728109,43.858038,0.0 -79.727694,43.857957,0.0 -79.727179,43.857912,0.0 -79.727131,43.857887,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 212.266
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>212.266</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.738045,43.873123,0.0 -79.73802,43.873234,0.0 -79.7378,43.873614,0.0 -79.737805,43.873692,0.0 -79.7377,43.873872,0.0 -79.737636,43.873972,0.0 -79.737578,43.874074,0.0 -79.737491,43.874157,0.0 -79.737413,43.874224,0.0 -79.737313,43.874328,0.0 -79.737248,43.874426,0.0 -79.737241,43.874496,0.0 -79.737252,43.874576,0.0 -79.737257,43.874638,0.0 -79.737289,43.874674,0.0 -79.737306,43.874711,0.0 -79.737313,43.87478,0.0 -79.73733,43.87482,0.0 -79.737353,43.874877,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 247.507
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>247.507</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.752946,43.883299,0.0 -79.75291,43.883185,0.0 -79.752884,43.883116,0.0 -79.752852,43.883048,0.0 -79.752834,43.883029,0.0 -79.752811,43.883013,0.0 -79.752785,43.883,0.0 -79.752756,43.882991,0.0 -79.752725,43.882985,0.0 -79.752693,43.882983,0.0 -79.752662,43.882985,0.0 -79.752631,43.882991,0.0 -79.752583,43.883008,0.0 -79.752537,43.883029,0.0 -79.752518,43.883039,0.0 -79.752498,43.883046,0.0 -79.752475,43.883051,0.0 -79.752452,43.883053,0.0 -79.752429,43.883052,0.0 -79.752407,43.883048,0.0 -79.752385,43.883042,0.0 -79.752366,43.883033,0.0 -79.752349,43.883022,0.0 -79.752334,43.883009,0.0 -79.752323,43.882994,0.0 -79.752316,43.882978,0.0 -79.75224,43.882859,0.0 -79.752233,43.882849,0.0 -79.752225,43.88284,0.0 -79.752214,43.882832,0.0 -79.752202,43.882825,0.0 -79.752189,43.88282,0.0 -79.752175,43.882816,0.0 -79.75216,43.882814,0.0 -79.752144,43.882813,0.0 -79.752119,43.882814,0.0 -79.752095,43.882817,0.0 -79.752071,43.882823,0.0 -79.752049,43.882831,0.0 -79.752029,43.882842,0.0 -79.752012,43.882855,0.0 -79.751998,43.88287,0.0 -79.751966,43.882906,0.0 -79.751942,43.882945,0.0 -79.751925,43.882986,0.0 -79.751916,43.883029,0.0 -79.751915,43.883072,0.0 -79.751923,43.883115,0.0 -79.751965,43.883185,0.0 -79.752015,43.883252,0.0 -79.752072,43.883317,0.0 -79.752111,43.883353,0.0 -79.752157,43.883386,0.0 -79.752209,43.883413,0.0 -79.752301,43.883467,0.0 -79.752389,43.883524,0.0 -79.752562,43.883667,0.0 -79.752583,43.883706,0.0 -79.752596,43.883748,0.0 -79.752601,43.88379,0.0 -79.752597,43.883833,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 50.0697
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>50.0697</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.985104,43.863162,0.0 -79.984754,43.863338,0.0 -79.984756,43.863377,0.0 -79.98474,43.863412,0.0 -79.984709,43.863424,0.0 -79.984677,43.863402,0.0 -79.984668,43.863395,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 83.7377
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>83.7377</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.61428,43.513745,0.0 -79.614174,43.513673,0.0 -79.614074,43.513637,0.0 -79.614031,43.513614,0.0 -79.613968,43.513557,0.0 -79.613934,43.513517,0.0 -79.613898,43.513507,0.0 -79.613876,43.51349,0.0 -79.613845,43.513401,0.0 -79.61382,43.513327,0.0 -79.613862,43.513284,0.0 -79.613885,43.513258,0.0 -79.613914,43.513193,0.0 -79.613933,43.513158,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 16.1054
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>16.1054</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.613674,43.513229,0.0 -79.613708,43.513249,0.0 -79.613745,43.51327,0.0 -79.613775,43.513293,0.0 -79.613797,43.513311,0.0 -79.61382,43.513327,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 315.524
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>315.524</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.614741,43.512681,0.0 -79.614383,43.512959,0.0 -79.61425,43.513058,0.0 -79.614115,43.5131,0.0 -79.613933,43.513158,0.0 -79.613826,43.513164,0.0 -79.61376,43.513156,0.0 -79.613732,43.513172,0.0 -79.613687,43.513204,0.0 -79.613674,43.513229,0.0 -79.613614,43.513235,0.0 -79.613453,43.513235,0.0 -79.613326,43.513224,0.0 -79.613246,43.513232,0.0 -79.613126,43.513271,0.0 -79.612993,43.513323,0.0 -79.612954,43.51334,0.0 -79.612909,43.513328,0.0 -79.612834,43.513296,0.0 -79.612722,43.513257,0.0 -79.612517,43.51322,0.0 -79.612315,43.513207,0.0 -79.612229,43.513194,0.0 -79.612181,43.513168,0.0 -79.612113,43.513125,0.0 -79.612012,43.513015,0.0 -79.611971,43.512955,0.0 -79.611984,43.512884,0.0 -79.612018,43.512842,0.0 -79.612083,43.5128,0.0 -79.612162,43.512774,0.0 -79.612239,43.512754,0.0 -79.612319,43.512729,0.0 -79.61238,43.512688,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 36.2265
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>36.2265</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.687979,43.584203,0.0 -79.687737,43.584477,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 168.257
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>168.257</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.637043,43.525354,0.0 -79.637108,43.525301,0.0 -79.637406,43.525043,0.0 -79.637437,43.525021,0.0 -79.637473,43.525019,0.0 -79.637639,43.52501,0.0 -79.637874,43.525022,0.0 -79.638029,43.525027,0.0 -79.638112,43.525043,0.0 -79.638184,43.525044,0.0 -79.638461,43.525039,0.0 -79.638764,43.525034,0.0 -79.638909,43.525037,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 152.033
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>152.033</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.638671,43.523968,0.0 -79.638004,43.524554,0.0 -79.637899,43.524665,0.0 -79.637835,43.524731,0.0 -79.637723,43.524816,0.0 -79.637653,43.524857,0.0 -79.637569,43.524916,0.0 -79.637498,43.524984,0.0 -79.637473,43.525019,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 60.4428
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>60.4428</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.623972,43.536215,0.0 -79.623898,43.536095,0.0 -79.62383,43.536048,0.0 -79.623741,43.536014,0.0 -79.623684,43.536001,0.0 -79.623619,43.535971,0.0 -79.623582,43.535941,0.0 -79.623561,43.535899,0.0 -79.623538,43.535871,0.0 -79.623518,43.535855,0.0 -79.623473,43.535848,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 230.637
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>230.637</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.667537,43.556586,0.0 -79.667415,43.556705,0.0 -79.667348,43.556747,0.0 -79.667241,43.556767,0.0 -79.667079,43.556794,0.0 -79.66697,43.556813,0.0 -79.666833,43.55681,0.0 -79.666659,43.556815,0.0 -79.666548,43.5568,0.0 -79.666493,43.556787,0.0 -79.666427,43.556812,0.0 -79.666324,43.556833,0.0 -79.666241,43.556807,0.0 -79.666149,43.556794,0.0 -79.66607,43.55679,0.0 -79.666026,43.556771,0.0 -79.665975,43.556754,0.0 -79.665944,43.556763,0.0 -79.665871,43.556758,0.0 -79.66575,43.556753,0.0 -79.665645,43.556771,0.0 -79.665551,43.55678,0.0 -79.665387,43.556748,0.0 -79.665316,43.556764,0.0 -79.665147,43.556736,0.0 -79.665042,43.556704,0.0 -79.664965,43.556673,0.0 -79.664921,43.556642,0.0 -79.66492,43.556621,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 322.312
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>322.312</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.77095,43.598125,0.0 -79.770944,43.597947,0.0 -79.770956,43.59788,0.0 -79.770978,43.597815,0.0 -79.771009,43.597752,0.0 -79.771048,43.597692,0.0 -79.771095,43.597634,0.0 -79.771239,43.59746,0.0 -79.771303,43.597407,0.0 -79.771448,43.597266,0.0 -79.771525,43.59723,0.0 -79.771579,43.597205,0.0 -79.771614,43.597177,0.0 -79.771701,43.597046,0.0 -79.771727,43.597014,0.0 -79.771757,43.596985,0.0 -79.771791,43.596958,0.0 -79.771846,43.596917,0.0 -79.771908,43.596882,0.0 -79.771974,43.59685,0.0 -79.772047,43.596833,0.0 -79.772123,43.596822,0.0 -79.772212,43.596809,0.0 -79.772352,43.596788,0.0 -79.772431,43.596785,0.0 -79.772548,43.596816,0.0 -79.772666,43.596875,0.0 -79.772753,43.596937,0.0 -79.77284,43.597019,0.0 -79.77289,43.597069,0.0 -79.772895,43.597097,0.0 -79.77291,43.597117,0.0 -79.773019,43.597187,0.0 -79.773048,43.597211,0.0 -79.773048,43.597279,0.0 -79.773027,43.59732,0.0 -79.772983,43.597395,0.0 -79.772932,43.597473,0.0 -79.772933,43.597528,0.0 -79.772945,43.597577,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 9.5208
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>9.5208</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.772932,43.597473,0.0 -79.772873,43.597494,0.0 -79.772823,43.597507,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 294.684
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>294.684</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.601733,43.57468,0.0 -79.601827,43.57469,0.0 -79.601923,43.574687,0.0 -79.602001,43.574659,0.0 -79.602055,43.574665,0.0 -79.60211,43.574667,0.0 -79.602165,43.574665,0.0 -79.602199,43.574657,0.0 -79.602231,43.574646,0.0 -79.60226,43.574632,0.0 -79.602286,43.574615,0.0 -79.602308,43.574595,0.0 -79.602323,43.574576,0.0 -79.602368,43.574541,0.0 -79.602433,43.574503,0.0 -79.602445,43.574465,0.0 -79.602482,43.574433,0.0 -79.602524,43.574405,0.0 -79.602571,43.574381,0.0 -79.602622,43.574362,0.0 -79.602675,43.574348,0.0 -79.602731,43.574339,0.0 -79.602788,43.574335,0.0 -79.602873,43.574326,0.0 -79.602987,43.57433,0.0 -79.603106,43.574326,0.0 -79.603179,43.574334,0.0 -79.603301,43.574333,0.0 -79.603354,43.57433,0.0 -79.60341,43.574336,0.0 -79.603532,43.574353,0.0 -79.603622,43.57438,0.0 -79.603696,43.574404,0.0 -79.60374,43.574437,0.0 -79.603802,43.574499,0.0 -79.60385,43.574557,0.0 -79.603891,43.574579,0.0 -79.604018,43.574631,0.0 -79.604109,43.574659,0.0 -79.604174,43.574674,0.0 -79.604217,43.574698,0.0 -79.604346,43.574805,0.0 -79.604371,43.574865,0.0 -79.604399,43.57489,0.0 -79.60445,43.574918,0.0 -79.604472,43.574935,0.0 -79.604524,43.574985,0.0 -79.60457,43.575019,0.0 -79.604601,43.57506,0.0 -79.604606,43.575108,0.0 -79.604621,43.57514,0.0 -79.604647,43.57516,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 45.2928
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>45.2928</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.602308,43.574595,0.0 -79.602265,43.574689,0.0 -79.602248,43.574762,0.0 -79.602243,43.574858,0.0 -79.602258,43.574937,0.0 -79.602272,43.574962,0.0 -79.602302,43.574985,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 57.2102
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>57.2102</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.602919,43.574827,0.0 -79.602857,43.57484,0.0 -79.602817,43.574843,0.0 -79.602796,43.574839,0.0 -79.602755,43.574827,0.0 -79.602707,43.574825,0.0 -79.602676,43.574827,0.0 -79.602613,43.574814,0.0 -79.602576,43.574811,0.0 -79.602548,43.574808,0.0 -79.602471,43.574782,0.0 -79.602429,43.574759,0.0 -79.602379,43.574741,0.0 -79.602333,43.574715,0.0 -79.602265,43.574689,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 177.5
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>177.5</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.629576,43.556641,0.0 -79.629501,43.556639,0.0 -79.62936,43.556613,0.0 -79.62922,43.556588,0.0 -79.629044,43.556571,0.0 -79.628845,43.556576,0.0 -79.62881,43.556576,0.0 -79.628776,43.55658,0.0 -79.628742,43.556587,0.0 -79.628711,43.556597,0.0 -79.628682,43.556611,0.0 -79.628634,43.556633,0.0 -79.628584,43.556651,0.0 -79.628531,43.556665,0.0 -79.628476,43.556674,0.0 -79.62842,43.556679,0.0 -79.628097,43.556654,0.0 -79.627881,43.556638,0.0 -79.627808,43.556632,0.0 -79.627511,43.556454,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 83.1456
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>83.1456</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.715983,43.567583,0.0 -79.716048,43.567605,0.0 -79.716089,43.567621,0.0 -79.716125,43.567641,0.0 -79.716157,43.567665,0.0 -79.716183,43.567693,0.0 -79.716237,43.56779,0.0 -79.716284,43.56785,0.0 -79.716326,43.567876,0.0 -79.716368,43.567908,0.0 -79.716399,43.567931,0.0 -79.716441,43.567943,0.0 -79.716483,43.567969,0.0 -79.716527,43.568,0.0 -79.716567,43.56803,0.0 -79.716667,43.568116,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 133.701
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>133.701</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.789757,43.738245,0.0 -79.789769,43.738268,0.0 -79.789777,43.738292,0.0 -79.789779,43.738317,0.0 -79.789776,43.738341,0.0 -79.789769,43.738365,0.0 -79.789756,43.738388,0.0 -79.789676,43.738508,0.0 -79.789605,43.738621,0.0 -79.789605,43.738715,0.0 -79.789601,43.738819,0.0 -79.789586,43.738877,0.0 -79.789569,43.738913,0.0 -79.789559,43.73895,0.0 -79.789549,43.738992,0.0 -79.789486,43.739072,0.0 -79.789408,43.739169,0.0 -79.789393,43.739237,0.0 -79.789372,43.739295,0.0 -79.789353,43.73933,0.0 -79.789325,43.739366,0.0 -79.789318,43.739376,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 58.2431
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>58.2431</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.800258,43.715736,0.0 -79.800075,43.715893,0.0 -79.800078,43.715911,0.0 -79.800077,43.71593,0.0 -79.800072,43.715948,0.0 -79.800065,43.715966,0.0 -79.800059,43.715975,0.0 -79.800052,43.715983,0.0 -79.800042,43.715991,0.0 -79.800032,43.715997,0.0 -79.80002,43.716002,0.0 -79.800007,43.716005,0.0 -79.799956,43.71602,0.0 -79.799907,43.716039,0.0 -79.799861,43.716062,0.0 -79.799822,43.716077,0.0 -79.79978,43.716088,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 68.9697
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>68.9697</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.628204,43.596004,0.0 -79.628033,43.595967,0.0 -79.627915,43.595965,0.0 -79.627774,43.595979,0.0 -79.627672,43.596002,0.0 -79.627611,43.596024,0.0 -79.62751,43.596066,0.0 -79.627456,43.596079,0.0 -79.627391,43.596094,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Flower City Trail</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Flower City Trail<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 59.1023
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>59.1023</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.740733,43.764665,0.0 -79.740687,43.764653,0.0 -79.740643,43.764638,0.0 -79.740543,43.764599,0.0 -79.740519,43.764591,0.0 -79.740492,43.764586,0.0 -79.740465,43.764584,0.0 -79.740438,43.764585,0.0 -79.740358,43.764587,0.0 -79.740277,43.764585,0.0 -79.740197,43.764577,0.0 -79.740141,43.764569,0.0 -79.740083,43.764565,0.0 -79.740026,43.764566,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 182.049
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>182.049</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.832889,43.947342,0.0 -79.832936,43.947384,0.0 -79.832958,43.947396,0.0 -79.832983,43.947406,0.0 -79.83301,43.947412,0.0 -79.833037,43.947415,0.0 -79.833065,43.947415,0.0 -79.833194,43.947392,0.0 -79.833322,43.947365,0.0 -79.833448,43.947335,0.0 -79.833475,43.947328,0.0 -79.833499,43.947317,0.0 -79.83352,43.947305,0.0 -79.833539,43.947289,0.0 -79.833555,43.947273,0.0 -79.833623,43.947147,0.0 -79.833637,43.947108,0.0 -79.833643,43.947067,0.0 -79.83364,43.947026,0.0 -79.833628,43.946987,0.0 -79.833607,43.946949,0.0 -79.833584,43.946926,0.0 -79.833566,43.946901,0.0 -79.833554,43.946874,0.0 -79.833547,43.94684,0.0 -79.833545,43.946806,0.0 -79.833549,43.946772,0.0 -79.833559,43.94676,0.0 -79.833566,43.946746,0.0 -79.83357,43.946732,0.0 -79.833571,43.946717,0.0 -79.833569,43.946703,0.0 -79.833531,43.946667,0.0 -79.833521,43.946655,0.0 -79.833513,43.946643,0.0 -79.833508,43.946629,0.0 -79.833491,43.94661,0.0 -79.83347,43.946592,0.0 -79.833446,43.946577,0.0 -79.833419,43.946565,0.0 -79.833369,43.946544,0.0 -79.833324,43.94652,0.0 -79.833282,43.946492,0.0 -79.833246,43.946461,0.0 -79.833232,43.946444,0.0 -79.833221,43.946427,0.0 -79.833213,43.946408,0.0 -79.833208,43.946398,0.0 -79.8332,43.94639,0.0 -79.833191,43.946382,0.0 -79.83318,43.946375,0.0 -79.833168,43.94637,0.0 -79.833155,43.946366,0.0 -79.833141,43.946363,0.0 -79.833126,43.946363,0.0 -79.833112,43.946363,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 99.2092
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>99.2092</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.577861,43.582081,0.0 -79.57786,43.58218,0.0 -79.57787,43.582284,0.0 -79.577924,43.582415,0.0 -79.577989,43.582528,0.0 -79.578059,43.58263,0.0 -79.578088,43.582717,0.0 -79.57808,43.5828,0.0 -79.578036,43.582865,0.0 -79.577983,43.582925,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 310.595
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>310.595</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.585161,43.615318,0.0 -79.584941,43.615466,0.0 -79.584862,43.615542,0.0 -79.584801,43.615692,0.0 -79.584756,43.61587,0.0 -79.584571,43.616066,0.0 -79.584171,43.616226,0.0 -79.584035,43.616293,0.0 -79.583775,43.616502,0.0 -79.583512,43.616722,0.0 -79.58328,43.616946,0.0 -79.583228,43.617007,0.0 -79.583014,43.617017,0.0 -79.582955,43.61703,0.0 -79.582831,43.617108,0.0 -79.582744,43.617181,0.0 -79.582702,43.617292,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 527.904
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>527.904</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.66351,43.558237,0.0 -79.663522,43.558026,0.0 -79.66357,43.557805,0.0 -79.663538,43.557601,0.0 -79.663544,43.557583,0.0 -79.663554,43.557567,0.0 -79.663568,43.557552,0.0 -79.663584,43.557539,0.0 -79.663603,43.557528,0.0 -79.663625,43.55752,0.0 -79.663808,43.557462,0.0 -79.66395,43.557406,0.0 -79.664173,43.557348,0.0 -79.664277,43.557303,0.0 -79.664311,43.557277,0.0 -79.664361,43.557265,0.0 -79.664432,43.557226,0.0 -79.664497,43.557232,0.0 -79.664638,43.557309,0.0 -79.664801,43.557288,0.0 -79.664991,43.557266,0.0 -79.665142,43.557273,0.0 -79.665287,43.557258,0.0 -79.665499,43.557214,0.0 -79.665681,43.557237,0.0 -79.665819,43.557271,0.0 -79.665901,43.557325,0.0 -79.665928,43.557437,0.0 -79.665888,43.557559,0.0 -79.665792,43.557693,0.0 -79.665655,43.557773,0.0 -79.665531,43.557817,0.0 -79.665412,43.557884,0.0 -79.665327,43.557952,0.0 -79.665272,43.558005,0.0 -79.665223,43.558038,0.0 -79.665136,43.558079,0.0 -79.66502,43.558097,0.0 -79.665,43.558105,0.0 -79.66487,43.558105,0.0 -79.664735,43.558113,0.0 -79.664417,43.558162,0.0 -79.664276,43.558189,0.0 -79.663975,43.55823,0.0 -79.663707,43.558243,0.0 -79.66351,43.558237,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 155.25
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>155.25</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.662212,43.559254,0.0 -79.662311,43.559145,0.0 -79.662366,43.559063,0.0 -79.662988,43.558557,0.0 -79.663225,43.558396,0.0 -79.66351,43.558237,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 145.413
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>145.413</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.699888,43.544425,0.0 -79.699823,43.544503,0.0 -79.699718,43.544581,0.0 -79.699629,43.544689,0.0 -79.699556,43.544722,0.0 -79.699473,43.544796,0.0 -79.699447,43.544846,0.0 -79.69939,43.54491,0.0 -79.699319,43.544971,0.0 -79.699227,43.545039,0.0 -79.699117,43.545121,0.0 -79.699034,43.545182,0.0 -79.698904,43.545213,0.0 -79.69883,43.545228,0.0 -79.698746,43.545308,0.0 -79.698683,43.545351,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 93.0961
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>93.0961</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.698683,43.545351,0.0 -79.698628,43.54532,0.0 -79.698574,43.545316,0.0 -79.698488,43.545358,0.0 -79.698362,43.545364,0.0 -79.698238,43.545337,0.0 -79.698113,43.545312,0.0 -79.697997,43.545282,0.0 -79.697898,43.545222,0.0 -79.697849,43.545158,0.0 -79.697796,43.545118,0.0 -79.697704,43.545073,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 79.6234
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>79.6234</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.698683,43.545351,0.0 -79.698624,43.545389,0.0 -79.698582,43.545459,0.0 -79.698577,43.545504,0.0 -79.6986,43.54556,0.0 -79.698571,43.545628,0.0 -79.698533,43.545676,0.0 -79.698534,43.545723,0.0 -79.698501,43.545773,0.0 -79.698361,43.546002,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 30.2536
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>30.2536</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.71832,43.592877,0.0 -79.718409,43.592919,0.0 -79.718606,43.593052,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 42.1248
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>42.1248</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.718606,43.593052,0.0 -79.718607,43.59283,0.0 -79.718575,43.592674,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 187.374
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>187.374</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.719091,43.59466,0.0 -79.719105,43.594555,0.0 -79.719096,43.594444,0.0 -79.719041,43.594255,0.0 -79.718979,43.594105,0.0 -79.718775,43.593842,0.0 -79.718645,43.593592,0.0 -79.718565,43.593422,0.0 -79.718604,43.593161,0.0 -79.718606,43.593072,0.0 -79.718606,43.593052,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 14.8595
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>14.8595</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.776524,43.576445,0.0 -79.776688,43.576506,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 14.2768
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>14.2768</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.776688,43.576506,0.0 -79.776645,43.576544,0.0 -79.776605,43.576564,0.0 -79.776546,43.576575,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 43.1588
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>43.1588</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.776688,43.576506,0.0 -79.776737,43.576524,0.0 -79.776822,43.576543,0.0 -79.776891,43.576551,0.0 -79.776959,43.57655,0.0 -79.777025,43.576553,0.0 -79.777165,43.576642,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 103.714
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>103.714</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.734624,43.648373,0.0 -79.734494,43.648477,0.0 -79.734499,43.648516,0.0 -79.734484,43.648558,0.0 -79.73449,43.648586,0.0 -79.73425,43.648828,0.0 -79.73407,43.648975,0.0 -79.733981,43.64909,0.0 -79.73394,43.649137,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 49.5077
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>49.5077</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.73449,43.648586,0.0 -79.73452,43.648633,0.0 -79.734655,43.648775,0.0 -79.734672,43.648788,0.0 -79.73473,43.648831,0.0 -79.734732,43.64886,0.0 -79.734689,43.64897,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 80.2166
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>80.2166</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.734672,43.648788,0.0 -79.734446,43.648798,0.0 -79.73425,43.648828,0.0 -79.734108,43.648855,0.0 -79.733885,43.64892,0.0 -79.733806,43.648941,0.0 -79.733721,43.648974,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 270.845
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>270.845</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.810494,43.744053,0.0 -79.81034,43.744231,0.0 -79.810198,43.744443,0.0 -79.810054,43.744632,0.0 -79.809992,43.744695,0.0 -79.809816,43.7448,0.0 -79.80955,43.744913,0.0 -79.809327,43.744997,0.0 -79.808996,43.745084,0.0 -79.808789,43.745145,0.0 -79.808711,43.745134,0.0 -79.808531,43.745073,0.0 -79.808283,43.744973,0.0 -79.808194,43.744914,0.0 -79.808082,43.744796,0.0 -79.808038,43.74473,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 348.438
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>348.438</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.807223,43.727436,0.0 -79.807317,43.727493,0.0 -79.807508,43.72757,0.0 -79.80773,43.727643,0.0 -79.807888,43.727701,0.0 -79.808063,43.727804,0.0 -79.808179,43.72786,0.0 -79.808306,43.727927,0.0 -79.808443,43.72803,0.0 -79.808618,43.728098,0.0 -79.808904,43.728202,0.0 -79.808979,43.728261,0.0 -79.809009,43.728346,0.0 -79.809,43.728448,0.0 -79.808995,43.728515,0.0 -79.809062,43.72858,0.0 -79.809179,43.72862,0.0 -79.809293,43.728651,0.0 -79.809359,43.728686,0.0 -79.809434,43.728748,0.0 -79.809508,43.728797,0.0 -79.809679,43.728876,0.0 -79.809726,43.728902,0.0 -79.809768,43.728934,0.0 -79.809803,43.728968,0.0 -79.809831,43.729007,0.0 -79.809853,43.729047,0.0 -79.809866,43.729089,0.0 -79.809867,43.72924,0.0 -79.809898,43.72934,0.0 -79.809909,43.729447,0.0 -79.809931,43.729469,0.0 -79.810021,43.729509,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Etobicoke Creek Trail</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Etobicoke Creek Trail<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 220.066
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>220.066</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.601551,43.644306,0.0 -79.601626,43.644336,0.0 -79.601755,43.644397,0.0 -79.601831,43.64446,0.0 -79.601888,43.644505,0.0 -79.601961,43.644544,0.0 -79.602156,43.644611,0.0 -79.602308,43.644682,0.0 -79.60263,43.644803,0.0 -79.602763,43.64485,0.0 -79.602909,43.644875,0.0 -79.602982,43.64486,0.0 -79.603054,43.644844,0.0 -79.603185,43.644816,0.0 -79.603319,43.644775,0.0 -79.603411,43.644764,0.0 -79.60354,43.644787,0.0 -79.603714,43.644813,0.0 -79.603855,43.644826,0.0 -79.603894,43.644818,0.0 -79.604011,43.644793,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 283.005
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>283.005</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.730328,43.627159,0.0 -79.730992,43.627015,0.0 -79.731189,43.627115,0.0 -79.731629,43.627341,0.0 -79.731984,43.627511,0.0 -79.732318,43.627672,0.0 -79.732522,43.627674,0.0 -79.732776,43.627583,0.0 -79.732964,43.627529,0.0 -79.733033,43.627445,0.0 -79.733249,43.627343,0.0 -79.733337,43.627276,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<name>Flower City Trail</name>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> Flower City Trail<br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 157.612
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>157.612</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.740733,43.764665,0.0 -79.742685,43.764782,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 315.043
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>315.043</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.641554,43.726545,0.0 -79.641641,43.726764,0.0 -79.641696,43.726901,0.0 -79.641703,43.726996,0.0 -79.641796,43.72719,0.0 -79.641801,43.727307,0.0 -79.64182,43.727405,0.0 -79.641874,43.72755,0.0 -79.641912,43.727623,0.0 -79.641978,43.727904,0.0 -79.64204,43.727954,0.0 -79.642109,43.728106,0.0 -79.642229,43.728287,0.0 -79.642302,43.728366,0.0 -79.642463,43.728575,0.0 -79.64263,43.728812,0.0 -79.642713,43.729013,0.0 -79.642739,43.729175,0.0 -79.64273,43.729209,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 144.437
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>144.437</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.64273,43.729209,0.0 -79.642824,43.729369,0.0 -79.642918,43.729631,0.0 -79.643233,43.729771,0.0 -79.643419,43.729859,0.0 -79.643907,43.730097,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 435.139
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>435.139</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.779045,43.72617,0.0 -79.778962,43.726228,0.0 -79.778919,43.726262,0.0 -79.778874,43.72631,0.0 -79.778847,43.726377,0.0 -79.778864,43.726506,0.0 -79.778878,43.726664,0.0 -79.778853,43.726761,0.0 -79.778838,43.726905,0.0 -79.778785,43.726985,0.0 -79.778792,43.727053,0.0 -79.77875,43.727125,0.0 -79.77876,43.727233,0.0 -79.778729,43.727337,0.0 -79.778701,43.727416,0.0 -79.778729,43.727484,0.0 -79.778766,43.727549,0.0 -79.778811,43.727612,0.0 -79.778864,43.727672,0.0 -79.778923,43.727728,0.0 -79.779043,43.727834,0.0 -79.779054,43.727859,0.0 -79.778976,43.727889,0.0 -79.778902,43.727925,0.0 -79.778835,43.727966,0.0 -79.778774,43.728013,0.0 -79.778721,43.728065,0.0 -79.778677,43.728121,0.0 -79.778628,43.72818,0.0 -79.778586,43.728242,0.0 -79.77855,43.728307,0.0 -79.778522,43.728373,0.0 -79.7785,43.72844,0.0 -79.778493,43.728497,0.0 -79.778491,43.728554,0.0 -79.778492,43.728611,0.0 -79.778483,43.728653,0.0 -79.778464,43.728693,0.0 -79.778437,43.728731,0.0 -79.778402,43.728765,0.0 -79.778361,43.728795,0.0 -79.778313,43.728819,0.0 -79.778126,43.728895,0.0 -79.777937,43.728966,0.0 -79.777745,43.729033,0.0 -79.777164,43.729213,0.0</coordinates></LineString></Placemark>
+		<Placemark>
+			<snippet></snippet>
+			<description><![CDATA[<div class="googft-info-window">
+<b>Name:</b> <br>
+<b>Class:</b> Unmarked Dirt Trail<br>
+<b>Surface:</b> Dirt<br>
+<b>Length (meters):</b> 62.5125
+</div>]]></description>
+			<styleUrl>#Style2-line-2-map</styleUrl>
+			<ExtendedData>
+				<Data name='Class'>
+					<value>Unmarked Dirt Trail</value>
+				</Data>
+				<Data name='Surface'>
+					<value>Dirt</value>
+				</Data>
+				<Data name='Length (meters)'>
+					<value>62.5125</value>
+				</Data>
+			</ExtendedData><LineString><coordinates>-79.869876,43.869731,0.0 -79.869534,43.870236,0.0</coordinates></LineString></Placemark>
+	</Document>
+</kml>

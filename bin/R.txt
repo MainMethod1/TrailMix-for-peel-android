@@ -164,9 +164,10 @@ int layout tracker_fragment 0x7f030007
 int menu main 0x7f0d0000
 int raw bike_lanes 0x7f050000
 int raw hiking_trails 0x7f050001
-int raw hiking_trails1 0x7f050002
+int raw marked_on_road_bike_routes 0x7f050002
 int raw paved_multi_use_trails 0x7f050003
-int raw unpaved_multi_use_trails 0x7f050004
+int raw unmarked_dirt_trails 0x7f050004
+int raw unpaved_multi_use_trails 0x7f050005
 int string action_preferences 0x7f070021
 int string action_trails 0x7f070022
 int string app_name 0x7f070020

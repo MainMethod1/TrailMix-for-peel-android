@@ -42,8 +42,8 @@ public class NavigationSaxHandler extends DefaultHandler {
 	
 
 	public StringBuffer buffer;
-	private ArrayList<Placemark> placemarks = new ArrayList<Placemark>();
-	private Placemark placemark = null;
+	private ArrayList<PlacemarkObj> placemarkObjs = new ArrayList<PlacemarkObj>();
+	private PlacemarkObj placemarkObj = null;
 	int counter = 0;
 	int prevCounter = 0;
 	String coordinatesLine="";
@@ -84,7 +84,7 @@ public class NavigationSaxHandler extends DefaultHandler {
 		this.qName = qName;
 		 if (qName.equalsIgnoreCase("Placemark")) {
 			this.in_placemarktag = true;
-			placemark = new Placemark();
+			placemarkObj = new PlacemarkObj();
 			counter++;
 		} else if (qName.equalsIgnoreCase("coordinates")) {
 			buffer = new StringBuffer();
@@ -106,9 +106,9 @@ public class NavigationSaxHandler extends DefaultHandler {
 		
 		 if (qName.equalsIgnoreCase("Placemark")) {
 			this.in_placemarktag = false;
-			placemarks.add(placemark);
+			placemarkObjs.add(placemarkObj);
 			//System.out.println("----------"+String.valueOf(counter)+"----------");
-			
+			//counter++;
 		}  else if (qName.equalsIgnoreCase("coordinates")) {
 			this.in_coordinatestag = false;
 			stringSplitter(coordinatesLine);
@@ -136,17 +136,18 @@ public class NavigationSaxHandler extends DefaultHandler {
 			 String temp = new String(ch, start, length);
 			 if (valueCounter == 0)
 			 {
-				placemark.setTrailClass(temp);
+				placemarkObj.setTrailClass(temp);
 				 valueCounter++;
 			 }
 			 else if (valueCounter == 1)
 			 {
-				 placemark.setSurface(temp);
+				 placemarkObj.setSurface(temp);
 				 valueCounter++;
 			 }
 			 else if (valueCounter == 2)
 			 {
-				 placemark.setLength(Double.parseDouble(temp));
+				 
+				 placemarkObj.setLength(Double.parseDouble(temp));
 				 valueCounter = 0;
 			 }
 		 }
@@ -154,7 +155,7 @@ public class NavigationSaxHandler extends DefaultHandler {
 		 if(this.in_nametag)
 		 {
 			 String temp = new String(ch, start, length);
-			 placemark.setTrailName(temp);
+			 placemarkObj.setTrailName(temp);
 		 }
 	}
 
@@ -199,11 +200,11 @@ public class NavigationSaxHandler extends DefaultHandler {
 				
 			}
 			//System.out.println(String.valueOf(counter));
-			placemark.setCoordinates(tempCollection);
+			placemarkObj.setCoordinates(tempCollection);
 		prevCounter = counter;
 	}
-	public ArrayList<Placemark> getPlacemarks() {
-	    return placemarks;
+	public ArrayList<PlacemarkObj> getPlacemarks() {
+	    return placemarkObjs;
 	}
 	/*public Placemark getParsedData() {
 		System.out.println(buffer.toString().trim());

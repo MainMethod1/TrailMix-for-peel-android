@@ -490,9 +490,10 @@ containing a value of this type.
     public static final class raw {
         public static final int bike_lanes=0x7f050000;
         public static final int hiking_trails=0x7f050001;
-        public static final int hiking_trails1=0x7f050002;
+        public static final int marked_on_road_bike_routes=0x7f050002;
         public static final int paved_multi_use_trails=0x7f050003;
-        public static final int unpaved_multi_use_trails=0x7f050004;
+        public static final int unmarked_dirt_trails=0x7f050004;
+        public static final int unpaved_multi_use_trails=0x7f050005;
     }
     public static final class string {
         public static final int action_preferences=0x7f070021;

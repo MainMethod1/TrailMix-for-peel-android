@@ -2,9 +2,12 @@ package com.mainmethod.trailmix1;
 
 import java.util.ArrayList;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.mainmethod.trailmix1.EventsFragment.LoadEvents;
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.mainmethod.trailmix1.sqlite.model.GeoPoint;
+import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 
 import android.app.ProgressDialog;
@@ -47,10 +50,6 @@ public class ExploreTrailsFragment extends Fragment {
 	private void insertData() {
 		DatabaseHelper db;
 		db = new DatabaseHelper(getActivity().getApplicationContext());
-	    
-		
-		
-		
 		
 		db.closeDB();
 		
@@ -59,19 +58,31 @@ public class ExploreTrailsFragment extends Fragment {
 	
 	private void readData(){
 		DatabaseHelper db;
-		db = new DatabaseHelper(getActivity());
-		ArrayList<GeoPoint> points = db.getTrailGeoPoints("UnknownTrail");
-		TextView trailInfo = (TextView) getActivity().findViewById(R.id.trailInfo);
-		trailInfo.setText(String.valueOf(points.size()));
-		
+		db = new DatabaseHelper(getActivity().getApplicationContext());
+		ArrayList<Placemark> placemarks = db.getTrailPlacemarks("Bruce Trail");
+//		
+        TextView trailInfo = (TextView) getActivity().findViewById(R.id.trailInfo);
+		trailInfo.setText(String.valueOf(placemarks.size()) + "\n");
+    	String s="";
+		for(Placemark p: placemarks){
+			s+= String.valueOf(p.getId())+",";
+		}
+		trailInfo.append(s);
+	
+//	  for(String st: db.getAllTrails().keySet()){
+//		  s += st + "\n";
+//		  
+//	  }
+//	  trailInfo.setText(s);
+	  db.close();
+	  
 		/*for(GeoPoint gp: points){
 			System.out.println("Lat: " + gp.getLat() + "\t Lng: "+ gp.getLng());
 			trailInfo.append("Lat: " + gp.getLat() + "\t Lng: "+ gp.getLng());
 		}*/
 		
-		
-		
 	}
+	
 	public class LoadEvents extends AsyncTask<Void, Void, Boolean> {
 
 		@Override

@@ -22,10 +22,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.mainmethod.trailmix1.kmlparsing.NavigationSaxHandler;
-import com.mainmethod.trailmix1.kmlparsing.Placemark;
+import com.mainmethod.trailmix1.kmlparsing.PlacemarkObj;
 import com.mainmethod.trailmix1.kmlparsing.TrailObj;
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.mainmethod.trailmix1.sqlite.model.GeoPoint;
+import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
@@ -50,23 +51,18 @@ public class MapActivity extends FragmentActivity {
 
 			setContentView(R.layout.activity_map);
 			if (initMap()) {
-				
+
 				mMap.setBuildingsEnabled(true);
 				mMap.setMyLocationEnabled(true);
 				// mMap.setTrafficEnabled(true);
 
 				try {
 					// loadKML(mMap);
-					// HashMap<String,TrailObj> trailCollection = parser();
+					 HashMap<String,TrailObj> trailCollection = parser();
+					// drawMap(trailCollection, mMap);
+					 doInsert(trailCollection);
 					drawTrails(mMap);
-					// doInsert(trailCollection);
-					// InputStream ins = getResources().openRawResource(
-					// getResources().getIdentifier("unpaved_multi_use_trails",
-					// "raw", getPackageName()));
-					//
-					// DatabaseHelper db;
-					// db = new DatabaseHelper(getApplicationContext(), ins);
-					// db.closeDB();
+
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -83,42 +79,73 @@ public class MapActivity extends FragmentActivity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
+	private void drawMap(HashMap<String, TrailObj> trailCollection,
+			GoogleMap mMap2) {
+		// TODO Auto-generated method stub
+		for (TrailObj trail : trailCollection.values()) {
+			for (PlacemarkObj p : trail.getPlacemarks()) {
+				PolylineOptions rectOptions = new PolylineOptions();
+				for (LatLng g : p.getCoordinates()) {
+					rectOptions.add(g);
+				}
+				Polyline polyline = mMap2.addPolyline(rectOptions);
+				polyline.setColor(Color.RED);
+				polyline.setWidth(5);
+				polyline.setVisible(true);
+			}
+		}
+	}
+
 	public void drawTrails(GoogleMap map) {
 		DatabaseHelper db;
 		db = new DatabaseHelper(this);
-		ArrayList<GeoPoint> points = db.getTrailGeoPoints("Humber Valley Heritage Trail");
-		PolylineOptions rectOptions = new PolylineOptions();
-		for (GeoPoint point : points) {
-			
-			rectOptions.add(new LatLng(point.getLat(), point.getLng()));
-			
+		ArrayList<ArrayList<GeoPoint>> sortedGeoPoints = db.getPlacemarks();
+
+		PolylineOptions rectOptions;
+		for (ArrayList<GeoPoint> p : sortedGeoPoints) {
+			rectOptions = new PolylineOptions();
+			for (GeoPoint g : p) {
+				rectOptions.add(new LatLng(g.getLat(), g.getLng()));
+			}
+			Polyline polyline = map.addPolyline(rectOptions);
+			polyline.setColor(Color.RED);
+			polyline.setWidth(8);
+			polyline.setVisible(true);
 		}
-		Polyline polyline = map.addPolyline(rectOptions);
-		polyline.setColor(Color.RED);
-		polyline.setWidth(5);
-		polyline.setVisible(true);
+
 	}
 
 	private void doInsert(HashMap<String, TrailObj> trailCollection) {
 		DatabaseHelper db;
 		db = new DatabaseHelper(getApplicationContext());
-/*
-		int keyID = 0;
-		// TODO Auto-generated method stub
+
+		int trailID = 0;
+		int placeMarkId = 0;
+
 		for (TrailObj trail : trailCollection.values()) {
+			trailID++;
 			Trail trailModel = new Trail(trail.getTrailName(),
 					trail.getLength(), trail.getSurface(),
 					trail.getTrailClass());
 			db.createTrail(trailModel);
-			keyID++;
-			for (LatLng geoPoint : trail.getGeopoints()) {
-				GeoPoint gp = new GeoPoint(geoPoint.latitude,
-						geoPoint.longitude, keyID);
-				db.createGeoPoint(gp);
+
+			for (PlacemarkObj pmark : trail.getPlacemarks()) {
+				placeMarkId++;
+				Placemark p = new Placemark();
+				p.setTrail_id(trailID);
+				db.createPlacemark(p);
+
+				for (LatLng geoPoint : pmark.getCoordinates()) {
+
+					GeoPoint gp = new GeoPoint(geoPoint.latitude,
+							geoPoint.longitude, placeMarkId);
+					db.createGeoPoint(gp);
+				}
 			}
+
 		}
 		db.closeDB();
-		*/
+
 	}
 
 	private HashMap<String, TrailObj> parser() {
@@ -150,8 +177,8 @@ public class MapActivity extends FragmentActivity {
 
 			String abc = is.toString();
 			xmlreader.parse(is);
-			ArrayList<Placemark> ds = navSaxHandler.getPlacemarks();
-			ArrayList<Placemark> currTrailPlacemarks;
+			ArrayList<PlacemarkObj> ds = navSaxHandler.getPlacemarks();
+			ArrayList<PlacemarkObj> currTrailPlacemarks;
 			String pmarkName_1 = "";
 			String pmarkName_2 = "";
 			Double currTrailLength = 0.0;
@@ -162,31 +189,33 @@ public class MapActivity extends FragmentActivity {
 			if (ds.isEmpty()) {
 				System.out.println("It's still empty");
 			} else {
-				for (Placemark p : ds) {
+				for (PlacemarkObj p : ds) {
 					counter++;
 
 					if (p.getTrailName() != null) {
 						pmarkName_1 = p.getTrailName();
 					} else {
-						pmarkName_1 = "UnknownTrail"+String.valueOf(counter);
+						pmarkName_1 = "UnknownTrail" + String.valueOf(counter);
 					}
 
 					currTrailLength = 0.0;
 
 					if (!trailCollection.containsKey(pmarkName_1)) {
-						currTrailPlacemarks = new ArrayList<Placemark>();
+						currTrailPlacemarks = new ArrayList<PlacemarkObj>();
 
 						tempTrail = new TrailObj();
 						tempTrail.setTrailName(pmarkName_1);
+
 						tempTrail.setTrailClass(p.getTrailClass());
 						tempTrail.setSurface(p.getSurface());
 
-						for (Placemark pmark : ds) {
-                            i++;
+						for (PlacemarkObj pmark : ds) {
+							i++;
 							if (pmark.getTrailName() != null) {
 								pmarkName_2 = pmark.getTrailName();
 							} else {
-								pmarkName_2 = "UnknownTrail"+String.valueOf(i);
+								pmarkName_2 = "UnknownTrail"
+										+ String.valueOf(i);
 							}
 
 							if (pmarkName_2.equals(pmarkName_1)) {
@@ -230,14 +259,14 @@ public class MapActivity extends FragmentActivity {
 			xmlreader.parse(is);
 			// get the results - should be a fully populated RSSFeed instance,
 			// or null on error
-			ArrayList<Placemark> ds = navSaxHandler.getPlacemarks();
+			ArrayList<PlacemarkObj> ds = navSaxHandler.getPlacemarks();
 			int counter = 0;
 			int i = 0;
 			System.out.println(ds.size());
 			if (ds.isEmpty()) {
 				System.out.println("It's still empty");
 			} else {
-				for (Placemark p : ds) {
+				for (PlacemarkObj p : ds) {
 					counter++;
 					ArrayList<LatLng> coordinates = p.getCoordinates();
 

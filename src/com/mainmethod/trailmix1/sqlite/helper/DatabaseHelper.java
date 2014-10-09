@@ -13,9 +13,10 @@ import org.xml.sax.XMLReader;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.mainmethod.trailmix1.kmlparsing.NavigationSaxHandler;
-import com.mainmethod.trailmix1.kmlparsing.Placemark;
+import com.mainmethod.trailmix1.kmlparsing.PlacemarkObj;
 import com.mainmethod.trailmix1.kmlparsing.TrailObj;
 import com.mainmethod.trailmix1.sqlite.model.GeoPoint;
+import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 
 import android.content.ContentValues;
@@ -28,8 +29,8 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 10;
-	private static final String DATABASE_NAME = "testDB1";
+	private static final int DATABASE_VERSION = 1;
+	private static final String DATABASE_NAME = "testing1.db";
 	// Logcat tag
 	private static final String LOG = "DatabaseHelper";
 	// table names
@@ -237,11 +238,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	/*
 	 * get single trail by name
 	 */
-	public HashMap<String, Trail> getNamedTrails() {
+	public HashMap<String, Trail> getAllTrails() {
 		HashMap<String, Trail> namedTrails = new HashMap<String, Trail>();
 		SQLiteDatabase db = this.getReadableDatabase();
 
-		Cursor c = db.query(TRAIL_TABLE, null, KEY_NAME + " IS NOT NULL", null,
+		Cursor c = db.query(TRAIL_TABLE, null, null, null,
 				null, null, null);
 		if (c.moveToFirst()) {
 			do {
@@ -309,21 +310,64 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		db.delete(PLACEMARK_TABLE, KEY_TRAIL_ID + " = ?",
 				new String[] { String.valueOf(trail_id) });
 	}
-   //delete geopoints for placemark
+
+	// delete geopoints for placemark
 	public void deletePlacemarkGeoPoints(long placemark_id) {
 
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.delete(GEOPOINT_TABLE, KEY_PLACEMARK_ID + " = ?",
 				new String[] { String.valueOf(placemark_id) });
 	}
+   
+	public ArrayList<ArrayList<GeoPoint>> getPlacemarks(){
+		ArrayList<ArrayList<GeoPoint>> placemarks = new ArrayList<ArrayList<GeoPoint>>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		String selectQuery = "SELECT  * FROM " + PLACEMARK_TABLE
+				+ " INNER JOIN " + GEOPOINT_TABLE + " ON " + PLACEMARK_TABLE
+				+ "." + KEY_ID + " = " + GEOPOINT_TABLE + "."
+				+ KEY_PLACEMARK_ID + ";";
+		Cursor c = db.rawQuery(selectQuery,null);
+		
+		ArrayList<GeoPoint> allPoints = new ArrayList<GeoPoint>();
+		if(c.moveToFirst()){
+			do{
+				GeoPoint point = new GeoPoint();
+				point.setPlacemark_id(c.getInt(c.getColumnIndex(KEY_PLACEMARK_ID)));
+				point.setLat(c.getDouble(c.getColumnIndex(KEY_LAT)));
+				point.setLng(c.getDouble(c.getColumnIndex(KEY_LNG)));
 
+				allPoints.add(point);
+				
+			}while (c.moveToNext());
+		}
+
+		int currPId = 1;
+		ArrayList<GeoPoint> points = new ArrayList<GeoPoint>();
+		
+		for (GeoPoint g: allPoints)
+		{
+			if(g.getPlacemark_id()==currPId)
+			{
+				points.add(g);
+			}
+			else
+			{
+				currPId++;
+				placemarks.add(points);
+				points = new ArrayList<GeoPoint>();
+			}	
+		}
+		return placemarks;
+	}
+	
 	// get geopoints for placemark
-	public ArrayList<GeoPoint> getPLacemarkGeoPoints(int placemarkID) {
+	public ArrayList<GeoPoint> getPlacemarkGeoPoints(int placemarkID) {
 		ArrayList<GeoPoint> placemarkGeoPoints = new ArrayList<GeoPoint>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT  * FROM " + PLACEMARK_TABLE + " INNER JOIN "
-				+ GEOPOINT_TABLE + " ON " + PLACEMARK_TABLE + "." + KEY_ID + " = "
-				+ GEOPOINT_TABLE + "." + KEY_PLACEMARK_ID + " WHERE " +PLACEMARK_TABLE +"."+KEY_ID
+		String selectQuery = "SELECT  * FROM " + PLACEMARK_TABLE
+				+ " INNER JOIN " + GEOPOINT_TABLE + " ON " + PLACEMARK_TABLE
+				+ "." + KEY_ID + " = " + GEOPOINT_TABLE + "."
+				+ KEY_PLACEMARK_ID + " WHERE " + PLACEMARK_TABLE + "." + KEY_ID
 				+ " = " + placemarkID + ";";
 
 		Log.e(LOG, selectQuery);
@@ -343,7 +387,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return placemarkGeoPoints;
 	}
 
+	// get placemarks for trail
+	public ArrayList<Placemark> getTrailPlacemarks(String trailName) {
+		ArrayList<Placemark> trailPlacemarks = new ArrayList<Placemark>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " INNER JOIN "
+				+ PLACEMARK_TABLE + " ON " + TRAIL_TABLE + "." + KEY_ID + " = "
+				+ PLACEMARK_TABLE + "." + KEY_TRAIL_ID + " WHERE "
+				+ TRAIL_TABLE + "." + KEY_NAME + " = " + "'" + trailName + "';";
+
+		Log.e(LOG, selectQuery);
+
+		Cursor c = db.rawQuery(selectQuery, null);
+
+		if (c.moveToFirst()) {
+			do {
+				Placemark p = new Placemark();
+				p.setId(c.getInt(c.getColumnIndex(PLACEMARK_TABLE +"."+KEY_ID)));
+				p.setTrail_id(c.getInt(c.getColumnIndex(KEY_TRAIL_ID)));
+				
+
+				trailPlacemarks.add(p);
+
+			} while (c.moveToNext());
+		}
+		return trailPlacemarks;
+	}
+
+	// karishma.alam@rbc.com
+
 	// TODO: CRUD for EVENT table
+
+	// CRUD for Placemark
+	public long createPlacemark(Placemark p) {
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		ContentValues values = new ContentValues();
+		values.put(KEY_TRAIL_ID, p.getTrail_id());
+
+		long column_id = db.insert(PLACEMARK_TABLE, null, values);
+
+		return column_id;
+
+	}
+	
+	
 
 	// closing database
 	public void closeDB() {

@@ -11,7 +11,7 @@ public class TrailObj {
 	private String trailClass;
 	private String surface;
 	private Double Length;
-	ArrayList<Placemark> placemarks;
+	ArrayList<PlacemarkObj> placemarkObjs;
 	public TrailObj() {
 		super();
 	
@@ -40,11 +40,11 @@ public class TrailObj {
 	public void setLength(Double length) {
 		Length = length;
 	}
-	public ArrayList<Placemark> getPlacemarks() {
-		return placemarks;
+	public ArrayList<PlacemarkObj> getPlacemarks() {
+		return placemarkObjs;
 	}
-	public void setPlacemarks(ArrayList<Placemark> placemarks) {
-		this.placemarks = placemarks;
+	public void setPlacemarks(ArrayList<PlacemarkObj> placemarkObjs) {
+		this.placemarkObjs = placemarkObjs;
 	}
 	
 	
