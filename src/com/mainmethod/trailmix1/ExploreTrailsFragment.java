@@ -6,6 +6,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.mainmethod.trailmix1.EventsFragment.LoadEvents;
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
+import com.mainmethod.trailmix1.sqlite.model.Event;
 import com.mainmethod.trailmix1.sqlite.model.GeoPoint;
 import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
@@ -59,14 +60,15 @@ public class ExploreTrailsFragment extends Fragment {
 	private void readData(){
 		DatabaseHelper db;
 		db = new DatabaseHelper(getActivity().getApplicationContext());
-		ArrayList<Placemark> placemarks = db.getTrailPlacemarks("Bruce Trail");
-//		
+		//ArrayList<Placemark> placemarks = db.getTrailPlacemarks("Bruce Trail");
+	    ArrayList<Event> events = db.getAllEvents();
+	    
         TextView trailInfo = (TextView) getActivity().findViewById(R.id.trailInfo);
-		trailInfo.setText(String.valueOf(placemarks.size()) + "\n");
+		trailInfo.setText(String.valueOf(events.size()) + "\n");
     	String s="";
-		for(Placemark p: placemarks){
-			s+= String.valueOf(p.getId())+",";
-		}
+//		for(Placemark p: placemarks){
+//			s+= String.valueOf(p.getId())+",";
+//		}
 		trailInfo.append(s);
 	
 //	  for(String st: db.getAllTrails().keySet()){

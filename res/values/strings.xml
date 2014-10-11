@@ -3,14 +3,11 @@
 
     <string name="app_name">TrailMix</string>
     <string name="action_preferences">Preferences</string>
-    
     <string name="action_trails">View Trails</string>
     <string name="search_option">Search locations</string>
     <string name="drawer_open">open drawer</string>
     <string name="drawer_close">close drawer</string>
     <string name="welcome_note">What do you feel like doing today?</string>
-    
-    
     <string name="pref_map_layer_title">Map Layers </string>
     <string name="pref_bicycle_lane">Bicycle lane </string>
     <string name="pref_signed_bike_route">Signed bike route </string>
@@ -18,19 +15,19 @@
     <string name="pref_paved_multi_use_trail">Paved multi-use trail </string>
     <string name="pref_unmarked_dirt_trail">Unmarked dirt trail</string>
     <string name="pref_unpaved_multi_use_trail">Unpaved multi-use trail</string>
-    
-    
     <string name="pref_about_title">About</string>
     <string name="pref_about_developer">Developer</string>
     <string name="pref_about_developer_summary">Created by MainMethod Inc.</string>
-    
-    
+
     <string-array name="menu_items">
         <item>Home</item>
         <item>Explore Trails</item>
         <item>View Events</item>
         <item>Track</item>
-      
     </string-array>
+
+    <string name="title_activity_event_detail">Detail</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

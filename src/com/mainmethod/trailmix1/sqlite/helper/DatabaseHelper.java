@@ -15,6 +15,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.mainmethod.trailmix1.kmlparsing.NavigationSaxHandler;
 import com.mainmethod.trailmix1.kmlparsing.PlacemarkObj;
 import com.mainmethod.trailmix1.kmlparsing.TrailObj;
+import com.mainmethod.trailmix1.sqlite.model.Event;
 import com.mainmethod.trailmix1.sqlite.model.GeoPoint;
 import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
@@ -29,8 +30,8 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 1;
-	private static final String DATABASE_NAME = "testing1.db";
+	private static final int DATABASE_VERSION = 13;
+	private static final String DATABASE_NAME = "testing2.db";
 	// Logcat tag
 	private static final String LOG = "DatabaseHelper";
 	// table names
@@ -124,11 +125,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	// Event table create statement
 	private static final String CREATE_TABLE_EVENT = "CREATE TABLE IF NOT EXISTS "
-			+ TRAIL_TABLE
+			+ EVENT_TABLE
 			+ "("
 			+ KEY_ID
 			+ " INTEGER PRIMARY KEY,"
 			+ KEY_TITLE
+			+ " TEXT NOT NULL,"
+			+ KEY_DESC
 			+ " TEXT NOT NULL,"
 			+ KEY_EVENT_POSTER_URL
 			+ " TEXT,"
@@ -414,9 +417,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return trailPlacemarks;
 	}
 
-	// karishma.alam@rbc.com
 
-	// TODO: CRUD for EVENT table
+
+	
 
 	// CRUD for Placemark
 	public long createPlacemark(Placemark p) {
@@ -431,8 +434,121 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	}
 	
-	
+	// CRUD for EVENT table
+	public long createEvent(Event e) {
+		SQLiteDatabase db = this.getWritableDatabase();
 
+		ContentValues values = new ContentValues();
+		values.put(KEY_TITLE, e.getTitle());
+		values.put(KEY_DESC,e.getDesc());
+		values.put(KEY_URL, e.getUrl());
+		values.put(KEY_URL_TEXT, e.getUrl_text());
+		values.put(KEY_DATE, e.getDate());
+		values.put(KEY_START_TIME, e.getStartTime());
+		 
+		values.put(KEY_END_TIME, e.getEndTime());
+		values.put(KEY_IS_ALL_DAY_LONG, e.isAllDayEvent() ? 1 : 0);
+		values.put(KEY_LOCATION, e.getLocation());
+		values.put(KEY_CONTACT_NAME, e.getContactName());
+		values.put(KEY_CONTACT_EMAIL, e.getContactEmail());
+		values.put(KEY_EVENT_POSTER_URL, e.getPoster_url());
+		
+		long column_id = db.insert(EVENT_TABLE, null, values);
+
+		return column_id;
+
+	}
+	//get all events
+	public ArrayList<Event> getAllEvents() {
+		ArrayList<Event> eventCollection = new ArrayList<Event>();
+		SQLiteDatabase db = this.getReadableDatabase();
+
+		Cursor c = db.query(EVENT_TABLE, null, null, null,
+				null, null, null);
+		if (c.moveToFirst()) {
+			do {
+				Event event = new Event();
+				event.setId(c.getInt(c.getColumnIndex(KEY_ID)));
+				event.setTitle(c.getString(c.getColumnIndex(KEY_TITLE)));
+				event.setDesc(c.getString(c
+						.getColumnIndex(KEY_DESC)));
+				event.setUrl(c.getString(c.getColumnIndex(KEY_URL)));
+				event.setUrl_text(c.getString(c.getColumnIndex(KEY_URL_TEXT)));
+				event.setDate(c.getString(c.getColumnIndex(KEY_DATE)));
+				event.setLocation(c.getString(c.getColumnIndex(KEY_LOCATION)));
+				event.setStartTime(c.getString(c.getColumnIndex(KEY_START_TIME)));
+				event.setEndTime(c.getString(c.getColumnIndex(KEY_END_TIME)));
+				event.setAllDayEvent((c.getInt(c.getColumnIndex(KEY_IS_ALL_DAY_LONG)) !=0));
+				event.setContactName(c.getString(c.getColumnIndex(KEY_CONTACT_NAME)));
+				event.setContactEmail(c.getString(c.getColumnIndex(KEY_CONTACT_EMAIL)));
+				if(c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)) != null){
+					event.setPoster_url(c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)));
+				} else{
+					event.setPoster_url("");
+				}
+				// adding to hashmap
+				eventCollection.add(event);
+			} while (c.moveToNext());
+		}
+		return eventCollection;
+	}
+	
+	public Event getEventByName(String name){
+		Event event = null;
+		SQLiteDatabase db = this.getReadableDatabase();
+		String selectQuery = "SELECT * FROM " + EVENT_TABLE + " WHERE "
+			 + KEY_TITLE + " = " + "'" + name + "';";
+
+		Log.e(LOG, selectQuery);
+
+		Cursor c = db.rawQuery(selectQuery, null);
+		if (c.moveToFirst()) {
+			do {
+			    event = new Event();
+				event.setId(c.getInt(c.getColumnIndex(KEY_ID)));
+				event.setTitle(c.getString(c.getColumnIndex(KEY_TITLE)));
+				event.setDesc(c.getString(c
+						.getColumnIndex(KEY_DESC)));
+				event.setUrl(c.getString(c.getColumnIndex(KEY_URL)));
+				event.setUrl_text(c.getString(c.getColumnIndex(KEY_URL_TEXT)));
+				event.setDate(c.getString(c.getColumnIndex(KEY_DATE)));
+				event.setLocation(c.getString(c.getColumnIndex(KEY_LOCATION)));
+				event.setStartTime(c.getString(c.getColumnIndex(KEY_START_TIME)));
+				event.setEndTime(c.getString(c.getColumnIndex(KEY_END_TIME)));
+				event.setAllDayEvent((c.getInt(c.getColumnIndex(KEY_IS_ALL_DAY_LONG)) !=0));
+				event.setContactName(c.getString(c.getColumnIndex(KEY_CONTACT_NAME)));
+				event.setContactEmail(c.getString(c.getColumnIndex(KEY_CONTACT_EMAIL)));
+				if(c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)) != null){
+					event.setPoster_url(c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)));
+				} else{
+					event.setPoster_url("");
+				}
+
+				
+
+			
+			} while (c.moveToNext());
+		}
+		
+		return event;
+	}
+	// delete event
+		public void deleteEvent(long event_id) {
+
+			SQLiteDatabase db = this.getWritableDatabase();
+			db.delete(EVENT_TABLE, KEY_ID + " = ?",
+					new String[] { String.valueOf(event_id) });
+		}
+	 
+		//delete all events
+		public void deleteAllEvent() {
+
+			SQLiteDatabase db = this.getWritableDatabase();
+			db.delete(EVENT_TABLE, null,
+					null);
+			closeDB();
+		}
+		
 	// closing database
 	public void closeDB() {
 		SQLiteDatabase db = this.getReadableDatabase();

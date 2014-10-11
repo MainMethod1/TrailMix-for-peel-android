@@ -59,9 +59,9 @@ public class MapActivity extends FragmentActivity {
 				try {
 					// loadKML(mMap);
 					 HashMap<String,TrailObj> trailCollection = parser();
-					// drawMap(trailCollection, mMap);
-					 doInsert(trailCollection);
-					drawTrails(mMap);
+					 drawMap(trailCollection, mMap);
+					 //doInsert(trailCollection);
+					//drawTrails(mMap);
 
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
