@@ -30,8 +30,8 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 13;
-	private static final String DATABASE_NAME = "testing2.db";
+	private static final int DATABASE_VERSION = 15;
+	private static final String DATABASE_NAME = "testing3.db";
 	// Logcat tag
 	private static final String LOG = "DatabaseHelper";
 	// table names
@@ -50,6 +50,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String KEY_TRAIL_CLASS = "class";
 	private static final String KEY_LENGTH = "length";
 	private static final String KEY_SURFACE = "surfaceType";
+	private static final String KEY_TYPE = "type";
+	private static final String KEY_AMENITIES = "amenities";
+	private static final String KEY_PARKING = "parking";
+	private static final String KEY_SEASON_HOURS = "seasonHours";
+	private static final String KEY_LIGHTING = "lighting";
+	private static final String KEY_WINTER_MAINTENANCE = "winterMaintenance";
+	private static final String KEY_PETS = "pets";
+	private static final String KEY_NOTES = "notes";
+	private static final String KEY_CITY = "city";
 
 	// GEOPOINTS Table - column names
 	private static final String KEY_PLACEMARK_ID = "placemark_id";
@@ -87,6 +96,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			+ KEY_LENGTH
 			+ " REAL,"
 			+ KEY_SURFACE
+			+ " TEXT,"
+			+ KEY_AMENITIES
+			+ " TEXT,"
+			+ KEY_PARKING
+			+ " TEXT,"
+			+ KEY_SEASON_HOURS
+			+ " TEXT,"
+			+ KEY_LIGHTING
+			+ " TEXT,"
+			+ KEY_WINTER_MAINTENANCE
+			+ " TEXT,"
+			+ KEY_PETS
+			+ " TEXT,"
+			+ KEY_NOTES
+			+ " TEXT,"
+			+ KEY_CITY
 			+ " TEXT,"
 			+ KEY_CREATED_AT
 			+ " DATETIME DEFAULT CURRENT_TIMESTAMP" + ");";
@@ -205,6 +230,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		values.put(KEY_TRAIL_CLASS, trail.getTrailClass());
 		values.put(KEY_LENGTH, trail.getLength());
 		values.put(KEY_SURFACE, trail.getSurface());
+		values.put(KEY_AMENITIES, trail.getAmenities());
+		values.put(KEY_PARKING, trail.getParking());
+		values.put(KEY_SEASON_HOURS, trail.getSeasonHours());
+		values.put(KEY_LIGHTING, trail.getLighting());
+		values.put(KEY_WINTER_MAINTENANCE, trail.getWinterMaintenance());
+		values.put(KEY_PETS, trail.getPets());
+		values.put(KEY_NOTES, trail.getNotes());
+		values.put(KEY_CITY, trail.getCity());
 
 		// insert row
 		long trail_id = db.insert(TRAIL_TABLE, null, values);
@@ -234,6 +267,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		trail.setTrailClass(c.getString(c.getColumnIndex(KEY_TRAIL_CLASS)));
 		trail.setLength(c.getDouble(c.getColumnIndex(KEY_LENGTH)));
 		trail.setSurface(c.getString(c.getColumnIndex(KEY_SURFACE)));
+		trail.setAmenities(c.getString(c.getColumnIndex(KEY_AMENITIES)));
+		trail.setParking(c.getString(c.getColumnIndex(KEY_PARKING)));
+		trail.setSeasonHours(c.getString(c.getColumnIndex(KEY_SEASON_HOURS)));
+		trail.setLighting(c.getString(c.getColumnIndex(KEY_LIGHTING)));
+		trail.setWinterMaintenance(c.getString(c.getColumnIndex(KEY_WINTER_MAINTENANCE)));
+		trail.setPets(c.getString(c.getColumnIndex(KEY_PETS)));
+		trail.setNotes(c.getString(c.getColumnIndex(KEY_NOTES)));
+		trail.setCity(c.getString(c.getColumnIndex(KEY_CITY)));
+	
+		
 
 		return trail;
 	}
@@ -247,15 +290,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 		Cursor c = db.query(TRAIL_TABLE, null, null, null,
 				null, null, null);
+		Trail trail;
 		if (c.moveToFirst()) {
 			do {
-				Trail trail = new Trail();
+				trail = new Trail();
 				trail.setId(c.getInt(c.getColumnIndex(KEY_ID)));
 				trail.setTrailName((c.getString(c.getColumnIndex(KEY_NAME))));
-				trail.setTrailClass(c.getString(c
-						.getColumnIndex(KEY_TRAIL_CLASS)));
+				trail.setTrailClass(c.getString(c.getColumnIndex(KEY_TRAIL_CLASS)));
 				trail.setLength(c.getDouble(c.getColumnIndex(KEY_LENGTH)));
 				trail.setSurface(c.getString(c.getColumnIndex(KEY_SURFACE)));
+//				trail.setAmenities(c.getString(c.getColumnIndex(KEY_AMENITIES)));
+//				trail.setParking(c.getString(c.getColumnIndex(KEY_PARKING)));
+//				trail.setSeasonHours(c.getString(c.getColumnIndex(KEY_SEASON_HOURS)));
+//				trail.setLighting(c.getString(c.getColumnIndex(KEY_LIGHTING)));
+//				trail.setWinterMaintenance(c.getString(c.getColumnIndex(KEY_WINTER_MAINTENANCE)));
+//				trail.setPets(c.getString(c.getColumnIndex(KEY_PETS)));
+//				trail.setNotes(c.getString(c.getColumnIndex(KEY_NOTES)));
+//				trail.setCity(c.getString(c.getColumnIndex(KEY_CITY)));
 
 				// adding to hashmap
 				namedTrails.put(trail.getTrailName(), trail);
@@ -271,8 +322,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		values.put(KEY_NAME, trail.getTrailName());
 		values.put(KEY_TRAIL_CLASS, trail.getTrailClass());
-		values.put(KEY_SURFACE, trail.getSurface());
 		values.put(KEY_LENGTH, trail.getLength());
+		values.put(KEY_SURFACE, trail.getSurface());
+		values.put(KEY_AMENITIES, trail.getAmenities());
+		values.put(KEY_PARKING, trail.getParking());
+		values.put(KEY_SEASON_HOURS, trail.getSeasonHours());
+		values.put(KEY_LIGHTING, trail.getLighting());
+		values.put(KEY_WINTER_MAINTENANCE, trail.getWinterMaintenance());
+		values.put(KEY_PETS, trail.getPets());
+		values.put(KEY_NOTES, trail.getNotes());
+		values.put(KEY_CITY, trail.getCity());
 
 		// updating row
 		return db.update(TRAIL_TABLE, values, KEY_ID + " = ?",
@@ -325,10 +384,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public ArrayList<ArrayList<GeoPoint>> getPlacemarks(){
 		ArrayList<ArrayList<GeoPoint>> placemarks = new ArrayList<ArrayList<GeoPoint>>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT  * FROM " + PLACEMARK_TABLE
-				+ " INNER JOIN " + GEOPOINT_TABLE + " ON " + PLACEMARK_TABLE
-				+ "." + KEY_ID + " = " + GEOPOINT_TABLE + "."
-				+ KEY_PLACEMARK_ID + ";";
+		String selectQuery = "SELECT * FROM " +GEOPOINT_TABLE + ";";
 		Cursor c = db.rawQuery(selectQuery,null);
 		
 		ArrayList<GeoPoint> allPoints = new ArrayList<GeoPoint>();
@@ -358,8 +414,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				currPId++;
 				placemarks.add(points);
 				points = new ArrayList<GeoPoint>();
+				points.add(g);
+				
+				
 			}	
 		}
+		placemarks.add(points);
 		return placemarks;
 	}
 	
@@ -434,7 +494,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	}
 	
+	
 	// CRUD for EVENT table
+	
+	//create a new event
 	public long createEvent(Event e) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
@@ -458,7 +521,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return column_id;
 
 	}
-	//get all events
+	
+	//get all events from db
 	public ArrayList<Event> getAllEvents() {
 		ArrayList<Event> eventCollection = new ArrayList<Event>();
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -493,6 +557,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return eventCollection;
 	}
 	
+	//gets event by name
 	public Event getEventByName(String name){
 		Event event = null;
 		SQLiteDatabase db = this.getReadableDatabase();

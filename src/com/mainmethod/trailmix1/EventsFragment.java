@@ -121,39 +121,7 @@ public class EventsFragment extends ListFragment {
 		for(Event e: eventCollection){
 			db.createEvent(e);
 		}
-		eList = db.getAllEvents() ;
-//		boolean isPresent = false;
-//		for (Event event : eventCollection) {
-//			isPresent = false;
-//			for (Event evt : eList) {
-//				if (evt.getId() == event.getId()) {
-//					isPresent = true;
-//					break;
-//				}
-//			}
-//			if (!isPresent) {
-//				eList.add(event);
-//				db.createEvent(event);
-//			}
-//		}
-//
-//		int size = eList.size() - 1;
-//		isPresent = false;
-//		for (int i = size; i > -1; i--) {
-//			isPresent = false;
-//			for (Event evt : eventCollection) {
-//				if (evt.getId() == eList.get(i).getId()) {
-//					isPresent = true;
-//					break;
-//				}
-//
-//			}
-//			if (!isPresent) {
-//				db.deleteEvent(eList.get(i).getId());
-//				eList.remove(i);
-//			}
-//		}
-
+		eList = db.getAllEvents();
 		db.close();
 	}
 
@@ -221,7 +189,6 @@ public class EventsFragment extends ListFragment {
 		lv.setOnItemClickListener(new EventItemClickListener());
 		// lv.setOnClickListener();
 		lv.setOnScrollListener(new AbsListView.OnScrollListener() {
-
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
 				// TODO Auto-generated method stub

@@ -15,16 +15,17 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
 import android.widget.TextView;
 
-public class ExploreTrailsFragment extends Fragment {
-
+public class ExploreTrailsFragment extends ListFragment {
+    DatabaseHelper db;
 	ProgressDialog pDialog;
-
+    ArrayList<Trail> tList;
 	public ExploreTrailsFragment() {
 		// TODO Auto-generated constructor stub
 	}
@@ -33,13 +34,13 @@ public class ExploreTrailsFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
+		new LoadTrails().execute();
 		return inflater.inflate(R.layout.explore_trails_fragment, null, false);
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		new LoadEvents().execute();
 	}
 
 	@Override
@@ -47,51 +48,14 @@ public class ExploreTrailsFragment extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 		getView();
 	}
-
-	private void insertData() {
-		DatabaseHelper db;
-		db = new DatabaseHelper(getActivity().getApplicationContext());
-		
-		db.closeDB();
-		
-	}
-   
-	
-	private void readData(){
-		DatabaseHelper db;
-		db = new DatabaseHelper(getActivity().getApplicationContext());
-		//ArrayList<Placemark> placemarks = db.getTrailPlacemarks("Bruce Trail");
-	    ArrayList<Event> events = db.getAllEvents();
-	    
-        TextView trailInfo = (TextView) getActivity().findViewById(R.id.trailInfo);
-		trailInfo.setText(String.valueOf(events.size()) + "\n");
-    	String s="";
-//		for(Placemark p: placemarks){
-//			s+= String.valueOf(p.getId())+",";
-//		}
-		trailInfo.append(s);
-	
-//	  for(String st: db.getAllTrails().keySet()){
-//		  s += st + "\n";
-//		  
-//	  }
-//	  trailInfo.setText(s);
-	  db.close();
-	  
-		/*for(GeoPoint gp: points){
-			System.out.println("Lat: " + gp.getLat() + "\t Lng: "+ gp.getLng());
-			trailInfo.append("Lat: " + gp.getLat() + "\t Lng: "+ gp.getLng());
-		}*/
-		
-	}
-	
-	public class LoadEvents extends AsyncTask<Void, Void, Boolean> {
+    
+	public class LoadTrails extends AsyncTask<Void, Void, Boolean> {
 
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
 			pDialog = new ProgressDialog(getActivity());
-			pDialog.setMessage("Loading Events...");
+			pDialog.setMessage("Loading trails...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
 			pDialog.show();
@@ -99,8 +63,11 @@ public class ExploreTrailsFragment extends Fragment {
 
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
+			db = new DatabaseHelper(getActivity());
+			tList = new ArrayList<Trail>(db.getAllTrails().values());
 
-			//insertData();
+			db.close();
+
 			return null;
 
 		}
@@ -110,7 +77,16 @@ public class ExploreTrailsFragment extends Fragment {
 			super.onPostExecute(result);
 			pDialog.dismiss();
 
-			readData();
+			updateList();
+
+		}
+
+		private void updateList() {
+			// TODO Auto-generated method stub
+			TrailListAdapter trailAdapter = new TrailListAdapter(getActivity(),
+					tList);
+			setListAdapter(trailAdapter);
 		}
 	}
+	
 }

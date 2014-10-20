@@ -9,6 +9,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -25,6 +28,7 @@ import com.mainmethod.trailmix1.kmlparsing.NavigationSaxHandler;
 import com.mainmethod.trailmix1.kmlparsing.PlacemarkObj;
 import com.mainmethod.trailmix1.kmlparsing.TrailObj;
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
+import com.mainmethod.trailmix1.sqlite.model.Event;
 import com.mainmethod.trailmix1.sqlite.model.GeoPoint;
 import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
@@ -42,6 +46,18 @@ import android.widget.Toast;
 public class MapActivity extends FragmentActivity {
 	private static final int GPS_ERRORDIALOG_REQUEST = 9001;
 	GoogleMap mMap;
+	private static final String TAG_NAME = "Name";
+	private static final String TAG_LENGTH = "Length";
+	private static final String TAG_TYPE = "Type";
+	private static final String TAG_SURFACE = "Surface";
+	private static final String TAG_AMENITIES = "Washroom/Amenities";
+	private static final String TAG_PARKING = "Parking";
+	private static final String TAG_SEASON = "Season/Hours";
+	private static final String TAG_LIGHTING = "Lighting";
+	private static final String TAG_MAINTENANCE = "Winter Maintenance";
+	private static final String TAG_PETS = "Pets";
+	private static final String TAG_NOTES = "Notes/History";
+	private static final String TAG_CITY = "City";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +74,18 @@ public class MapActivity extends FragmentActivity {
 
 				try {
 					// loadKML(mMap);
-					 HashMap<String,TrailObj> trailCollection = parser();
-					 drawMap(trailCollection, mMap);
-					 //doInsert(trailCollection);
-					//drawTrails(mMap);
+					HashMap<String, TrailObj> trailCollection = parser();
+
+					// drawMap(trailCollection, mMap);
+					doInsert(trailCollection);
+					// drawTrails(mMap);
+					// drawTrail(mMap, trailCollection.get("Bruce Trail"));
+					// drawTrail(mMap,
+					// trailCollection.get("Bruce Trail (Road Allowance)"));
+					// drawTrail(mMap,
+					// trailCollection.get("Bruce Trail (On Road)"));
+					// drawTrail(mMap,
+					// trailCollection.get("Elora Cataract Trailway"));
 
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -82,6 +106,7 @@ public class MapActivity extends FragmentActivity {
 	private void drawMap(HashMap<String, TrailObj> trailCollection,
 			GoogleMap mMap2) {
 		// TODO Auto-generated method stub
+
 		for (TrailObj trail : trailCollection.values()) {
 			for (PlacemarkObj p : trail.getPlacemarks()) {
 				PolylineOptions rectOptions = new PolylineOptions();
@@ -96,15 +121,16 @@ public class MapActivity extends FragmentActivity {
 		}
 	}
 
-	public void drawTrails(GoogleMap map) {
+	public void drawTrailByName(GoogleMap map, String trailName) {
 		DatabaseHelper db;
 		db = new DatabaseHelper(this);
-		ArrayList<ArrayList<GeoPoint>> sortedGeoPoints = db.getPlacemarks();
-
+		ArrayList<Placemark> placemarks = db.getTrailPlacemarks(trailName);
+		ArrayList<GeoPoint> points;
 		PolylineOptions rectOptions;
-		for (ArrayList<GeoPoint> p : sortedGeoPoints) {
+		for (Placemark p : placemarks) {
 			rectOptions = new PolylineOptions();
-			for (GeoPoint g : p) {
+			points = db.getPlacemarkGeoPoints(p.getId());
+			for (GeoPoint g : points) {
 				rectOptions.add(new LatLng(g.getLat(), g.getLng()));
 			}
 			Polyline polyline = map.addPolyline(rectOptions);
@@ -115,13 +141,76 @@ public class MapActivity extends FragmentActivity {
 
 	}
 
+	public void drawTrail(GoogleMap map, TrailObj trail) {
+		ArrayList<LatLng> allPoints = new ArrayList<LatLng>();
+		ArrayList<GeoPoint> points;
+
+		PolylineOptions rectOptions;
+		for (PlacemarkObj p : trail.getPlacemarks()) {
+			rectOptions = new PolylineOptions();
+			allPoints.addAll(p.getCoordinates());
+			for (LatLng g : p.getCoordinates()) {
+				rectOptions.add(g);
+			}
+			Polyline polyline = map.addPolyline(rectOptions);
+			polyline.setColor(Color.RED);
+			polyline.setWidth(8);
+			polyline.setVisible(true);
+		}
+
+		// map.addMarker(new MarkerOptions()
+		// .position(center)
+		// .title(trail.getTrailName()));
+	}
+
+	public void drawTrails(GoogleMap map) {
+		DatabaseHelper db;
+		db = new DatabaseHelper(this);
+		ArrayList<ArrayList<GeoPoint>> sortedGeoPoints = db.getPlacemarks();
+		int count = 0;
+		int pCount = 0;
+		PolylineOptions rectOptions;
+		for (ArrayList<GeoPoint> p : sortedGeoPoints) {
+			rectOptions = new PolylineOptions();
+			pCount++;
+			for (GeoPoint g : p) {
+				rectOptions.add(new LatLng(g.getLat(), g.getLng()));
+				count++;
+			}
+			Polyline polyline = map.addPolyline(rectOptions);
+			polyline.setColor(Color.RED);
+			polyline.setWidth(8);
+			polyline.setVisible(true);
+		}
+
+		map.addMarker(new MarkerOptions().position(new LatLng(43.95, -79.95))
+				.title(String.valueOf(count) + " " + String.valueOf(pCount)));
+		System.out.println("When reading from db:" + count);
+	}
+
 	private void doInsert(HashMap<String, TrailObj> trailCollection) {
+		
+		HashMap<String, TrailObj> updatedTrailColection = new HashMap<String, TrailObj>();
+		String trailName = null;
+		TrailObj tempTrail = null;
+		for(TrailObj to : trailCollection.values())
+		{
+			tempTrail = to;
+			trailName = to.getTrailName();
+			for(Trail t: getJSONData())
+			{
+				if(trailName.equals(t.getTrailName()))
+				{
+					
+				}
+			}
+		}
 		DatabaseHelper db;
 		db = new DatabaseHelper(getApplicationContext());
 
 		int trailID = 0;
 		int placeMarkId = 0;
-
+		int counter = 0;
 		for (TrailObj trail : trailCollection.values()) {
 			trailID++;
 			Trail trailModel = new Trail(trail.getTrailName(),
@@ -140,11 +229,65 @@ public class MapActivity extends FragmentActivity {
 					GeoPoint gp = new GeoPoint(geoPoint.latitude,
 							geoPoint.longitude, placeMarkId);
 					db.createGeoPoint(gp);
+					counter++;
 				}
 			}
 
 		}
 		db.closeDB();
+		System.out.println("While inserting: " + counter);
+	}
+
+	public ArrayList<Trail> getJSONData() {
+		// mEventList = new ArrayList<HashMap<String, String>>();
+		ArrayList<Trail> eventList = new ArrayList<Trail>();
+		String jsonStr ;
+
+		
+			try {
+
+				InputStream is = getResources().openRawResource(
+						getResources().getIdentifier("trail_detail", "raw",
+								getPackageName()));
+				int size = is.available();
+				byte[] buffer = new byte[size];
+				is.read(buffer);
+				is.close();
+				jsonStr = new String(buffer, "UTF-8");
+
+				Log.d("Response: ", "> " + jsonStr);
+
+				JSONArray jsonArray = new JSONArray(jsonStr);
+
+				for (int i = 0; i < jsonArray.length(); i++) {
+					JSONObject jsonObj = jsonArray.getJSONObject(i);
+
+					String name =jsonObj.getString(TAG_NAME);
+					Double length = Double.parseDouble(jsonObj.getString(TAG_LENGTH));
+					String type = jsonObj.getString(TAG_TYPE);
+					String surface = jsonObj.getString(TAG_SURFACE);
+					String amenities = jsonObj.getString(TAG_AMENITIES);
+					String parking = jsonObj.getString(TAG_PARKING);
+					String season = jsonObj.getString(TAG_SEASON);
+					String lighting = jsonObj.getString(TAG_LIGHTING);
+					String maintenance = jsonObj.getString(TAG_MAINTENANCE);
+					String pets = jsonObj.getString(TAG_PETS);
+					String notes = jsonObj.getString(TAG_NOTES);
+					String city = jsonObj.getString(TAG_CITY);
+
+					eventList.add(new Trail(name, length, type, surface,
+							amenities, parking, season, lighting, maintenance,
+							pets, notes, city));
+
+				}
+			} catch (JSONException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return eventList;
 
 	}
 
@@ -159,75 +302,61 @@ public class MapActivity extends FragmentActivity {
 			// create a parser
 			SAXParser parser = factory.newSAXParser();
 			// create the reader (scanner)
-			XMLReader xmlreader = parser.getXMLReader();
+			// XMLReader xmlreader = parser.getXMLReader();
 			// instantiate our handler
 			NavigationSaxHandler navSaxHandler = new NavigationSaxHandler();
 
 			// parser.parse("/Users/D4RK/Dropbox/Study/MAPsPractice/KMLForAndroid/hiking_trails.kml",
 			// navSaxHandler);
 			// assign our handler
-			xmlreader.setContentHandler(navSaxHandler);
+			// xmlreader.setContentHandler(navSaxHandler);
 			// get our data via the url class
 			// InputStream ins = this.file;
 			InputStream ins = getResources().openRawResource(
-					getResources().getIdentifier("hiking_trails", "raw",
+					getResources().getIdentifier("trails_20141003", "raw",
 							getPackageName()));
 			InputSource is = new InputSource(ins);
 			// perform the synchronous parse
 
-			String abc = is.toString();
-			xmlreader.parse(is);
+			// xmlreader.parse(is);
+			parser.parse(is, navSaxHandler);
 			ArrayList<PlacemarkObj> ds = navSaxHandler.getPlacemarks();
 			ArrayList<PlacemarkObj> currTrailPlacemarks;
-			String pmarkName_1 = "";
-			String pmarkName_2 = "";
+			int counter = 0;
 			Double currTrailLength = 0.0;
 
-			int counter = 0;
-			int i = 0;
 			System.out.println(ds.size());
 			if (ds.isEmpty()) {
 				System.out.println("It's still empty");
 			} else {
 				for (PlacemarkObj p : ds) {
-					counter++;
 
-					if (p.getTrailName() != null) {
-						pmarkName_1 = p.getTrailName();
-					} else {
-						pmarkName_1 = "UnknownTrail" + String.valueOf(counter);
-					}
-
-					currTrailLength = 0.0;
-
-					if (!trailCollection.containsKey(pmarkName_1)) {
+					if (!trailCollection.containsKey(p.getTrailName())) {
 						currTrailPlacemarks = new ArrayList<PlacemarkObj>();
 
 						tempTrail = new TrailObj();
-						tempTrail.setTrailName(pmarkName_1);
-
+						tempTrail.setTrailName(p.getTrailName());
+						currTrailLength = 0.0;
 						tempTrail.setTrailClass(p.getTrailClass());
 						tempTrail.setSurface(p.getSurface());
 
 						for (PlacemarkObj pmark : ds) {
-							i++;
-							if (pmark.getTrailName() != null) {
-								pmarkName_2 = pmark.getTrailName();
-							} else {
-								pmarkName_2 = "UnknownTrail"
-										+ String.valueOf(i);
-							}
 
-							if (pmarkName_2.equals(pmarkName_1)) {
+							if (pmark.getTrailName().equals(p.getTrailName())) {
 								currTrailPlacemarks.add(pmark);
+
 								currTrailLength += pmark.getLength();
 							}
 						}
 						tempTrail.setLength(currTrailLength);
 						tempTrail.setPlacemarks(currTrailPlacemarks);
-						trailCollection.put(pmarkName_1, tempTrail);
+						trailCollection.put(p.getTrailName(), tempTrail);
+						for (PlacemarkObj o : currTrailPlacemarks) {
+							counter += o.getCoordinates().size();
+						}
 					}
 				}
+				System.out.println("From parser" + counter);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

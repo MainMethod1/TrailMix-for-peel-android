@@ -18,6 +18,12 @@ public class GeoPoint {
 		this.lng = lng;
 		this.placemark_id = placemark_id;
 	}
+	public GeoPoint( double lat, double lng) {
+		super();
+		
+		this.lat = lat;
+		this.lng = lng;
+	}
 
 	public int getId() {
 		return id;

@@ -436,13 +436,13 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020030;
     }
     public static final class id {
-        public static final int action_preferences=0x7f090031;
-        public static final int action_settings=0x7f09002f;
+        public static final int action_preferences=0x7f090034;
+        public static final int action_settings=0x7f090032;
         public static final int activity_detail_container=0x7f090014;
         public static final int book_now=0x7f090010;
-        public static final int button_bike=0x7f09002c;
-        public static final int button_hike=0x7f09002d;
-        public static final int button_run=0x7f09002b;
+        public static final int button_bike=0x7f09002f;
+        public static final int button_hike=0x7f090030;
+        public static final int button_run=0x7f09002e;
         public static final int buyButton=0x7f09000a;
         public static final int buy_now=0x7f09000f;
         public static final int buy_with_google=0x7f09000e;
@@ -451,23 +451,24 @@ containing a value of this type.
         public static final int date=0x7f09001e;
         public static final int drawer_layout=0x7f090015;
         public static final int drawer_list_item=0x7f090019;
-        public static final int eventContact=0x7f090028;
-        public static final int eventContactEmail=0x7f090029;
-        public static final int eventDate=0x7f090023;
-        public static final int eventDesc=0x7f090026;
-        public static final int eventEndTime=0x7f090025;
-        public static final int eventLocation=0x7f090022;
+        public static final int eventContact=0x7f09002b;
+        public static final int eventContactEmail=0x7f09002c;
+        public static final int eventDate=0x7f090026;
+        public static final int eventDesc=0x7f090029;
+        public static final int eventEndTime=0x7f090028;
+        public static final int eventLocation=0x7f090025;
         public static final int eventName=0x7f09001c;
-        public static final int eventStartTime=0x7f090024;
-        public static final int eventTitle=0x7f090021;
-        public static final int eventURL=0x7f090027;
-        public static final int exploreTrailsFragment=0x7f09001f;
+        public static final int eventStartTime=0x7f090027;
+        public static final int eventTitle=0x7f090024;
+        public static final int eventURL=0x7f09002a;
+        public static final int exploreTrailsFragment=0x7f090023;
         public static final int grayscale=0x7f090012;
         public static final int holo_dark=0x7f090005;
         public static final int holo_light=0x7f090006;
         public static final int hybrid=0x7f090004;
         public static final int ivIcon=0x7f090018;
         public static final int left_drawer=0x7f090017;
+        public static final int list_item_counter=0x7f090022;
         public static final int location=0x7f09001d;
         public static final int map=0x7f09001a;
         public static final int match_parent=0x7f09000c;
@@ -477,14 +478,16 @@ containing a value of this type.
         public static final int production=0x7f090007;
         public static final int sandbox=0x7f090008;
         public static final int satellite=0x7f090002;
-        public static final int searchOption=0x7f090030;
+        public static final int searchOption=0x7f090033;
         public static final int selectionDetails=0x7f09000b;
         public static final int strict_sandbox=0x7f090009;
         public static final int swipe_container=0x7f09001b;
         public static final int terrain=0x7f090003;
-        public static final int trackerFragment=0x7f09002e;
-        public static final int trailInfo=0x7f090020;
-        public static final int welcomenote=0x7f09002a;
+        public static final int trackerFragment=0x7f090031;
+        public static final int trailLength=0x7f090020;
+        public static final int trailName=0x7f09001f;
+        public static final int trailSurface=0x7f090021;
+        public static final int welcomenote=0x7f09002d;
         public static final int wrap_content=0x7f09000d;
     }
     public static final class integer {
@@ -497,24 +500,20 @@ containing a value of this type.
         public static final int activity_map=0x7f030003;
         public static final int events_fragment=0x7f030004;
         public static final int events_list_item=0x7f030005;
-        public static final int explore_trails_fragment=0x7f030006;
-        public static final int fragment_event_detail=0x7f030007;
-        public static final int home_fragment=0x7f030008;
-        public static final int tracker_fragment=0x7f030009;
+        public static final int explore_trail_list_item=0x7f030006;
+        public static final int explore_trails_fragment=0x7f030007;
+        public static final int fragment_event_detail=0x7f030008;
+        public static final int fragment_trail_detail=0x7f030009;
+        public static final int home_fragment=0x7f03000a;
+        public static final int tracker_fragment=0x7f03000b;
     }
     public static final class menu {
         public static final int event_detail=0x7f0d0000;
         public static final int main=0x7f0d0001;
     }
     public static final class raw {
-        public static final int bike_lanes=0x7f050000;
-        public static final int hiking_trails=0x7f050001;
-        public static final int marked_on_road_bike_routes=0x7f050002;
-        public static final int paved_multi_use_trails=0x7f050003;
-        public static final int test=0x7f050004;
-        public static final int trails_20141003=0x7f050005;
-        public static final int unmarked_dirt_trails=0x7f050006;
-        public static final int unpaved_multi_use_trails=0x7f050007;
+        public static final int trail_detail=0x7f050000;
+        public static final int trails_20141003=0x7f050001;
     }
     public static final class string {
         public static final int action_preferences=0x7f070021;
