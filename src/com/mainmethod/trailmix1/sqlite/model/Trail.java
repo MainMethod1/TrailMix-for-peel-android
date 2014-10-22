@@ -1,9 +1,17 @@
 package com.mainmethod.trailmix1.sqlite.model;
 
-import java.util.Date;
+/***
+ * <h1> TrailMix for Android Capstone Project </h1>
+ * <h2> Trail model class </h2>
+ * <p> Client: Erica Duque </p>
+ * <p> Oganization: Region of Peel </p>
+ * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
+ * @version 1.0
+ */
 
 public class Trail {
 
+	// Define field variables
 	int id;
 	String trailName;
 	double length;
@@ -18,6 +26,21 @@ public class Trail {
 	String notes;
 	String city;
 
+	/***
+	 * Create the constructor for the model
+	 * @param trailName - Name
+	 * @param length - Length
+	 * @param trailClass - Class
+	 * @param surface - Surface
+	 * @param amenities - Amenities
+	 * @param parking - Parking
+	 * @param seasonHours - Season Hours
+	 * @param lighting - Lighting
+	 * @param winterMaintenance - Winter Maintenance
+	 * @param pets - Pets
+	 * @param notes - Notes
+	 * @param city - City
+	 */
 	public Trail(String trailName, double length, String trailClass,
 			String surface, String amenities, String parking,
 			String seasonHours, String lighting, String winterMaintenance,
@@ -37,6 +60,7 @@ public class Trail {
 		this.city = city;
 	}
 
+	// Define Getters and Setters
 	public String getAmenities() {
 		return amenities;
 	}

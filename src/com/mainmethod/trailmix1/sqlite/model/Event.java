@@ -1,13 +1,17 @@
 package com.mainmethod.trailmix1.sqlite.model;
 
-//import java.util.Date;
-
-import java.util.Date;
-
-import android.text.format.Time;
+/***
+ * <h1> TrailMix for Android Capstone Project </h1>
+ * <h2> Events model class </h2>
+ * <p> Client: Erica Duque </p>
+ * <p> Oganization: Region of Peel </p>
+ * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
+ * @version 1.0
+ */
 
 public class Event {
 
+	// Define field variables
 	String title;
 	int id;
 	String desc;
@@ -21,6 +25,27 @@ public class Event {
 	String contactName;
 	String contactEmail;
 	String poster_url;
+	
+	// Empty constructor
+		public Event(){	
+		}
+		
+	/***
+	 * Create the constructor for the model
+	 * @param title - Title
+	 * @param id - Id
+	 * @param desc - Description
+	 * @param url - Url
+	 * @param url_text - Url Text 
+	 * @param date - Date
+	 * @param startTime - Start Time
+	 * @param endTime - End Time
+	 * @param isAllDayEvent - All Day
+	 * @param location - Location 
+	 * @param contactName - Contact Name
+	 * @param contactEmail - Contact Email
+	 * @param poster_url - Poster Link
+	 */
 	public Event(String title, int id, String desc, String url,
 			String url_text, String date, String startTime, String endTime,
 			boolean isAllDayEvent, String location, String contactName,
@@ -40,12 +65,12 @@ public class Event {
 		this.contactEmail = contactEmail;
 		this.poster_url = poster_url;
 	}
-	public Event() {
-		// TODO Auto-generated constructor stub
-	}
+	
+	// Define Getters and Setters
 	public String getTitle() {
 		return title;
 	}
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -121,6 +146,4 @@ public class Event {
 	public void setPoster_url(String poster_url) {
 		this.poster_url = poster_url;
 	}
-
-	
 }

@@ -28,13 +28,26 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.text.format.Time;
 import android.util.Log;
 
+/***
+ * <h1> TrailMix for Android Capstone Project </h1>
+ * <h2> Database class to create tables and run queries on Android device </h2>
+ * <p> Client: Erica Duque </p>
+ * <p> Oganization: Region of Peel </p>
+ * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
+ * @version 1.0
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+	// *** Define constants ***
+	
+	// Database properties
 	private static final int DATABASE_VERSION = 15;
 	private static final String DATABASE_NAME = "testing3.db";
+	
 	// Logcat tag
 	private static final String LOG = "DatabaseHelper";
-	// table names
+	
+	// Table names
 	private static final String TRAIL_TABLE = "trails";
 	private static final String GEOPOINT_TABLE = "geoPoints";
 	private static final String EVENT_TABLE = "events";
@@ -45,12 +58,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String KEY_CREATED_AT = "created_at";
 
 	// TRAILS Table - column names
-
 	private static final String KEY_NAME = "name";
 	private static final String KEY_TRAIL_CLASS = "class";
 	private static final String KEY_LENGTH = "length";
 	private static final String KEY_SURFACE = "surfaceType";
-	private static final String KEY_TYPE = "type";
 	private static final String KEY_AMENITIES = "amenities";
 	private static final String KEY_PARKING = "parking";
 	private static final String KEY_SEASON_HOURS = "seasonHours";
@@ -79,10 +90,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String KEY_CONTACT_NAME = "contact_name";
 	private static final String KEY_CONTACT_EMAIL = "contact_email";
 
-	// placemark table columns
+	// PLACEMARK Table columns
 	private static final String KEY_TRAIL_ID = "trail_id";
 
-	// Table Create Statements
+	// *** Table Create Statements ***
+	
 	// Trail table create statement
 	private static final String CREATE_TABLE_TRAIL = "CREATE TABLE IF NOT EXISTS "
 			+ TRAIL_TABLE
@@ -195,34 +207,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 
-		// creating required tables
+		// Creating required tables
 		db.execSQL(CREATE_TABLE_TRAIL);
 		db.execSQL(CREATE_TABLE_PLACEMARK);
 		db.execSQL(CREATE_TABLE_GEOPOINT);
 		db.execSQL(CREATE_TABLE_EVENT);
 
+		// *** Below code snippet reserved for testing purposes ***
+		
 		// HashMap<String,TrailObj> trailCollection = parser();
 		// doInsert(trailCollection);
-
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// on upgrade drop older tables
+		// On upgrade drop older tables
 		db.execSQL("DROP TABLE IF EXISTS " + TRAIL_TABLE);
 		db.execSQL("DROP TABLE IF EXISTS " + PLACEMARK_TABLE);
 		db.execSQL("DROP TABLE IF EXISTS " + GEOPOINT_TABLE);
 
 		db.execSQL("DROP TABLE IF EXISTS " + EVENT_TABLE);
 
-		// create new tables
+		// Create new tables
 		onCreate(db);
 	}
 
-	/*
-	 * Creating a trail
-	 */
+	// *** CRUD for Trail table ***
+	
+	// Creating a Trail
 	public long createTrail(Trail trail) {
+		
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
@@ -239,16 +253,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		values.put(KEY_NOTES, trail.getNotes());
 		values.put(KEY_CITY, trail.getCity());
 
-		// insert row
+		// Insert row
 		long trail_id = db.insert(TRAIL_TABLE, null, values);
 
 		return trail_id;
 	}
 
-	/*
-	 * get single trail by id
-	 */
+	// Get a single trail by Id
 	public Trail getTrailById(long trail_id) {
+		
 		SQLiteDatabase db = this.getReadableDatabase();
 
 		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " WHERE "
@@ -276,21 +289,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		trail.setNotes(c.getString(c.getColumnIndex(KEY_NOTES)));
 		trail.setCity(c.getString(c.getColumnIndex(KEY_CITY)));
 	
-		
-
 		return trail;
 	}
 
-	/*
-	 * get single trail by name
-	 */
+	// Get a single trail by name
 	public HashMap<String, Trail> getAllTrails() {
+		
 		HashMap<String, Trail> namedTrails = new HashMap<String, Trail>();
 		SQLiteDatabase db = this.getReadableDatabase();
 
 		Cursor c = db.query(TRAIL_TABLE, null, null, null,
 				null, null, null);
+		
 		Trail trail;
+		
 		if (c.moveToFirst()) {
 			do {
 				trail = new Trail();
@@ -299,6 +311,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				trail.setTrailClass(c.getString(c.getColumnIndex(KEY_TRAIL_CLASS)));
 				trail.setLength(c.getDouble(c.getColumnIndex(KEY_LENGTH)));
 				trail.setSurface(c.getString(c.getColumnIndex(KEY_SURFACE)));
+				
+				// *** Below code snippet reserved for testing purposes ***
+				
 //				trail.setAmenities(c.getString(c.getColumnIndex(KEY_AMENITIES)));
 //				trail.setParking(c.getString(c.getColumnIndex(KEY_PARKING)));
 //				trail.setSeasonHours(c.getString(c.getColumnIndex(KEY_SEASON_HOURS)));
@@ -315,7 +330,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return namedTrails;
 	}
 
-	// Update trail
+	// Update Trails
 	public int updateTrail(Trail trail) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
@@ -333,23 +348,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		values.put(KEY_NOTES, trail.getNotes());
 		values.put(KEY_CITY, trail.getCity());
 
-		// updating row
+		// Updating row
 		return db.update(TRAIL_TABLE, values, KEY_ID + " = ?",
 				new String[] { String.valueOf(trail.getId()) });
 	}
 
-	// delete trail
+	
+	// Delete a Trail
 	public void deleteTrail(long trail_id) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.delete(TRAIL_TABLE, KEY_ID + " = ?",
 				new String[] { String.valueOf(trail_id) });
 	}
 
-	// CRUD for Geopoint table
+	// *** CRUD for Geopoint table ***
 
-	/*
-	 * Creating a geopoint
-	 */
+	// Creating a GeoPoint
 	public long createGeoPoint(GeoPoint geopoint) {
 
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -359,13 +373,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		values.put(KEY_LNG, geopoint.getLng());
 		values.put(KEY_PLACEMARK_ID, geopoint.getPlacemark_id());
 
-		// insert row
+		// Insert row
 		long geopoint_id = db.insert(GEOPOINT_TABLE, null, values);
 
 		return geopoint_id;
 	}
 
-	// delete placemark for a trail
+	// Delete placemark for a trail
 	public void deleteTrailPlacemarks(long trail_id) {
 
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -373,7 +387,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				new String[] { String.valueOf(trail_id) });
 	}
 
-	// delete geopoints for placemark
+	// Delete geopoints for placemark
 	public void deletePlacemarkGeoPoints(long placemark_id) {
 
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -423,7 +437,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return placemarks;
 	}
 	
-	// get geopoints for placemark
+	// Get geopoints for placemark
 	public ArrayList<GeoPoint> getPlacemarkGeoPoints(int placemarkID) {
 		ArrayList<GeoPoint> placemarkGeoPoints = new ArrayList<GeoPoint>();
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -450,7 +464,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return placemarkGeoPoints;
 	}
 
-	// get placemarks for trail
+	// Get placemarks for trail
 	public ArrayList<Placemark> getTrailPlacemarks(String trailName) {
 		ArrayList<Placemark> trailPlacemarks = new ArrayList<Placemark>();
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -476,12 +490,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		}
 		return trailPlacemarks;
 	}
-
-
-
 	
-
-	// CRUD for Placemark
+	// *** CRUD for Placemark table ***
+	
 	public long createPlacemark(Placemark p) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
@@ -495,9 +506,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	
-	// CRUD for EVENT table
+	// *** CRUD for Event table ***
 	
-	//create a new event
+	// Create a new event
 	public long createEvent(Event e) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
@@ -522,7 +533,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	}
 	
-	//get all events from db
+	// Get all events from db
 	public ArrayList<Event> getAllEvents() {
 		ArrayList<Event> eventCollection = new ArrayList<Event>();
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -550,14 +561,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				} else{
 					event.setPoster_url("");
 				}
-				// adding to hashmap
+				
+				// Adding to hashmap
 				eventCollection.add(event);
 			} while (c.moveToNext());
 		}
 		return eventCollection;
 	}
 	
-	//gets event by name
+	// Gets event by name
 	public Event getEventByName(String name){
 		Event event = null;
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -588,33 +600,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				} else{
 					event.setPoster_url("");
 				}
-
-				
-
-			
 			} while (c.moveToNext());
 		}
 		
 		return event;
 	}
-	// delete event
-		public void deleteEvent(long event_id) {
+	
+	// Delete event
+	public void deleteEvent(long event_id) {
 
-			SQLiteDatabase db = this.getWritableDatabase();
-			db.delete(EVENT_TABLE, KEY_ID + " = ?",
-					new String[] { String.valueOf(event_id) });
-		}
-	 
-		//delete all events
-		public void deleteAllEvent() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(EVENT_TABLE, KEY_ID + " = ?",
+				new String[] { String.valueOf(event_id) });
+	}
+ 
+	// Delete all events
+	public void deleteAllEvent() {
 
-			SQLiteDatabase db = this.getWritableDatabase();
-			db.delete(EVENT_TABLE, null,
-					null);
-			closeDB();
-		}
-		
-	// closing database
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(EVENT_TABLE, null,
+				null);
+		closeDB();
+	}
+	
+	// Closing database
 	public void closeDB() {
 		SQLiteDatabase db = this.getReadableDatabase();
 		if (db != null && db.isOpen())

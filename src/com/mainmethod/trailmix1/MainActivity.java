@@ -29,63 +29,78 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+/***
+ * <h1> TrailMix for Android Capstone Project </h1>
+ * <h2> This is the class that is initialized when the app first launches </h2>
+ * <p> Client: Erica Duque </p>
+ * <p> Oganization: Region of Peel </p>
+ * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
+ * @version 1.0
+ */
+
 public class MainActivity extends FragmentActivity {
+	
+	/**
+	 * <p> The FragmentNavigationDrawer is a custom class which extends the DrawerLayout class.
+	 * In turn, the DrawerLayout allows views to be pulled from the edge of the window
+	 * (ie. Side Menu Bar). </p>
+	 */
 	private FragmentNavigationDrawer dlDrawer;
-    private static final String TAG_NAME = "Name";
-    private static final String TAG_LENGTH = "Name";
-    private static final String TAG_TYPE = "Name";
-    private static final String TAG_SURFACE = "Name";
-    private static final String TAG_AMENITIES = "Washroom/Amenities";
-    private static final String TAG_SEASON = "Season/Hours";
-    private static final String TAG_LIGHTING = "Lighting";
-    private static final String TAG_MAINTENANCE = "Winter Maintenance";
-    private static final String TAG_PETS = "Pets";
-    private static final String TAG_NOTES = "Notes/History";
-    private static final String TAG_CITY = "City";
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		/**
+		 * <p> This references the custom activity_main_navigationdrawer.xml 
+		 * inside the layout folder </p>
+		 */
 		setContentView(R.layout.activity_main_navigationdrawer);
 		
-	
-		  
-		//DatabaseHelper db;
-		//db = new DatabaseHelper(getApplicationContext(), ins);
-		
-		// to make the statusbar tinted in API 19 or above, won't make any
-		// difference in other devices
+		/**
+		 * <p> The SystemBarTintManager class allows the status bar to be "tinted" in
+		 * Android API 19 and above only. </p>
+		 */
 		SystemBarTintManager tintManager = new SystemBarTintManager(this);
-		// enable status bar tint
+		// Enable status bar tint 
 		tintManager.setStatusBarTintEnabled(true);
-		// enable navigation bar tint
+		// Enable navigation bar tint
 		tintManager.setNavigationBarTintEnabled(true);
+		// Set color changes for the tint
 		tintManager.setTintColor(Color.parseColor("#00796b"));
 
 		// Find our drawer view
 		dlDrawer = (FragmentNavigationDrawer) findViewById(R.id.drawer_layout);
+		
 		// Setup drawer view
 		dlDrawer.setupDrawerConfiguration(
 				(ListView) findViewById(R.id.left_drawer),
 				R.layout.activity_main_navigationdrawerlistitem,
 				R.id.content_frame);
-		// Add nav items
+		
+		// Call the methods in the FragmentNavigationDrawer class and add nav items along with 
+		// their corresponding fragment classes
 		dlDrawer.addNavItem("Home", R.drawable.ic_drawer_home, "TrailMix",
-				HomeFragment.class);
+				HomeFragment.class); // HomeFragment.java
 		dlDrawer.addNavItem("Tracker", R.drawable.ic_drawer_tracker, "Tracker",
-				TrackerFragment.class);
+				TrackerFragment.class); // TrackerFragment.java
 		dlDrawer.addNavItem("Events", R.drawable.ic_drawer_events, "Events",
-				EventsFragment.class);
+				EventsFragment.class); //EventsFragment.java
 		dlDrawer.addNavItem("Explore Trails", R.drawable.ic_drawer_explore_trails,
-				"Explore Trails", ExploreTrailsFragment.class);
-		// Select default
+				"Explore Trails", ExploreTrailsFragment.class); //ExploreTrailsFragment.java
+		
+		// Select the default nav item
 		if (savedInstanceState == null) {
 			dlDrawer.selectDrawerItem(0);
 		}
 		
-		//HashMap<String, TrailObj> trailCollection = parser();
-		//doInsert(trailCollection);
+		// *** Below code snippet reserved for testing purposes ***
+		
+		// HashMap<String, TrailObj> trailCollection = parser();
+		// doInsert(trailCollection);
 	}
+	
+	// *** Below code snippet reserved for testing purposes ***
+	
 	private void doInsert(HashMap<String, TrailObj> trailCollection) {
 		DatabaseHelper db;
 		db = new DatabaseHelper(getApplicationContext());
@@ -120,35 +135,35 @@ public class MainActivity extends FragmentActivity {
         System.out.println("While inserting: "+ counter);
 	}
 	
+	// *** Below code snippet reserved for testing purposes ***
 	
 	private HashMap<String, TrailObj> parser() {
 
 		HashMap<String, TrailObj> trailCollection = new HashMap<String, TrailObj>();
 		TrailObj tempTrail;
 
-		// TODO Auto-generated method stub
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		try {
-			// create a parser
+			// Create a parser
 			SAXParser parser = factory.newSAXParser();
-			// create the reader (scanner)
-			//XMLReader xmlreader = parser.getXMLReader();
-			// instantiate our handler
+			// Create the reader (scanner)
+			// XMLReader xmlreader = parser.getXMLReader();
+			// Instantiate our handler
 			NavigationSaxHandler navSaxHandler = new NavigationSaxHandler();
 
 			// parser.parse("/Users/D4RK/Dropbox/Study/MAPsPractice/KMLForAndroid/hiking_trails.kml",
 			// navSaxHandler);
-			// assign our handler
-			//xmlreader.setContentHandler(navSaxHandler);
-			// get our data via the url class
+			// Assign our handler
+			// xmlreader.setContentHandler(navSaxHandler);
+			// Get our data via the url class
 			// InputStream ins = this.file;
 			InputStream ins = getResources().openRawResource(
 					getResources().getIdentifier("trails_20141003", "raw",
 							getPackageName()));
 			InputSource is = new InputSource(ins);
-			// perform the synchronous parse
-
-			//xmlreader.parse(is);
+			// Perform the synchronous parse
+			
+			// xmlreader.parse(is);
 			parser.parse(is, navSaxHandler);
 			ArrayList<PlacemarkObj> ds = navSaxHandler.getPlacemarks();
 			ArrayList<PlacemarkObj> currTrailPlacemarks;
@@ -194,6 +209,7 @@ public class MainActivity extends FragmentActivity {
 		}
 		return trailCollection;
 	}
+	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// If the nav drawer is open, hide action items related to the content
@@ -206,7 +222,6 @@ public class MainActivity extends FragmentActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
 		// Uncomment to inflate menu items to Action Bar
 		getMenuInflater().inflate(R.menu.main, menu);
 		return super.onCreateOptionsMenu(menu);
@@ -219,9 +234,8 @@ public class MainActivity extends FragmentActivity {
 		if (dlDrawer.getDrawerToggle().onOptionsItemSelected(item)) {
 			return true;
 		}
-		
-		
-		//opens preferences from the actionbar
+			
+		// opens preferences from the actionbar
 		if(item.getItemId() == R.id.action_preferences){
 			Intent settingsIntent = new Intent(this, PrefActivity.class);
 			startActivity(settingsIntent);

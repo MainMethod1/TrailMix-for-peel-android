@@ -22,7 +22,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/***
+ * <h1> TrailMix for Android Capstone Project </h1>
+ * <h2> This is a custom class for the Left Navigation Menu which extends 
+ * DrawerLayout </h2>
+ * <p> Client: Erica Duque </p>
+ * <p> Oganization: Region of Peel </p>
+ * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
+ * @version 1.0
+ */
+
 public class FragmentNavigationDrawer extends DrawerLayout {
+	// define private global variables
 	private ActionBarDrawerToggle drawerToggle;
 	private ListView lvDrawer;
 	private NavDrawerListAdapter drawerAdapter;
@@ -30,6 +41,13 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 	private ArrayList<FragmentNavItem> drawerNavItems;    
 	private int drawerContainerRes;
 
+	/***
+	 * Define the constructors for this class.  However, they are currently not in use
+	 * and are reserved for future testing purposes.
+	 * @param context - Defines what context/"activity" you are currently in
+	 * @param attrs - Defines which attributes you wish to pass to each fragment
+	 * @param defStyle -
+	 */
 	public FragmentNavigationDrawer(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 	}
@@ -43,6 +61,12 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 	}
     
 	// setupDrawerConfiguration((ListView) findViewById(R.id.lvDrawer), R.layout.drawer_list_item, R.id.flContent);
+	/***
+	 * 
+	 * @param drawerListView
+	 * @param drawerItemRes
+	 * @param drawerContainerRes
+	 */
     public void setupDrawerConfiguration(ListView drawerListView, int drawerItemRes, int drawerContainerRes) {
         // Setup navigation items array
         drawerNavItems = new ArrayList<FragmentNavigationDrawer.FragmentNavItem>();         
@@ -63,7 +87,13 @@ public class FragmentNavigationDrawer extends DrawerLayout {
         getActionBar().setHomeButtonEnabled(true);
     }
 
-    // addNavItem("First", R.drawable.ic_one, "First Fragment", FirstFragment.class)
+    /***
+     * <h1> Adding Navigation Items and Create Fragments/"Views" from each item </h1>
+     * @param navTitle - Defines the name values for each nav item
+     * @param icon - Sets the icon associated with each nav item
+     * @param windowTitle - Defines the window title for each fragment activity
+     * @param fragmentClass - Creates a new fragment for each nav item on click
+     */
     public void addNavItem(String navTitle, int icon, String windowTitle, Class<? extends Fragment> fragmentClass) { 
         // adding nav drawer items to array
         navDrawerItems.add(new NavDrawerItem(navTitle, icon)); 
@@ -73,15 +103,18 @@ public class FragmentNavigationDrawer extends DrawerLayout {
         drawerNavItems.add(new FragmentNavItem(windowTitle, fragmentClass));
     }
 
-
-	/** Swaps fragments in the main content view */
+    /***
+     * Swaps fragments in the main content view
+     * @param position - Defines the item "position" based on integer value
+     */
 	public void selectDrawerItem(int position) {
-		// Create a new fragment and specify the planet to show based on
-		// position
+		// Create a new fragment and specify the planet to show based on position
 		FragmentNavItem navItem = drawerNavItems.get(position);
+		// Initialize fragment variable
 		Fragment fragment = null;
 		try {
 			fragment = navItem.getFragmentClass().newInstance();
+			
 			Bundle args = navItem.getFragmentArgs();
 			if (args != null) { 
 			  fragment.setArguments(args);
@@ -101,12 +134,10 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 		closeDrawer(lvDrawer);
 	}
 	
-
 	public ActionBarDrawerToggle getDrawerToggle() {
 		return drawerToggle;
 	}
 
-	
 	private FragmentActivity getActivity() {
 		return (FragmentActivity) getContext();
 	}
@@ -127,6 +158,7 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 	}
 	
 	private class FragmentNavItem {
+		// Define private global variables
 		private Class<? extends Fragment> fragmentClass;
 		private String title;
 		private Bundle fragmentArgs;
@@ -176,6 +208,4 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 	public boolean isDrawerOpen() {
 		return isDrawerOpen(lvDrawer);
 	}
-	
-
 }
