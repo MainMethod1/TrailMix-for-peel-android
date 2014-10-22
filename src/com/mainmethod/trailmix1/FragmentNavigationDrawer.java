@@ -46,7 +46,7 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 	 * and are reserved for future testing purposes.
 	 * @param context - Defines what context/"activity" you are currently in
 	 * @param attrs - Defines which attributes you wish to pass to each fragment
-	 * @param defStyle -
+	 * @param defStyle - Defines the style
 	 */
 	public FragmentNavigationDrawer(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);

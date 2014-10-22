@@ -11,7 +11,8 @@ import android.view.MenuItem;
 
 /***
  * <h1> TrailMix for Android Capstone Project </h1>
- * <h2> This is an activity class which references the EventDetailFragment containing </h2>
+ * <h2> This is an activity class which references the EventDetailFragment 
+ * containing  </h2>
  * <p> Client: Erica Duque </p>
  * <p> Oganization: Region of Peel </p>
  * @author jonathan zarate, parth sondarva, shivam sharma, garrett may

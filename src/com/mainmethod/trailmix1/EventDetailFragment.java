@@ -1,10 +1,8 @@
 package com.mainmethod.trailmix1;
 
-import java.util.ArrayList;
-
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.mainmethod.trailmix1.sqlite.model.Event;
-
+// Android Library
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -34,12 +32,12 @@ public class EventDetailFragment extends Fragment {
 		}
 	}
 
+	// This method 
 	private Event getEvent(String argEventName) {
 		DatabaseHelper db = new DatabaseHelper(getActivity());
 		Event event = db.getEventByName(argEventName);
 		db.close();
 		return event;
-
 	}
 
 	@Override
@@ -70,9 +68,8 @@ public class EventDetailFragment extends Fragment {
 			.setText(eventItem.getUrl());
 			//((TextView) rootView.findViewById(R.id.eventURL_TEXT))
 			//.setText(eventItem.getUrl_text());
-//			((TextView) rootView.findViewById(R.id.eventPoster_URL))
-//			.setText(eventItem.getPoster_url());
-	
+			//(TextView) rootView.findViewById(R.id.eventPoster_URL))
+			//.setText(eventItem.getPoster_url());
 		}
 
 		return rootView;
