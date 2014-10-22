@@ -27,6 +27,7 @@
     </string-array>
 
     <string name="title_activity_event_detail">Detail</string>
+    <string name="title_activity_trail_detail">Trail Information</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 

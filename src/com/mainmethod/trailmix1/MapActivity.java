@@ -50,7 +50,7 @@ public class MapActivity extends FragmentActivity {
 	private static final String TAG_LENGTH = "Length";
 	private static final String TAG_TYPE = "Type";
 	private static final String TAG_SURFACE = "Surface";
-	private static final String TAG_AMENITIES = "Washroom/Amenities";
+	private static final String TAG_AMENITIES = "Washrooms/Amenities";
 	private static final String TAG_PARKING = "Parking";
 	private static final String TAG_SEASON = "Season/Hours";
 	private static final String TAG_LIGHTING = "Lighting";
@@ -190,21 +190,34 @@ public class MapActivity extends FragmentActivity {
 
 	private void doInsert(HashMap<String, TrailObj> trailCollection) {
 		
-		HashMap<String, TrailObj> updatedTrailColection = new HashMap<String, TrailObj>();
-		String trailName = null;
-		TrailObj tempTrail = null;
-		for(TrailObj to : trailCollection.values())
-		{
-			tempTrail = to;
-			trailName = to.getTrailName();
-			for(Trail t: getJSONData())
-			{
-				if(trailName.equals(t.getTrailName()))
-				{
-					
-				}
-			}
-		}
+		HashMap<String, Trail> trailInfoCollection = getJSONData();
+//		String trailName = null;
+//		TrailObj tempTrail = null;
+//		for(TrailObj to : trailCollection.values())
+//		{
+//			tempTrail = new TrailObj();
+//			trailName = to.getTrailName();
+//			for(Trail t: getJSONData())
+//			{
+//				if(trailName.equals(t.getTrailName()))
+//				{
+//					tempTrail.setTrailName(t.getTrailName());
+//					tempTrail.setAmenities(t.getAmenities());
+//					tempTrail.setLength(t.getLength());
+//					tempTrail.setCity(t.getCity());
+//					tempTrail.setLighting(t.getLighting());
+//					tempTrail.setNotes(t.getNotes());
+//					tempTrail.setParking(t.getParking());
+//					tempTrail.setSurface(t.getSurface());
+//					tempTrail.setSeasonHours(t.getSeasonHours());
+//					tempTrail.setPets(t.getPets());
+//					
+//					updatedTrailColection.put(trailName, tempTrail);
+//					//add to hash map
+//					break;
+//				}
+//			}
+//		}
 		DatabaseHelper db;
 		db = new DatabaseHelper(getApplicationContext());
 
@@ -213,11 +226,20 @@ public class MapActivity extends FragmentActivity {
 		int counter = 0;
 		for (TrailObj trail : trailCollection.values()) {
 			trailID++;
-			Trail trailModel = new Trail(trail.getTrailName(),
-					trail.getLength(), trail.getSurface(),
-					trail.getTrailClass());
-			db.createTrail(trailModel);
-
+			
+			if(trailInfoCollection.containsKey(trail.getTrailName()))
+			{
+				Trail temp = trailInfoCollection.get(trail.getTrailName());
+				db.createTrail(temp);
+			}
+			else
+			{
+				Trail trailModel = new Trail(trail.getTrailName(),
+						trail.getLength(), trail.getSurface(),
+						trail.getTrailClass());
+				db.createTrail(trailModel);
+			}
+			
 			for (PlacemarkObj pmark : trail.getPlacemarks()) {
 				placeMarkId++;
 				Placemark p = new Placemark();
@@ -238,14 +260,14 @@ public class MapActivity extends FragmentActivity {
 		System.out.println("While inserting: " + counter);
 	}
 
-	public ArrayList<Trail> getJSONData() {
-		// mEventList = new ArrayList<HashMap<String, String>>();
-		ArrayList<Trail> eventList = new ArrayList<Trail>();
-		String jsonStr ;
-
+public HashMap<String,Trail> getJSONData() {
 		
+//		ArrayList<Trail> trailList = new ArrayList<Trail>();
+		HashMap<String,Trail> trailList1 = new HashMap<String,Trail>();
+		String jsonStr;
+		int counter=0;
+	
 			try {
-
 				InputStream is = getResources().openRawResource(
 						getResources().getIdentifier("trail_detail", "raw",
 								getPackageName()));
@@ -261,7 +283,7 @@ public class MapActivity extends FragmentActivity {
 
 				for (int i = 0; i < jsonArray.length(); i++) {
 					JSONObject jsonObj = jsonArray.getJSONObject(i);
-
+                    counter++;
 					String name =jsonObj.getString(TAG_NAME);
 					Double length = Double.parseDouble(jsonObj.getString(TAG_LENGTH));
 					String type = jsonObj.getString(TAG_TYPE);
@@ -275,9 +297,12 @@ public class MapActivity extends FragmentActivity {
 					String notes = jsonObj.getString(TAG_NOTES);
 					String city = jsonObj.getString(TAG_CITY);
 
-					eventList.add(new Trail(name, length, type, surface,
+					trailList1.put(name, new Trail(name, length, type, surface,
 							amenities, parking, season, lighting, maintenance,
 							pets, notes, city));
+//			       trailList.add(new Trail(name, length, type, surface,
+//							amenities, parking, season, lighting, maintenance,
+//							pets, notes, city));
 
 				}
 			} catch (JSONException e) {
@@ -287,8 +312,7 @@ public class MapActivity extends FragmentActivity {
 				e.printStackTrace();
 			}
 		
-		return eventList;
-
+		return trailList1;
 	}
 
 	private HashMap<String, TrailObj> parser() {

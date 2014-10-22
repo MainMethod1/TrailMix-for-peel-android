@@ -57,6 +57,10 @@
             android:name=".EventDetailActivity"
             android:label="@string/title_activity_event_detail" >
         </activity>
+          <activity
+                android:name=".TrailDetailActivity"
+                android:label="@string/title_activity_trail_detail" >
+            </activity>
     </application>
 
 </manifest>
