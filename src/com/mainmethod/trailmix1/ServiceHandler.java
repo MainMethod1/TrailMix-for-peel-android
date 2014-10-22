@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
  
+// Apache Library
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -14,7 +15,16 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
- 
+
+/***
+ * <h1> TrailMix for Android Capstone Project </h1>
+ * <h2> This class is used to make a service call to the server
+ * and obtain json data to populate the events and trails information on the app </h2>
+ * <p> Client: Erica Duque </p>
+ * <p> Oganization: Region of Peel </p>
+ * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
+ * @version 1.0
+ */
 public class ServiceHandler {
  
     static String response = null;
@@ -51,7 +61,7 @@ public class ServiceHandler {
             // Checking http request method type
             if (method == POST) {
                 HttpPost httpPost = new HttpPost(url);
-                // adding post params
+                // Adding post params
                 if (params != null) {
                     httpPost.setEntity(new UrlEncodedFormEntity(params));
                 }
@@ -82,6 +92,5 @@ public class ServiceHandler {
         }
          
         return response;
- 
     }
 }
