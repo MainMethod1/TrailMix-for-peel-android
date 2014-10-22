@@ -1,8 +1,6 @@
 package com.mainmethod.trailmix1;
 
-
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,6 +8,15 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+
+/***
+ * <h1> TrailMix for Android Capstone Project </h1>
+ * <h2> This is the class that displays the details for each event on click </h2>
+ * <p> Client: Erica Duque </p>
+ * <p> Oganization: Region of Peel </p>
+ * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
+ * @version 1.0
+ */
 
 public class EventDetailActivity extends FragmentActivity {
 
