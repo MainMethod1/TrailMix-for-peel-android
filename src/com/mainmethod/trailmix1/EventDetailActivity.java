@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 /***
  * <h1> TrailMix for Android Capstone Project </h1>
- * <h2> This is the class that displays the details for each event on click </h2>
+ * <h2> This is an activity class which references the EventDetailFragment containing </h2>
  * <p> Client: Erica Duque </p>
  * <p> Oganization: Region of Peel </p>
  * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
@@ -23,17 +23,18 @@ public class EventDetailActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_event_detail);
 		
-		// to make the statusbar tinted in API 19 or above, won't make any
-				// difference in other devices
+				// To make the statusbar tinted in API 19 or above. Otherwise, it
+				// won't make any difference in other devices
 				SystemBarTintManager tintManager = new SystemBarTintManager(this);
-				// enable status bar tint
+				// Enable status bar tint
 				tintManager.setStatusBarTintEnabled(true);
-				// enable navigation bar tint
+				// Enable navigation bar tint
 				tintManager.setNavigationBarTintEnabled(true);
+				// Set tint color
 				tintManager.setTintColor(Color.parseColor("#00796b"));
-				
 				
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		if (savedInstanceState == null) {
@@ -52,7 +53,7 @@ public class EventDetailActivity extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.event_detail, menu);
+		// getMenuInflater().inflate(R.menu.event_detail, menu);
 		return true;
 	}
 
