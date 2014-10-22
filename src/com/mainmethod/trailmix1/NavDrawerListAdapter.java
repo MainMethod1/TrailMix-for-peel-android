@@ -2,6 +2,7 @@ package com.mainmethod.trailmix1;
 
 import java.util.ArrayList;
 
+// Android Library
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +11,17 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+/***
+ * <h1> TrailMix for Android Capstone Project </h1>
+ * <h2> This class extends the BaseAdapter class from the Android API 
+ * which accepts a collection of NavDrawerItems to be displayed
+ * into a ListView on the FragmentNavigationDrawer </h2>
+ * <p> Client: Erica Duque </p>
+ * <p> Oganization: Region of Peel </p>
+ * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
+ * @version 1.0
+ */
 
 public class NavDrawerListAdapter extends BaseAdapter {
 
