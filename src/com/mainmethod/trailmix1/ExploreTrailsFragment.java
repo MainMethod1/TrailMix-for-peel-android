@@ -12,6 +12,7 @@ import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class ExploreTrailsFragment extends ListFragment {
@@ -49,6 +52,28 @@ public class ExploreTrailsFragment extends ListFragment {
 		getView();
 	}
     
+	
+
+	private class TrailItemClickListener implements
+			ListView.OnItemClickListener {
+		@Override
+		public void onItemClick(AdapterView parent, View view, int position,
+				long id) {
+			// selectItem(position);
+			Trail t = (Trail) parent.getItemAtPosition(position);
+
+			Intent detailIntent = new Intent(getActivity(),
+					TrailDetailActivity.class);
+			detailIntent.putExtra(TrailDetailFragment.ARG_TRAIL_NAME,
+					t.getTrailName());
+			startActivity(detailIntent);
+			// Toast.makeText(getActivity().getApplicationContext(),
+			// e.getContactName() + e.getContactEmail(),
+			// Toast.LENGTH_SHORT).show();
+
+		}
+	}
+	
 	public class LoadTrails extends AsyncTask<Void, Void, Boolean> {
 
 		@Override
@@ -64,7 +89,7 @@ public class ExploreTrailsFragment extends ListFragment {
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
 			db = new DatabaseHelper(getActivity());
-			tList = new ArrayList<Trail>(db.getAllTrails().values());
+			tList = new ArrayList<Trail>(db.getAllTrailsWithInfo().values());
 
 			db.close();
 
@@ -86,6 +111,8 @@ public class ExploreTrailsFragment extends ListFragment {
 			TrailListAdapter trailAdapter = new TrailListAdapter(getActivity(),
 					tList);
 			setListAdapter(trailAdapter);
+			final ListView lv = getListView();
+			lv.setOnItemClickListener(new TrailItemClickListener());
 		}
 	}
 	
