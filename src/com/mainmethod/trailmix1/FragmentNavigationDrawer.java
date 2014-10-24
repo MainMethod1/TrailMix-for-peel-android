@@ -25,7 +25,7 @@ import android.widget.ListView;
 /***
  * <h1> TrailMix for Android Capstone Project </h1>
  * <h2> This is a custom class for the Left Navigation Menu which extends 
- * DrawerLayout </h2>
+ * DrawerLayout from Android API</h2>
  * <p> Client: Erica Duque </p>
  * <p> Oganization: Region of Peel </p>
  * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
