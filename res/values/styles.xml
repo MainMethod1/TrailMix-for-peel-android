@@ -8,11 +8,16 @@
         <item name="android:actionBarStyle">@style/MyActionBar</item>
        <!--  <item name="android:activatedBackgroundIndicator">@drawable/list_activated_background</item> -->
         <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        
     </style>
 
     <!-- ActionBar styles -->
-    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">#009688</item>
+  <!--   <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@null</item>
+    </style> -->
+    <style name="MyActionBar" parent="@android:Widget.ActionBar">
+        <item name="android:background">@null</item>
     </style>
     <!-- Overflow icon color change style -->
     <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">

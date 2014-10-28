@@ -18,6 +18,8 @@ import org.xml.sax.XMLReader;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -28,19 +30,24 @@ import com.mainmethod.trailmix1.kmlparsing.NavigationSaxHandler;
 import com.mainmethod.trailmix1.kmlparsing.PlacemarkObj;
 import com.mainmethod.trailmix1.kmlparsing.TrailObj;
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
-import com.mainmethod.trailmix1.sqlite.model.Event;
 import com.mainmethod.trailmix1.sqlite.model.GeoPoint;
 import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import android.app.Dialog;
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 //import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 public class MapActivity extends FragmentActivity {
@@ -74,18 +81,12 @@ public class MapActivity extends FragmentActivity {
 
 				try {
 					// loadKML(mMap);
-					HashMap<String, TrailObj> trailCollection = parser();
+					//HashMap<String, TrailObj> trailCollection = parser();
 
 					// drawMap(trailCollection, mMap);
-					doInsert(trailCollection);
+					//doInsert(trailCollection);
 					// drawTrails(mMap);
-					// drawTrail(mMap, trailCollection.get("Bruce Trail"));
-					// drawTrail(mMap,
-					// trailCollection.get("Bruce Trail (Road Allowance)"));
-					// drawTrail(mMap,
-					// trailCollection.get("Bruce Trail (On Road)"));
-					// drawTrail(mMap,
-					// trailCollection.get("Elora Cataract Trailway"));
+					
 
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -101,6 +102,7 @@ public class MapActivity extends FragmentActivity {
 			setContentView(R.layout.activity_main_navigationdrawer);
 		}
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		//handleIntent(getIntent());
 	}
 
 	private void drawMap(HashMap<String, TrailObj> trailCollection,
@@ -191,33 +193,6 @@ public class MapActivity extends FragmentActivity {
 	private void doInsert(HashMap<String, TrailObj> trailCollection) {
 		
 		HashMap<String, Trail> trailInfoCollection = getJSONData();
-//		String trailName = null;
-//		TrailObj tempTrail = null;
-//		for(TrailObj to : trailCollection.values())
-//		{
-//			tempTrail = new TrailObj();
-//			trailName = to.getTrailName();
-//			for(Trail t: getJSONData())
-//			{
-//				if(trailName.equals(t.getTrailName()))
-//				{
-//					tempTrail.setTrailName(t.getTrailName());
-//					tempTrail.setAmenities(t.getAmenities());
-//					tempTrail.setLength(t.getLength());
-//					tempTrail.setCity(t.getCity());
-//					tempTrail.setLighting(t.getLighting());
-//					tempTrail.setNotes(t.getNotes());
-//					tempTrail.setParking(t.getParking());
-//					tempTrail.setSurface(t.getSurface());
-//					tempTrail.setSeasonHours(t.getSeasonHours());
-//					tempTrail.setPets(t.getPets());
-//					
-//					updatedTrailColection.put(trailName, tempTrail);
-//					//add to hash map
-//					break;
-//				}
-//			}
-//		}
 		DatabaseHelper db;
 		db = new DatabaseHelper(getApplicationContext());
 
@@ -260,7 +235,7 @@ public class MapActivity extends FragmentActivity {
 		System.out.println("While inserting: " + counter);
 	}
 
-public HashMap<String,Trail> getJSONData() {
+    public HashMap<String,Trail> getJSONData() {
 		
 //		ArrayList<Trail> trailList = new ArrayList<Trail>();
 		HashMap<String,Trail> trailList1 = new HashMap<String,Trail>();
@@ -454,7 +429,10 @@ public HashMap<String,Trail> getJSONData() {
 		return false;
 
 	}
-
+    
+	
+	
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
@@ -463,7 +441,17 @@ public HashMap<String,Trail> getJSONData() {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Uncomment to inflate menu items to Action Bar
+		getMenuInflater().inflate(R.menu.main, menu);
+		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+		SearchView searchView = (SearchView) menu.findItem(R.id.searchOption).getActionView();
+		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+		return super.onCreateOptionsMenu(menu);
+	}
+	 
 	public boolean servicesOK() {
 		int isAvailable = GooglePlayServicesUtil
 				.isGooglePlayServicesAvailable(this);
@@ -490,4 +478,23 @@ public HashMap<String,Trail> getJSONData() {
 		return (mMap != null);
 
 	}
+	
+	
+	
+	private void showLocations(Cursor c){
+        MarkerOptions markerOptions = null;
+        LatLng position = null;
+        mMap.clear();
+        while(c.moveToNext()){
+            markerOptions = new MarkerOptions();
+            position = new LatLng(Double.parseDouble(c.getString(1)),Double.parseDouble(c.getString(2)));
+            markerOptions.position(position);
+            markerOptions.title(c.getString(0));
+            mMap.addMarker(markerOptions);
+        }
+        if(position!=null){
+            CameraUpdate cameraPosition = CameraUpdateFactory.newLatLng(position);
+            mMap.animateCamera(cameraPosition);
+        }
+    }
 }

@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="21" />
 
     <permission
         android:name="com.mainmethod.trailmix1.permission.MAPS_RECEIVE"
@@ -29,6 +29,10 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/CustomActionBarTheme" >
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".SearchActivity" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -43,7 +47,9 @@
         <activity android:name=".ViewTrailsActivity" />
         <activity
             android:name=".MapActivity"
-            android:theme="@style/CustomActionBarStyle" />
+            android:theme="@style/CustomActionBarStyle" >
+
+        </activity>
         <activity android:name=".preferences.PrefActivity" />
 
         <meta-data
@@ -57,6 +63,31 @@
             android:name=".EventDetailActivity"
             android:label="@string/title_activity_event_detail" >
         </activity>
+        <activity
+            android:name=".TrailDetailActivity"
+            android:label="@string/title_activity_trail_detail" >
+        </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/title_activity_search"
+            android:launchMode="singleTop" >
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" >
+            </meta-data>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <provider
+            android:name=".PlaceProvider"
+            android:authorities="com.mainmethod.trailmix1.PlaceProvider"
+            android:exported="false" />
+
+        
     </application>
 
 </manifest>

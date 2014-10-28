@@ -20,6 +20,8 @@ import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -28,6 +30,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 /***
  * <h1> TrailMix for Android Capstone Project </h1>
@@ -93,122 +96,10 @@ public class MainActivity extends FragmentActivity {
 			dlDrawer.selectDrawerItem(0);
 		}
 		
-		// *** Below code snippet reserved for testing purposes ***
-		
-		// HashMap<String, TrailObj> trailCollection = parser();
-		// doInsert(trailCollection);
 	}
 	
-	// *** Below code snippet reserved for testing purposes ***
+
 	
-	private void doInsert(HashMap<String, TrailObj> trailCollection) {
-		DatabaseHelper db;
-		db = new DatabaseHelper(getApplicationContext());
-
-		int trailID = 0;
-		int placeMarkId = 0;
-        int counter = 0;
-		for (TrailObj trail : trailCollection.values()) {
-			trailID++;
-			Trail trailModel = new Trail(trail.getTrailName(),
-					trail.getLength(), trail.getSurface(),
-					trail.getTrailClass());
-			db.createTrail(trailModel);
-
-			for (PlacemarkObj pmark : trail.getPlacemarks()) {
-				placeMarkId++;
-				Placemark p = new Placemark();
-				p.setTrail_id(trailID);
-				db.createPlacemark(p);
-
-				for (LatLng geoPoint : pmark.getCoordinates()) {
-                   
-					GeoPoint gp = new GeoPoint(geoPoint.latitude,
-							geoPoint.longitude, placeMarkId);
-					db.createGeoPoint(gp);
-					counter++;
-				}
-			}
-
-		}
-		db.closeDB();
-        System.out.println("While inserting: "+ counter);
-	}
-	
-	// *** Below code snippet reserved for testing purposes ***
-	
-	private HashMap<String, TrailObj> parser() {
-
-		HashMap<String, TrailObj> trailCollection = new HashMap<String, TrailObj>();
-		TrailObj tempTrail;
-
-		SAXParserFactory factory = SAXParserFactory.newInstance();
-		try {
-			// Create a parser
-			SAXParser parser = factory.newSAXParser();
-			// Create the reader (scanner)
-			// XMLReader xmlreader = parser.getXMLReader();
-			// Instantiate our handler
-			NavigationSaxHandler navSaxHandler = new NavigationSaxHandler();
-
-			// parser.parse("/Users/D4RK/Dropbox/Study/MAPsPractice/KMLForAndroid/hiking_trails.kml",
-			// navSaxHandler);
-			// Assign our handler
-			// xmlreader.setContentHandler(navSaxHandler);
-			// Get our data via the url class
-			// InputStream ins = this.file;
-			InputStream ins = getResources().openRawResource(
-					getResources().getIdentifier("trails_20141003", "raw",
-							getPackageName()));
-			InputSource is = new InputSource(ins);
-			// Perform the synchronous parse
-			
-			// xmlreader.parse(is);
-			parser.parse(is, navSaxHandler);
-			ArrayList<PlacemarkObj> ds = navSaxHandler.getPlacemarks();
-			ArrayList<PlacemarkObj> currTrailPlacemarks;
-            int counter = 0;
-			Double currTrailLength = 0.0;
-
-			System.out.println(ds.size());
-			if (ds.isEmpty()) {
-				System.out.println("It's still empty");
-			} else {
-				for (PlacemarkObj p : ds) {
-
-					if (!trailCollection.containsKey(p.getTrailName())) {
-						currTrailPlacemarks = new ArrayList<PlacemarkObj>();
-
-						tempTrail = new TrailObj();
-						tempTrail.setTrailName(p.getTrailName());
-						currTrailLength = 0.0;
-						tempTrail.setTrailClass(p.getTrailClass());
-						tempTrail.setSurface(p.getSurface());
-
-						for (PlacemarkObj pmark : ds) {
-
-							if (pmark.getTrailName().equals(p.getTrailName())) {
-								currTrailPlacemarks.add(pmark);
-								
-								currTrailLength += pmark.getLength();
-							}
-						}
-						tempTrail.setLength(currTrailLength);
-						tempTrail.setPlacemarks(currTrailPlacemarks);
-						trailCollection.put(p.getTrailName(), tempTrail);
-						for(PlacemarkObj o: currTrailPlacemarks)
-						{
-							counter+=o.getCoordinates().size();
-						}
-					}
-				}
-				System.out.println("From parser" + counter);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return trailCollection;
-	}
 	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
@@ -224,6 +115,11 @@ public class MainActivity extends FragmentActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Uncomment to inflate menu items to Action Bar
 		getMenuInflater().inflate(R.menu.main, menu);
+		
+		
+		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+		SearchView searchView = (SearchView) menu.findItem(R.id.searchOption).getActionView();
+		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 		return super.onCreateOptionsMenu(menu);
 	}
 
