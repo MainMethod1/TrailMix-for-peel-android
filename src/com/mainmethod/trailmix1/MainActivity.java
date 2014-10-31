@@ -25,10 +25,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.Outline;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewOutlineProvider;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -82,19 +87,21 @@ public class MainActivity extends FragmentActivity {
 		
 		// Call the methods in the FragmentNavigationDrawer class and add nav items along with 
 		// their corresponding fragment classes
-		dlDrawer.addNavItem("Home", R.drawable.ic_drawer_home, "TrailMix",
+		dlDrawer.addNavItem("Home", R.drawable.ic_drawer_home, "Select Activity",
 				HomeFragment.class); // HomeFragment.java
+		dlDrawer.addNavItem("Explore Trails", R.drawable.ic_drawer_explore_trails,
+				"Explore Trails", ExploreTrailsFragment.class); 
 		dlDrawer.addNavItem("Tracker", R.drawable.ic_drawer_tracker, "Tracker",
 				TrackerFragment.class); // TrackerFragment.java
 		dlDrawer.addNavItem("Events", R.drawable.ic_drawer_events, "Events",
 				EventsFragment.class); //EventsFragment.java
-		dlDrawer.addNavItem("Explore Trails", R.drawable.ic_drawer_explore_trails,
-				"Explore Trails", ExploreTrailsFragment.class); //ExploreTrailsFragment.java
+		//ExploreTrailsFragment.java
 		
 		// Select the default nav item
 		if (savedInstanceState == null) {
 			dlDrawer.selectDrawerItem(0);
 		}
+		
 		
 	}
 	

@@ -8,8 +8,11 @@
 package com.mainmethod.trailmix1;
 
 public final class R {
+    public static final class anim {
+        public static final int anim=0x7f040000;
+    }
     public static final class array {
-        public static final int menu_items=0x7f0b0000;
+        public static final int menu_items=0x7f0c0000;
     }
     public static final class attr {
         /** 
@@ -446,46 +449,46 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f01001b;
     }
     public static final class color {
-        public static final int cardview_dark_background=0x7f080000;
-        public static final int cardview_light_background=0x7f080001;
-        public static final int cardview_shadow_end_color=0x7f080002;
-        public static final int cardview_shadow_start_color=0x7f080003;
-        public static final int colors=0x7f08001b;
-        public static final int common_action_bar_splitter=0x7f08000d;
+        public static final int cardview_dark_background=0x7f090000;
+        public static final int cardview_light_background=0x7f090001;
+        public static final int cardview_shadow_end_color=0x7f090002;
+        public static final int cardview_shadow_start_color=0x7f090003;
+        public static final int colors=0x7f09001b;
+        public static final int common_action_bar_splitter=0x7f09000d;
         /**  Sign-in Button Colors 
          */
-        public static final int common_signin_btn_dark_text_default=0x7f080004;
-        public static final int common_signin_btn_dark_text_disabled=0x7f080006;
-        public static final int common_signin_btn_dark_text_focused=0x7f080007;
-        public static final int common_signin_btn_dark_text_pressed=0x7f080005;
-        public static final int common_signin_btn_default_background=0x7f08000c;
-        public static final int common_signin_btn_light_text_default=0x7f080008;
-        public static final int common_signin_btn_light_text_disabled=0x7f08000a;
-        public static final int common_signin_btn_light_text_focused=0x7f08000b;
-        public static final int common_signin_btn_light_text_pressed=0x7f080009;
-        public static final int common_signin_btn_text_dark=0x7f08001c;
-        public static final int common_signin_btn_text_light=0x7f08001d;
-        public static final int list_item=0x7f08001e;
-        public static final int wallet_bright_foreground_disabled_holo_light=0x7f080013;
+        public static final int common_signin_btn_dark_text_default=0x7f090004;
+        public static final int common_signin_btn_dark_text_disabled=0x7f090006;
+        public static final int common_signin_btn_dark_text_focused=0x7f090007;
+        public static final int common_signin_btn_dark_text_pressed=0x7f090005;
+        public static final int common_signin_btn_default_background=0x7f09000c;
+        public static final int common_signin_btn_light_text_default=0x7f090008;
+        public static final int common_signin_btn_light_text_disabled=0x7f09000a;
+        public static final int common_signin_btn_light_text_focused=0x7f09000b;
+        public static final int common_signin_btn_light_text_pressed=0x7f090009;
+        public static final int common_signin_btn_text_dark=0x7f09001c;
+        public static final int common_signin_btn_text_light=0x7f09001d;
+        public static final int list_item=0x7f09001e;
+        public static final int wallet_bright_foreground_disabled_holo_light=0x7f090013;
         /** 
          Wallet colors to support consistent Wallet fragment holo dark UI in client application
          regardless of the theme and device type
     
          */
-        public static final int wallet_bright_foreground_holo_dark=0x7f08000e;
-        public static final int wallet_bright_foreground_holo_light=0x7f080014;
-        public static final int wallet_dim_foreground_disabled_holo_dark=0x7f080010;
-        public static final int wallet_dim_foreground_holo_dark=0x7f08000f;
-        public static final int wallet_dim_foreground_inverse_disabled_holo_dark=0x7f080012;
-        public static final int wallet_dim_foreground_inverse_holo_dark=0x7f080011;
-        public static final int wallet_highlighted_text_holo_dark=0x7f080018;
-        public static final int wallet_highlighted_text_holo_light=0x7f080017;
-        public static final int wallet_hint_foreground_holo_dark=0x7f080016;
-        public static final int wallet_hint_foreground_holo_light=0x7f080015;
-        public static final int wallet_holo_blue_light=0x7f080019;
-        public static final int wallet_link_text_light=0x7f08001a;
-        public static final int wallet_primary_text_holo_light=0x7f08001f;
-        public static final int wallet_secondary_text_holo_dark=0x7f080020;
+        public static final int wallet_bright_foreground_holo_dark=0x7f09000e;
+        public static final int wallet_bright_foreground_holo_light=0x7f090014;
+        public static final int wallet_dim_foreground_disabled_holo_dark=0x7f090010;
+        public static final int wallet_dim_foreground_holo_dark=0x7f09000f;
+        public static final int wallet_dim_foreground_inverse_disabled_holo_dark=0x7f090012;
+        public static final int wallet_dim_foreground_inverse_holo_dark=0x7f090011;
+        public static final int wallet_highlighted_text_holo_dark=0x7f090018;
+        public static final int wallet_highlighted_text_holo_light=0x7f090017;
+        public static final int wallet_hint_foreground_holo_dark=0x7f090016;
+        public static final int wallet_hint_foreground_holo_light=0x7f090015;
+        public static final int wallet_holo_blue_light=0x7f090019;
+        public static final int wallet_link_text_light=0x7f09001a;
+        public static final int wallet_primary_text_holo_light=0x7f09001f;
+        public static final int wallet_secondary_text_holo_dark=0x7f090020;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -499,136 +502,152 @@ containing a value of this type.
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f090003;
-        public static final int activity_vertical_margin=0x7f090004;
-        public static final int cardview_compat_inset_shadow=0x7f090000;
-        public static final int cardview_default_elevation=0x7f090001;
-        public static final int cardview_default_radius=0x7f090002;
-        public static final int font_size=0x7f090007;
-        public static final int textview_height=0x7f090005;
-        public static final int textview_width=0x7f090006;
+        public static final int activity_horizontal_margin=0x7f0a0003;
+        public static final int activity_vertical_margin=0x7f0a0004;
+        public static final int button_elevation=0x7f0a0009;
+        public static final int button_press_elevation=0x7f0a000a;
+        public static final int cardview_compat_inset_shadow=0x7f0a0000;
+        public static final int cardview_default_elevation=0x7f0a0001;
+        public static final int cardview_default_radius=0x7f0a0002;
+        public static final int fab_size=0x7f0a0008;
+        public static final int font_size=0x7f0a0007;
+        public static final int textview_height=0x7f0a0005;
+        public static final int textview_width=0x7f0a0006;
     }
     public static final class drawable {
-        public static final int common_signin_btn_icon_dark=0x7f020000;
-        public static final int common_signin_btn_icon_disabled_dark=0x7f020001;
-        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020002;
-        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020003;
-        public static final int common_signin_btn_icon_disabled_light=0x7f020004;
-        public static final int common_signin_btn_icon_focus_dark=0x7f020005;
-        public static final int common_signin_btn_icon_focus_light=0x7f020006;
-        public static final int common_signin_btn_icon_light=0x7f020007;
-        public static final int common_signin_btn_icon_normal_dark=0x7f020008;
-        public static final int common_signin_btn_icon_normal_light=0x7f020009;
-        public static final int common_signin_btn_icon_pressed_dark=0x7f02000a;
-        public static final int common_signin_btn_icon_pressed_light=0x7f02000b;
-        public static final int common_signin_btn_text_dark=0x7f02000c;
-        public static final int common_signin_btn_text_disabled_dark=0x7f02000d;
-        public static final int common_signin_btn_text_disabled_focus_dark=0x7f02000e;
-        public static final int common_signin_btn_text_disabled_focus_light=0x7f02000f;
-        public static final int common_signin_btn_text_disabled_light=0x7f020010;
-        public static final int common_signin_btn_text_focus_dark=0x7f020011;
-        public static final int common_signin_btn_text_focus_light=0x7f020012;
-        public static final int common_signin_btn_text_light=0x7f020013;
-        public static final int common_signin_btn_text_normal_dark=0x7f020014;
-        public static final int common_signin_btn_text_normal_light=0x7f020015;
-        public static final int common_signin_btn_text_pressed_dark=0x7f020016;
-        public static final int common_signin_btn_text_pressed_light=0x7f020017;
-        public static final int cycling=0x7f020018;
-        public static final int drawer_shadow=0x7f020019;
-        public static final int hiking=0x7f02001a;
-        public static final int ic_action_event=0x7f02001b;
-        public static final int ic_action_search=0x7f02001c;
-        public static final int ic_core_overflow=0x7f02001d;
-        public static final int ic_cycling=0x7f02001e;
-        public static final int ic_drawer=0x7f02001f;
-        public static final int ic_drawer_events=0x7f020020;
-        public static final int ic_drawer_explore_trails=0x7f020021;
-        public static final int ic_drawer_home=0x7f020022;
-        public static final int ic_drawer_tracker=0x7f020023;
-        public static final int ic_events=0x7f020024;
-        public static final int ic_launcher=0x7f020025;
-        public static final int ic_map=0x7f020026;
-        public static final int ic_navigation_drawer=0x7f020027;
-        public static final int ic_plusone_medium_off_client=0x7f020028;
-        public static final int ic_plusone_small_off_client=0x7f020029;
-        public static final int ic_plusone_standard_off_client=0x7f02002a;
-        public static final int ic_plusone_tall_off_client=0x7f02002b;
-        public static final int ic_running=0x7f02002c;
-        public static final int jogging=0x7f02002d;
-        public static final int list_activated_background=0x7f02002e;
-        public static final int powered_by_google_dark=0x7f02002f;
-        public static final int powered_by_google_light=0x7f020030;
+        public static final int btn_biking=0x7f020000;
+        public static final int btn_hiking=0x7f020001;
+        public static final int btn_pause=0x7f020002;
+        public static final int btn_play=0x7f020003;
+        public static final int btn_play_pause=0x7f020004;
+        public static final int btn_plus=0x7f020005;
+        public static final int btn_running=0x7f020006;
+        public static final int btn_stop=0x7f020007;
+        public static final int common_signin_btn_icon_dark=0x7f020008;
+        public static final int common_signin_btn_icon_disabled_dark=0x7f020009;
+        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f02000a;
+        public static final int common_signin_btn_icon_disabled_focus_light=0x7f02000b;
+        public static final int common_signin_btn_icon_disabled_light=0x7f02000c;
+        public static final int common_signin_btn_icon_focus_dark=0x7f02000d;
+        public static final int common_signin_btn_icon_focus_light=0x7f02000e;
+        public static final int common_signin_btn_icon_light=0x7f02000f;
+        public static final int common_signin_btn_icon_normal_dark=0x7f020010;
+        public static final int common_signin_btn_icon_normal_light=0x7f020011;
+        public static final int common_signin_btn_icon_pressed_dark=0x7f020012;
+        public static final int common_signin_btn_icon_pressed_light=0x7f020013;
+        public static final int common_signin_btn_text_dark=0x7f020014;
+        public static final int common_signin_btn_text_disabled_dark=0x7f020015;
+        public static final int common_signin_btn_text_disabled_focus_dark=0x7f020016;
+        public static final int common_signin_btn_text_disabled_focus_light=0x7f020017;
+        public static final int common_signin_btn_text_disabled_light=0x7f020018;
+        public static final int common_signin_btn_text_focus_dark=0x7f020019;
+        public static final int common_signin_btn_text_focus_light=0x7f02001a;
+        public static final int common_signin_btn_text_light=0x7f02001b;
+        public static final int common_signin_btn_text_normal_dark=0x7f02001c;
+        public static final int common_signin_btn_text_normal_light=0x7f02001d;
+        public static final int common_signin_btn_text_pressed_dark=0x7f02001e;
+        public static final int common_signin_btn_text_pressed_light=0x7f02001f;
+        public static final int cycling=0x7f020020;
+        public static final int drawer_shadow=0x7f020021;
+        public static final int hiking=0x7f020022;
+        public static final int ic_action_event=0x7f020023;
+        public static final int ic_action_search=0x7f020024;
+        public static final int ic_core_overflow=0x7f020025;
+        public static final int ic_cycling=0x7f020026;
+        public static final int ic_drawer=0x7f020027;
+        public static final int ic_drawer_events=0x7f020028;
+        public static final int ic_drawer_explore_trails=0x7f020029;
+        public static final int ic_drawer_home=0x7f02002a;
+        public static final int ic_drawer_tracker=0x7f02002b;
+        public static final int ic_events=0x7f02002c;
+        public static final int ic_launcher=0x7f02002d;
+        public static final int ic_map=0x7f02002e;
+        public static final int ic_navigation_drawer=0x7f02002f;
+        public static final int ic_plusone_medium_off_client=0x7f020030;
+        public static final int ic_plusone_small_off_client=0x7f020031;
+        public static final int ic_plusone_standard_off_client=0x7f020032;
+        public static final int ic_plusone_tall_off_client=0x7f020033;
+        public static final int ic_running=0x7f020034;
+        public static final int jogging=0x7f020035;
+        public static final int list_activated_background=0x7f020036;
+        public static final int powered_by_google_dark=0x7f020037;
+        public static final int powered_by_google_light=0x7f020038;
+        public static final int ripple=0x7f020039;
     }
     public static final class id {
-        public static final int action_preferences=0x7f0d0041;
-        public static final int action_settings=0x7f0d003f;
-        public static final int activity_detail_container=0x7f0d0014;
-        public static final int activity_trail_detail_container=0x7f0d001c;
-        public static final int book_now=0x7f0d000e;
-        public static final int button_bike=0x7f0d003c;
-        public static final int button_hike=0x7f0d003d;
-        public static final int button_run=0x7f0d003b;
-        public static final int buyButton=0x7f0d000a;
-        public static final int buy_now=0x7f0d000f;
-        public static final int buy_with_google=0x7f0d0010;
-        public static final int classic=0x7f0d0011;
-        public static final int content_frame=0x7f0d0016;
-        public static final int date=0x7f0d0020;
-        public static final int drawer_layout=0x7f0d0015;
-        public static final int drawer_list_item=0x7f0d0019;
-        public static final int eventContact=0x7f0d002d;
-        public static final int eventContactEmail=0x7f0d002e;
-        public static final int eventDate=0x7f0d0028;
-        public static final int eventDesc=0x7f0d002b;
-        public static final int eventEndTime=0x7f0d002a;
-        public static final int eventLocation=0x7f0d0027;
-        public static final int eventName=0x7f0d001e;
-        public static final int eventStartTime=0x7f0d0029;
-        public static final int eventTitle=0x7f0d0026;
-        public static final int eventURL=0x7f0d002c;
-        public static final int exploreTrailsFragment=0x7f0d0025;
-        public static final int grayscale=0x7f0d0012;
-        public static final int holo_dark=0x7f0d0005;
-        public static final int holo_light=0x7f0d0006;
-        public static final int hybrid=0x7f0d0000;
-        public static final int ivIcon=0x7f0d0018;
-        public static final int left_drawer=0x7f0d0017;
-        public static final int list_item_counter=0x7f0d0024;
-        public static final int location=0x7f0d001f;
-        public static final int map=0x7f0d001a;
-        public static final int match_parent=0x7f0d000c;
-        public static final int monochrome=0x7f0d0013;
-        public static final int none=0x7f0d0001;
-        public static final int normal=0x7f0d0002;
-        public static final int production=0x7f0d0007;
-        public static final int sandbox=0x7f0d0008;
-        public static final int satellite=0x7f0d0003;
-        public static final int searchMap=0x7f0d001b;
-        public static final int searchOption=0x7f0d0040;
-        public static final int selectionDetails=0x7f0d000b;
-        public static final int strict_sandbox=0x7f0d0009;
-        public static final int swipe_container=0x7f0d001d;
-        public static final int terrain=0x7f0d0004;
-        public static final int trackerFragment=0x7f0d003e;
-        public static final int trailLength=0x7f0d0022;
-        public static final int trailName=0x7f0d0021;
-        public static final int trailSurface=0x7f0d0023;
-        public static final int txt_amenities=0x7f0d0033;
-        public static final int txt_lighting=0x7f0d0036;
-        public static final int txt_maintenance=0x7f0d0037;
-        public static final int txt_notes=0x7f0d0039;
-        public static final int txt_parking=0x7f0d0034;
-        public static final int txt_pets=0x7f0d0038;
-        public static final int txt_seasonHours=0x7f0d0035;
-        public static final int txt_trailLength=0x7f0d0031;
-        public static final int txt_trailName=0x7f0d002f;
-        public static final int txt_trailSurface=0x7f0d0032;
-        public static final int txt_trailType=0x7f0d0030;
-        public static final int welcomenote=0x7f0d003a;
-        public static final int wrap_content=0x7f0d000d;
+        public static final int action_preferences=0x7f0e0045;
+        public static final int action_settings=0x7f0e0043;
+        public static final int activity_detail_container=0x7f0e0014;
+        public static final int activity_trail_detail_container=0x7f0e001c;
+        public static final int book_now=0x7f0e000e;
+        public static final int button_bike=0x7f0e003b;
+        public static final int button_hike=0x7f0e003c;
+        public static final int button_run=0x7f0e003a;
+        public static final int buyButton=0x7f0e000a;
+        public static final int buy_now=0x7f0e000f;
+        public static final int buy_with_google=0x7f0e0010;
+        public static final int classic=0x7f0e0011;
+        public static final int content_frame=0x7f0e0016;
+        public static final int date=0x7f0e0020;
+        public static final int drawer_layout=0x7f0e0015;
+        public static final int drawer_list_item=0x7f0e0019;
+        public static final int eventContact=0x7f0e002d;
+        public static final int eventContactEmail=0x7f0e002e;
+        public static final int eventDate=0x7f0e0028;
+        public static final int eventDesc=0x7f0e002b;
+        public static final int eventEndTime=0x7f0e002a;
+        public static final int eventLocation=0x7f0e0027;
+        public static final int eventName=0x7f0e001e;
+        public static final int eventStartTime=0x7f0e0029;
+        public static final int eventTitle=0x7f0e0026;
+        public static final int eventURL=0x7f0e002c;
+        public static final int exploreTrailsFragment=0x7f0e0025;
+        public static final int fab_playPauseBtn=0x7f0e0042;
+        public static final int fab_stopBtn=0x7f0e0041;
+        public static final int grayscale=0x7f0e0012;
+        public static final int holo_dark=0x7f0e0005;
+        public static final int holo_light=0x7f0e0006;
+        public static final int hybrid=0x7f0e0000;
+        public static final int ivIcon=0x7f0e0018;
+        public static final int left_drawer=0x7f0e0017;
+        public static final int list_item_counter=0x7f0e0024;
+        public static final int location=0x7f0e001f;
+        public static final int map=0x7f0e001a;
+        public static final int match_parent=0x7f0e000c;
+        public static final int monochrome=0x7f0e0013;
+        public static final int none=0x7f0e0001;
+        public static final int normal=0x7f0e0002;
+        public static final int production=0x7f0e0007;
+        public static final int sandbox=0x7f0e0008;
+        public static final int satellite=0x7f0e0003;
+        public static final int searchMap=0x7f0e001b;
+        public static final int searchOption=0x7f0e0044;
+        public static final int selectionDetails=0x7f0e000b;
+        public static final int strict_sandbox=0x7f0e0009;
+        public static final int swipe_container=0x7f0e001d;
+        public static final int terrain=0x7f0e0004;
+        public static final int trackerFragment=0x7f0e003d;
+        public static final int trackerMap=0x7f0e003e;
+        public static final int trailLength=0x7f0e0022;
+        public static final int trailName=0x7f0e0021;
+        public static final int trailSurface=0x7f0e0023;
+        public static final int txt_amenities=0x7f0e0033;
+        public static final int txt_distance=0x7f0e0040;
+        public static final int txt_lighting=0x7f0e0036;
+        public static final int txt_maintenance=0x7f0e0037;
+        public static final int txt_notes=0x7f0e0039;
+        public static final int txt_parking=0x7f0e0034;
+        public static final int txt_pets=0x7f0e0038;
+        public static final int txt_seasonHours=0x7f0e0035;
+        public static final int txt_speed=0x7f0e003f;
+        public static final int txt_trailLength=0x7f0e0031;
+        public static final int txt_trailName=0x7f0e002f;
+        public static final int txt_trailSurface=0x7f0e0032;
+        public static final int txt_trailType=0x7f0e0030;
+        public static final int wrap_content=0x7f0e000d;
     }
     public static final class integer {
-        public static final int google_play_services_version=0x7f0a0000;
+        public static final int google_play_services_version=0x7f0b0000;
     }
     public static final class layout {
         public static final int activity_event_detail=0x7f030000;
@@ -647,136 +666,137 @@ containing a value of this type.
         public static final int tracker_fragment=0x7f03000d;
     }
     public static final class menu {
-        public static final int event_detail=0x7f0c0000;
-        public static final int main=0x7f0c0001;
-        public static final int search=0x7f0c0002;
+        public static final int event_detail=0x7f0d0000;
+        public static final int main=0x7f0d0001;
+        public static final int search=0x7f0d0002;
     }
     public static final class raw {
-        public static final int trail_detail=0x7f050000;
-        public static final int trails_20141003=0x7f050001;
+        public static final int trail_detail=0x7f060000;
+        public static final int trails_20141003=0x7f060001;
     }
     public static final class string {
-        public static final int action_preferences=0x7f060021;
-        public static final int action_settings=0x7f060034;
-        public static final int action_trails=0x7f060022;
-        public static final int app_name=0x7f060000;
-        public static final int auth_client_needs_enabling_title=0x7f060002;
-        public static final int auth_client_needs_installation_title=0x7f060003;
-        public static final int auth_client_needs_update_title=0x7f060004;
-        public static final int auth_client_play_services_err_notification_msg=0x7f060005;
-        public static final int auth_client_requested_by_msg=0x7f060006;
-        public static final int auth_client_using_bad_version_title=0x7f060001;
+        public static final int action_preferences=0x7f070021;
+        public static final int action_settings=0x7f070035;
+        public static final int action_trails=0x7f070022;
+        public static final int app_name=0x7f070000;
+        public static final int auth_client_needs_enabling_title=0x7f070002;
+        public static final int auth_client_needs_installation_title=0x7f070003;
+        public static final int auth_client_needs_update_title=0x7f070004;
+        public static final int auth_client_play_services_err_notification_msg=0x7f070005;
+        public static final int auth_client_requested_by_msg=0x7f070006;
+        public static final int auth_client_using_bad_version_title=0x7f070001;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_button=0x7f060012;
+        public static final int common_google_play_services_enable_button=0x7f070012;
         /**  Message in confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_enable_text=0x7f060011;
+        public static final int common_google_play_services_enable_text=0x7f070011;
         /**  Title of confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_enable_title=0x7f060010;
+        public static final int common_google_play_services_enable_title=0x7f070010;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static final int common_google_play_services_error_notification_requested_by_msg=0x7f06000b;
+        public static final int common_google_play_services_error_notification_requested_by_msg=0x7f07000b;
         /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_button=0x7f06000f;
+        public static final int common_google_play_services_install_button=0x7f07000f;
         /**  (For phones) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_phone=0x7f06000d;
+        public static final int common_google_play_services_install_text_phone=0x7f07000d;
         /**  (For tablets) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_install_text_tablet=0x7f06000e;
+        public static final int common_google_play_services_install_text_tablet=0x7f07000e;
         /**  Title of confirmation dialog informing user that they need to install
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_install_title=0x7f06000c;
+        public static final int common_google_play_services_install_title=0x7f07000c;
         /**  Message in confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_invalid_account_text=0x7f060018;
+        public static final int common_google_play_services_invalid_account_text=0x7f070018;
         /**  Title of confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_invalid_account_title=0x7f060017;
+        public static final int common_google_play_services_invalid_account_title=0x7f070017;
         /**   Title for notification shown when GooglePlayServices needs to be enabled for an
         application to work. [CHAR LIMIT=70] 
          */
-        public static final int common_google_play_services_needs_enabling_title=0x7f06000a;
+        public static final int common_google_play_services_needs_enabling_title=0x7f07000a;
         /**  Message in confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_network_error_text=0x7f060016;
+        public static final int common_google_play_services_network_error_text=0x7f070016;
         /**  Title of confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_network_error_title=0x7f060015;
+        public static final int common_google_play_services_network_error_title=0x7f070015;
         /**   Title for notification shown when GooglePlayServices needs to be installed
         for an application to work. [CHAR LIMIT=70] 
          */
-        public static final int common_google_play_services_notification_needs_installation_title=0x7f060008;
+        public static final int common_google_play_services_notification_needs_installation_title=0x7f070008;
         /**   Title for notification shown when GooglePlayServices needs to be updated for an
         application to work. [CHAR LIMIT=70] 
          */
-        public static final int common_google_play_services_notification_needs_update_title=0x7f060009;
+        public static final int common_google_play_services_notification_needs_update_title=0x7f070009;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static final int common_google_play_services_notification_ticker=0x7f060007;
+        public static final int common_google_play_services_notification_ticker=0x7f070007;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unknown_issue=0x7f060019;
+        public static final int common_google_play_services_unknown_issue=0x7f070019;
         /**  Message in confirmation dialog informing user that date on the device is not correct,
     causing certificate checks to fail. [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unsupported_date_text=0x7f06001c;
+        public static final int common_google_play_services_unsupported_date_text=0x7f07001c;
         /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_unsupported_text=0x7f06001b;
+        public static final int common_google_play_services_unsupported_text=0x7f07001b;
         /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_unsupported_title=0x7f06001a;
+        public static final int common_google_play_services_unsupported_title=0x7f07001a;
         /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_button=0x7f06001d;
+        public static final int common_google_play_services_update_button=0x7f07001d;
         /**  Message in confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static final int common_google_play_services_update_text=0x7f060014;
+        public static final int common_google_play_services_update_text=0x7f070014;
         /**  Title of confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static final int common_google_play_services_update_title=0x7f060013;
+        public static final int common_google_play_services_update_title=0x7f070013;
         /**  Sign-in button text [CHAR LIMIT=15] 
          */
-        public static final int common_signin_button_text=0x7f06001e;
+        public static final int common_signin_button_text=0x7f07001e;
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
-        public static final int common_signin_button_text_long=0x7f06001f;
-        public static final int drawer_close=0x7f060025;
-        public static final int drawer_open=0x7f060024;
-        public static final int hello_world=0x7f060033;
-        public static final int pref_about_developer=0x7f06002f;
-        public static final int pref_about_developer_summary=0x7f060030;
-        public static final int pref_about_title=0x7f06002e;
-        public static final int pref_bicycle_lane=0x7f060028;
-        public static final int pref_hiking_trail=0x7f06002a;
-        public static final int pref_map_layer_title=0x7f060027;
-        public static final int pref_paved_multi_use_trail=0x7f06002b;
-        public static final int pref_signed_bike_route=0x7f060029;
-        public static final int pref_unmarked_dirt_trail=0x7f06002c;
-        public static final int pref_unpaved_multi_use_trail=0x7f06002d;
-        public static final int search_hint=0x7f060023;
-        public static final int title_activity_event_detail=0x7f060031;
-        public static final int title_activity_search=0x7f060035;
-        public static final int title_activity_trail_detail=0x7f060032;
+        public static final int common_signin_button_text_long=0x7f07001f;
+        public static final int drawer_close=0x7f070025;
+        public static final int drawer_open=0x7f070024;
+        public static final int hello_world=0x7f070034;
+        public static final int pref_about_developer=0x7f070030;
+        public static final int pref_about_developer_summary=0x7f070031;
+        public static final int pref_about_title=0x7f07002f;
+        public static final int pref_bicycle_lane=0x7f070029;
+        public static final int pref_hiking_trail=0x7f07002b;
+        public static final int pref_map_layer_title=0x7f070028;
+        public static final int pref_paved_multi_use_trail=0x7f07002c;
+        public static final int pref_signed_bike_route=0x7f07002a;
+        public static final int pref_unmarked_dirt_trail=0x7f07002d;
+        public static final int pref_unpaved_multi_use_trail=0x7f07002e;
+        public static final int search_hint=0x7f070023;
+        public static final int select_activity=0x7f070027;
+        public static final int title_activity_event_detail=0x7f070032;
+        public static final int title_activity_search=0x7f070036;
+        public static final int title_activity_trail_detail=0x7f070033;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
-        public static final int wallet_buy_button_place_holder=0x7f060020;
-        public static final int welcome_note=0x7f060026;
+        public static final int wallet_buy_button_place_holder=0x7f070020;
+        public static final int welcome_note=0x7f070026;
     }
     public static final class style {
         /** 
@@ -811,14 +831,14 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
-        public static final int CardView=0x7f070002;
-        public static final int CardView_Dark=0x7f070003;
-        public static final int CardView_Light=0x7f070004;
+        public static final int AppTheme=0x7f080001;
+        public static final int CardView=0x7f080002;
+        public static final int CardView_Dark=0x7f080003;
+        public static final int CardView_Light=0x7f080004;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -839,12 +859,12 @@ containing a value of this type.
 
     
          */
-        public static final int CustomActionBarStyle=0x7f07000a;
+        public static final int CustomActionBarStyle=0x7f08000a;
         /**  the theme applied to the application or activity 
  the theme applied to the application or activity 
  the theme applied to the application or activity 
          */
-        public static final int CustomActionBarTheme=0x7f07000d;
+        public static final int CustomActionBarTheme=0x7f08000d;
         /**  ActionBar styles 
    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@null</item>
@@ -853,27 +873,27 @@ containing a value of this type.
  ActionBar styles 
  ActionBar styles 
          */
-        public static final int MyActionBar=0x7f07000b;
+        public static final int MyActionBar=0x7f08000b;
         /**  Overflow icon color change style 
  Overflow icon color change style 
  Overflow icon color change style 
  Overflow icon color change style 
          */
-        public static final int OverFlow=0x7f07000c;
-        public static final int Theme_IAPTheme=0x7f070005;
-        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f070008;
-        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f070007;
-        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f070006;
+        public static final int OverFlow=0x7f08000c;
+        public static final int Theme_IAPTheme=0x7f080005;
+        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f080008;
+        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f080007;
+        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f080006;
         /** 
          Default style of the wallet fragment that will be used if not set explicitly
          when fragment is created
     
          */
-        public static final int WalletFragmentDefaultStyle=0x7f070009;
+        public static final int WalletFragmentDefaultStyle=0x7f080009;
     }
     public static final class xml {
-        public static final int preferences=0x7f040000;
-        public static final int searchable=0x7f040001;
+        public static final int preferences=0x7f050000;
+        public static final int searchable=0x7f050001;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.

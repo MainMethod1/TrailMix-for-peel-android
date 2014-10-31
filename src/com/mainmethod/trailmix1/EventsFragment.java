@@ -101,7 +101,7 @@ public class EventsFragment extends ListFragment {
 		public void run() {
 			try {
 				if (swipeLayout.isRefreshing()) {
-					handler.postDelayed(this, 1000);
+					handler.postDelayed(this, 6000);
 				} else {
 
 					swipeLayout.setRefreshing(false);

@@ -8,7 +8,7 @@
         android:layout_marginTop="5dp"
         android:orientation="vertical" >
 
-        <TextView
+      <!--   <TextView
             android:id="@+id/welcomenote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,50 +19,51 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#E6000000"
             android:textStyle="bold"
-            android:typeface="monospace" />
+            android:typeface="monospace" /> -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="100dp"
             android:layout_marginBottom="250dp"
             android:layout_weight="1"
             android:orientation="horizontal" >
 
             <Button
                 android:id="@+id/button_run"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_width="56dp"
+                android:layout_height="120dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:drawableTop="@drawable/jogging"
+                android:background="@drawable/btn_running"
                 android:scaleType="fitCenter"
-                android:text="Run" />
+                 />
 
             <Button
                 android:id="@+id/button_bike"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_width="56dp"
+                android:layout_height="120dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:drawableTop="@drawable/cycling"
+                android:background="@drawable/btn_biking"
                 android:scaleType="fitCenter"
-                android:text="Bike" />
+              />
 
             <Button
                 android:id="@+id/button_hike"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_width="56dp"
+                android:layout_height="120dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:drawableTop="@drawable/hiking"
+                android:background="@drawable/btn_hiking"
                 android:scaleType="fitCenter"
-                android:text="Hike" />
+                 />
         </LinearLayout>
     </LinearLayout>
 

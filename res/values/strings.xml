@@ -8,6 +8,7 @@
     <string name="drawer_open">open drawer</string>
     <string name="drawer_close">close drawer</string>
     <string name="welcome_note">What do you feel like doing today?</string>
+    <string	name="select_activity">Select activity </string>
     <string name="pref_map_layer_title">Map Layers </string>
     <string name="pref_bicycle_lane">Bicycle lane </string>
     <string name="pref_signed_bike_route">Signed bike route </string>

@@ -7,5 +7,10 @@
     <dimen name="textview_height">25dp</dimen>
     <dimen name="textview_width">150dp</dimen>
     <dimen name="font_size">16sp</dimen>
+    
+    <dimen name="fab_size">56dp</dimen>
+
+    <dimen name="button_elevation">4dp</dimen>
+    <dimen name="button_press_elevation">6dp</dimen>
 
 </resources>

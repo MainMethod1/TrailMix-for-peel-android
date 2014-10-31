@@ -35,7 +35,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,11 +62,13 @@
 
         <activity
             android:name=".EventDetailActivity"
-            android:label="@string/title_activity_event_detail" >
+            android:label="@string/title_activity_event_detail" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".TrailDetailActivity"
-            android:label="@string/title_activity_trail_detail" >
+            android:label="@string/title_activity_trail_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".SearchActivity"

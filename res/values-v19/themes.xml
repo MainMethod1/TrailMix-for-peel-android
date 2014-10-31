@@ -13,7 +13,7 @@
 
     <!-- ActionBar styles -->
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">#009688</item>
+        <item name="android:background">#03a9f4</item>
     </style>
 
     <!-- Overflow icon color change style -->

@@ -42,8 +42,7 @@ public class PlaceJSONParser {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }
- 
+        } 
         return placesList;
     }
  

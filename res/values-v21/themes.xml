@@ -3,9 +3,9 @@
 
     <!-- the theme applied to the application or activity -->
     <style name="CustomActionBarTheme" parent="android:Theme.Material.Light.DarkActionBar">
-        <item name="android:colorPrimary">#259b24</item>
-        <item name="android:colorPrimaryDark">#0a7e07</item>
-        <item name="android:colorAccent">#cddc39</item>
+        <item name="android:colorPrimary">#03a9f4</item>
+        <item name="android:colorPrimaryDark">#0288d1</item>
+        <item name="android:colorAccent">#e91e63</item>
     </style>
      
 
