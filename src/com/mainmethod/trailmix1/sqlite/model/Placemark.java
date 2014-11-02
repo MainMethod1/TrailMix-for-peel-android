@@ -14,7 +14,16 @@ public class Placemark {
 	// Define field variables
 	int id;
 	int trail_id;
+	String trail_class;
 	
+	public String getTrail_class() {
+		return trail_class;
+	}
+
+	public void setTrail_class(String trail_class) {
+		this.trail_class = trail_class;
+	}
+
 	// Empty constructor
 	public Placemark() {
 		// TODO Auto-generated constructor stub

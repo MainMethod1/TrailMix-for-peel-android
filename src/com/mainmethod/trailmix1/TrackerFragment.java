@@ -1,6 +1,10 @@
 package com.mainmethod.trailmix1;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
@@ -12,6 +16,7 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -19,6 +24,8 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.mainmethod.trailmix1.sqlite.model.Event;
+import com.mainmethod.trailmix1.sqlite.model.Session;
+import com.mainmethod.trailmix1.sqlite.model.SessionGeopoint;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -31,6 +38,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,127 +50,198 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class TrackerFragment extends Fragment implements GooglePlayServicesClient.ConnectionCallbacks,
-GooglePlayServicesClient.OnConnectionFailedListener,
-LocationListener {
+		GooglePlayServicesClient.OnConnectionFailedListener, LocationListener {
 	ProgressDialog pDialog;
-	
+
 	int updates = 0;
 	PolylineOptions rectOptions;
-	
+	ArrayList<SessionGeopoint> currGeopoints;
 	private LocationRequest mLocationRequest;
 	private LocationClient mLocationClient;
 	GoogleMap gMap;
-    // Name of shared preferences repository that stores persistent state
-    public static final String SHARED_PREFERENCES =
-            "com.example.android.location.SHARED_PREFERENCES";
+	UiSettings mapSettings;
+	Session currentSession;
+	double distance;
+	double time;
 
-    // Key for storing the "updates requested" flag in shared preferences
-    public static final String KEY_UPDATES_REQUESTED =
-            "com.example.android.location.KEY_UPDATES_REQUESTED";
-    
-    // Handle to SharedPreferences for this app
-    SharedPreferences mPrefs;
+	TimerTask currSessionTimer;
+	int s = 0;
+	int m = 0;
+	int secondsTaken = 0;
+	double distanceTravelled = 0;
+	Location lastLocation = null;
 
-    // Handle to a SharedPreferences editor
-    SharedPreferences.Editor mEditor;
-    
-    boolean mUpdatesRequested = false;
-	
+	double currSpeed = 0;
+
+	TextView speedTxt;
+	TextView distanceTxt;
+	TextView timer;
+
+	private static final LatLng PEEL = new LatLng(43.6719449, -79.65912);
+
+	// Name of shared preferences repository that stores persistent state
+	public static final String SHARED_PREFERENCES = "com.example.android.location.SHARED_PREFERENCES";
+
+	// Key for storing the "updates requested" flag in shared preferences
+	public static final String KEY_UPDATES_REQUESTED = "com.example.android.location.KEY_UPDATES_REQUESTED";
+
+	// Handle to SharedPreferences for this app
+	SharedPreferences mPrefs;
+
+	// Handle to a SharedPreferences editor
+	SharedPreferences.Editor mEditor;
+
+	boolean mUpdatesRequested = false;
+
 	// Milliseconds per second
-    private static final int MILLISECONDS_PER_SECOND = 1000;
-    // Update frequency in seconds
-    public static final int UPDATE_INTERVAL_IN_SECONDS = 5;
-    // Update frequency in milliseconds
-    private static final long UPDATE_INTERVAL =
-            MILLISECONDS_PER_SECOND * UPDATE_INTERVAL_IN_SECONDS;
-    // The fastest update frequency, in seconds
-    private static final int FASTEST_INTERVAL_IN_SECONDS = 2;
-    // A fast frequency ceiling in milliseconds
-    private static final long FASTEST_INTERVAL =
-            MILLISECONDS_PER_SECOND * FASTEST_INTERVAL_IN_SECONDS;
-	
+	private static final int MILLISECONDS_PER_SECOND = 1000;
+	// Update frequency in seconds
+	public static final int UPDATE_INTERVAL_IN_SECONDS = 5;
+	// Update frequency in milliseconds
+	private static final long UPDATE_INTERVAL = MILLISECONDS_PER_SECOND * UPDATE_INTERVAL_IN_SECONDS;
+	// The fastest update frequency, in seconds
+	private static final int FASTEST_INTERVAL_IN_SECONDS = 5;
+	// A fast frequency ceiling in milliseconds
+	private static final long FASTEST_INTERVAL = MILLISECONDS_PER_SECOND * FASTEST_INTERVAL_IN_SECONDS;
+	// smallest distance traveled between updates in meters
+	private static final int SMALLEST_DISPLACEMENT = 10;
+
 	public TrackerFragment() {
 		// TODO Auto-generated constructor stub
 	}
 
-
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.tracker_fragment, container, false);
 		mLocationRequest = LocationRequest.create();
 		// Inflate the layout for this fragment
 		mLocationRequest.setInterval(UPDATE_INTERVAL);
 		mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 		mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
-		
+		mLocationRequest.setSmallestDisplacement(SMALLEST_DISPLACEMENT);
 		// Note that location updates are off until the user turns them on
-        mUpdatesRequested = false;
+		mUpdatesRequested = false;
 
-        // Open Shared Preferences
-        mPrefs = getActivity().getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
+		// Open Shared Preferences
+		mPrefs = getActivity().getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
 
-        // Get an editor
-        mEditor = mPrefs.edit();
+		// Get an editor
+		mEditor = mPrefs.edit();
 
-		if(initMap()){
-			
+		speedTxt = (TextView) v.findViewById(R.id.txt_speed);
+		distanceTxt = (TextView) v.findViewById(R.id.txt_distance);
+		timer = (TextView) v.findViewById(R.id.timer);
+
+		final ImageButton fab = (ImageButton) v.findViewById(R.id.fab_playPauseBtn);
+		final ImageButton fab_stop = (ImageButton) v.findViewById(R.id.fab_stopBtn);
+
+		fab_stop.setVisibility(View.INVISIBLE);
+
+		if (initMap()) {
+			mapSettings = gMap.getUiSettings();
 			gMap.setBuildingsEnabled(true);
 			gMap.setMyLocationEnabled(true);
-		  
+			gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(PEEL, 11));
+
+			mapSettings.setZoomControlsEnabled(false);
+
 		}
 		mLocationClient = new LocationClient(getActivity(), this, this);
-		final ImageButton fab = (ImageButton) v.findViewById(R.id.fab_playPauseBtn);;
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-		    // Call some material design APIs here
-			
-		      //fab.setOutline(outline);  
-		    ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
-		           @Override
-		            public void getOutline(View view, Outline outline) {
-		                 // Or read size directly from the view's width/height
-		                 int size = getResources().getDimensionPixelSize(R.dimen.fab_size);
-		                 //outline.setRoundRect(0, 0, size, size, size/2);
-		                 outline.setOval(0, 0, size, size);
-		            }
-		           };
-		           fab.setClipToOutline(true);
-		   fab.setOutlineProvider(viewOutlineProvider);
-		} else {
-		    // Implement this feature without material design
-			
-		}
-		 fab.setOnClickListener(new View.OnClickListener() {
 
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			// Call some material design APIs here
+
+			// fab.setOutline(outline);
+			ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
 				@Override
-				public void onClick(View v) {
-					
-		         if(!mUpdatesRequested){
-		        	 fab.setSelected(true);
-		        	 startUpdates(v);
-		        	 Toast.makeText(getActivity(),"Started tracking",Toast.LENGTH_SHORT).show();
-		         } else{
-		        	 fab.setSelected(false);
-		        	 stopUpdates(v);
-		        	 Toast.makeText(getActivity(),"Stopped tracking",Toast.LENGTH_SHORT).show();
-		         }
+				public void getOutline(View view, Outline outline) {
+					// Or read size directly from the view's width/height
+					int size = getResources().getDimensionPixelSize(R.dimen.fab_size);
+					// outline.setRoundRect(0, 0, size, size, size/2);
+					outline.setOval(0, 0, size, size);
 				}
-			});
-		
-		
+			};
+			fab.setClipToOutline(true);
+			fab.setOutlineProvider(viewOutlineProvider);
+		} else {
+			// Implement this feature without material design
+			
+
+		}
+
+		fab.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				if (!mUpdatesRequested) {
+					fab.setSelected(true);
+					currGeopoints = new ArrayList<SessionGeopoint>();
+					startUpdates(v);
+					Toast.makeText(getActivity(), "Started tracking", Toast.LENGTH_SHORT).show();
+					startTimer(v);
+					fab_stop.setVisibility(View.VISIBLE);
+				} else {
+
+					stopTimer(v);
+					fab.setSelected(false);
+
+					stopUpdates(v);
+					Toast.makeText(getActivity(), "Stopped tracking", Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+
+		fab_stop.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				fab_stop.setVisibility(View.INVISIBLE);
+				if (currGeopoints.size() > 0) {
+					DatabaseHelper db = new DatabaseHelper(getActivity());
+					long count = db.getRowCount("sessions");
+					currentSession = new Session();
+					currentSession.setDistance(distance);
+					currentSession.setTime(time);
+					currentSession.setSpeed(distance / time);
+					DateFormat dFormat = DateFormat.getDateTimeInstance();
+					Date now = new Date();
+					currentSession.setCreated_at(dFormat.format(now));
+
+					db.createSession(currentSession);
+					SessionGeopoint point;
+
+					for (SessionGeopoint sgp : currGeopoints) {
+						sgp.setId((int) count);
+						db.createSessionGeopoint(sgp);
+
+					}
+
+					stopTimer(v);
+					fab.setSelected(false);
+					stopUpdates(v);
+
+					distance = 0;
+					time = 0;
+					s = 0;
+					m = 0;
+					speedTxt.setText("0.0 m/s");
+					timer.setText("0:00");
+					distanceTxt.setText("0m");
+
+				}
+
+			}
+		});
 		return v;
 	}
-	
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		 getView();
+		getView();
 	}
-	
-	
-   
 
-	
 	public class LoadEvents extends AsyncTask<Void, Void, Boolean> {
 
 		@Override
@@ -178,7 +257,7 @@ LocationListener {
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
 
-			//insertData();
+			// insertData();
 			return null;
 
 		}
@@ -191,193 +270,213 @@ LocationListener {
 		}
 	}
 
-    @Override
-    public void onStop(){
-    	if(mLocationClient.isConnected()){
-    		stopPeriodicUpdates();
-    	}
-    	
-    	mLocationClient.disconnect();
-    	super.onStop();
-    }
-    
-    /*
-     * Called when the Activity is going into the background.
-     * Parts of the UI may be visible, but the Activity is inactive.
-     */
-    @Override
-    public void onPause() {
+	@Override
+	public void onStop() {
+		if (mLocationClient.isConnected()) {
+			mUpdatesRequested = false;
+			mEditor.putBoolean(KEY_UPDATES_REQUESTED, mUpdatesRequested);
+			mEditor.commit();
+			stopPeriodicUpdates();
 
-        // Save the current setting for updates
-        mEditor.putBoolean(KEY_UPDATES_REQUESTED, mUpdatesRequested);
-        mEditor.commit();
+		}
 
-        super.onPause();
-    }
+		mLocationClient.disconnect();
+		super.onStop();
+	}
 
-    /*
-     * Called when the Activity is restarted, even before it becomes visible.
-     */
-    @Override
-    public void onStart() {
+	/*
+	 * Called when the Activity is going into the background. Parts of the UI
+	 * may be visible, but the Activity is inactive.
+	 */
+	@Override
+	public void onPause() {
 
-        super.onStart();
+		// Save the current setting for updates
+		mEditor.putBoolean(KEY_UPDATES_REQUESTED, mUpdatesRequested);
+		mEditor.commit();
 
-        /*
-         * Connect the client. Don't re-start any requests here;
-         * instead, wait for onResume()
-         */
-        mLocationClient.connect();
+		super.onPause();
+	}
 
-    }
-    /*
-     * Called when the system detects that this Activity is now visible.
-     */
-    @Override
-    public void onResume() {
-        super.onResume();
+	/*
+	 * Called when the Activity is restarted, even before it becomes visible.
+	 */
+	@Override
+	public void onStart() {
 
-        // If the app already has a setting for getting location updates, get it
-        if (mPrefs.contains(KEY_UPDATES_REQUESTED)) {
-            mUpdatesRequested = mPrefs.getBoolean(KEY_UPDATES_REQUESTED, false);
+		super.onStart();
 
-        // Otherwise, turn off location updates until requested
-        } else {
-            mEditor.putBoolean(KEY_UPDATES_REQUESTED, false);
-            mEditor.commit();
-        }
+		/*
+		 * Connect the client. Don't re-start any requests here; instead, wait
+		 * for onResume()
+		 */
+		mLocationClient.connect();
 
-    }
-  
-    /**
-     * Verify that Google Play services is available before making a request.
-     *
-     * @return true if Google Play services is available, otherwise false
-     */
-    private boolean servicesConnected() {
+	}
 
-        // Check that Google Play services is available
-        int resultCode =
-                GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
+	/*
+	 * Called when the system detects that this Activity is now visible.
+	 */
+	@Override
+	public void onResume() {
+		super.onResume();
 
-        // If Google Play services is available
-        if (ConnectionResult.SUCCESS == resultCode) {
-            // In debug mode, log the status
-            Log.d("TRACKER", "Successfully loaded Google API");
+		// If the app already has a setting for getting location updates, get it
+		if (mPrefs.contains(KEY_UPDATES_REQUESTED)) {
+			mUpdatesRequested = mPrefs.getBoolean(KEY_UPDATES_REQUESTED, false);
 
-            // Continue
-            return true;
-        // Google Play services was not available for some reason
-        } else {
-            // Display an error dialog
-//            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(resultCode, this, 0);
-//            if (dialog != null) {
-//                ErrorDialogFragment errorFragment = new ErrorDialogFragment();
-//                errorFragment.setDialog(dialog);
-//                errorFragment.show(getSupportFragmentManager(), LocationUtils.APPTAG);
-            }
-            return false;
-        }
-    
-    
+			// Otherwise, turn off location updates until requested
+		} else {
+			mEditor.putBoolean(KEY_UPDATES_REQUESTED, false);
+			mEditor.commit();
+		}
+
+	}
+
+	/**
+	 * Verify that Google Play services is available before making a request.
+	 *
+	 * @return true if Google Play services is available, otherwise false
+	 */
+	private boolean servicesConnected() {
+
+		// Check that Google Play services is available
+		int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
+
+		// If Google Play services is available
+		if (ConnectionResult.SUCCESS == resultCode) {
+			// In debug mode, log the status
+			Log.d("TRACKER", "Successfully loaded Google API");
+
+			// Continue
+			return true;
+			// Google Play services was not available for some reason
+		} else {
+			// Display an error dialog
+			// Dialog dialog = GooglePlayServicesUtil.getErrorDialog(resultCode,
+			// this, 0);
+			// if (dialog != null) {
+			// ErrorDialogFragment errorFragment = new ErrorDialogFragment();
+			// errorFragment.setDialog(dialog);
+			// errorFragment.show(getSupportFragmentManager(),
+			// LocationUtils.APPTAG);
+		}
+		return false;
+	}
+
 	@Override
 	public void onConnectionFailed(ConnectionResult arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void onConnected(Bundle arg0) {
 		// TODO Auto-generated method stub
 		if (mUpdatesRequested) {
-            startPeriodicUpdates();
-        }
+			startPeriodicUpdates();
+		}
 	}
 
 	@Override
 	public void onDisconnected() {
 		// TODO Auto-generated method stub
-		
+
 	}
-    
-	  /**
-     * Report location updates to the UI.
-     *
-     * @param location The updated location.
-     */
+
+	/**
+	 * Report location updates to the UI.
+	 *
+	 * @param location
+	 *            The updated location.
+	 */
 	@Override
 	public void onLocationChanged(Location arg0) {
 		// TODO Auto-generated method stub
-		
-		
-		if(updates == 0)
-		{
-			rectOptions = new PolylineOptions();
-		}
-		rectOptions.add(new LatLng(arg0.getLatitude(),arg0.getLongitude()));
-		if(updates == 2)
-		{
-			updates = 0;
+
+		// gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new
+		// LatLng(arg0.getLatitude(),arg0.getLongitude()), 15));
+		currGeopoints.add(new SessionGeopoint(arg0.getLatitude(), arg0.getLongitude()));
+		rectOptions = new PolylineOptions();
+
+		rectOptions.add(new LatLng(arg0.getLatitude(), arg0.getLongitude()));
+		updates++;
+		if (updates > 1) {
+			rectOptions.add(new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude()));
+
 			Polyline polyline = gMap.addPolyline(rectOptions);
 			polyline.setColor(Color.RED);
-			polyline.setWidth(4);
+			polyline.setWidth(6);
 			polyline.setVisible(true);
+
+			distanceTravelled = (double) arg0.distanceTo(lastLocation);
+			distance += distanceTravelled;
+
+			distanceTxt.setText(String.format("%.2f", distance) + "m");
+
 		}
-	
-		updates++;
-	   // gMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(),arg0.getLongitude())));
-		Toast.makeText(getActivity(),"Tracking",Toast.LENGTH_SHORT).show();
-		CameraUpdate cameraPosition = CameraUpdateFactory.newLatLng(new LatLng(arg0.getLatitude(),arg0.getLongitude()));
+
+		lastLocation = arg0;
+
+		// gMap.addMarker(new MarkerOptions().position(new
+		// LatLng(arg0.getLatitude(),arg0.getLongitude())));
+		// Toast.makeText(getActivity(),"Tracking",Toast.LENGTH_SHORT).show();
+		CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(
+				new LatLng(arg0.getLatitude(), arg0.getLongitude()), 17);
 		gMap.animateCamera(cameraPosition);
 	}
+
 	/**
-     * Invoked by the "Start Updates" button
-     * Sends a request to start location updates
-     *
-     * @param v The view object associated with this method, in this case a Button.
-     */
-    public void startUpdates(View v) {
-        mUpdatesRequested = true;
+	 * Invoked by the "Start Updates" button Sends a request to start location
+	 * updates
+	 *
+	 * @param v
+	 *            The view object associated with this method, in this case a
+	 *            Button.
+	 */
+	public void startUpdates(View v) {
+		mUpdatesRequested = true;
 
-        if (servicesConnected()) {
-            startPeriodicUpdates();
-        }
-    }
+		if (servicesConnected()) {
+			startPeriodicUpdates();
+		}
+	}
 
-    /**
-     * Invoked by the "Stop Updates" button
-     * Sends a request to remove location updates
-     * request them.
-     *
-     * @param v The view object associated with this method, in this case a Button.
-     */
-    public void stopUpdates(View v) {
-        mUpdatesRequested = false;
+	/**
+	 * Invoked by the "Stop Updates" button Sends a request to remove location
+	 * updates request them.
+	 *
+	 * @param v
+	 *            The view object associated with this method, in this case a
+	 *            Button.
+	 */
+	public void stopUpdates(View v) {
+		mUpdatesRequested = false;
 
-        if (servicesConnected()) {
-            stopPeriodicUpdates();
-        }
-    }
+		if (servicesConnected()) {
+			stopPeriodicUpdates();
+		}
+	}
 
-    /**
-     * In response to a request to start updates, send a request
-     * to Location Services
-     */
-    private void startPeriodicUpdates() {
+	/**
+	 * In response to a request to start updates, send a request to Location
+	 * Services
+	 */
+	private void startPeriodicUpdates() {
 
-        mLocationClient.requestLocationUpdates(mLocationRequest, this);
-        
-    }
+		mLocationClient.requestLocationUpdates(mLocationRequest, this);
 
-    /**
-     * In response to a request to stop updates, send a request to
-     * Location Services
-     */
-    private void stopPeriodicUpdates() {
-        mLocationClient.removeLocationUpdates(this);
-      
-    }
-    
+	}
+
+	/**
+	 * In response to a request to stop updates, send a request to Location
+	 * Services
+	 */
+	private void stopPeriodicUpdates() {
+		mLocationClient.removeLocationUpdates(this);
+
+	}
+
 	private boolean initMap() {
 		if (gMap == null) {
 			SupportMapFragment mapFrag = (SupportMapFragment) getActivity().getSupportFragmentManager()
@@ -386,6 +485,51 @@ LocationListener {
 		}
 		return (gMap != null);
 
+	}
+
+	// Timer logic
+	public void startTimer(View view) {
+		final Handler handler = new Handler();
+		Timer ourtimer = new Timer();
+		currSessionTimer = new TimerTask() {
+			public void run() {
+				handler.post(new Runnable() {
+					public void run() {
+						s++;
+						secondsTaken++;
+						if (s > 60) {
+							s = 0;
+							m++;
+						}
+						if (s > 9) {
+							timer.setText(m + ":" + s);
+						} else {
+							timer.setText(m + ":0" + s);
+						}
+
+						if (distanceTravelled != 0) {
+							currSpeed = distanceTravelled / secondsTaken;
+							speedTxt.setText(String.format("%.2f", currSpeed) + " m/s");
+							distanceTravelled = 0;
+							secondsTaken = 0;
+						} else if (secondsTaken > 10) {
+							speedTxt.setText("0.0 m/s");
+						}
+
+					}
+				});
+			}
+		};
+
+		ourtimer.schedule(currSessionTimer, 0, 1000);
+
+	}
+
+	public void stopTimer(View view) {
+		currSessionTimer.cancel();
+		currSessionTimer = null;
+		// s = 0;
+		// m = 0;
 	}
 
 }

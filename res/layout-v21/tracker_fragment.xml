@@ -38,11 +38,13 @@
                 android:id="@+id/fab_stopBtn"
                 android:layout_width="@dimen/fab_size"
                 android:layout_height="@dimen/fab_size"
+                android:background="@drawable/ripple"
+                android:elevation="2dp"
                 android:layout_marginRight="60dp"
                 android:layout_marginBottom="10dp"
                 android:src="@drawable/btn_stop"
-                android:background="#e91e63"
-                 />
+         
+                android:stateListAnimator="@anim/anim" />
 
             <TextView
                 android:id="@+id/txt_distance"
@@ -64,9 +66,10 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="55dp"
         android:layout_marginLeft="26dp"
+        android:background="@drawable/ripple"
+        android:elevation="4dp"
         android:src="@drawable/btn_play_pause"
-        android:background="#e91e63"
-         />
+        android:stateListAnimator="@anim/anim" />
 
     <TextView
         android:id="@+id/timer"

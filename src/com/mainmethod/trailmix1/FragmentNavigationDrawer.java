@@ -13,6 +13,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
@@ -126,7 +127,14 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 
 		// Insert the fragment by replacing any existing fragment
 		FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-		fragmentManager.beginTransaction().replace(drawerContainerRes, fragment).commit();
+		FragmentTransaction transaction =  fragmentManager.beginTransaction().replace(drawerContainerRes, fragment);
+		if(fragment == HomeFragment.newInstance()){
+			//do not add it to back stack 
+		}else{
+			transaction.addToBackStack(null);
+		}
+		
+		transaction.commit();
 
 		// Highlight the selected item, update the title, and close the drawer
 		lvDrawer.setItemChecked(position, true);
