@@ -10,6 +10,10 @@ import android.widget.Button;
 
 public class HomeFragment extends Fragment {
 
+	protected static final String ARG_ACTIVITY = "activity";
+	protected static final String ARG_ACT_BIKE = "biking";
+	protected static final String ARG_ACT_HIKE = "hiking";
+
 	public HomeFragment() {
 		// TODO Auto-generated constructor stub
 	}
@@ -29,7 +33,10 @@ public class HomeFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				openMap(v);
+				
+				Intent intent = new Intent(getActivity(), MapActivity.class);
+				intent.putExtra(ARG_ACTIVITY,"run");
+				startActivity(intent);
 			}
 		});
 		
@@ -38,7 +45,10 @@ public class HomeFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				openMap(v);
+				
+				Intent intent = new Intent(getActivity(), MapActivity.class);
+				intent.putExtra(ARG_ACTIVITY,"hike");
+				startActivity(intent);
 			}
 		});
 		Button buttonBike = (Button) v.findViewById(R.id.button_bike);
@@ -46,7 +56,10 @@ public class HomeFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				openMap(v);
+				
+				Intent intent = new Intent(getActivity(), MapActivity.class);
+				intent.putExtra(ARG_ACTIVITY,"bike");
+				startActivity(intent);
 			}
 		});
 		return v;

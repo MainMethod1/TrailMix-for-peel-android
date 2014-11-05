@@ -36,23 +36,26 @@ import android.text.format.Time;
 import android.util.Log;
 
 /***
- * <h1> TrailMix for Android Capstone Project </h1>
- * <h2> Database class to create tables and run queries on Android device </h2>
- * <p> Client: Erica Duque </p>
- * <p> Oganization: Region of Peel </p>
+ * <h1>TrailMix for Android Capstone Project</h1> <h2>Database class to create
+ * tables and run queries on Android device</h2>
+ * <p>
+ * Client: Erica Duque
+ * </p>
+ * <p>
+ * Oganization: Region of Peel
+ * </p>
+ * 
  * @author jonathan zarate, parth sondarva, shivam sharma, garrett may
  * @version 1.0
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-
-	private static final int DATABASE_VERSION = 5;
-	private static final String DATABASE_NAME = "final.db";
+	private static final int DATABASE_VERSION = 3;
+	private static final String DATABASE_NAME = "trailmix.db";
 
 	private static String DB_PATH = "/data/data/com.mainmethod.trailmix1/databases/";
 	private SQLiteDatabase myDatabase;
 	private final Context myContext;
-
 
 	// Logcat tag
 	private static final String LOG = "DatabaseHelper";
@@ -61,7 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String GEOPOINT_TABLE = "geoPoints";
 	private static final String EVENT_TABLE = "events";
 	private static final String PLACEMARK_TABLE = "placemarks";
-  private static final String SESSION_TABLE = "sessions";
+	private static final String SESSION_TABLE = "sessions";
 	private static final String SESSION_GEOPOINT_TABLE = "sessionGeoPoints";
 
 	// Common column names
@@ -83,6 +86,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String KEY_PETS = "pets";
 	private static final String KEY_NOTES = "notes";
 	private static final String KEY_CITY = "city";
+	private static final String KEY_MIDPOINT_LAT = "midPointLat";
+	private static final String KEY_MIDPOINT_LNG = "midPointLng";
 
 	// GEOPOINTS Table - column names
 	private static final String KEY_PLACEMARK_ID = "placemark_id";
@@ -111,77 +116,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	// SESSION_GEOPOINT Table - column names
 	private static final String KEY_SESSION_ID = "session_id";
 
-
 	// placemark table columns
 	private static final String KEY_TRAIL_ID = "trail_id";
 
 	// Table Create Statements
 	// Trail table create statement
-	private static final String CREATE_TABLE_TRAIL = "CREATE TABLE IF NOT EXISTS "
-			+ TRAIL_TABLE
-			+ "("
-			+ KEY_ID
-			+ " INTEGER PRIMARY KEY,"
-			+ KEY_NAME
-			+ " TEXT,"
-			+ KEY_TRAIL_CLASS
-			+ " TEXT,"
-			+ KEY_LENGTH
-			+ " REAL,"
-			+ KEY_SURFACE
-			+ " TEXT,"
-			+ KEY_AMENITIES
-			+ " TEXT,"
-			+ KEY_PARKING
-			+ " TEXT,"
-			+ KEY_SEASON_HOURS
-			+ " TEXT,"
-			+ KEY_LIGHTING
-			+ " TEXT,"
-			+ KEY_WINTER_MAINTENANCE
-			+ " TEXT,"
-			+ KEY_PETS
-			+ " TEXT,"
-			+ KEY_NOTES
-			+ " TEXT,"
-			+ KEY_CITY
-			+ " TEXT,"
-			+ KEY_CREATED_AT
+	private static final String CREATE_TABLE_TRAIL = "CREATE TABLE IF NOT EXISTS " + TRAIL_TABLE + "(" + KEY_ID
+			+ " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT," + KEY_TRAIL_CLASS + " TEXT," + KEY_LENGTH + " REAL,"
+			+ KEY_SURFACE + " TEXT," + KEY_AMENITIES + " TEXT," + KEY_PARKING + " TEXT," + KEY_SEASON_HOURS + " TEXT,"
+			+ KEY_LIGHTING + " TEXT," + KEY_WINTER_MAINTENANCE + " TEXT," + KEY_PETS + " TEXT," + KEY_NOTES + " TEXT,"
+			+ KEY_CITY + " TEXT," + KEY_MIDPOINT_LAT + " TEXT," + KEY_MIDPOINT_LNG + " TEXT," + KEY_CREATED_AT
 			+ " DATETIME DEFAULT CURRENT_TIMESTAMP" + ");";
 
 	// Placemark table create statement
-	private static final String CREATE_TABLE_PLACEMARK = "CREATE TABLE IF NOT EXISTS "
-			+ PLACEMARK_TABLE
-			+ "("
-			+ KEY_ID
-			+ " INTEGER PRIMARY KEY,"
-			+ KEY_TRAIL_CLASS
-			+ " TEXT,"
-			+ KEY_CREATED_AT
-			+ " DATETIME DEFAULT CURRENT_TIMESTAMP,"
-			+ KEY_TRAIL_ID
-			+ " INTEGER,"
-			+ "FOREIGN KEY ("
-			+ KEY_TRAIL_ID
+	private static final String CREATE_TABLE_PLACEMARK = "CREATE TABLE IF NOT EXISTS " + PLACEMARK_TABLE + "(" + KEY_ID
+			+ " INTEGER PRIMARY KEY," + KEY_TRAIL_CLASS + " TEXT," + KEY_CREATED_AT
+			+ " DATETIME DEFAULT CURRENT_TIMESTAMP," + KEY_TRAIL_ID + " INTEGER," + "FOREIGN KEY (" + KEY_TRAIL_ID
 			+ ") REFERENCES " + TRAIL_TABLE + " (" + KEY_ID + ")" + ");";
 
 	// GeoPoint table create statement
-	private static final String CREATE_TABLE_GEOPOINT = "CREATE TABLE IF NOT EXISTS "
-			+ GEOPOINT_TABLE
-			+ "("
-			+ KEY_ID
-			+ " INTEGER PRIMARY KEY,"
-			+ KEY_LAT
-			+ " REAL NOT NULL,"
-			+ KEY_LNG
-			+ " REAL NOT NULL,"
-			+ KEY_CREATED_AT
-			+ " DATETIME DEFAULT CURRENT_TIMESTAMP,"
-			+ KEY_PLACEMARK_ID
-			+ " INTEGER,"
-			+ "FOREIGN KEY ("
-			+ KEY_PLACEMARK_ID
-			+ ") REFERENCES " + PLACEMARK_TABLE + " (" + KEY_ID + ")" + ");";
+	private static final String CREATE_TABLE_GEOPOINT = "CREATE TABLE IF NOT EXISTS " + GEOPOINT_TABLE + "(" + KEY_ID
+			+ " INTEGER PRIMARY KEY," + KEY_LAT + " REAL NOT NULL," + KEY_LNG + " REAL NOT NULL," + KEY_CREATED_AT
+			+ " DATETIME DEFAULT CURRENT_TIMESTAMP," + KEY_PLACEMARK_ID + " INTEGER," + "FOREIGN KEY ("
+			+ KEY_PLACEMARK_ID + ") REFERENCES " + PLACEMARK_TABLE + " (" + KEY_ID + ")" + ");";
 
 	// Session table create statement
 	private static final String CREATE_TABLE_SESSION = "CREATE TABLE IF NOT EXISTS " + SESSION_TABLE + "(" + KEY_ID
@@ -193,38 +150,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			+ KEY_CREATED_AT + " DATETIME DEFAULT CURRENT_TIMESTAMP," + KEY_SESSION_ID + " INTEGER," + "FOREIGN KEY ("
 			+ KEY_SESSION_ID + ") REFERENCES " + SESSION_TABLE + " (" + KEY_ID + ")" + ");";
 
-
 	// Event table create statement
-	private static final String CREATE_TABLE_EVENT = "CREATE TABLE IF NOT EXISTS "
-			+ EVENT_TABLE
-			+ "("
-			+ KEY_ID
-			+ " INTEGER PRIMARY KEY,"
-			+ KEY_TITLE
-			+ " TEXT NOT NULL,"
-			+ KEY_DESC
-			+ " TEXT NOT NULL,"
-			+ KEY_EVENT_POSTER_URL
-			+ " TEXT,"
-			+ KEY_URL
-			+ " TEXT,"
-			+ KEY_URL_TEXT
-			+ " TEXT,"
-			+ KEY_DATE
-			+ " TEXT NOT NULL,"
-			+ KEY_START_TIME
-			+ " TEXT NOT NULL,"
-			+ KEY_END_TIME
-			+ " TEXT NOT NULL,"
-			+ KEY_IS_ALL_DAY_LONG
-			+ " INTEGER NOT NULL,"
-			+ KEY_LOCATION
-			+ " TEXT NOT NULL,"
-			+ KEY_CONTACT_NAME
-			+ " TEXT NOT NULL,"
-			+ KEY_CONTACT_EMAIL
-			+ " TEXT NOT NULL,"
-			+ KEY_CREATED_AT + " DATETIME DEFAULT CURRENT_TIMESTAMP" + ");";
+	private static final String CREATE_TABLE_EVENT = "CREATE TABLE IF NOT EXISTS " + EVENT_TABLE + "(" + KEY_ID
+			+ " INTEGER PRIMARY KEY," + KEY_TITLE + " TEXT NOT NULL," + KEY_DESC + " TEXT NOT NULL,"
+			+ KEY_EVENT_POSTER_URL + " TEXT," + KEY_URL + " TEXT," + KEY_URL_TEXT + " TEXT," + KEY_DATE
+			+ " TEXT NOT NULL," + KEY_START_TIME + " TEXT NOT NULL," + KEY_END_TIME + " TEXT NOT NULL,"
+			+ KEY_IS_ALL_DAY_LONG + " INTEGER NOT NULL," + KEY_LOCATION + " TEXT NOT NULL," + KEY_CONTACT_NAME
+			+ " TEXT NOT NULL," + KEY_CONTACT_EMAIL + " TEXT NOT NULL," + KEY_CREATED_AT
+			+ " DATETIME DEFAULT CURRENT_TIMESTAMP" + ");";
 
 	private InputStream file;
 
@@ -238,8 +171,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		this.myContext = context;
 	}
-
-
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
@@ -291,6 +222,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		values.put(KEY_PETS, trail.getPets());
 		values.put(KEY_NOTES, trail.getNotes());
 		values.put(KEY_CITY, trail.getCity());
+		values.put(KEY_MIDPOINT_LAT, trail.getMidPointLat());
+		values.put(KEY_MIDPOINT_LNG, trail.getMidPointLng());
 
 		// insert row
 		long trail_id = db.insert(TRAIL_TABLE, null, values);
@@ -304,8 +237,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public Trail getTrailByName(String trail_name) {
 		SQLiteDatabase db = this.getReadableDatabase();
 
-		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " WHERE "
-				+ KEY_NAME + " = '" + trail_name +"';";
+		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " WHERE " + KEY_NAME + " = '" + trail_name + "';";
 
 		Log.e(LOG, selectQuery);
 
@@ -328,18 +260,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		trail.setPets(c.getString(c.getColumnIndex(KEY_PETS)));
 		trail.setNotes(c.getString(c.getColumnIndex(KEY_NOTES)));
 		trail.setCity(c.getString(c.getColumnIndex(KEY_CITY)));
-
+		trail.setMidPointLat(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LAT)));
+		trail.setMidPointLng(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LNG)));
 
 		return trail;
 	}
 
-
-	public HashMap<String,Trail> getAllTrailsWithInfo(){
+	public HashMap<String, Trail> getAllTrailsWithInfo() {
 		HashMap<String, Trail> namedTrails = new HashMap<String, Trail>();
 		SQLiteDatabase db = this.getReadableDatabase();
 
-		Cursor c = db.query(TRAIL_TABLE, null, KEY_AMENITIES + " IS NOT NULL", null,
-				null, null, null);
+		Cursor c = db.query(TRAIL_TABLE, null, KEY_AMENITIES + " IS NOT NULL", null, null, null, null);
 		Trail trail;
 		if (c.moveToFirst()) {
 			do {
@@ -357,22 +288,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				trail.setPets(c.getString(c.getColumnIndex(KEY_PETS)));
 				trail.setNotes(c.getString(c.getColumnIndex(KEY_NOTES)));
 				trail.setCity(c.getString(c.getColumnIndex(KEY_CITY)));
-
+				trail.setMidPointLat(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LAT)));
+				trail.setMidPointLng(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LNG)));
 				// adding to hashmap
 				namedTrails.put(trail.getTrailName(), trail);
 			} while (c.moveToNext());
 		}
 		return namedTrails;
 	}
+
 	/*
-	 * get single trail by name
+	 * get all trails
 	 */
 	public HashMap<String, Trail> getAllTrails() {
 		HashMap<String, Trail> namedTrails = new HashMap<String, Trail>();
 		SQLiteDatabase db = this.getReadableDatabase();
 
-		Cursor c = db.query(TRAIL_TABLE, null, null, null,
-				null, null, null);
+		Cursor c = db.query(TRAIL_TABLE, null, null, null, null, null, null);
 		Trail trail;
 		if (c.moveToFirst()) {
 			do {
@@ -390,7 +322,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				trail.setPets(c.getString(c.getColumnIndex(KEY_PETS)));
 				trail.setNotes(c.getString(c.getColumnIndex(KEY_NOTES)));
 				trail.setCity(c.getString(c.getColumnIndex(KEY_CITY)));
-
+				trail.setMidPointLat(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LAT)));
+				trail.setMidPointLng(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LNG)));
 				// adding to hashmap
 				namedTrails.put(trail.getTrailName(), trail);
 			} while (c.moveToNext());
@@ -415,17 +348,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		values.put(KEY_PETS, trail.getPets());
 		values.put(KEY_NOTES, trail.getNotes());
 		values.put(KEY_CITY, trail.getCity());
-
+		values.put(KEY_MIDPOINT_LAT,trail.getMidPointLat());
+		values.put(KEY_MIDPOINT_LNG,trail.getMidPointLng());
+		
 		// updating row
-		return db.update(TRAIL_TABLE, values, KEY_ID + " = ?",
-				new String[] { String.valueOf(trail.getId()) });
+		return db.update(TRAIL_TABLE, values, KEY_ID + " = ?", new String[] { String.valueOf(trail.getId()) });
 	}
 
 	// delete trail
 	public void deleteTrail(long trail_id) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.delete(TRAIL_TABLE, KEY_ID + " = ?",
-				new String[] { String.valueOf(trail_id) });
+		db.delete(TRAIL_TABLE, KEY_ID + " = ?", new String[] { String.valueOf(trail_id) });
 	}
 
 	// CRUD for Geopoint table
@@ -452,27 +385,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void deleteTrailPlacemarks(long trail_id) {
 
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.delete(PLACEMARK_TABLE, KEY_TRAIL_ID + " = ?",
-				new String[] { String.valueOf(trail_id) });
+		db.delete(PLACEMARK_TABLE, KEY_TRAIL_ID + " = ?", new String[] { String.valueOf(trail_id) });
 	}
 
 	// delete geopoints for placemark
 	public void deletePlacemarkGeoPoints(long placemark_id) {
 
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.delete(GEOPOINT_TABLE, KEY_PLACEMARK_ID + " = ?",
-				new String[] { String.valueOf(placemark_id) });
+		db.delete(GEOPOINT_TABLE, KEY_PLACEMARK_ID + " = ?", new String[] { String.valueOf(placemark_id) });
 	}
 
-	public ArrayList<ArrayList<GeoPoint>> getPlacemarks(){
+	public ArrayList<ArrayList<GeoPoint>> getPlacemarks() {
 		ArrayList<ArrayList<GeoPoint>> placemarks = new ArrayList<ArrayList<GeoPoint>>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT * FROM " +GEOPOINT_TABLE + ";";
-		Cursor c = db.rawQuery(selectQuery,null);
+		String selectQuery = "SELECT * FROM " + GEOPOINT_TABLE + ";";
+		Cursor c = db.rawQuery(selectQuery, null);
 
 		ArrayList<GeoPoint> allPoints = new ArrayList<GeoPoint>();
-		if(c.moveToFirst()){
-			do{
+		if (c.moveToFirst()) {
+			do {
 				GeoPoint point = new GeoPoint();
 				point.setPlacemark_id(c.getInt(c.getColumnIndex(KEY_PLACEMARK_ID)));
 				point.setLat(c.getDouble(c.getColumnIndex(KEY_LAT)));
@@ -480,25 +411,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 				allPoints.add(point);
 
-			}while (c.moveToNext());
+			} while (c.moveToNext());
 		}
 
 		int currPId = 1;
 		ArrayList<GeoPoint> points = new ArrayList<GeoPoint>();
 
-		for (GeoPoint g: allPoints)
-		{
-			if(g.getPlacemark_id()==currPId)
-			{
+		for (GeoPoint g : allPoints) {
+			if (g.getPlacemark_id() == currPId) {
 				points.add(g);
-			}
-			else
-			{
+			} else {
 				currPId++;
 				placemarks.add(points);
 				points = new ArrayList<GeoPoint>();
 				points.add(g);
-
 
 			}
 		}
@@ -510,11 +436,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public ArrayList<GeoPoint> getPlacemarkGeoPoints(int placemarkID) {
 		ArrayList<GeoPoint> placemarkGeoPoints = new ArrayList<GeoPoint>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT  * FROM " + PLACEMARK_TABLE
-				+ " INNER JOIN " + GEOPOINT_TABLE + " ON " + PLACEMARK_TABLE
-				+ "." + KEY_ID + " = " + GEOPOINT_TABLE + "."
-				+ KEY_PLACEMARK_ID + " WHERE " + PLACEMARK_TABLE + "." + KEY_ID
-				+ " = " + placemarkID + ";";
+		String selectQuery = "SELECT  * FROM " + PLACEMARK_TABLE + " INNER JOIN " + GEOPOINT_TABLE + " ON "
+				+ PLACEMARK_TABLE + "." + KEY_ID + " = " + GEOPOINT_TABLE + "." + KEY_PLACEMARK_ID + " WHERE "
+				+ PLACEMARK_TABLE + "." + KEY_ID + " = " + placemarkID + ";";
 
 		Log.e(LOG, selectQuery);
 
@@ -537,10 +461,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public ArrayList<Placemark> getTrailPlacemarks(String trailName) {
 		ArrayList<Placemark> trailPlacemarks = new ArrayList<Placemark>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " INNER JOIN "
-				+ PLACEMARK_TABLE + " ON " + TRAIL_TABLE + "." + KEY_ID + " = "
-				+ PLACEMARK_TABLE + "." + KEY_TRAIL_ID + " WHERE "
-				+ TRAIL_TABLE + "." + KEY_NAME + " = " + "'" + trailName + "';";
+		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " INNER JOIN " + PLACEMARK_TABLE + " ON " + TRAIL_TABLE
+				+ "." + KEY_ID + " = " + PLACEMARK_TABLE + "." + KEY_TRAIL_ID + " WHERE " + TRAIL_TABLE + "."
+				+ KEY_NAME + " = " + "'" + trailName + "';";
 
 		Log.e(LOG, selectQuery);
 
@@ -549,9 +472,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		if (c.moveToFirst()) {
 			do {
 				Placemark p = new Placemark();
-				p.setId(c.getInt(c.getColumnIndex(PLACEMARK_TABLE +"."+KEY_ID)));
+				p.setId(c.getInt(c.getColumnIndex(PLACEMARK_TABLE + "." + KEY_ID)));
 				p.setTrail_id(c.getInt(c.getColumnIndex(KEY_TRAIL_ID)));
-
 
 				trailPlacemarks.add(p);
 
@@ -563,21 +485,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public ArrayList<Placemark> getTrailPlacemarksByClass(String trailClass) {
 		ArrayList<Placemark> trailPlacemarks = new ArrayList<Placemark>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " INNER JOIN "
-				+ PLACEMARK_TABLE + " ON " + TRAIL_TABLE + "." + KEY_ID + " = "
-				+ PLACEMARK_TABLE + "." + KEY_TRAIL_ID + " WHERE "
-				+ PLACEMARK_TABLE + "." + KEY_TRAIL_CLASS + " = " + "'" + trailClass + "';";
-
+		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " INNER JOIN " + PLACEMARK_TABLE + " ON " + TRAIL_TABLE
+				+ "." + KEY_ID + " = " + PLACEMARK_TABLE + "." + KEY_TRAIL_ID + " WHERE " + PLACEMARK_TABLE + "."
+				+ KEY_TRAIL_CLASS + " = " + "'" + trailClass + "';";
+		String selectQuery2 = "SELECT * FROM " + PLACEMARK_TABLE + " WHERE " + KEY_TRAIL_CLASS + " ='" + trailClass
+				+ "'";
 		Log.e(LOG, selectQuery);
 
-		Cursor c = db.rawQuery(selectQuery, null);
+		Cursor c = db.rawQuery(selectQuery2, null);
 
 		if (c.moveToFirst()) {
 			do {
 				Placemark p = new Placemark();
-				p.setId(c.getInt(c.getColumnIndex(PLACEMARK_TABLE +"."+KEY_ID)));
+				// p.setId(c.getInt(c.getColumnIndex(PLACEMARK_TABLE
+				// +"."+KEY_ID)));
+				p.setId(c.getInt(c.getColumnIndex(KEY_ID)));
 				p.setTrail_id(c.getInt(c.getColumnIndex(KEY_TRAIL_ID)));
-
 
 				trailPlacemarks.add(p);
 
@@ -586,17 +509,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return trailPlacemarks;
 	}
 
-
-
-
-
 	// CRUD for Placemark
 	public long createPlacemark(Placemark p) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
-		values.put(KEY_TRAIL_ID,p.getTrail_id());
-		values.put(KEY_TRAIL_CLASS , p.getTrail_class());
+		values.put(KEY_TRAIL_ID, p.getTrail_id());
+		values.put(KEY_TRAIL_CLASS, p.getTrail_class());
 
 		long column_id = db.insert(PLACEMARK_TABLE, null, values);
 
@@ -604,16 +523,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	}
 
-
 	// CRUD for EVENT table
 
-	//create a new event
+	// create a new event
 	public long createEvent(Event e) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
 		values.put(KEY_TITLE, e.getTitle());
-		values.put(KEY_DESC,e.getDesc());
+		values.put(KEY_DESC, e.getDesc());
 		values.put(KEY_URL, e.getUrl());
 		values.put(KEY_URL_TEXT, e.getUrl_text());
 		values.put(KEY_DATE, e.getDate());
@@ -632,32 +550,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	}
 
-	//get all events from db
+	// get all events from db
 	public ArrayList<Event> getAllEvents() {
 		ArrayList<Event> eventCollection = new ArrayList<Event>();
 		SQLiteDatabase db = this.getReadableDatabase();
 
-		Cursor c = db.query(EVENT_TABLE, null, null, null,
-				null, null, null);
+		Cursor c = db.query(EVENT_TABLE, null, null, null, null, null, null);
 		if (c.moveToFirst()) {
 			do {
 				Event event = new Event();
 				event.setId(c.getInt(c.getColumnIndex(KEY_ID)));
 				event.setTitle(c.getString(c.getColumnIndex(KEY_TITLE)));
-				event.setDesc(c.getString(c
-						.getColumnIndex(KEY_DESC)));
+				event.setDesc(c.getString(c.getColumnIndex(KEY_DESC)));
 				event.setUrl(c.getString(c.getColumnIndex(KEY_URL)));
 				event.setUrl_text(c.getString(c.getColumnIndex(KEY_URL_TEXT)));
 				event.setDate(c.getString(c.getColumnIndex(KEY_DATE)));
 				event.setLocation(c.getString(c.getColumnIndex(KEY_LOCATION)));
 				event.setStartTime(c.getString(c.getColumnIndex(KEY_START_TIME)));
 				event.setEndTime(c.getString(c.getColumnIndex(KEY_END_TIME)));
-				event.setAllDayEvent((c.getInt(c.getColumnIndex(KEY_IS_ALL_DAY_LONG)) !=0));
+				event.setAllDayEvent((c.getInt(c.getColumnIndex(KEY_IS_ALL_DAY_LONG)) != 0));
 				event.setContactName(c.getString(c.getColumnIndex(KEY_CONTACT_NAME)));
 				event.setContactEmail(c.getString(c.getColumnIndex(KEY_CONTACT_EMAIL)));
-				if(c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)) != null){
+				if (c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)) != null) {
 					event.setPoster_url(c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)));
-				} else{
+				} else {
 					event.setPoster_url("");
 				}
 				// adding to hashmap
@@ -667,207 +583,196 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return eventCollection;
 	}
 
-	//gets event by name
-	public Event getEventByName(String name){
+	// gets event by name
+	public Event getEventByName(String name) {
 		Event event = null;
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT * FROM " + EVENT_TABLE + " WHERE "
-			 + KEY_TITLE + " = " + "'" + name + "';";
+		String selectQuery = "SELECT * FROM " + EVENT_TABLE + " WHERE " + KEY_TITLE + " = " + "'" + name + "';";
 
 		Log.e(LOG, selectQuery);
 
 		Cursor c = db.rawQuery(selectQuery, null);
 		if (c.moveToFirst()) {
 			do {
-			    event = new Event();
+				event = new Event();
 				event.setId(c.getInt(c.getColumnIndex(KEY_ID)));
 				event.setTitle(c.getString(c.getColumnIndex(KEY_TITLE)));
-				event.setDesc(c.getString(c
-						.getColumnIndex(KEY_DESC)));
+				event.setDesc(c.getString(c.getColumnIndex(KEY_DESC)));
 				event.setUrl(c.getString(c.getColumnIndex(KEY_URL)));
 				event.setUrl_text(c.getString(c.getColumnIndex(KEY_URL_TEXT)));
 				event.setDate(c.getString(c.getColumnIndex(KEY_DATE)));
 				event.setLocation(c.getString(c.getColumnIndex(KEY_LOCATION)));
 				event.setStartTime(c.getString(c.getColumnIndex(KEY_START_TIME)));
 				event.setEndTime(c.getString(c.getColumnIndex(KEY_END_TIME)));
-				event.setAllDayEvent((c.getInt(c.getColumnIndex(KEY_IS_ALL_DAY_LONG)) !=0));
+				event.setAllDayEvent((c.getInt(c.getColumnIndex(KEY_IS_ALL_DAY_LONG)) != 0));
 				event.setContactName(c.getString(c.getColumnIndex(KEY_CONTACT_NAME)));
 				event.setContactEmail(c.getString(c.getColumnIndex(KEY_CONTACT_EMAIL)));
-				if(c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)) != null){
+				if (c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)) != null) {
 					event.setPoster_url(c.getString(c.getColumnIndex(KEY_EVENT_POSTER_URL)));
-				} else{
+				} else {
 					event.setPoster_url("");
 				}
-
-
-
 
 			} while (c.moveToNext());
 		}
 
 		return event;
 	}
+
 	// delete event
-		public void deleteEvent(long event_id) {
+	public void deleteEvent(long event_id) {
 
-			SQLiteDatabase db = this.getWritableDatabase();
-			db.delete(EVENT_TABLE, KEY_ID + " = ?",
-					new String[] { String.valueOf(event_id) });
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(EVENT_TABLE, KEY_ID + " = ?", new String[] { String.valueOf(event_id) });
+	}
+
+	// delete all events
+	public void deleteAllEvent() {
+
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(EVENT_TABLE, null, null);
+		closeDB();
+	}
+
+	// SESSION Table
+	/*
+	 * Creating a session
+	 */
+	public long createSession(Session session) {
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		ContentValues values = new ContentValues();
+		values.put(KEY_DISTANCE, session.getDistance());
+		values.put(KEY_SPEED, session.getSpeed());
+		values.put(KEY_TIME, session.getTime());
+
+		// insert row
+		long session_id = db.insert(SESSION_TABLE, null, values);
+
+		return session_id;
+	}
+
+	/*
+	 * Get all Sessions
+	 */
+	public ArrayList<Session> getAllSessions() {
+		ArrayList<Session> sessions = new ArrayList<Session>();
+		Session session = null;
+		SQLiteDatabase db = this.getReadableDatabase();
+		String selectQuery = "SELECT * FROM " + SESSION_TABLE + ";";
+
+		Log.e(LOG, selectQuery);
+
+		Cursor c = db.rawQuery(selectQuery, null);
+		if (c.moveToFirst()) {
+			do {
+				session = new Session();
+				session.setId(c.getInt(c.getColumnIndex(KEY_ID)));
+				session.setDistance(Double.parseDouble(c.getString(c.getColumnIndex(KEY_DISTANCE))));
+				session.setTime((c.getInt(c.getColumnIndex(KEY_TIME))));
+				session.setSpeed(Double.parseDouble(c.getString(c.getColumnIndex(KEY_SPEED))));
+				session.setCreated_at(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
+				sessions.add(session);
+			} while (c.moveToNext());
 		}
 
-		//delete all events
-		public void deleteAllEvent() {
+		return sessions;
+	}
 
-			SQLiteDatabase db = this.getWritableDatabase();
-			db.delete(EVENT_TABLE, null,
-					null);
-			closeDB();
+	/*
+	 * Get Session by id
+	 */
+	public Session getSessionById(int id) {
+		Session session = null;
+		SQLiteDatabase db = this.getReadableDatabase();
+		String selectQuery = "SELECT * FROM " + SESSION_TABLE + " WHERE " + KEY_ID + " = " + id + ";";
+
+		Log.e(LOG, selectQuery);
+
+		Cursor c = db.rawQuery(selectQuery, null);
+		if (c.moveToFirst()) {
+			do {
+				session = new Session();
+				session.setId(c.getInt(c.getColumnIndex(KEY_ID)));
+				session.setDistance(Double.parseDouble(c.getString(c.getColumnIndex(KEY_DISTANCE))));
+				session.setTime(c.getInt(c.getColumnIndex(KEY_TIME)));
+				session.setSpeed(Double.parseDouble(c.getString(c.getColumnIndex(KEY_SPEED))));
+				session.setCreated_at(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
+			} while (c.moveToNext());
 		}
 
+		return session;
+	}
 
-		// SESSION Table
-			/*
-			* Creating a session
-			*/
-			public long createSession(Session session) {
-				SQLiteDatabase db = this.getWritableDatabase();
+	// SESSION_GEOPOINT Table
+	/*
+	 * Creating a session_geopoint
+	 */
+	public long createSessionGeopoint(SessionGeopoint geopoint) {
 
-				ContentValues values = new ContentValues();
-				values.put(KEY_DISTANCE, session.getDistance());
-				values.put(KEY_SPEED, session.getSpeed());
-				values.put(KEY_TIME, session.getTime());
+		SQLiteDatabase db = this.getWritableDatabase();
 
-				// insert row
-				long session_id = db.insert(SESSION_TABLE, null, values);
+		ContentValues values = new ContentValues();
+		values.put(KEY_LAT, geopoint.getLat());
+		values.put(KEY_LNG, geopoint.getLng());
+		values.put(KEY_SESSION_ID, geopoint.getSession_id());
 
-				return session_id;
-			}
-			/*
-			 * Get all Sessions
-			 */
-			public ArrayList<Session> getAllSessions(){
-				ArrayList<Session> sessions = new ArrayList<Session>();
-				Session session = null;
-				SQLiteDatabase db = this.getReadableDatabase();
-				String selectQuery = "SELECT * FROM " + SESSION_TABLE + ";";
+		// insert row
+		long geopoint_id = db.insert(SESSION_GEOPOINT_TABLE, null, values);
 
-				Log.e(LOG, selectQuery);
+		return geopoint_id;
+	}
 
-				Cursor c = db.rawQuery(selectQuery, null);
-				if (c.moveToFirst()) {
-					do {
-					    session = new Session();
-						session.setId(c.getInt(c.getColumnIndex(KEY_ID)));
-						session.setDistance(Double.parseDouble(c.getString(c.getColumnIndex(KEY_DISTANCE))));
-						session.setTime(Double.parseDouble(c.getString(c
-								.getColumnIndex(KEY_TIME))));
-						session.setSpeed(Double.parseDouble(c.getString(c.getColumnIndex(KEY_SPEED))));
-						session.setCreated_at(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
-						sessions.add(session);
-					} while (c.moveToNext());
-				}
+	/*
+	 * get session geopoints by session id
+	 */
+	public ArrayList<SessionGeopoint> getSessionGeopoints(int session_id) {
+		ArrayList<SessionGeopoint> sessionGeoPoints = new ArrayList<SessionGeopoint>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		String selectQuery = "SELECT  * FROM " + SESSION_TABLE + " INNER JOIN " + SESSION_GEOPOINT_TABLE + " ON "
+				+ SESSION_TABLE + "." + KEY_ID + " = " + GEOPOINT_TABLE + "." + KEY_SESSION_ID + " WHERE "
+				+ SESSION_TABLE + "." + KEY_ID + " = " + session_id + ";";
 
-				return sessions;
-			}
-			/*
-			 * Get Session by id
-			 */
-			public Session getSessionById(int id){
-				Session session = null;
-				SQLiteDatabase db = this.getReadableDatabase();
-				String selectQuery = "SELECT * FROM " + SESSION_TABLE + " WHERE "
-					 + KEY_ID + " = " + id + ";";
+		Log.e(LOG, selectQuery);
 
-				Log.e(LOG, selectQuery);
+		Cursor c = db.rawQuery(selectQuery, null);
 
-				Cursor c = db.rawQuery(selectQuery, null);
-				if (c.moveToFirst()) {
-					do {
-					    session = new Session();
-						session.setId(c.getInt(c.getColumnIndex(KEY_ID)));
-						session.setDistance(Double.parseDouble(c.getString(c.getColumnIndex(KEY_DISTANCE))));
-						session.setTime(Double.parseDouble(c.getString(c
-								.getColumnIndex(KEY_TIME))));
-						session.setSpeed(Double.parseDouble(c.getString(c.getColumnIndex(KEY_SPEED))));
-						session.setCreated_at(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
-					} while (c.moveToNext());
-				}
+		if (c.moveToFirst()) {
+			do {
+				SessionGeopoint point = new SessionGeopoint();
+				point.setLat(c.getDouble(c.getColumnIndex(KEY_LAT)));
+				point.setLng(c.getDouble(c.getColumnIndex(KEY_LNG)));
 
-				return session;
-			}
-       //SESSION_GEOPOINT Table
-			/*
-			* Creating a session_geopoint
-			*/
-			public long createSessionGeopoint(SessionGeopoint geopoint) {
+				sessionGeoPoints.add(point);
 
-				SQLiteDatabase db = this.getWritableDatabase();
+			} while (c.moveToNext());
+		}
+		return sessionGeoPoints;
+	}
 
-				ContentValues values = new ContentValues();
-				values.put(KEY_LAT, geopoint.getLat());
-				values.put(KEY_LNG, geopoint.getLng());
-				values.put(KEY_SESSION_ID, geopoint.getSession_id());
+	/*
+	 * delete all sessions data
+	 */
+	public void deleteAllSessionsData() {
 
-				// insert row
-				long geopoint_id = db.insert(SESSION_GEOPOINT_TABLE, null, values);
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(SESSION_TABLE, null, null);
+		db.delete(SESSION_GEOPOINT_TABLE, null, null);
+		closeDB();
+	}
 
-				return geopoint_id;
-			}
-       
-			/*
-			 * get session geopoints by session id
-			 */
-			public ArrayList<SessionGeopoint> getSessionGeopoints(int session_id) {
-				ArrayList<SessionGeopoint> sessionGeoPoints = new ArrayList<SessionGeopoint>();
-				SQLiteDatabase db = this.getReadableDatabase();
-				String selectQuery = "SELECT  * FROM " + SESSION_TABLE
-						+ " INNER JOIN " + SESSION_GEOPOINT_TABLE + " ON " + SESSION_TABLE
-						+ "." + KEY_ID + " = " + GEOPOINT_TABLE + "."
-						+ KEY_SESSION_ID + " WHERE " + SESSION_TABLE + "." + KEY_ID
-						+ " = " + session_id + ";";
+	/*
+	 * Get row count for a table
+	 */
 
-				Log.e(LOG, selectQuery);
+	public long getRowCount(String table) {
+		long count = 0;
+		SQLiteDatabase db = this.getReadableDatabase();
+		String query = "SELECT COUNT(*) FROM " + table + ";";
+		count = db.compileStatement(query).simpleQueryForLong();
+		return count;
+	}
 
-				Cursor c = db.rawQuery(selectQuery, null);
-
-				if (c.moveToFirst()) {
-					do {
-						SessionGeopoint point = new SessionGeopoint();
-						point.setLat(c.getDouble(c.getColumnIndex(KEY_LAT)));
-						point.setLng(c.getDouble(c.getColumnIndex(KEY_LNG)));
-                        
-						sessionGeoPoints.add(point);
-
-					} while (c.moveToNext());
-				}
-				return sessionGeoPoints;
-			}
-			
-			/*
-			 * delete all sessions data
-			 */
-			public void deleteAllSessionsData() {
-
-				SQLiteDatabase db = this.getWritableDatabase();
-				db.delete(SESSION_TABLE, null,
-						null);
-				db.delete(SESSION_GEOPOINT_TABLE, null, null);
-				closeDB();
-			}
-  
-			
-			/*
-			 * Get row count for a table
-			 * 
-			 */
-			
-			public long getRowCount(String table){
-				long count = 0;
-				SQLiteDatabase db = this.getReadableDatabase();
-				String query = "SELECT COUNT(*) FROM "+table +";";
-				count = db.compileStatement(query).simpleQueryForLong();
-				return count;
-			}
 	// closing database
 	public void closeDB() {
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -918,8 +823,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 		try {
 			String myPath = DB_PATH + DATABASE_NAME;
-			checkDB = SQLiteDatabase.openDatabase(myPath, null,
-					SQLiteDatabase.OPEN_READONLY);
+			checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
 		} catch (SQLiteException e) {
 
@@ -970,8 +874,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 		// Open the database
 		String myPath = DB_PATH + DATABASE_NAME;
-		myDatabase = SQLiteDatabase.openDatabase(myPath, null,
-				SQLiteDatabase.OPEN_READONLY);
+		myDatabase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
 	}
 

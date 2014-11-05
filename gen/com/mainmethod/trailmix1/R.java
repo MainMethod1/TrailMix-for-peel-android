@@ -570,50 +570,53 @@ containing a value of this type.
         public static final int ic_running=0x7f020034;
         public static final int jogging=0x7f020035;
         public static final int list_activated_background=0x7f020036;
-        public static final int logo3=0x7f020037;
-        public static final int powered_by_google_dark=0x7f020038;
-        public static final int powered_by_google_light=0x7f020039;
-        public static final int ripple=0x7f02003a;
+        public static final int powered_by_google_dark=0x7f020037;
+        public static final int powered_by_google_light=0x7f020038;
+        public static final int ripple=0x7f020039;
     }
     public static final class id {
-        public static final int action_preferences=0x7f0e0046;
-        public static final int action_settings=0x7f0e0044;
+        public static final int action_preferences=0x7f0e004d;
+        public static final int action_settings=0x7f0e004b;
         public static final int activity_detail_container=0x7f0e0014;
-        public static final int activity_trail_detail_container=0x7f0e001c;
+        public static final int activity_trail_detail_container=0x7f0e001d;
+        public static final int bar=0x7f0e0045;
         public static final int book_now=0x7f0e000e;
-        public static final int button_bike=0x7f0e003b;
-        public static final int button_hike=0x7f0e003c;
-        public static final int button_run=0x7f0e003a;
+        public static final int button_bike=0x7f0e0041;
+        public static final int button_hike=0x7f0e0042;
+        public static final int button_run=0x7f0e0040;
         public static final int buyButton=0x7f0e000a;
         public static final int buy_now=0x7f0e000f;
         public static final int buy_with_google=0x7f0e0010;
         public static final int classic=0x7f0e0011;
-        public static final int content_frame=0x7f0e0016;
-        public static final int date=0x7f0e0020;
-        public static final int drawer_layout=0x7f0e0015;
-        public static final int drawer_list_item=0x7f0e0019;
+        public static final int container_map=0x7f0e0032;
+        public static final int content_frame=0x7f0e0017;
+        public static final int date=0x7f0e0021;
+        public static final int drawer_layout=0x7f0e0016;
+        public static final int drawer_list_item=0x7f0e001a;
         public static final int eventContact=0x7f0e002d;
         public static final int eventContactEmail=0x7f0e002e;
         public static final int eventDate=0x7f0e0028;
         public static final int eventDesc=0x7f0e002b;
         public static final int eventEndTime=0x7f0e002a;
         public static final int eventLocation=0x7f0e0027;
-        public static final int eventName=0x7f0e001e;
+        public static final int eventName=0x7f0e001f;
         public static final int eventStartTime=0x7f0e0029;
         public static final int eventTitle=0x7f0e0026;
         public static final int eventURL=0x7f0e002c;
         public static final int exploreTrailsFragment=0x7f0e0025;
-        public static final int fab_playPauseBtn=0x7f0e0042;
-        public static final int fab_stopBtn=0x7f0e0040;
+        public static final int fab_playPauseBtn=0x7f0e0049;
+        public static final int fab_stopBtn=0x7f0e0047;
         public static final int grayscale=0x7f0e0012;
+        public static final int history_activity_container=0x7f0e0015;
+        public static final int history_date=0x7f0e003f;
+        public static final int history_stat=0x7f0e003e;
         public static final int holo_dark=0x7f0e0005;
         public static final int holo_light=0x7f0e0006;
         public static final int hybrid=0x7f0e0000;
-        public static final int ivIcon=0x7f0e0018;
-        public static final int left_drawer=0x7f0e0017;
-        public static final int list_item_counter=0x7f0e0024;
-        public static final int location=0x7f0e001f;
-        public static final int map=0x7f0e001a;
+        public static final int ivIcon=0x7f0e0019;
+        public static final int left_drawer=0x7f0e0018;
+        public static final int location=0x7f0e0020;
+        public static final int map=0x7f0e001b;
         public static final int match_parent=0x7f0e000c;
         public static final int monochrome=0x7f0e0013;
         public static final int none=0x7f0e0001;
@@ -621,31 +624,34 @@ containing a value of this type.
         public static final int production=0x7f0e0007;
         public static final int sandbox=0x7f0e0008;
         public static final int satellite=0x7f0e0003;
-        public static final int searchMap=0x7f0e001b;
-        public static final int searchOption=0x7f0e0045;
+        public static final int searchMap=0x7f0e001c;
+        public static final int searchOption=0x7f0e004c;
         public static final int selectionDetails=0x7f0e000b;
         public static final int strict_sandbox=0x7f0e0009;
-        public static final int swipe_container=0x7f0e001d;
+        public static final int swipe_container=0x7f0e001e;
         public static final int terrain=0x7f0e0004;
-        public static final int timer=0x7f0e0043;
-        public static final int trackerFragment=0x7f0e003d;
-        public static final int trackerMap=0x7f0e003e;
-        public static final int trailLength=0x7f0e0022;
-        public static final int trailName=0x7f0e0021;
-        public static final int trailSurface=0x7f0e0023;
-        public static final int txt_amenities=0x7f0e0033;
-        public static final int txt_distance=0x7f0e0041;
-        public static final int txt_lighting=0x7f0e0036;
-        public static final int txt_maintenance=0x7f0e0037;
-        public static final int txt_notes=0x7f0e0039;
-        public static final int txt_parking=0x7f0e0034;
-        public static final int txt_pets=0x7f0e0038;
-        public static final int txt_seasonHours=0x7f0e0035;
-        public static final int txt_speed=0x7f0e003f;
-        public static final int txt_trailLength=0x7f0e0031;
-        public static final int txt_trailName=0x7f0e002f;
-        public static final int txt_trailSurface=0x7f0e0032;
-        public static final int txt_trailType=0x7f0e0030;
+        public static final int timer=0x7f0e004a;
+        public static final int trackerFragment=0x7f0e0043;
+        public static final int trackerMap=0x7f0e0044;
+        public static final int trailLength=0x7f0e0023;
+        public static final int trailName=0x7f0e0022;
+        public static final int trailSurface=0x7f0e0024;
+        public static final int txt_amenities=0x7f0e0037;
+        public static final int txt_distance=0x7f0e0048;
+        public static final int txt_lighting=0x7f0e003a;
+        public static final int txt_maintenance=0x7f0e003b;
+        public static final int txt_notes=0x7f0e003d;
+        public static final int txt_parking=0x7f0e0038;
+        public static final int txt_pets=0x7f0e003c;
+        public static final int txt_seasonHours=0x7f0e0039;
+        public static final int txt_session_distance=0x7f0e002f;
+        public static final int txt_session_duration=0x7f0e0031;
+        public static final int txt_session_speed=0x7f0e0030;
+        public static final int txt_speed=0x7f0e0046;
+        public static final int txt_trailLength=0x7f0e0035;
+        public static final int txt_trailName=0x7f0e0033;
+        public static final int txt_trailSurface=0x7f0e0036;
+        public static final int txt_trailType=0x7f0e0034;
         public static final int wrap_content=0x7f0e000d;
     }
     public static final class integer {
@@ -653,24 +659,29 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int activity_event_detail=0x7f030000;
-        public static final int activity_main_navigationdrawer=0x7f030001;
-        public static final int activity_main_navigationdrawerlistitem=0x7f030002;
-        public static final int activity_map=0x7f030003;
-        public static final int activity_search=0x7f030004;
-        public static final int activity_trail_detail=0x7f030005;
-        public static final int events_fragment=0x7f030006;
-        public static final int events_list_item=0x7f030007;
-        public static final int explore_trail_list_item=0x7f030008;
-        public static final int explore_trails_fragment=0x7f030009;
-        public static final int fragment_event_detail=0x7f03000a;
-        public static final int fragment_trail_detail=0x7f03000b;
-        public static final int home_fragment=0x7f03000c;
-        public static final int tracker_fragment=0x7f03000d;
+        public static final int activity_history_detail=0x7f030001;
+        public static final int activity_main_navigationdrawer=0x7f030002;
+        public static final int activity_main_navigationdrawerlistitem=0x7f030003;
+        public static final int activity_map=0x7f030004;
+        public static final int activity_search=0x7f030005;
+        public static final int activity_trail_detail=0x7f030006;
+        public static final int events_fragment=0x7f030007;
+        public static final int events_list_item=0x7f030008;
+        public static final int explore_trail_list_item=0x7f030009;
+        public static final int explore_trails_fragment=0x7f03000a;
+        public static final int fragment_event_detail=0x7f03000b;
+        public static final int fragment_history=0x7f03000c;
+        public static final int fragment_history_detail=0x7f03000d;
+        public static final int fragment_trail_detail=0x7f03000e;
+        public static final int history_list_item=0x7f03000f;
+        public static final int home_fragment=0x7f030010;
+        public static final int tracker_fragment=0x7f030011;
     }
     public static final class menu {
         public static final int event_detail=0x7f0d0000;
-        public static final int main=0x7f0d0001;
-        public static final int search=0x7f0d0002;
+        public static final int history_detail=0x7f0d0001;
+        public static final int main=0x7f0d0002;
+        public static final int search=0x7f0d0003;
     }
     public static final class raw {
         public static final int trail_detail=0x7f060000;
@@ -792,6 +803,7 @@ containing a value of this type.
         public static final int search_hint=0x7f070023;
         public static final int select_activity=0x7f070027;
         public static final int title_activity_event_detail=0x7f070032;
+        public static final int title_activity_history_detail=0x7f070037;
         public static final int title_activity_search=0x7f070036;
         public static final int title_activity_trail_detail=0x7f070033;
         /**  Text on a placeholder buy button when Google Play services is not
@@ -857,6 +869,7 @@ containing a value of this type.
         Base application theme for API 21+. This theme completely replaces
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml, res/values-v14/styles.xml on API 21+ devices.
+
 
 
     

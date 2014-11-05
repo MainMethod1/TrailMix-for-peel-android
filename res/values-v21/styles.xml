@@ -3,9 +3,12 @@
     <!--
         Base application theme for API 21+. This theme completely replaces
         AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml, res/values-v14/styles.xml on API 21+ devices.
+        res/values-v11/styles.xml, res/values-v14/styles.xml on API 21+ devices.
     -->
     <style name="CustomActionBarStyle" parent="android:Theme.Material.Light.DarkActionBar">
-      <item name="android:colorPrimary">#259b24</item>
-     </style> 
+        <item name="android:colorPrimary">#03a9f4</item>
+        <item name="android:colorPrimaryDark">#0288d1</item>
+        <item name="android:colorAccent">#e91e63</item>
+    </style>
+
 </resources>

@@ -17,7 +17,7 @@
         <item name="android:background">@null</item>
     </style> -->
     <style name="MyActionBar" parent="@android:Widget.ActionBar">
-        <item name="android:background">@null</item>
+        <item name="android:background">#03a9f4</item>
     </style>
     <!-- Overflow icon color change style -->
     <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">

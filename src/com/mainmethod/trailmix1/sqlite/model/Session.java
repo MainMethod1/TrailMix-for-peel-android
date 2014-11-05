@@ -4,9 +4,9 @@ public class Session {
     int id;
 	double distance;
 	double speed;
-	double time;
+	int time;
 	String created_at;
-	public Session(int id, double distance, double speed, double time, String created_at) {
+	public Session(int id, double distance, double speed, int time, String created_at) {
 		super();
 		this.id = id;
 		this.distance = distance;
@@ -15,14 +15,14 @@ public class Session {
 		this.created_at = created_at;
 	}
 	
-	public Session(int id, double distance, double speed, double time) {
+	public Session(int id, double distance, double speed, int time) {
 		super();
 		this.id = id;
 		this.distance = distance;
 		this.speed = speed;
 		this.time = time;
 	}
-	public Session(double distance, double speed, double time) {
+	public Session(double distance, double speed, int time) {
 		super();
 		this.distance = distance;
 		this.speed = speed;
@@ -49,10 +49,10 @@ public class Session {
 	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
-	public double getTime() {
+	public int getTime() {
 		return time;
 	}
-	public void setTime(double time) {
+	public void setTime(int time) {
 		this.time = time;
 	}
 	

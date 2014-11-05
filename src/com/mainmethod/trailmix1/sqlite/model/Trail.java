@@ -25,6 +25,10 @@ public class Trail {
 	String pets;
 	String notes;
 	String city;
+	double midPointLat;
+	double midPointLng;
+
+	
 
 	/***
 	 * Create the constructor for the model
@@ -58,6 +62,27 @@ public class Trail {
 		this.pets = pets;
 		this.notes = notes;
 		this.city = city;
+	}
+
+	public Trail(String trailName, double length, String trailClass, String surface, String amenities,
+			String parking, String seasonHours, String lighting, String winterMaintenance, String pets, String notes,
+			String city, double midPointLat, double midPointLng) {
+		super();
+		this.id = id;
+		this.trailName = trailName;
+		this.length = length;
+		this.trailClass = trailClass;
+		this.surface = surface;
+		this.amenities = amenities;
+		this.parking = parking;
+		this.seasonHours = seasonHours;
+		this.lighting = lighting;
+		this.winterMaintenance = winterMaintenance;
+		this.pets = pets;
+		this.notes = notes;
+		this.city = city;
+		this.midPointLat = midPointLat;
+		this.midPointLng = midPointLng;
 	}
 
 	// Define Getters and Setters
@@ -183,5 +208,20 @@ public class Trail {
 	public void setSurface(String surface) {
 		this.surface = surface;
 	}
+    
+	public double getMidPointLat() {
+		return midPointLat;
+	}
 
+	public void setMidPointLat(double midPointLat) {
+		this.midPointLat = midPointLat;
+	}
+
+	public double getMidPointLng() {
+		return midPointLng;
+	}
+
+	public void setMidPointLng(double midPointLng) {
+		this.midPointLng = midPointLng;
+	}
 }

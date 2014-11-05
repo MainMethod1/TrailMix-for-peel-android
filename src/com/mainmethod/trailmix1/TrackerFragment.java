@@ -41,11 +41,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,7 +64,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	UiSettings mapSettings;
 	Session currentSession;
 	double distance;
-	double time;
+	int time;
 
 	TimerTask currSessionTimer;
 	int s = 0;
@@ -80,10 +82,10 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	private static final LatLng PEEL = new LatLng(43.6719449, -79.65912);
 
 	// Name of shared preferences repository that stores persistent state
-	public static final String SHARED_PREFERENCES = "com.example.android.location.SHARED_PREFERENCES";
+	public static final String SHARED_PREFERENCES = "com.mainmethod.trailmix.SHARED_PREFERENCES";
 
 	// Key for storing the "updates requested" flag in shared preferences
-	public static final String KEY_UPDATES_REQUESTED = "com.example.android.location.KEY_UPDATES_REQUESTED";
+	public static final String KEY_UPDATES_REQUESTED = "com.mainmethod.trailmix.KEY_UPDATES_REQUESTED";
 
 	// Handle to SharedPreferences for this app
 	SharedPreferences mPrefs;
@@ -106,13 +108,25 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	// smallest distance traveled between updates in meters
 	private static final int SMALLEST_DISPLACEMENT = 10;
 
+	private static View v;
+
 	public TrackerFragment() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.tracker_fragment, container, false);
+		if (v != null) {
+			ViewGroup parent = (ViewGroup) v.getParent();
+			if (parent != null)
+				parent.removeView(v);
+		}
+		try {
+			v = inflater.inflate(R.layout.tracker_fragment, container, false);
+		} catch (InflateException e) {
+
+		}
+		// v = inflater.inflate(R.layout.tracker_fragment, container, false);
 		mLocationRequest = LocationRequest.create();
 		// Inflate the layout for this fragment
 		mLocationRequest.setInterval(UPDATE_INTERVAL);
@@ -136,6 +150,10 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 		final ImageButton fab_stop = (ImageButton) v.findViewById(R.id.fab_stopBtn);
 
 		fab_stop.setVisibility(View.INVISIBLE);
+		
+		LinearLayout ll = (LinearLayout) v.findViewById(R.id.bar);
+		//ll.setAlpha((long)0.7);
+       ll.getBackground().setAlpha(50);
 
 		if (initMap()) {
 			mapSettings = gMap.getUiSettings();
@@ -165,7 +183,6 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 			fab.setOutlineProvider(viewOutlineProvider);
 		} else {
 			// Implement this feature without material design
-			
 
 		}
 
@@ -198,8 +215,10 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 			public void onClick(View v) {
 				fab_stop.setVisibility(View.INVISIBLE);
 				if (currGeopoints.size() > 0) {
+					time = (m*60)+s;
+					
 					DatabaseHelper db = new DatabaseHelper(getActivity());
-					long count = db.getRowCount("sessions");
+					long count = db.getRowCount("sessions") + 1;
 					currentSession = new Session();
 					currentSession.setDistance(distance);
 					currentSession.setTime(time);
@@ -225,10 +244,16 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 					time = 0;
 					s = 0;
 					m = 0;
+					distanceTravelled = 0;
+					secondsTaken = 0;
+					currSpeed = 0;
+					lastLocation = null;
+					updates=0;
+					
 					speedTxt.setText("0.0 m/s");
 					timer.setText("0:00");
 					distanceTxt.setText("0m");
-
+                    currentSession = null;
 				}
 
 			}
@@ -267,6 +292,15 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 			super.onPostExecute(result);
 			pDialog.dismiss();
 
+		}
+	}
+
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		Fragment mapFragment = getChildFragmentManager().findFragmentById(R.id.trackerMap);
+		if (mapFragment != null) {
+			getActivity().getSupportFragmentManager().beginTransaction().remove(mapFragment).commit();
 		}
 	}
 
@@ -512,7 +546,9 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 							speedTxt.setText(String.format("%.2f", currSpeed) + " m/s");
 							distanceTravelled = 0;
 							secondsTaken = 0;
-						} else if (secondsTaken > 10) {
+						} else if (secondsTaken > 15) {
+							currSpeed = 0;
+							secondsTaken = 0;
 							speedTxt.setText("0.0 m/s");
 						}
 

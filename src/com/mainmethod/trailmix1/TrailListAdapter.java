@@ -58,8 +58,8 @@ public class TrailListAdapter extends BaseAdapter {
 		 TextView txtSurface = (TextView) convertView.findViewById(R.id.trailSurface);
 		 txtSurface.setText(tList.get(position).getSurface());
 		 
-		 TextView txtCounter = (TextView) convertView.findViewById(R.id.list_item_counter);
-		 txtCounter.setText(String.valueOf(getCount()));
+		// TextView txtCounter = (TextView) convertView.findViewById(R.id.list_item_counter);
+		 //txtCounter.setText(String.valueOf(getCount()));
 		return convertView;
 	}
 

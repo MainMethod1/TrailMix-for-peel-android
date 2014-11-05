@@ -74,7 +74,7 @@ public class MainActivity extends FragmentActivity {
 		// Enable navigation bar tint
 		tintManager.setNavigationBarTintEnabled(true);
 		// Set color changes for the tint
-		tintManager.setTintColor(Color.parseColor("#00796b"));
+		tintManager.setTintColor(Color.parseColor("#0288d1"));
 
 		// Find our drawer view
 		dlDrawer = (FragmentNavigationDrawer) findViewById(R.id.drawer_layout);
@@ -95,6 +95,8 @@ public class MainActivity extends FragmentActivity {
 				TrackerFragment.class); // TrackerFragment.java
 		dlDrawer.addNavItem("Events", R.drawable.ic_drawer_events, "Events",
 				EventsFragment.class); //EventsFragment.java
+		dlDrawer.addNavItem("History", R.drawable.ic_drawer_events, "History",
+				HistoryFragment.class);
 		//ExploreTrailsFragment.java
 		
 		// Select the default nav item

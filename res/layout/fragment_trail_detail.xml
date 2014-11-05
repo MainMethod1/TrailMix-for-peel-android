@@ -2,29 +2,34 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
+   
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="24dp"
-        android:paddingTop="10dp" >
-
+         >
+       
+       
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/container_map">
+            
+            </FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Trail Name:"
-                android:textColor="#E6000000"
+                android:textColor="#E6e91e63"
                 android:textSize="16sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold" /> 
             <TextView
                 android:id="@+id/txt_trailName"
                 android:layout_width="wrap_content"
@@ -35,14 +40,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Type:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -56,14 +61,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Length:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -77,14 +82,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Surface:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -98,14 +103,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Washrooms/Amenities:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -119,14 +124,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Parking:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -140,14 +145,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Season/Hours:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -169,7 +174,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
             android:text="Event Name:"
-            android:textColor="#E6000000"
+            android:textColor="#E6E91E63"
             android:textSize="16sp"
             android:textStyle="bold" />
         
@@ -191,14 +196,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Lighting:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -212,14 +217,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Winter maintenance:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -233,14 +238,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Pets:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -254,14 +259,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="16dp" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Notes/History:"
-                android:textColor="#E6000000"
+                android:textColor="#E6E91E63"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
