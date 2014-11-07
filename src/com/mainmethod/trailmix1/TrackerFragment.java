@@ -115,6 +115,14 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	}
 
 	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		
+		
+	}
+	
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		if (v != null) {
 			ViewGroup parent = (ViewGroup) v.getParent();
@@ -123,8 +131,27 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 		}
 		try {
 			v = inflater.inflate(R.layout.tracker_fragment, container, false);
+			
 		} catch (InflateException e) {
 
+		}
+		if (getArguments().containsKey(MapActivity.ARG_TRACKER_FLAG)) {
+			Log.i("ActLoadError", "intent contans activity extra");
+		    DatabaseHelper db = new DatabaseHelper(getActivity());
+			if(getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("hike")){
+				if(initMap())
+					MapUtil.drawTrailMarkersByClass(gMap, "Hiking%", db);
+			} else if(getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("run")){
+				if(initMap())
+					MapUtil.drawTrailMarkersByClass(gMap, "%", db);
+			}else if(getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("bike")){
+				if(initMap())
+					MapUtil.drawTrailMarkersByClass(gMap, "Multi%", db);
+			}else {
+				//do nothing
+				Log.i("ActLoadError", "not loading activity based markers but has "+getArguments().getString(MapActivity.ARG_TRACKER_FLAG));
+			}
+			
 		}
 		// v = inflater.inflate(R.layout.tracker_fragment, container, false);
 		mLocationRequest = LocationRequest.create();
@@ -439,8 +466,8 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 			rectOptions.add(new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude()));
 
 			Polyline polyline = gMap.addPolyline(rectOptions);
-			polyline.setColor(Color.RED);
-			polyline.setWidth(6);
+			polyline.setColor(Color.MAGENTA);
+			polyline.setWidth(8);
 			polyline.setVisible(true);
 
 			distanceTravelled = (double) arg0.distanceTo(lastLocation);

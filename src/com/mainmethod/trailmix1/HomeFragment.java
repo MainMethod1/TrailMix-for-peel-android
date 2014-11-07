@@ -11,8 +11,6 @@ import android.widget.Button;
 public class HomeFragment extends Fragment {
 
 	protected static final String ARG_ACTIVITY = "activity";
-	protected static final String ARG_ACT_BIKE = "biking";
-	protected static final String ARG_ACT_HIKE = "hiking";
 
 	public HomeFragment() {
 		// TODO Auto-generated constructor stub

@@ -50,8 +50,8 @@ import android.util.Log;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 3;
-	private static final String DATABASE_NAME = "trailmix.db";
+	private static final int DATABASE_VERSION = 1;
+	private static final String DATABASE_NAME = "trailmixDB.db";
 
 	private static String DB_PATH = "/data/data/com.mainmethod.trailmix1/databases/";
 	private SQLiteDatabase myDatabase;
@@ -294,7 +294,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				namedTrails.put(trail.getTrailName(), trail);
 			} while (c.moveToNext());
 		}
+		closeDB();
 		return namedTrails;
+		
+	}
+	
+	public HashMap<String, Trail> getAllTrailsWithInfo(String trailClass) {
+		HashMap<String, Trail> namedTrails = new HashMap<String, Trail>();
+		SQLiteDatabase db = this.getReadableDatabase();
+
+		Cursor c = db.query(TRAIL_TABLE, null, KEY_AMENITIES + " IS NOT NULL AND " +KEY_TRAIL_CLASS+ " LIKE '"+trailClass+"'", null, null, null, null);
+
+		Trail trail;
+		if (c.moveToFirst()) {
+			do {
+				trail = new Trail();
+				trail.setId(c.getInt(c.getColumnIndex(KEY_ID)));
+				trail.setTrailName((c.getString(c.getColumnIndex(KEY_NAME))));
+				trail.setTrailClass(c.getString(c.getColumnIndex(KEY_TRAIL_CLASS)));
+				trail.setLength(c.getDouble(c.getColumnIndex(KEY_LENGTH)));
+				trail.setSurface(c.getString(c.getColumnIndex(KEY_SURFACE)));
+				trail.setAmenities(c.getString(c.getColumnIndex(KEY_AMENITIES)));
+				trail.setParking(c.getString(c.getColumnIndex(KEY_PARKING)));
+				trail.setSeasonHours(c.getString(c.getColumnIndex(KEY_SEASON_HOURS)));
+				trail.setLighting(c.getString(c.getColumnIndex(KEY_LIGHTING)));
+				trail.setWinterMaintenance(c.getString(c.getColumnIndex(KEY_WINTER_MAINTENANCE)));
+				trail.setPets(c.getString(c.getColumnIndex(KEY_PETS)));
+				trail.setNotes(c.getString(c.getColumnIndex(KEY_NOTES)));
+				trail.setCity(c.getString(c.getColumnIndex(KEY_CITY)));
+				trail.setMidPointLat(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LAT)));
+				trail.setMidPointLng(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LNG)));
+				// adding to hashmap
+				namedTrails.put(trail.getTrailName(), trail);
+			} while (c.moveToNext());
+		}
+		closeDB();
+		return namedTrails;
+		
 	}
 
 	/*

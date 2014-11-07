@@ -53,7 +53,7 @@ public class TrailListAdapter extends BaseAdapter {
 		 txtName.setText(tList.get(position).getTrailName());
 		 
 		 TextView txtLength = (TextView) convertView.findViewById(R.id.trailLength);
-		 txtLength.setText(String.valueOf(tList.get(position).getLength()));
+		 txtLength.setText(String.valueOf(tList.get(position).getLength()) + " km");
 		 
 		 TextView txtSurface = (TextView) convertView.findViewById(R.id.trailSurface);
 		 txtSurface.setText(tList.get(position).getSurface());

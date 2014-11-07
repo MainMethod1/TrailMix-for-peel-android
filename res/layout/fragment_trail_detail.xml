@@ -12,15 +12,17 @@
        
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/container_map">
+            android:layout_height="220dp"
+            android:id="@+id/container_map"
+            android:paddingBottom="8dp">
             
             </FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp" 
+            android:padding="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,7 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp"
+            android:padding="8dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,7 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp"
+            android:padding="8dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -82,7 +86,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp"
+            android:padding="8dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -103,7 +108,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp"
+            android:padding="8dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -124,7 +130,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp"
+            android:padding="8dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,7 +152,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp"
+            android:padding="8dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -196,7 +204,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp"
+            android:padding="8dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -217,7 +226,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp"
+            android:padding="8dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -238,7 +248,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp" 
+            android:padding="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -259,7 +270,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="16dp" >
+            android:paddingTop="16dp"
+            android:padding="8dp" >
 
             <TextView
                 android:layout_width="wrap_content"

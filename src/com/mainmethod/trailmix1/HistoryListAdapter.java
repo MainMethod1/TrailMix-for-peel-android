@@ -79,8 +79,8 @@ public class HistoryListAdapter extends BaseAdapter {
 			convertView = mInflater.inflate(R.layout.history_list_item, null);
 		}
 		TextView txtStat = (TextView) convertView.findViewById(R.id.history_stat);
-		txtStat.setText("Travelled " + String.valueOf(sessionList.get(position).getDistance() / 1000) + "km in "
-				+ MapUtil.formatTime(sessionList.get(position).getTime()));
+		txtStat.setText("Tracked " + String.valueOf(sessionList.get(position).getDistance() / 1000) + " km in "
+				+ MapUtil.formatTime(sessionList.get(position).getTime()) + " minutes");
 
 		// TextView txtDistance = (TextView)
 		// convertView.findViewById(R.id.trailLength);

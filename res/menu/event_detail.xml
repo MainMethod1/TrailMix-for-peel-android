@@ -3,9 +3,12 @@
     tools:context="com.mainmethod.trailmix1.EventDetail" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_tracker"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:showAsAction="always"
+        android:title="Track"
+        android:icon="@drawable/ic_tracker_white"/> 
+        
+    
 
 </menu>

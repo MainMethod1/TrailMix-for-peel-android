@@ -63,7 +63,7 @@ public class TrailDetailFragment extends Fragment {
 		if (trailItem != null) {
 			((TextView) rootView.findViewById(R.id.txt_trailName)).setText(trailItem.getTrailName());
 			((TextView) rootView.findViewById(R.id.txt_trailType)).setText(trailItem.getTrailClass());
-			((TextView) rootView.findViewById(R.id.txt_trailLength)).setText(String.valueOf(trailItem.getLength()));
+			((TextView) rootView.findViewById(R.id.txt_trailLength)).setText(String.valueOf(trailItem.getLength())+" km");
 			((TextView) rootView.findViewById(R.id.txt_trailSurface)).setText(trailItem.getSurface());
 			((TextView) rootView.findViewById(R.id.txt_amenities)).setText(trailItem.getAmenities());
 			((TextView) rootView.findViewById(R.id.txt_parking)).setText(trailItem.getParking());
@@ -92,7 +92,7 @@ public class TrailDetailFragment extends Fragment {
 			// 0)));
 			mapSettings = googleMap.getUiSettings();
 			googleMap.setBuildingsEnabled(true);
-			googleMap.setMyLocationEnabled(true);
+//			googleMap.setMyLocationEnabled(true);
 			
 			LatLng trailMarker = new LatLng(trailItem.getMidPointLat(),trailItem.getMidPointLng());
 			googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(trailMarker, 13));

@@ -1,15 +1,25 @@
 package com.mainmethod.trailmix1;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.mainmethod.trailmix1.sqlite.model.Event;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class EventDetailFragment extends Fragment {
@@ -72,9 +82,53 @@ public class EventDetailFragment extends Fragment {
 			//.setText(eventItem.getUrl_text());
 //			((TextView) rootView.findViewById(R.id.eventPoster_URL))
 //			.setText(eventItem.getPoster_url());
-	
+			ImageView poster = (ImageView) rootView.findViewById(R.id.img_event_poster);
+	        if(eventItem.getPoster_url().isEmpty()){
+	        	//display default image
+	        	poster.setImageResource(R.drawable.img_event_default);
+	        	Log.i("poster url is null", eventItem.getPoster_url());
+	        }else{
+	        	//load from url
+	        	new ImageLoadingTask(eventItem.getPoster_url(), poster).execute(null, null);
+	        }
+	        Log.i("poster url", eventItem.getPoster_url());
 		}
 
 		return rootView;
+	}
+	
+	public class ImageLoadingTask extends AsyncTask<Void, Void, Bitmap> {
+
+	    private String url;
+	    private ImageView imageView;
+
+	    public ImageLoadingTask(String url, ImageView imageView) {
+	        this.url = url;
+	        this.imageView = imageView;
+	    }
+
+	    @Override
+	    protected Bitmap doInBackground(Void... params) {
+	        try {
+	            URL urlConnection = new URL(url);
+	            HttpURLConnection connection = (HttpURLConnection) urlConnection
+	                    .openConnection();
+	            connection.setDoInput(true);
+	            connection.connect();
+	            InputStream input = connection.getInputStream();
+	            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+	            return myBitmap;
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return null;
+	    }
+
+	    @Override
+	    protected void onPostExecute(Bitmap result) {
+	        super.onPostExecute(result);
+	        imageView.setImageBitmap(result);
+	    }
+
 	}
 }

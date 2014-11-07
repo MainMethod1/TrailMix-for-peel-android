@@ -47,7 +47,7 @@ public class TrailDetailActivity extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		//getMenuInflater().inflate(R.menu.event_detail, menu);
+		getMenuInflater().inflate(R.menu.event_detail, menu);
 		return true;
 	}
 
@@ -57,13 +57,15 @@ public class TrailDetailActivity extends FragmentActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.action_tracker) {
+			Intent i = new Intent(this,MainActivity.class);
+			startActivity(i);
 			return true;
 		} else if(id == android.R.id.home){
 			NavUtils.navigateUpTo(this, new Intent(this,
 					MainActivity.class));
 			return true;
-		}
+		} 
 		return super.onOptionsItemSelected(item);
 	}
 }

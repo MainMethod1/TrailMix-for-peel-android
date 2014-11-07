@@ -20,6 +20,7 @@ import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import android.app.Fragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,8 @@ import android.graphics.Outline;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,6 +57,7 @@ public class MainActivity extends FragmentActivity {
 	 * (ie. Side Menu Bar). </p>
 	 */
 	private FragmentNavigationDrawer dlDrawer;
+	TrackerFragment trackerFragment ;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +80,10 @@ public class MainActivity extends FragmentActivity {
 		// Set color changes for the tint
 		tintManager.setTintColor(Color.parseColor("#0288d1"));
 
+        
+		
+		
+		
 		// Find our drawer view
 		dlDrawer = (FragmentNavigationDrawer) findViewById(R.id.drawer_layout);
 		
@@ -89,19 +97,48 @@ public class MainActivity extends FragmentActivity {
 		// their corresponding fragment classes
 		dlDrawer.addNavItem("Home", R.drawable.ic_drawer_home, "Select Activity",
 				HomeFragment.class); // HomeFragment.java
-		dlDrawer.addNavItem("Explore Trails", R.drawable.ic_drawer_explore_trails,
+		dlDrawer.addNavItem("Explore Trails", R.drawable.ic_drawer_explore,
 				"Explore Trails", ExploreTrailsFragment.class); 
 		dlDrawer.addNavItem("Tracker", R.drawable.ic_drawer_tracker, "Tracker",
 				TrackerFragment.class); // TrackerFragment.java
-		dlDrawer.addNavItem("Events", R.drawable.ic_drawer_events, "Events",
-				EventsFragment.class); //EventsFragment.java
-		dlDrawer.addNavItem("History", R.drawable.ic_drawer_events, "History",
+	
+		dlDrawer.addNavItem("History", R.drawable.ic_drawer_history, "History",
 				HistoryFragment.class);
+		dlDrawer.addNavItem("Events", R.drawable.ic_drawer_event, "Events",
+				EventsFragment.class); //EventsFragment.java
 		//ExploreTrailsFragment.java
 		
 		// Select the default nav item
 		if (savedInstanceState == null) {
+			System.out.println("Error: " + MapActivity.ARG_TRACKER_FLAG);
+			if (getIntent().hasExtra(MapActivity.ARG_TRACKER_FLAG)){
+				if(getIntent().getStringExtra(MapActivity.ARG_TRACKER_FLAG).equals(new String("bike")) || 
+						getIntent().getStringExtra(MapActivity.ARG_TRACKER_FLAG).equals(new String("run")) || 
+						getIntent().getStringExtra(MapActivity.ARG_TRACKER_FLAG).equals(new String("hike"))){
+					
+					FragmentManager fm = getSupportFragmentManager();
+					try {
+						trackerFragment = TrackerFragment.class.newInstance();
+						Bundle arguments = new Bundle();
+						arguments.putString(MapActivity.ARG_TRACKER_FLAG, getIntent()
+								.getStringExtra(MapActivity.ARG_TRACKER_FLAG));
+						trackerFragment.setArguments(arguments);
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				
+						FragmentTransaction transaction =  fm.beginTransaction().replace(R.id.content_frame, trackerFragment);
+						transaction.addToBackStack(null);
+						transaction.commit();
+				
+				}
+			} else{
 			dlDrawer.selectDrawerItem(0);
+			}
 		}
 		
 		

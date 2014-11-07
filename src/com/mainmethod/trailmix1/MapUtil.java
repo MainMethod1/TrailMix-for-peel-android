@@ -6,7 +6,9 @@ import java.util.HashMap;
 import android.graphics.Color;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.mainmethod.trailmix1.kmlparsing.PlacemarkObj;
@@ -133,6 +135,18 @@ public class MapUtil {
 			return minutes + ":0" + seconds + "";
 		}
 
+	}
+	public static void drawTrailMarkersByClass(GoogleMap map, String trailClass, DatabaseHelper db) {
+	
+		for (Trail trail: db.getAllTrailsWithInfo(trailClass).values())
+		{
+			LatLng center = new LatLng(trail.getMidPointLat(), trail.getMidPointLng());
+			map.addMarker(new MarkerOptions()
+			 .position(center)
+			 .title(trail.getTrailName())
+			 .snippet("Length: "+ trail.getLength()+"km Surface: "+trail.getSurface())
+			 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker)));
+		}
 	}
 	
 }

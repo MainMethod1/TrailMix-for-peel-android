@@ -22,13 +22,17 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.mainmethod.trailmix1.kmlparsing.NavigationSaxHandler;
 import com.mainmethod.trailmix1.kmlparsing.PlacemarkObj;
 import com.mainmethod.trailmix1.kmlparsing.TrailObj;
+import com.mainmethod.trailmix1.preferences.PrefActivity;
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.mainmethod.trailmix1.sqlite.model.GeoPoint;
 import com.mainmethod.trailmix1.sqlite.model.Placemark;
@@ -45,6 +49,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 //import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -70,7 +75,9 @@ public class MapActivity extends FragmentActivity {
 	private static final String TAG_CITY = "City";
 	private static final String TAG_MLAT = "MidLat";
 	private static final String TAG_MLNG = "MidLng";
-	
+	protected static final String ARG_TRACKER_FLAG = "flag";
+	String arg_act_selected = null;
+	Context c;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -105,50 +112,51 @@ public class MapActivity extends FragmentActivity {
 					// drawMap(trailCollection, mMap);
 					//doInsert(trailCollection);
 					// drawTrails(mMap);
-//					DatabaseHelper db = new DatabaseHelper(getApplicationContext());
-//					try {
-//						db.createDataBase();
-//					} catch (IOException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//					db.closeDB();
-					
-     				DatabaseHelper db = new DatabaseHelper(this);
-					for (Trail trail: db.getAllTrailsWithInfo().values())
-					{
-						LatLng center = new LatLng(trail.getMidPointLat(), trail.getMidPointLng());
-						mMap.addMarker(new MarkerOptions()
-						 .position(center)
-						 .title(trail.getTrailName()));
+					DatabaseHelper db = new DatabaseHelper(this);
+					try {
+						db.createDataBase();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
+					
+					   
+//     				DatabaseHelper db = new DatabaseHelper(this);
+//					for (Trail trail: db.getAllTrailsWithInfo().values())
+//					{
+//						LatLng center = new LatLng(trail.getMidPointLat(), trail.getMidPointLng());
+//						mMap.addMarker(new MarkerOptions()
+//						 .position(center)
+//						 .title(trail.getTrailName())
+//						 .snippet("Length: "+ trail.getLength()+"km Surface: "+trail.getSurface())
+//						 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker)));
+//					}
 
 					//System.out.println(getIntent().getStringExtra(HomeFragment.ARG_ACT_HIKE));
 				
 					if (getIntent().hasExtra(HomeFragment.ARG_ACTIVITY)){
 						if(getIntent().getStringExtra(HomeFragment.ARG_ACTIVITY).equals(new String("bike"))){
+							arg_act_selected = "bike";
 							//drawTrailByClass(mMap, "Bicycle Lane ' OR class='Marked On Road Bicycle Route", Color.GREEN);
-							drawTrailByClass(mMap, "Bicycle Lane", Color.BLUE);
-							drawTrailByClass(mMap, "Marked On Road Bicycle Route", Color.GREEN);
+//							drawTrailByClass(mMap, "Bicycle Lane", Color.BLUE);
+							//drawTrailByClass(mMap, "Marked On Road Bicycle Route", Color.GREEN);
+							drawTrailMarkersByClass(mMap, "Multi%");
 						}else if(getIntent().getStringExtra(HomeFragment.ARG_ACTIVITY).equals(new String("run"))){
-							drawTrailByClass(mMap, "Unmarked Dirt Trail", Color.MAGENTA);
+//							drawTrailByClass(mMap, "Unmarked Dirt Trail", Color.MAGENTA);
+							arg_act_selected = "run";
+							drawTrailMarkersByClass(mMap, "%");
 						}else if(getIntent().getStringExtra(HomeFragment.ARG_ACTIVITY).equals(new String("hike"))){
-							drawTrailByClass(mMap, "Hiking Trail", Color.RED);
+//							drawTrailByClass(mMap, "Hiking Trail", Color.RED);
+							arg_act_selected = "hike";
+							drawTrailMarkersByClass(mMap, "Hiking%");
 						}else {
-							//do nothing
+							//do nothing  
+							arg_act_selected = "nada";
 						}
 					}
-							
-//					} else if (
-//							&& getIntent().getStringExtra(HomeFragment.ARG_ACT_RUN))) {
-//						
-//					} else if (getIntent().hasExtra(HomeFragment.ARG_ACT_HIKE)
-//							&& getIntent().getStringExtra(HomeFragment.ARG_ACT_HIKE).equals(new String("hike"))) {
-//						
-//					} else {
-//						// do nothing
-//					}
-
+				    c = this;
+				    db.closeDB();
+				    mMap.setOnInfoWindowClickListener(new InfoWindowClickListener());
 					// new LoadMap().execute();
 
 				} catch (Exception e) {
@@ -166,7 +174,24 @@ public class MapActivity extends FragmentActivity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		// handleIntent(getIntent());
 	}
+	
+	
+    
+	public class InfoWindowClickListener implements OnInfoWindowClickListener {
 
+		@Override
+		public void onInfoWindowClick(Marker marker) {
+			// TODO Auto-generated method stub
+			Log.d("", marker.getTitle());
+            Intent i = new Intent(c,TrailDetailActivity.class);
+            i.putExtra(TrailDetailFragment.ARG_TRAIL_NAME,
+					marker.getTitle());
+            startActivity(i);
+		}
+		
+	}
+	
+	
 	public class LoadMap extends AsyncTask<Void, Void, Boolean> {
 
 		@Override
@@ -250,6 +275,21 @@ public class MapActivity extends FragmentActivity {
 			polyline.setColor(color);
 			polyline.setWidth(8);
 			polyline.setVisible(true);
+		}
+	}
+	
+
+	public void drawTrailMarkersByClass(GoogleMap map, String trailClass) {
+		DatabaseHelper db;
+		db = new DatabaseHelper(this);
+		for (Trail trail: db.getAllTrailsWithInfo(trailClass).values())
+		{
+			LatLng center = new LatLng(trail.getMidPointLat(), trail.getMidPointLng());
+			map.addMarker(new MarkerOptions()
+			 .position(center)
+			 .title(trail.getTrailName())
+			 .snippet("Length: "+ trail.getLength()+"km Surface: "+trail.getSurface())
+			 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker)));
 		}
 	}
 
@@ -536,6 +576,15 @@ public class MapActivity extends FragmentActivity {
 		// TODO Auto-generated method stub
 		if (item.getItemId() == android.R.id.home) {
 			finish();
+		} else if (item.getItemId() == R.id.action_tracker) {
+			Intent i = new Intent(this,MainActivity.class);
+			i.putExtra(MapActivity.ARG_TRACKER_FLAG,
+					arg_act_selected);
+			startActivity(i);
+			return true;
+		} else if(item.getItemId() == R.id.action_preferences){
+			Intent i = new Intent(this,PrefActivity.class);
+			startActivity(i);
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -543,7 +592,7 @@ public class MapActivity extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Uncomment to inflate menu items to Action Bar
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.map_menu, menu);
 		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 		SearchView searchView = (SearchView) menu.findItem(R.id.searchOption).getActionView();
 		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
