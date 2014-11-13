@@ -138,7 +138,7 @@ public class MapActivity extends FragmentActivity {
 							//drawTrailByClass(mMap, "Bicycle Lane ' OR class='Marked On Road Bicycle Route", Color.GREEN);
 //							drawTrailByClass(mMap, "Bicycle Lane", Color.BLUE);
 							//drawTrailByClass(mMap, "Marked On Road Bicycle Route", Color.GREEN);
-							//drawTrailMarkersByClass(mMap, "Multi%");
+							drawTrailMarkersByClass(mMap, "Multi%");
 							
 							
 						
@@ -211,7 +211,12 @@ public class MapActivity extends FragmentActivity {
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
 			DatabaseHelper db = new DatabaseHelper(c);
-			ArrayList<ArrayList<GeoPoint>> geoPoints = db.getPlacemarks();
+			ArrayList<String> trailClasses = new ArrayList<String>();
+			trailClasses.add("Bicycle Lane");
+//			trailClass.add("");
+//			trailClass.add("");
+//			trailClass.add("");
+			ArrayList<ArrayList<GeoPoint>> geoPoints = getGeoPointsByClass(trailClasses);//db.getPlacemarks();
 			points = new ArrayList<ArrayList<LatLng>>();
 			db.closeDB();
 			ArrayList<LatLng> currPoints;
@@ -382,6 +387,7 @@ public class MapActivity extends FragmentActivity {
 				placeMarkId++;
 				Placemark p = new Placemark();
 				p.setTrail_id(trailID);
+				p.setTrail_class(pmark.getTrailClass());
 				db.createPlacemark(p);
 
 				for (LatLng geoPoint : pmark.getCoordinates()) {
@@ -524,6 +530,26 @@ public class MapActivity extends FragmentActivity {
 		return trailCollection;
 	}
 
+	public ArrayList<ArrayList<GeoPoint>> getGeoPointsByClass (ArrayList<String> classes)
+	{
+		
+		DatabaseHelper db = new DatabaseHelper(this);
+		ArrayList<Placemark> placemarks = new ArrayList<Placemark>();
+		for(String trailClass : classes)
+		{
+			placemarks.addAll(db.getTrailPlacemarksByClass(trailClass));
+		}
+		
+		ArrayList<ArrayList<GeoPoint>> reqPoints = new ArrayList<ArrayList<GeoPoint>>();
+		ArrayList<GeoPoint> coords;
+		for( Placemark pmark: placemarks)
+		{
+			coords = db.getPlacemarkGeoPoints(pmark.getId());
+			reqPoints.add(coords);
+		}
+		db.closeDB();
+		return reqPoints;
+	}
 	public boolean loadKML(GoogleMap map) throws ParserConfigurationException, SAXException, IOException {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		try {

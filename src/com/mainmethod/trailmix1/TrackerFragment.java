@@ -268,7 +268,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 					SessionGeopoint point;
 
 					for (SessionGeopoint sgp : currGeopoints) {
-						sgp.setId((int) count);
+						sgp.setSession_id((int) count);
 						db.createSessionGeopoint(sgp);
 
 					}

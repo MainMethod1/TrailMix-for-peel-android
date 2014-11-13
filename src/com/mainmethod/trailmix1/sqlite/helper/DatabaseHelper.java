@@ -577,7 +577,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				// +"."+KEY_ID)));
 				p.setId(c.getInt(c.getColumnIndex(KEY_ID)));
 				p.setTrail_id(c.getInt(c.getColumnIndex(KEY_TRAIL_ID)));
-
+                p.setTrail_class(c.getString(c.getColumnIndex(KEY_TRAIL_CLASS)));
 				trailPlacemarks.add(p);
 
 			} while (c.moveToNext());
@@ -592,7 +592,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		values.put(KEY_TRAIL_ID, p.getTrail_id());
 		values.put(KEY_TRAIL_CLASS, p.getTrail_class());
-
+		
 		long column_id = db.insert(PLACEMARK_TABLE, null, values);
 
 		return column_id;
