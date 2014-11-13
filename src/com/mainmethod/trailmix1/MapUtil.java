@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import android.graphics.Color;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -40,6 +41,7 @@ public class MapUtil {
 	public static void drawTrailByName(GoogleMap map, String trailName, DatabaseHelper db) {
 //		DatabaseHelper db;
 //		db = new DatabaseHelper(this);
+		int i=0;
 		ArrayList<Placemark> placemarks = db.getTrailPlacemarks(trailName);
 		ArrayList<GeoPoint> points;
 		PolylineOptions rectOptions;
@@ -47,14 +49,21 @@ public class MapUtil {
 			rectOptions = new PolylineOptions();
 			points = db.getPlacemarkGeoPoints(p.getId());
 			for (GeoPoint g : points) {
+//				if(i==0){
+//					LatLng trailMarker = new LatLng(g.getLat(),g.getLng());
+//					map.animateCamera(CameraUpdateFactory.newLatLngZoom(trailMarker, 14));
+//					map.addMarker(new MarkerOptions()
+//					 .position(trailMarker));
+//				}
 				rectOptions.add(new LatLng(g.getLat(), g.getLng()));
+				i++;
 			}
 			Polyline polyline = map.addPolyline(rectOptions);
 			polyline.setColor(Color.RED);
 			polyline.setWidth(8);
 			polyline.setVisible(true);
 		}
-
+      
 	}
 
 	public static void drawTrailByClass(GoogleMap map, String trailClass, int color, DatabaseHelper db) {

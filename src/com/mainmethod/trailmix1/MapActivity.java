@@ -29,6 +29,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.mainmethod.trailmix1.kmlparsing.NavigationSaxHandler;
 import com.mainmethod.trailmix1.kmlparsing.PlacemarkObj;
 import com.mainmethod.trailmix1.kmlparsing.TrailObj;
@@ -37,6 +38,7 @@ import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.mainmethod.trailmix1.sqlite.model.GeoPoint;
 import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
+import com.mainmethod.trailmix1.tileprovider.CustomTileProvider;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import android.app.Dialog;
@@ -77,6 +79,7 @@ public class MapActivity extends FragmentActivity {
 	private static final String TAG_MLNG = "MidLng";
 	protected static final String ARG_TRACKER_FLAG = "flag";
 	String arg_act_selected = null;
+	ArrayList<ArrayList<LatLng>> points;
 	Context c;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -97,10 +100,11 @@ public class MapActivity extends FragmentActivity {
 		tintManager.setTintColor(Color.parseColor("#0288d1"));
 
 		if (servicesOK()) {
-
+			  c = this;
 			setContentView(R.layout.activity_map);
+			new LoadMap().execute();
 			if (initMap()) {
-
+ 
 				mMap.setBuildingsEnabled(true);
 				mMap.setMyLocationEnabled(true);
 				// mMap.setTrafficEnabled(true);
@@ -112,13 +116,7 @@ public class MapActivity extends FragmentActivity {
 					// drawMap(trailCollection, mMap);
 					//doInsert(trailCollection);
 					// drawTrails(mMap);
-					DatabaseHelper db = new DatabaseHelper(this);
-					try {
-						db.createDataBase();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					
 					
 					   
 //     				DatabaseHelper db = new DatabaseHelper(this);
@@ -140,7 +138,13 @@ public class MapActivity extends FragmentActivity {
 							//drawTrailByClass(mMap, "Bicycle Lane ' OR class='Marked On Road Bicycle Route", Color.GREEN);
 //							drawTrailByClass(mMap, "Bicycle Lane", Color.BLUE);
 							//drawTrailByClass(mMap, "Marked On Road Bicycle Route", Color.GREEN);
-							drawTrailMarkersByClass(mMap, "Multi%");
+							//drawTrailMarkersByClass(mMap, "Multi%");
+							
+							
+						
+							//ArrayList<ArrayList<LatLng>> points = db.getPoints();
+//							mMap.addTileOverlay(new TileOverlayOptions().tileProvider(
+//									new CustomTileProvider(points, Color.RED)));
 						}else if(getIntent().getStringExtra(HomeFragment.ARG_ACTIVITY).equals(new String("run"))){
 //							drawTrailByClass(mMap, "Unmarked Dirt Trail", Color.MAGENTA);
 							arg_act_selected = "run";
@@ -154,8 +158,8 @@ public class MapActivity extends FragmentActivity {
 							arg_act_selected = "nada";
 						}
 					}
-				    c = this;
-				    db.closeDB();
+				  
+				   // db.closeDB();
 				    mMap.setOnInfoWindowClickListener(new InfoWindowClickListener());
 					// new LoadMap().execute();
 
@@ -201,14 +205,25 @@ public class MapActivity extends FragmentActivity {
 			pDialog.setMessage("Loading map...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
-			// pDialog.show();
+			pDialog.show();
 		}
 
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
-
-			// insertData();
-
+			DatabaseHelper db = new DatabaseHelper(c);
+			ArrayList<ArrayList<GeoPoint>> geoPoints = db.getPlacemarks();
+			points = new ArrayList<ArrayList<LatLng>>();
+			db.closeDB();
+			ArrayList<LatLng> currPoints;
+			for(ArrayList<GeoPoint> currGeoPoints: geoPoints)
+			{
+				currPoints = new ArrayList<LatLng>();
+				for(GeoPoint gp: currGeoPoints)
+				{
+					currPoints.add(new LatLng(gp.getLat(), gp.getLng()));
+				}
+				points.add(currPoints);
+			}
 			return null;
 
 		}
@@ -216,8 +231,10 @@ public class MapActivity extends FragmentActivity {
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
-			mMap.setTrafficEnabled(true);
+		//	mMap.setTrafficEnabled(true);
 			pDialog.dismiss();
+			mMap.addTileOverlay(new TileOverlayOptions().tileProvider(
+					new CustomTileProvider(points, Color.RED)));
 
 		}
 	}

@@ -1,5 +1,6 @@
 package com.mainmethod.trailmix1;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -79,7 +80,15 @@ public class MainActivity extends FragmentActivity {
 		tintManager.setNavigationBarTintEnabled(true);
 		// Set color changes for the tint
 		tintManager.setTintColor(Color.parseColor("#0288d1"));
-
+         
+		DatabaseHelper db = new DatabaseHelper(this);
+		try {
+			db.createDataBase();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.closeDB();
         
 		
 		
@@ -135,6 +144,30 @@ public class MainActivity extends FragmentActivity {
 						transaction.addToBackStack(null);
 						transaction.commit();
 				
+				}
+			}else if(getIntent().hasExtra(TrailDetailActivity.ARG_TRAIL_FLAG)){
+				if(getIntent().getStringExtra(TrailDetailActivity.ARG_TRAIL_FLAG) != null){
+					FragmentManager fm = getSupportFragmentManager();
+					try {
+						trackerFragment = TrackerFragment.class.newInstance();
+						Bundle arguments = new Bundle();
+						arguments.putString(TrailDetailActivity.ARG_TRAIL_FLAG, getIntent()
+								.getStringExtra(TrailDetailActivity.ARG_TRAIL_FLAG));
+						trackerFragment.setArguments(arguments);
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				
+						FragmentTransaction transaction =  fm.beginTransaction().replace(R.id.content_frame, trackerFragment);
+						transaction.addToBackStack(null);
+						transaction.commit();
+				}
+				else{
+					//do nothing
 				}
 			} else{
 			dlDrawer.selectDrawerItem(0);

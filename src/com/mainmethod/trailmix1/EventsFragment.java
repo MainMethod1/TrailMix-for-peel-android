@@ -43,9 +43,9 @@ public class EventsFragment extends ListFragment {
 	private static final String TAG_EventInfo = "eventInfo";
 	private static final String TAG_EventDatetime = "eventDateTime";
 	private static final String TAG_ID = "Id";
-	private static final String TAG_URL = "url";
+	private static final String TAG_URL = "eventUrl";
 	private static final String TAG_City = "Cities";
-	private static final String TAG_URL_TEXT = "url_text";
+	private static final String TAG_URL_TEXT = "urlText";
 	private static final String TAG_START_TIME = "startTime";
 	private static final String TAG_END_TIME = "endTime";
 	private static final String TAG_ISALLDAY = "isAllDay";
@@ -64,8 +64,7 @@ public class EventsFragment extends ListFragment {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
 		new LoadEvents().execute();
 		return inflater.inflate(R.layout.events_fragment, container, false);
@@ -76,23 +75,19 @@ public class EventsFragment extends ListFragment {
 	public void onResume() {
 		super.onResume();
 
-		swipeLayout = (SwipeRefreshLayout) getActivity().findViewById(
-				R.id.swipe_container);
-		swipeLayout
-				.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+		swipeLayout = (SwipeRefreshLayout) getActivity().findViewById(R.id.swipe_container);
+		swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
-					@Override
-					public void onRefresh() {
-						// TODO Auto-generated method stub
-						handler.post(refreshing);
-						new UpdateEvents().execute();
-						swipeLayout.setRefreshing(false);
-					}
-				});
-		swipeLayout.setColorScheme(android.R.color.holo_blue_bright,
-				android.R.color.holo_green_light,
-				android.R.color.holo_orange_light,
-				android.R.color.holo_red_light);
+			@Override
+			public void onRefresh() {
+				// TODO Auto-generated method stub
+				handler.post(refreshing);
+				new UpdateEvents().execute();
+				swipeLayout.setRefreshing(false);
+			}
+		});
+		swipeLayout.setColorScheme(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
+				android.R.color.holo_orange_light, android.R.color.holo_red_light);
 
 	}
 
@@ -118,7 +113,7 @@ public class EventsFragment extends ListFragment {
 	public void updateEventDatabase(ArrayList<Event> eventCollection) {
 		db = new DatabaseHelper(getActivity());
 		db.deleteAllEvent();
-		for(Event e: eventCollection){
+		for (Event e : eventCollection) {
 			db.createEvent(e);
 		}
 		eList = db.getAllEvents();
@@ -156,18 +151,20 @@ public class EventsFragment extends ListFragment {
 					String url_text = jsonObj.getString(TAG_URL_TEXT);
 					String startTime = jsonObj.getString(TAG_START_TIME);
 					String endTime = jsonObj.getString(TAG_END_TIME);
-					boolean isAllDay = Boolean.parseBoolean(jsonObj
-							.getString(TAG_ISALLDAY));
+					boolean isAllDay = Boolean.parseBoolean(jsonObj.getString(TAG_ISALLDAY));
 					String contactName = jsonObj.getString(TAG_CONTACT);
 					String contactEmail = jsonObj.getString(TAG_CONTACT_EMAIL);
 					String posterUrl = jsonObj.getString(TAG_POSTERURL);
 
-					String date = dateTime.substring(0, 10);
+					String date = null;
+					if (dateTime.length() > 10) {
+						date = dateTime.substring(0, 10);
+					}
+
 					String s_time = startTime.substring(11, 19);
 					String e_time = endTime.substring(11, 19);
 
-					eventList.add(new Event(title, id, desc, url, url_text,
-							date, s_time, e_time, isAllDay, location,
+					eventList.add(new Event(title, id, desc, url, url_text, date, s_time, e_time, isAllDay, location,
 							contactName, contactEmail, posterUrl));
 
 				}
@@ -181,8 +178,7 @@ public class EventsFragment extends ListFragment {
 
 	private void updateList() {
 
-		EventListAdapter eventAdapter = new EventListAdapter(getActivity(),
-				eList);
+		EventListAdapter eventAdapter = new EventListAdapter(getActivity(), eList);
 		setListAdapter(eventAdapter);
 
 		final ListView lv = getListView();
@@ -196,8 +192,7 @@ public class EventsFragment extends ListFragment {
 			}
 
 			@Override
-			public void onScroll(AbsListView view, int firstVisibleItem,
-					int visibleItemCount, int totalItemCount) {
+			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 				// TODO Auto-generated method stub
 				boolean enable = false;
 				if (lv != null && lv.getChildCount() > 0) {
@@ -218,18 +213,14 @@ public class EventsFragment extends ListFragment {
 		getView();
 	}
 
-	private class EventItemClickListener implements
-			ListView.OnItemClickListener {
+	private class EventItemClickListener implements ListView.OnItemClickListener {
 		@Override
-		public void onItemClick(AdapterView parent, View view, int position,
-				long id) {
+		public void onItemClick(AdapterView parent, View view, int position, long id) {
 			// selectItem(position);
 			Event e = (Event) parent.getItemAtPosition(position);
 
-			Intent detailIntent = new Intent(getActivity(),
-					EventDetailActivity.class);
-			detailIntent.putExtra(EventDetailFragment.ARG_EVENT_NAME,
-					e.getTitle());
+			Intent detailIntent = new Intent(getActivity(), EventDetailActivity.class);
+			detailIntent.putExtra(EventDetailFragment.ARG_EVENT_NAME, e.getTitle());
 			startActivity(detailIntent);
 			// Toast.makeText(getActivity().getApplicationContext(),
 			// e.getContactName() + e.getContactEmail(),

@@ -467,6 +467,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		placemarks.add(points);
 		return placemarks;
 	}
+	
+	public ArrayList<ArrayList<LatLng>> getPoints() {
+		ArrayList<ArrayList<LatLng>> placemarks = new ArrayList<ArrayList<LatLng>>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		String selectQuery = "SELECT * FROM " + GEOPOINT_TABLE + ";";
+		Cursor c = db.rawQuery(selectQuery, null);
+
+		ArrayList<GeoPoint> allPoints = new ArrayList<GeoPoint>();
+		if (c.moveToFirst()) {
+			do {
+				GeoPoint point = new GeoPoint();
+				point.setPlacemark_id(c.getInt(c.getColumnIndex(KEY_PLACEMARK_ID)));
+				point.setLat(c.getDouble(c.getColumnIndex(KEY_LAT)));
+				point.setLng(c.getDouble(c.getColumnIndex(KEY_LNG)));
+
+				allPoints.add(point);
+
+			} while (c.moveToNext());
+		}
+
+		int currPId = 1;
+		ArrayList<LatLng> points = new ArrayList<LatLng>();
+
+		for (GeoPoint g : allPoints) {
+			if (g.getPlacemark_id() == currPId) {
+				points.add(new LatLng(g.getLat(), g.getLng()));
+			} else {
+				currPId++;
+				placemarks.add(points);
+				points = new ArrayList<LatLng>();
+				points.add(new LatLng(g.getLat(), g.getLng()));
+
+			}
+		}
+		placemarks.add(points);
+		return placemarks;
+	}
+	
+	
+	
 
 	// get geopoints for placemark
 	public ArrayList<GeoPoint> getPlacemarkGeoPoints(int placemarkID) {
@@ -766,7 +806,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		ArrayList<SessionGeopoint> sessionGeoPoints = new ArrayList<SessionGeopoint>();
 		SQLiteDatabase db = this.getReadableDatabase();
 		String selectQuery = "SELECT  * FROM " + SESSION_TABLE + " INNER JOIN " + SESSION_GEOPOINT_TABLE + " ON "
-				+ SESSION_TABLE + "." + KEY_ID + " = " + GEOPOINT_TABLE + "." + KEY_SESSION_ID + " WHERE "
+				+ SESSION_TABLE + "." + KEY_ID + " = " + SESSION_GEOPOINT_TABLE + "." + KEY_SESSION_ID + " WHERE "
 				+ SESSION_TABLE + "." + KEY_ID + " = " + session_id + ";";
 
 		Log.e(LOG, selectQuery);

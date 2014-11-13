@@ -3,6 +3,7 @@ package com.mainmethod.trailmix1;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -135,6 +136,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 		} catch (InflateException e) {
 
 		}
+		if(getArguments() != null){
 		if (getArguments().containsKey(MapActivity.ARG_TRACKER_FLAG)) {
 			Log.i("ActLoadError", "intent contans activity extra");
 		    DatabaseHelper db = new DatabaseHelper(getActivity());
@@ -152,6 +154,13 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 				Log.i("ActLoadError", "not loading activity based markers but has "+getArguments().getString(MapActivity.ARG_TRACKER_FLAG));
 			}
 			
+		}else if(getArguments().containsKey(TrailDetailActivity.ARG_TRAIL_FLAG)){
+			DatabaseHelper db = new DatabaseHelper(getActivity());
+			if(initMap())
+				MapUtil.drawTrailByName(gMap, getArguments().getString(TrailDetailActivity.ARG_TRAIL_FLAG), db);
+		}
+		}else{
+			Log.i("ArgLoadError", "fragment doesn't have arguments");
 		}
 		// v = inflater.inflate(R.layout.tracker_fragment, container, false);
 		mLocationRequest = LocationRequest.create();
@@ -247,10 +256,11 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 					DatabaseHelper db = new DatabaseHelper(getActivity());
 					long count = db.getRowCount("sessions") + 1;
 					currentSession = new Session();
-					currentSession.setDistance(distance);
+					currentSession.setDistance(Double.parseDouble(String.format("%.2f",distance)));
 					currentSession.setTime(time);
 					currentSession.setSpeed(distance / time);
 					DateFormat dFormat = DateFormat.getDateTimeInstance();
+					dFormat.setTimeZone(TimeZone.getTimeZone("GMT-05:00"));
 					Date now = new Date();
 					currentSession.setCreated_at(dFormat.format(now));
 
@@ -277,7 +287,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 					lastLocation = null;
 					updates=0;
 					
-					speedTxt.setText("0.0 m/s");
+					speedTxt.setText("0.0 km/h");
 					timer.setText("0:00");
 					distanceTxt.setText("0m");
                     currentSession = null;
@@ -570,13 +580,13 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 
 						if (distanceTravelled != 0) {
 							currSpeed = distanceTravelled / secondsTaken;
-							speedTxt.setText(String.format("%.2f", currSpeed) + " m/s");
+							speedTxt.setText(String.format("%.2f", currSpeed*3.6) + " km/h");
 							distanceTravelled = 0;
 							secondsTaken = 0;
 						} else if (secondsTaken > 15) {
 							currSpeed = 0;
 							secondsTaken = 0;
-							speedTxt.setText("0.0 m/s");
+							speedTxt.setText("0.0 km/h");
 						}
 
 					}
@@ -589,7 +599,9 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	}
 
 	public void stopTimer(View view) {
+		if(currSessionTimer != null){
 		currSessionTimer.cancel();
+		}
 		currSessionTimer = null;
 		// s = 0;
 		// m = 0;

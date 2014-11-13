@@ -12,6 +12,9 @@ import android.view.MenuItem;
 
 public class TrailDetailActivity extends FragmentActivity {
 
+	protected static final String ARG_TRAIL_FLAG = "trailFlag";
+	String arg_trail_selected;
+	
 	public TrailDetailActivity() {
 		// TODO Auto-generated constructor stub
 	}
@@ -34,6 +37,8 @@ public class TrailDetailActivity extends FragmentActivity {
 		if (savedInstanceState == null) {
 			// Create the detail fragment and add it to the activity
 			// using a fragment transaction.
+            arg_trail_selected = getIntent()
+					.getStringExtra(TrailDetailFragment.ARG_TRAIL_NAME);
 			Bundle arguments = new Bundle();
 			arguments.putString(TrailDetailFragment.ARG_TRAIL_NAME, getIntent()
 					.getStringExtra(TrailDetailFragment.ARG_TRAIL_NAME));
@@ -59,6 +64,8 @@ public class TrailDetailActivity extends FragmentActivity {
 		int id = item.getItemId();
 		if (id == R.id.action_tracker) {
 			Intent i = new Intent(this,MainActivity.class);
+			i.putExtra(TrailDetailActivity.ARG_TRAIL_FLAG,
+					arg_trail_selected);
 			startActivity(i);
 			return true;
 		} else if(id == android.R.id.home){

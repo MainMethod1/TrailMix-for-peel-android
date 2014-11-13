@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -32,12 +33,16 @@ public class HistoryDetailActivity extends FragmentActivity {
 			// Create the detail fragment and add it to the activity
 			// using a fragment transaction.
 			Bundle arguments = new Bundle();
+			if(getIntent().hasExtra(HistoryDetailFragment.ARG_SESSION_ID)){
 			arguments.putString(HistoryDetailFragment.ARG_SESSION_ID, getIntent()
 					.getStringExtra(HistoryDetailFragment.ARG_SESSION_ID));
 			HistoryDetailFragment fragment = new HistoryDetailFragment();
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.history_activity_container, fragment).commit();
+			} else{
+				
+			}
 		}
 	}
 

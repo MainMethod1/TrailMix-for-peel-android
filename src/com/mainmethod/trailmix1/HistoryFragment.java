@@ -60,7 +60,7 @@ public class HistoryFragment extends ListFragment {
 			Intent detailIntent = new Intent(getActivity(),
 					HistoryDetailActivity.class);
 			detailIntent.putExtra(HistoryDetailFragment.ARG_SESSION_ID,
-					t.getId());
+					String.valueOf(t.getId()));
 			startActivity(detailIntent);
 			// Toast.makeText(getActivity().getApplicationContext(),
 			// e.getContactName() + e.getContactEmail(),
