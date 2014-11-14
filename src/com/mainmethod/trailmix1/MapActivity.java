@@ -81,6 +81,7 @@ public class MapActivity extends FragmentActivity {
 	String arg_act_selected = null;
 	ArrayList<ArrayList<LatLng>> points;
 	Context c;
+	String statement = "Bicycle Lane' OR 1=1";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -138,7 +139,10 @@ public class MapActivity extends FragmentActivity {
 							//drawTrailByClass(mMap, "Bicycle Lane ' OR class='Marked On Road Bicycle Route", Color.GREEN);
 //							drawTrailByClass(mMap, "Bicycle Lane", Color.BLUE);
 							//drawTrailByClass(mMap, "Marked On Road Bicycle Route", Color.GREEN);
-							drawTrailMarkersByClass(mMap, "Multi%");
+							//drawTrailMarkersByClass(mMap, "Multi%");
+					//	 statement = "Bicycle Lane' OR class='Paved Multi-use Trail' OR class='Marked On Road Bicyle Route' "
+					//			+ "OR class='Unpaved Multi-use Trail' OR class='Unmarked Dirt Trail";
+							
 							
 							
 						
@@ -148,17 +152,28 @@ public class MapActivity extends FragmentActivity {
 						}else if(getIntent().getStringExtra(HomeFragment.ARG_ACTIVITY).equals(new String("run"))){
 //							drawTrailByClass(mMap, "Unmarked Dirt Trail", Color.MAGENTA);
 							arg_act_selected = "run";
-							drawTrailMarkersByClass(mMap, "%");
+							
+							statement = "Paved Multi-use Trail' OR class='Hiking Trail' "
+									+ "OR class='Unpaved Multi-use Trail' OR class='Unmarked Dirt Trail";
+								
+							
+							//drawTrailMarkersByClass(mMap, "%");
 						}else if(getIntent().getStringExtra(HomeFragment.ARG_ACTIVITY).equals(new String("hike"))){
 //							drawTrailByClass(mMap, "Hiking Trail", Color.RED);
 							arg_act_selected = "hike";
-							drawTrailMarkersByClass(mMap, "Hiking%");
+							
+							statement = "Hiking Trail' OR class='Unpaved Multi-use Trail";
+								
+							
+							//drawTrailMarkersByClass(mMap, "Hiking%");
 						}else {
 							//do nothing  
 							arg_act_selected = "nada";
 						}
 					}
 				  
+					
+					
 				   // db.closeDB();
 				    mMap.setOnInfoWindowClickListener(new InfoWindowClickListener());
 					// new LoadMap().execute();
@@ -168,10 +183,12 @@ public class MapActivity extends FragmentActivity {
 					e.printStackTrace();
 					Log.e("MapLoadingError", e.getMessage());
 				}
-
+              
 			} else {
 				Toast.makeText(this, "Map not available!", Toast.LENGTH_SHORT).show();
 			}
+			 // new LoadMap().execute();
+			
 		} else {
 			setContentView(R.layout.activity_main_navigationdrawer);
 		}
@@ -210,28 +227,15 @@ public class MapActivity extends FragmentActivity {
 
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
-			DatabaseHelper db = new DatabaseHelper(c);
-			ArrayList<String> trailClasses = new ArrayList<String>();
-			trailClasses.add("Bicycle Lane");
-//			trailClass.add("");
-//			trailClass.add("");
-//			trailClass.add("");
-			ArrayList<ArrayList<GeoPoint>> geoPoints = getGeoPointsByClass(trailClasses);//db.getPlacemarks();
-			points = new ArrayList<ArrayList<LatLng>>();
-			db.closeDB();
-			ArrayList<LatLng> currPoints;
-			for(ArrayList<GeoPoint> currGeoPoints: geoPoints)
-			{
-				currPoints = new ArrayList<LatLng>();
-				for(GeoPoint gp: currGeoPoints)
-				{
-					currPoints.add(new LatLng(gp.getLat(), gp.getLng()));
-				}
-				points.add(currPoints);
-			}
+	
+			
+			setPoints(statement);
+		
+			
 			return null;
 
 		}
+	
 
 		@Override
 		protected void onPostExecute(Boolean result) {
@@ -550,6 +554,23 @@ public class MapActivity extends FragmentActivity {
 		db.closeDB();
 		return reqPoints;
 	}
+	public ArrayList<ArrayList<GeoPoint>> getGeoPointsByClass (String trailClasses)
+	{
+		
+		DatabaseHelper db = new DatabaseHelper(this);
+		ArrayList<Placemark> placemarks = db.getTrailPlacemarksByClass(trailClasses);
+		
+		
+		ArrayList<ArrayList<GeoPoint>> reqPoints = new ArrayList<ArrayList<GeoPoint>>();
+		ArrayList<GeoPoint> coords;
+		for( Placemark pmark: placemarks)
+		{
+			coords = db.getPlacemarkGeoPoints(pmark.getId());
+			reqPoints.add(coords);
+		}
+		db.closeDB();
+		return reqPoints;
+	}
 	public boolean loadKML(GoogleMap map) throws ParserConfigurationException, SAXException, IOException {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		try {
@@ -679,6 +700,22 @@ public class MapActivity extends FragmentActivity {
 		if (position != null) {
 			CameraUpdate cameraPosition = CameraUpdateFactory.newLatLng(position);
 			mMap.animateCamera(cameraPosition);
+		}
+	}
+	
+	public void setPoints(String trailClasses)
+	{
+		ArrayList<ArrayList<GeoPoint>> geoPoints = getGeoPointsByClass(trailClasses);//db.getPlacemarks();
+		points = new ArrayList<ArrayList<LatLng>>();
+		ArrayList<LatLng> currPoints;
+		for(ArrayList<GeoPoint> currGeoPoints: geoPoints)
+		{
+			currPoints = new ArrayList<LatLng>();
+			for(GeoPoint gp: currGeoPoints)
+			{
+				currPoints.add(new LatLng(gp.getLat(), gp.getLng()));
+			}
+			points.add(currPoints);
 		}
 	}
 }
