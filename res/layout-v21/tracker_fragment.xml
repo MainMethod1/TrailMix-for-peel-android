@@ -14,12 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/bar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:background="#03a9f4"
+        android:background="#000000"
         android:elevation="2dp"
         android:gravity="bottom"
         android:orientation="horizontal" >
@@ -28,36 +28,38 @@
             android:id="@+id/txt_speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="60dp"
-            android:text="0.0m/s"
+          android:layout_alignBaseline="@+id/timer"
+             android:layout_alignParentLeft="true"
+        
+            android:text="0.0 km/h"
             android:textColor="@color/wallet_bright_foreground_holo_light"
-            android:textSize="22sp" />
+            android:textSize="25sp" />
 
-            <ImageButton
-                android:id="@+id/fab_stopBtn"
-                android:layout_width="@dimen/fab_size"
-                android:layout_height="@dimen/fab_size"
-                android:background="@drawable/ripple"
-                android:elevation="2dp"
-                android:layout_marginRight="60dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/btn_stop"
-         
-                android:stateListAnimator="@anim/anim" />
+        <TextView
+            android:id="@+id/txt_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/timer"
+           
+            android:layout_alignParentRight="true"
+           
+            android:text="0.0m"
+            android:textColor="@color/wallet_bright_foreground_holo_light"
+            android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/txt_distance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="6dp"
-                android:text="0.0m"
-                android:textColor="@color/wallet_bright_foreground_holo_light"
-                android:textSize="22sp" />
-   
-    </LinearLayout>
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="25dp"
+            
+            android:text="00:00"
+            android:textColor="@color/wallet_bright_foreground_holo_light"
+            android:textSize="25sp" />
+       
+    </RelativeLayout>
 
     <ImageButton
         android:id="@+id/fab_playPauseBtn"
@@ -65,22 +67,25 @@
         android:layout_height="@dimen/fab_size"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="55dp"
-        android:layout_marginLeft="26dp"
-        android:background="@drawable/ripple"
+        android:layout_marginBottom="76dp"
+        android:layout_marginLeft="20dp"
+        
+        android:src="@drawable/btn_play_pause" 
         android:elevation="4dp"
-        android:src="@drawable/btn_play_pause"
-        android:stateListAnimator="@anim/anim" />
+android:stateListAnimator="@anim/anim"
+android:background="@drawable/ripple"/>
 
-    <TextView
-        android:id="@+id/timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+    <ImageButton
+        android:id="@+id/fab_stopBtn"
+        android:layout_width="@dimen/fab_size"
+        android:layout_height="@dimen/fab_size"
         android:layout_alignTop="@+id/fab_playPauseBtn"
-        android:layout_marginRight="14dp"
-        android:text="00:00"
-        android:textColor="@color/wallet_bright_foreground_holo_light"
-        android:textSize="22sp" />
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/fab_playPauseBtn"
+        
+        android:src="@drawable/btn_stop" 
+        android:elevation="4dp"
+android:stateListAnimator="@anim/anim"
+android:background="@drawable/ripple"/>
 
 </RelativeLayout>

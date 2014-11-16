@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="libs/systembartint-1.0.4.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="src" path="/swipelistview"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

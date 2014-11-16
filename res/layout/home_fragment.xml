@@ -1,69 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:orientation="vertical" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical" 
+    android:background="#FFFFFF">
 
-      <!--   <TextView
-            android:id="@+id/welcomenote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/welcome_note"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#E6000000"
-            android:textStyle="bold"
-            android:typeface="monospace" /> -->
+    <com.fortysevendeg.swipelistview.SwipeListView
+        xmlns:swipe="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/example_swipe_lv_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="#00000000"
+        swipe:swipeBackView="@+id/back"
+        swipe:swipeCloseAllItemsWhenMoveList="true"
+        swipe:swipeFrontView="@+id/front"
+        swipe:swipeMode="right" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="250dp"
-            android:layout_weight="1"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/button_run"
-                android:layout_width="56dp"
-                android:layout_height="120dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/btn_running"
-                android:scaleType="fitCenter"
-                 />
-
-            <Button
-                android:id="@+id/button_bike"
-                android:layout_width="56dp"
-                android:layout_height="120dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/btn_biking"
-                android:scaleType="fitCenter"
-              />
-
-            <Button
-                android:id="@+id/button_hike"
-                android:layout_width="56dp"
-                android:layout_height="120dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/btn_hiking"
-                android:scaleType="fitCenter"
-                 />
-        </LinearLayout>
-    </LinearLayout>
-
+</LinearLayout>

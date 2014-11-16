@@ -49,6 +49,7 @@ import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -187,7 +188,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 
 		fab_stop.setVisibility(View.INVISIBLE);
 		
-		LinearLayout ll = (LinearLayout) v.findViewById(R.id.bar);
+		RelativeLayout ll = (RelativeLayout) v.findViewById(R.id.bar);
 		//ll.setAlpha((long)0.7);
        ll.getBackground().setAlpha(50);
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+     <LinearLayout
+            android:id="@+id/back"
+            android:tag="back"
+            style="@style/MyListBackContent"
+            android:background="#FF0000"
+            >
+ 
+ 
+    </LinearLayout>
+     <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/front"
+            android:tag="front"
+            style="@style/MyListFrontContent"
+            >
+ 
+        <ImageView
+                style="@style/MyListImage"
+                android:id="@+id/example_image"
+                android:layout_gravity="center_vertical"
+                />
+ 
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                style="@style/MyListTitle"
+                android:id="@+id/example_itemname"/>
+ 
+    </LinearLayout>
+
+</FrameLayout>

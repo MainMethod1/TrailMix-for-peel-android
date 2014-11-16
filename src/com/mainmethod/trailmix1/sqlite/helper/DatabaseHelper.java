@@ -237,7 +237,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public Trail getTrailByName(String trail_name) {
 		SQLiteDatabase db = this.getReadableDatabase();
 
-		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " WHERE " + KEY_NAME + " = '" + trail_name + "';";
+		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " INDEXED BY trail_index  WHERE " + KEY_NAME + " = '" + trail_name + "';";
 
 		Log.e(LOG, selectQuery);
 
@@ -515,21 +515,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		String selectQuery = "SELECT  * FROM " + PLACEMARK_TABLE + " INNER JOIN " + GEOPOINT_TABLE + " ON "
 				+ PLACEMARK_TABLE + "." + KEY_ID + " = " + GEOPOINT_TABLE + "." + KEY_PLACEMARK_ID + " WHERE "
 				+ PLACEMARK_TABLE + "." + KEY_ID + " = " + placemarkID + ";";
+		String selectQuery1 = "SELECT  * FROM " + GEOPOINT_TABLE + " INDEXED BY test WHERE "
+				+  KEY_PLACEMARK_ID + " = " + placemarkID + ";";
+		
+		String selectQuery2 = "SELECT  * FROM " + GEOPOINT_TABLE +";";
+		
+		Log.e(LOG, selectQuery1);
 
-		Log.e(LOG, selectQuery);
-
-		Cursor c = db.rawQuery(selectQuery, null);
-
+		Cursor c = db.rawQuery(selectQuery1, null);
+		GeoPoint point;
 		if (c.moveToFirst()) {
 			do {
-				GeoPoint point = new GeoPoint();
+				point = new GeoPoint();
 				point.setLat(c.getDouble(c.getColumnIndex(KEY_LAT)));
 				point.setLng(c.getDouble(c.getColumnIndex(KEY_LNG)));
+				point.setPlacemark_id(c.getInt(c.getColumnIndex(KEY_PLACEMARK_ID)));
 
 				placemarkGeoPoints.add(point);
 
 			} while (c.moveToNext());
 		}
+		c.close();
+		
+		
 		return placemarkGeoPoints;
 	}
 
@@ -561,14 +569,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public ArrayList<Placemark> getTrailPlacemarksByClass(String trailClass) {
 		ArrayList<Placemark> trailPlacemarks = new ArrayList<Placemark>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " INNER JOIN " + PLACEMARK_TABLE + " ON " + TRAIL_TABLE
-				+ "." + KEY_ID + " = " + PLACEMARK_TABLE + "." + KEY_TRAIL_ID + " WHERE " + PLACEMARK_TABLE + "."
-				+ KEY_TRAIL_CLASS + " = " + "'" + trailClass + "';";
+		String selectQuery = "SELECT * FROM " + PLACEMARK_TABLE + " INDEXED BY placemark_index WHERE " + KEY_TRAIL_CLASS + " IN ('" + trailClass
+				+ "');";
 		String selectQuery2 = "SELECT * FROM " + PLACEMARK_TABLE + " WHERE " + KEY_TRAIL_CLASS + " ='" + trailClass
 				+ "'";
+		
 		Log.e(LOG, selectQuery);
 
-		Cursor c = db.rawQuery(selectQuery2, null);
+		Cursor c = db.rawQuery(selectQuery, null);
 
 		if (c.moveToFirst()) {
 			do {
@@ -582,6 +590,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 			} while (c.moveToNext());
 		}
+		c.close();
 		return trailPlacemarks;
 	}
 

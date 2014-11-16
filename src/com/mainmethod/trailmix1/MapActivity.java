@@ -81,7 +81,7 @@ public class MapActivity extends FragmentActivity {
 	String arg_act_selected = null;
 	ArrayList<ArrayList<LatLng>> points;
 	Context c;
-	String statement = "Bicycle Lane' OR 1=1";
+	String statement;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -103,7 +103,7 @@ public class MapActivity extends FragmentActivity {
 		if (servicesOK()) {
 			  c = this;
 			setContentView(R.layout.activity_map);
-			new LoadMap().execute();
+			//new LoadMap().execute();
 			if (initMap()) {
  
 				mMap.setBuildingsEnabled(true);
@@ -139,11 +139,12 @@ public class MapActivity extends FragmentActivity {
 							//drawTrailByClass(mMap, "Bicycle Lane ' OR class='Marked On Road Bicycle Route", Color.GREEN);
 //							drawTrailByClass(mMap, "Bicycle Lane", Color.BLUE);
 							//drawTrailByClass(mMap, "Marked On Road Bicycle Route", Color.GREEN);
-							//drawTrailMarkersByClass(mMap, "Multi%");
-					//	 statement = "Bicycle Lane' OR class='Paved Multi-use Trail' OR class='Marked On Road Bicyle Route' "
-					//			+ "OR class='Unpaved Multi-use Trail' OR class='Unmarked Dirt Trail";
+							drawTrailMarkersByClass(mMap, "Multi%");
+//						 statement = "Bicycle Lane' OR class='Paved Multi-use Trail' OR class='Marked On Road Bicyle Route' "
+//								+ "OR class='Unpaved Multi-use Trail' OR class='Unmarked Dirt Trail";
 							
-							
+							 statement = "Bicycle Lane' , 'Paved Multi-use Trail','Marked On Road Bicyle Route' "
+										+ ",'Unpaved Multi-use Trail','Unmarked Dirt Trail";
 							
 						
 							//ArrayList<ArrayList<LatLng>> points = db.getPoints();
@@ -153,19 +154,19 @@ public class MapActivity extends FragmentActivity {
 //							drawTrailByClass(mMap, "Unmarked Dirt Trail", Color.MAGENTA);
 							arg_act_selected = "run";
 							
-							statement = "Paved Multi-use Trail' OR class='Hiking Trail' "
-									+ "OR class='Unpaved Multi-use Trail' OR class='Unmarked Dirt Trail";
+							statement = "Paved Multi-use Trail','Hiking Trail' "
+									+ ",'Unpaved Multi-use Trail','Unmarked Dirt Trail";
 								
 							
-							//drawTrailMarkersByClass(mMap, "%");
+							drawTrailMarkersByClass(mMap, "%");
 						}else if(getIntent().getStringExtra(HomeFragment.ARG_ACTIVITY).equals(new String("hike"))){
 //							drawTrailByClass(mMap, "Hiking Trail", Color.RED);
 							arg_act_selected = "hike";
 							
-							statement = "Hiking Trail' OR class='Unpaved Multi-use Trail";
+							statement = "Hiking Trail','Unpaved Multi-use Trail";
 								
 							
-							//drawTrailMarkersByClass(mMap, "Hiking%");
+							drawTrailMarkersByClass(mMap, "Hiking%");
 						}else {
 							//do nothing  
 							arg_act_selected = "nada";
@@ -187,7 +188,7 @@ public class MapActivity extends FragmentActivity {
 			} else {
 				Toast.makeText(this, "Map not available!", Toast.LENGTH_SHORT).show();
 			}
-			 // new LoadMap().execute();
+			  new LoadMap().execute();
 			
 		} else {
 			setContentView(R.layout.activity_main_navigationdrawer);
@@ -241,9 +242,19 @@ public class MapActivity extends FragmentActivity {
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
 		//	mMap.setTrafficEnabled(true);
+			if(arg_act_selected.equals("bike")){
+				mMap.addTileOverlay(new TileOverlayOptions().tileProvider(
+						new CustomTileProvider(points, Color.rgb(0, 0, 153))));
+			} else if(arg_act_selected.equals("hike")){
+				mMap.addTileOverlay(new TileOverlayOptions().tileProvider(
+						new CustomTileProvider(points, Color.rgb(255, 0, 0))));
+			} else if(arg_act_selected.equals("run")){
+				mMap.addTileOverlay(new TileOverlayOptions().tileProvider(
+						new CustomTileProvider(points, Color.rgb(0, 102, 51))));
+			}
+			
+			
 			pDialog.dismiss();
-			mMap.addTileOverlay(new TileOverlayOptions().tileProvider(
-					new CustomTileProvider(points, Color.RED)));
 
 		}
 	}
