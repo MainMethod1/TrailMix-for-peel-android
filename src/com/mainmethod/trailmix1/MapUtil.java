@@ -20,6 +20,16 @@ import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 
 public class MapUtil {
+	public static boolean isComingFromSearch = false;
+	public static boolean isComingFromTrailDetail = false;
+	public static HashMap<String,LatLng> searchResults = null;
+	public static final String bikeStatement = "Bicycle Lane' , 'Paved Multi-use Trail','Marked On Road Bicyle Route' "
+			+ ",'Unpaved Multi-use Trail','Unmarked Dirt Trail";
+	
+	public static final String walkStatement = "Paved Multi-use Trail','Hiking Trail' "
+			+ ",'Unpaved Multi-use Trail','Unmarked Dirt Trail";
+	
+	public static final String hikeStatement = "Hiking Trail','Unpaved Multi-use Trail";
 
 	private static void drawMap(HashMap<String, TrailObj> trailCollection, GoogleMap mMap2) {
 		// TODO Auto-generated method stub
@@ -49,12 +59,12 @@ public class MapUtil {
 			rectOptions = new PolylineOptions();
 			points = db.getPlacemarkGeoPoints(p.getId());
 			for (GeoPoint g : points) {
-//				if(i==0){
-//					LatLng trailMarker = new LatLng(g.getLat(),g.getLng());
-//					map.animateCamera(CameraUpdateFactory.newLatLngZoom(trailMarker, 14));
-//					map.addMarker(new MarkerOptions()
-//					 .position(trailMarker));
-//				}
+				if(i==0){
+					LatLng trailMarker = new LatLng(g.getLat(),g.getLng());
+					map.animateCamera(CameraUpdateFactory.newLatLngZoom(trailMarker, 14));
+					map.addMarker(new MarkerOptions()
+					 .position(trailMarker)).setTitle(trailName);
+				}
 				rectOptions.add(new LatLng(g.getLat(), g.getLng()));
 				i++;
 			}
@@ -156,6 +166,41 @@ public class MapUtil {
 			 .snippet("Length: "+ trail.getLength()+"km Surface: "+trail.getSurface())
 			 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker)));
 		}
+	}
+	
+	public static ArrayList<ArrayList<GeoPoint>> getGeoPointsByClass (DatabaseHelper db, String trailClasses)
+	{
+		
+	
+		ArrayList<Placemark> placemarks = db.getTrailPlacemarksByClass(trailClasses);
+		
+		
+		ArrayList<ArrayList<GeoPoint>> reqPoints = new ArrayList<ArrayList<GeoPoint>>();
+		ArrayList<GeoPoint> coords;
+		for( Placemark pmark: placemarks)
+		{
+			coords = db.getPlacemarkGeoPoints(pmark.getId());
+			reqPoints.add(coords);
+		}
+		db.closeDB();
+		return reqPoints;
+	}
+	
+	public static ArrayList<ArrayList<LatLng>> setPoints(DatabaseHelper db,String trailClasses)
+	{
+		ArrayList<ArrayList<GeoPoint>> geoPoints = getGeoPointsByClass(db,trailClasses);//db.getPlacemarks();
+		ArrayList<ArrayList<LatLng>> points = new ArrayList<ArrayList<LatLng>>();
+		ArrayList<LatLng> currPoints;
+		for(ArrayList<GeoPoint> currGeoPoints: geoPoints)
+		{
+			currPoints = new ArrayList<LatLng>();
+			for(GeoPoint gp: currGeoPoints)
+			{
+				currPoints.add(new LatLng(gp.getLat(), gp.getLng()));
+			}
+			points.add(currPoints);
+		}
+		return points;
 	}
 	
 }

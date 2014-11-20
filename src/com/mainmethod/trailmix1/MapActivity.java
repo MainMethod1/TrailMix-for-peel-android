@@ -53,13 +53,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-public class MapActivity extends FragmentActivity {
+public class MapActivity extends FragmentActivity implements LoaderCallbacks<Cursor> {
 	private static final int GPS_ERRORDIALOG_REQUEST = 9001;
 	GoogleMap mMap;
 	ProgressDialog pDialog;
@@ -82,6 +84,8 @@ public class MapActivity extends FragmentActivity {
 	ArrayList<ArrayList<LatLng>> points;
 	Context c;
 	String statement;
+	MarkerOptions markerOptions;
+	ArrayList<Marker> markers = new ArrayList<Marker>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -98,7 +102,7 @@ public class MapActivity extends FragmentActivity {
 		// Enable navigation bar tint
 		tintManager.setNavigationBarTintEnabled(true);
 		// Set color changes for the tint
-		tintManager.setTintColor(Color.parseColor("#0288d1"));
+		tintManager.setTintColor(Color.parseColor("#303F9F"));
 
 		if (servicesOK()) {
 			  c = this;
@@ -143,8 +147,7 @@ public class MapActivity extends FragmentActivity {
 //						 statement = "Bicycle Lane' OR class='Paved Multi-use Trail' OR class='Marked On Road Bicyle Route' "
 //								+ "OR class='Unpaved Multi-use Trail' OR class='Unmarked Dirt Trail";
 							
-							 statement = "Bicycle Lane' , 'Paved Multi-use Trail','Marked On Road Bicyle Route' "
-										+ ",'Unpaved Multi-use Trail','Unmarked Dirt Trail";
+							 statement = MapUtil.bikeStatement;
 							
 						
 							//ArrayList<ArrayList<LatLng>> points = db.getPoints();
@@ -154,8 +157,7 @@ public class MapActivity extends FragmentActivity {
 //							drawTrailByClass(mMap, "Unmarked Dirt Trail", Color.MAGENTA);
 							arg_act_selected = "run";
 							
-							statement = "Paved Multi-use Trail','Hiking Trail' "
-									+ ",'Unpaved Multi-use Trail','Unmarked Dirt Trail";
+							statement = MapUtil.walkStatement;
 								
 							
 							drawTrailMarkersByClass(mMap, "%");
@@ -163,7 +165,7 @@ public class MapActivity extends FragmentActivity {
 //							drawTrailByClass(mMap, "Hiking Trail", Color.RED);
 							arg_act_selected = "hike";
 							
-							statement = "Hiking Trail','Unpaved Multi-use Trail";
+							statement = MapUtil.hikeStatement;
 								
 							
 							drawTrailMarkersByClass(mMap, "Hiking%");
@@ -229,8 +231,8 @@ public class MapActivity extends FragmentActivity {
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
 	
-			
-			setPoints(statement);
+			DatabaseHelper db = new DatabaseHelper(c);
+			points = MapUtil.setPoints(db,statement);
 		
 			
 			return null;
@@ -672,7 +674,9 @@ public class MapActivity extends FragmentActivity {
 		SearchView searchView = (SearchView) menu.findItem(R.id.searchOption).getActionView();
 		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 		return super.onCreateOptionsMenu(menu);
-	}
+    }
+	
+	
 
 	public boolean servicesOK() {
 		int isAvailable = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
@@ -728,5 +732,51 @@ public class MapActivity extends FragmentActivity {
 			}
 			points.add(currPoints);
 		}
+	}
+	
+	@Override
+    protected void onResume() {
+		super.onResume();
+	
+		if(MapUtil.isComingFromSearch){
+		     for(Marker m: markers){
+		    	 m.remove();
+		     }
+			if(MapUtil.searchResults != null){
+				Marker marker = null;
+				LatLng position = null;
+				for(String title: MapUtil.searchResults.keySet()){
+					markerOptions = new MarkerOptions();
+					position = MapUtil.searchResults.get(title);
+					markerOptions.position(position);
+					markerOptions.title(title);
+
+					marker = mMap.addMarker(markerOptions);
+					markers.add(marker);
+				}
+				CameraUpdate cameraPosition = CameraUpdateFactory.newLatLng(position);
+				mMap.animateCamera(cameraPosition);
+				MapUtil.isComingFromSearch = false;
+				MapUtil.searchResults = null;
+			}
+		}
+	};
+
+	@Override
+	public Loader<Cursor> onCreateLoader(int arg0, Bundle arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> arg0, Cursor arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,6 +1,7 @@
 package com.mainmethod.trailmix1;
 
 import java.util.List;
+import java.util.Random;
 
 import android.app.Activity;
 import android.content.Context;
@@ -61,7 +62,8 @@ public View getView(int position, View convertView, ViewGroup parent) {
       SwipeListItemRow itemdata = (SwipeListItemRow) data.get(position);
       holder.itemName.setText(itemdata.getItemName());
       holder.icon.setImageDrawable(itemdata.getIcon());
-      holder.backLayout.setBackgroundColor(itemdata.getC());
+      //holder.backLayout.setBackgroundColor(itemdata.getC());
+     holder.backLayout.setBackgroundResource(getRandomPicId(itemdata));
      
       return row;
 
@@ -73,5 +75,11 @@ static class NewsHolder{
     ImageView icon;
     LinearLayout backLayout;
     }
+
+private int getRandomPicId(SwipeListItemRow itemdata)
+{
+	Random rn = new Random();
+	return itemdata.getImageCollection().get(rn.nextInt(itemdata.getImageCollection().size()));
+}
 
 }

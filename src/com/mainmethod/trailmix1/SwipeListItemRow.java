@@ -1,26 +1,31 @@
 package com.mainmethod.trailmix1;
 
+import java.util.ArrayList;
+
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
 public class SwipeListItemRow {
     String itemName;
     Drawable icon;
-    int c;
+    ArrayList<Integer> imageCollection = new ArrayList<Integer>();
 
-    public int getC() {
-		return c;
+ 
+	
+    public ArrayList<Integer> getImageCollection() {
+		return imageCollection;
 	}
-	public void setC(int c) {
-		this.c = c;
+	public void setImageCollection(ArrayList<Integer> imageCollection) {
+		this.imageCollection = imageCollection;
 	}
-	public SwipeListItemRow(String itemName, Drawable icon, int color) {
-          super();
-          this.itemName = itemName;
-          this.icon = icon;
-          this.c = color;
-    }
-    public String getItemName() {
+	public SwipeListItemRow(String itemName, Drawable icon,
+			ArrayList<Integer> imageCollection) {
+		super();
+		this.itemName = itemName;
+		this.icon = icon;
+		this.imageCollection = imageCollection;
+	}
+	public String getItemName() {
           return itemName;
     }
     public void setItemName(String itemName) {

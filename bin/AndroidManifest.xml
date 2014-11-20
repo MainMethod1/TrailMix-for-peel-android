@@ -48,9 +48,11 @@
         <activity android:name=".ViewTrailsActivity" />
         <activity
             android:name=".MapActivity"
-            android:theme="@style/CustomActionBarStyle" >
+            android:theme="@style/CustomActionBarStyle" 
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".preferences.PrefActivity" />
+        <activity android:name=".preferences.PrefActivity" 
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

@@ -1,5 +1,6 @@
 package com.mainmethod.trailmix1;
 
+import java.util.HashMap;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,68 +24,65 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 public class SearchActivity extends FragmentActivity implements LoaderCallbacks<Cursor> {
-    
-	//private static final int GPS_ERRORDIALOG_REQUEST = 9001;
-	GoogleMap mMap;
-	
+
+	// private static final int GPS_ERRORDIALOG_REQUEST = 9001;
+	//GoogleMap mMap;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_search);
-		if (initMap()) {
-
-			mMap.setBuildingsEnabled(true);
-			mMap.setMyLocationEnabled(true);
-			
-		}
-		else{
-			Toast.makeText(this, "Map not available!", Toast.LENGTH_SHORT)
-			.show();
-		}
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		//setContentView(R.layout.activity_search);
+//		if (initMap()) {
+//
+//			mMap.setBuildingsEnabled(true);
+//			mMap.setMyLocationEnabled(true);
+//
+//		} else {
+//			Toast.makeText(this, "Map not available!", Toast.LENGTH_SHORT).show();
+//		}
+		//getActionBar().setDisplayHomeAsUpEnabled(true);
 		handleIntent(getIntent());
 	}
+//
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Uncomment to inflate menu items to Action Bar
+//		getMenuInflater().inflate(R.menu.main, menu);
+//
+//		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//		SearchView searchView = (SearchView) menu.findItem(R.id.searchOption).getActionView();
+//		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+//		return super.onCreateOptionsMenu(menu);
+//	}
+//
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		// Handle action bar item clicks here. The action bar will
+//		// automatically handle clicks on the Home/Up button, so long
+//		// as you specify a parent activity in AndroidManifest.xml.
+//		int id = item.getItemId();
+//		if (id == R.id.searchOption) {
+//			onSearchRequested();
+//			return true;
+//		}
+//		if (item.getItemId() == android.R.id.home) {
+//			finish();
+//		}
+//		return super.onOptionsItemSelected(item);
+//	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Uncomment to inflate menu items to Action Bar
-		getMenuInflater().inflate(R.menu.main, menu);
-		
-		
-		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-		SearchView searchView = (SearchView) menu.findItem(R.id.searchOption).getActionView();
-		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-		return super.onCreateOptionsMenu(menu);
-	}
+	private void handleIntent(Intent intent) {
+		if (intent.getAction().equals(Intent.ACTION_SEARCH)) {
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.searchOption) {
-			onSearchRequested();
-			return true;
-		}
-		if (item.getItemId() == android.R.id.home) {
-			finish();
-		}
-		return super.onOptionsItemSelected(item);
-	}
-	
-	private void handleIntent(Intent intent){
-		if(intent.getAction().equals(Intent.ACTION_SEARCH)){
-			
 			doSearch(intent.getStringExtra(SearchManager.QUERY));
-			
-		}else if(intent.getAction().equals(Intent.ACTION_VIEW)){
-			
+
+		} else if (intent.getAction().equals(Intent.ACTION_VIEW)) {
+
 			getPlace(intent.getStringExtra(SearchManager.EXTRA_DATA_KEY));
-			
-	     }
+
+		}
 	}
-	
+
 	private void doSearch(String query) {
 		Bundle data = new Bundle();
 		data.putString("query", query);
@@ -96,64 +94,70 @@ public class SearchActivity extends FragmentActivity implements LoaderCallbacks<
 		data.putString("query", query);
 		getSupportLoaderManager().restartLoader(1, data, this);
 	}
-	
+
 	@Override
 	protected void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
-        setIntent(intent);
-        handleIntent(intent);
+		setIntent(intent);
+		handleIntent(intent);
 	}
 
 	@Override
 	public Loader<Cursor> onCreateLoader(int arg0, Bundle query) {
 		// TODO Auto-generated method stub
 		CursorLoader cLoader = null;
-		if (arg0 == 0)
+		if (arg0 == 0) {
 			cLoader = new CursorLoader(getBaseContext(), PlaceProvider.SEARCH_URI, null, null,
 					new String[] { query.getString("query") }, null);
-		else if (arg0 == 1)
+		} else if (arg0 == 1) {
 			cLoader = new CursorLoader(getBaseContext(), PlaceProvider.DETAILS_URI, null, null,
 					new String[] { query.getString("query") }, null);
+		}
 		return cLoader;
-		
+
 	}
 
 	@Override
 	public void onLoadFinished(Loader<Cursor> arg0, Cursor c) {
 		// TODO Auto-generated method stub
 		Toast.makeText(getApplicationContext(), "Load location on map", Toast.LENGTH_LONG).show();
-        showLocations(c);
+		showLocations(c);
 	}
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> arg0) {
-		// TODO Auto-generated method stub		
+		// TODO Auto-generated method stub
 	}
-	
-	private boolean initMap() {
-		if (mMap == null) {
-			SupportMapFragment mapFrag = (SupportMapFragment) getSupportFragmentManager()
-					.findFragmentById(R.id.searchMap);
-			mMap = mapFrag.getMap();
-		}
-		return (mMap != null);
 
+//	private boolean initMap() {
+//		if (mMap == null) {
+//			SupportMapFragment mapFrag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(
+//					R.id.searchMap);
+//			mMap = mapFrag.getMap();
+//		}
+//		return (mMap != null);
+//
+//	}
+
+	private void showLocations(Cursor c) {
+		MapUtil.searchResults = new HashMap<String,LatLng>();
+//		MarkerOptions markerOptions = null;
+		LatLng position = null;
+		//mMap.clear();
+		while (c.moveToNext()) {
+//			markerOptions = new MarkerOptions();
+			position = new LatLng(Double.parseDouble(c.getString(1)), Double.parseDouble(c.getString(2)));
+//			markerOptions.position(position);
+//			markerOptions.title(c.getString(0));
+//			mMap.addMarker(markerOptions);
+			MapUtil.searchResults.put(c.getString(0), position);
+			
+		}
+		MapUtil.isComingFromSearch = true;
+		finish();
+//		if (position != null) {
+//			CameraUpdate cameraPosition = CameraUpdateFactory.newLatLng(position);
+//			mMap.animateCamera(cameraPosition);
+//		}
 	}
-	
-	private void showLocations(Cursor c){
-        MarkerOptions markerOptions = null;
-        LatLng position = null;
-        mMap.clear();
-        while(c.moveToNext()){
-            markerOptions = new MarkerOptions();
-            position = new LatLng(Double.parseDouble(c.getString(1)),Double.parseDouble(c.getString(2)));
-            markerOptions.position(position);
-            markerOptions.title(c.getString(0));
-            mMap.addMarker(markerOptions);
-        }
-        if(position!=null){
-            CameraUpdate cameraPosition = CameraUpdateFactory.newLatLng(position);
-            mMap.animateCamera(cameraPosition);
-        }
-    }
 }

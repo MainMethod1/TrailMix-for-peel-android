@@ -23,11 +23,14 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.mainmethod.trailmix1.sqlite.model.Event;
 import com.mainmethod.trailmix1.sqlite.model.Session;
 import com.mainmethod.trailmix1.sqlite.model.SessionGeopoint;
+import com.mainmethod.trailmix1.tileprovider.CustomTileProvider;
 
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -41,6 +44,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -56,7 +60,9 @@ import android.widget.Toast;
 public class TrackerFragment extends Fragment implements GooglePlayServicesClient.ConnectionCallbacks,
 		GooglePlayServicesClient.OnConnectionFailedListener, LocationListener {
 	ProgressDialog pDialog;
-
+	String activity = "";
+	String queryStatement = "";
+	ArrayList<ArrayList<LatLng>> points = null;
 	int updates = 0;
 	PolylineOptions rectOptions;
 	ArrayList<SessionGeopoint> currGeopoints;
@@ -77,9 +83,13 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 
 	double currSpeed = 0;
 
+	boolean isFirstTime = false;
 	TextView speedTxt;
 	TextView distanceTxt;
 	TextView timer;
+	RelativeLayout relLayout;
+	RelativeLayout bar;
+	boolean calledAfterStop = true;
 
 	private static final LatLng PEEL = new LatLng(43.6719449, -79.65912);
 
@@ -119,11 +129,9 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		
-		
+
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		if (v != null) {
@@ -133,36 +141,48 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 		}
 		try {
 			v = inflater.inflate(R.layout.tracker_fragment, container, false);
-			
+			isFirstTime = true;
 		} catch (InflateException e) {
 
 		}
-		if(getArguments() != null){
-		if (getArguments().containsKey(MapActivity.ARG_TRACKER_FLAG)) {
-			Log.i("ActLoadError", "intent contans activity extra");
-		    DatabaseHelper db = new DatabaseHelper(getActivity());
-			if(getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("hike")){
-				if(initMap())
-					MapUtil.drawTrailMarkersByClass(gMap, "Hiking%", db);
-			} else if(getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("run")){
-				if(initMap())
-					MapUtil.drawTrailMarkersByClass(gMap, "%", db);
-			}else if(getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("bike")){
-				if(initMap())
-					MapUtil.drawTrailMarkersByClass(gMap, "Multi%", db);
-			}else {
-				//do nothing
-				Log.i("ActLoadError", "not loading activity based markers but has "+getArguments().getString(MapActivity.ARG_TRACKER_FLAG));
+		if (getArguments() != null) {
+			if (getArguments().containsKey(MapActivity.ARG_TRACKER_FLAG)) {
+				Log.i("ActLoadError", "intent contans activity extra");
+				DatabaseHelper db = new DatabaseHelper(getActivity());
+				if (getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("hike")) {
+					if (initMap())
+						MapUtil.drawTrailMarkersByClass(gMap, "Hiking%", db);
+					queryStatement = MapUtil.hikeStatement;
+					activity = "hike";
+					
+
+				} else if (getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("run")) {
+					if (initMap())
+						MapUtil.drawTrailMarkersByClass(gMap, "%", db);
+					queryStatement = MapUtil.walkStatement;
+					activity = "run";
+				} else if (getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("bike")) {
+					if (initMap())
+						MapUtil.drawTrailMarkersByClass(gMap, "Multi%", db);
+					queryStatement = MapUtil.bikeStatement;
+					activity = "bike";
+				} else {
+					// do nothing
+					Log.i("ActLoadError",
+							"not loading activity based markers but has "
+									+ getArguments().getString(MapActivity.ARG_TRACKER_FLAG));
+				}
+
+			} else if (getArguments().containsKey(TrailDetailActivity.ARG_TRAIL_FLAG)) {
+				DatabaseHelper db = new DatabaseHelper(getActivity());
+				MapUtil.isComingFromTrailDetail = true;
+				if (initMap())
+					MapUtil.drawTrailByName(gMap, getArguments().getString(TrailDetailActivity.ARG_TRAIL_FLAG), db);
 			}
-			
-		}else if(getArguments().containsKey(TrailDetailActivity.ARG_TRAIL_FLAG)){
-			DatabaseHelper db = new DatabaseHelper(getActivity());
-			if(initMap())
-				MapUtil.drawTrailByName(gMap, getArguments().getString(TrailDetailActivity.ARG_TRAIL_FLAG), db);
-		}
-		}else{
+		} else {
 			Log.i("ArgLoadError", "fragment doesn't have arguments");
 		}
+		new LoadMap().execute();
 		// v = inflater.inflate(R.layout.tracker_fragment, container, false);
 		mLocationRequest = LocationRequest.create();
 		// Inflate the layout for this fragment
@@ -185,18 +205,28 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 
 		final ImageButton fab = (ImageButton) v.findViewById(R.id.fab_playPauseBtn);
 		final ImageButton fab_stop = (ImageButton) v.findViewById(R.id.fab_stopBtn);
+		bar = (RelativeLayout) v.findViewById(R.id.bar);
 
-		fab_stop.setVisibility(View.INVISIBLE);
-		
-		RelativeLayout ll = (RelativeLayout) v.findViewById(R.id.bar);
-		//ll.setAlpha((long)0.7);
-       ll.getBackground().setAlpha(50);
+		fab_stop.setAlpha(0f);
+		speedTxt.setAlpha(0);
+		distanceTxt.setAlpha(0);
+		timer.setAlpha(0);
+
+		fab_stop.setY(dpToPx(-37));
+
+		relLayout = (RelativeLayout) v.findViewById(R.id.bar);
+		relLayout.getBackground().setAlpha(50);
 
 		if (initMap()) {
 			mapSettings = gMap.getUiSettings();
 			gMap.setBuildingsEnabled(true);
 			gMap.setMyLocationEnabled(true);
-			gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(PEEL, 11));
+			if(!MapUtil.isComingFromTrailDetail){
+				gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(PEEL, 11));
+			} else{
+				MapUtil.isComingFromTrailDetail = false;
+			}
+			
 
 			mapSettings.setZoomControlsEnabled(false);
 
@@ -226,21 +256,63 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 		fab.setOnClickListener(new View.OnClickListener() {
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(View view) {
 
 				if (!mUpdatesRequested) {
 					fab.setSelected(true);
 					currGeopoints = new ArrayList<SessionGeopoint>();
-					startUpdates(v);
+					startUpdates(view);
 					Toast.makeText(getActivity(), "Started tracking", Toast.LENGTH_SHORT).show();
-					startTimer(v);
-					fab_stop.setVisibility(View.VISIBLE);
+					startTimer(view);
+
+					if (calledAfterStop) {
+
+						// RelativeLayout.LayoutParams lp =
+						// (RelativeLayout.LayoutParams) bar.getLayoutParams();
+						// ResizeAnimation a = new ResizeAnimation(bar);
+						//
+						// // set the starting height (the current height) and
+						// the new height that the view should have after the
+						// animation
+						// a.setParams(lp.height, dpToPx(100));
+						// a.setDuration(1000);
+						// bar.setAnimation(a);
+
+						ValueAnimator anim = ValueAnimator.ofInt(bar.getMeasuredHeight(), dpToPx(100));
+						anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+							@Override
+							public void onAnimationUpdate(ValueAnimator valueAnimator) {
+								int val = (Integer) valueAnimator.getAnimatedValue();
+								ViewGroup.LayoutParams layoutParams = bar.getLayoutParams();
+								layoutParams.height = val;
+								bar.setLayoutParams(layoutParams);
+							}
+						});
+						anim.setDuration(1000);
+						anim.start();
+
+						fab_stop.animate().alpha(1).setStartDelay(1000);
+
+						speedTxt.animate().alpha(1).setStartDelay(1000);
+						distanceTxt.animate().alpha(1).setStartDelay(1000);
+						timer.animate().alpha(1).setStartDelay(1000);
+						fab.animate().translationYBy(dpToPx(-38)).setDuration(1000);
+						// fab_stop.animate().translationYBy(dpToPx(-37)).setDuration(1000).start();;
+
+					}
+					calledAfterStop = false;
+					// Bar Animation:
+
+					// getting the layoutparams might differ in your
+					// application, it depends on the parent layout
+
+					// isFirstTime = false;
 				} else {
 
-					stopTimer(v);
+					stopTimer(view);
 					fab.setSelected(false);
 
-					stopUpdates(v);
+					stopUpdates(view);
 					Toast.makeText(getActivity(), "Stopped tracking", Toast.LENGTH_SHORT).show();
 				}
 			}
@@ -250,14 +322,44 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 
 			@Override
 			public void onClick(View v) {
-				fab_stop.setVisibility(View.INVISIBLE);
-				if (currGeopoints.size() > 0) {
-					time = (m*60)+s;
+				// animations
+
+				Runnable endAction = new Runnable() {
+					public void run() {
+
+						ValueAnimator anim = ValueAnimator.ofInt(bar.getMeasuredHeight(), dpToPx(55));
+						anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+							@Override
+							public void onAnimationUpdate(ValueAnimator valueAnimator) {
+								int val = (Integer) valueAnimator.getAnimatedValue();
+								ViewGroup.LayoutParams layoutParams = bar.getLayoutParams();
+								layoutParams.height = val;
+								bar.setLayoutParams(layoutParams);
+							}
+						});
+						anim.setDuration(1000);
 					
+						anim.start();
+						fab.animate().translationYBy(dpToPx(38)).setDuration(1000);
+					}
+				};
+				speedTxt.animate().alpha(0);
+				distanceTxt.animate().alpha(0);
+				timer.animate().alpha(0);
+				
+				fab_stop.animate().alpha(0).withEndAction(endAction);
+
+				// fab_stop.animate().translationYBy(dpToPx(37)).setDuration(1000).start();;
+
+				calledAfterStop = true;
+
+				if (currGeopoints.size() > 0) {
+					time = (m * 60) + s;
+
 					DatabaseHelper db = new DatabaseHelper(getActivity());
 					long count = db.getRowCount("sessions") + 1;
 					currentSession = new Session();
-					currentSession.setDistance(Double.parseDouble(String.format("%.2f",distance)));
+					currentSession.setDistance(Double.parseDouble(String.format("%.2f", distance)));
 					currentSession.setTime(time);
 					currentSession.setSpeed(distance / time);
 					DateFormat dFormat = DateFormat.getDateTimeInstance();
@@ -273,27 +375,29 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 						db.createSessionGeopoint(sgp);
 
 					}
-
-					stopTimer(v);
-					fab.setSelected(false);
-					stopUpdates(v);
-
-					distance = 0;
-					time = 0;
-					s = 0;
-					m = 0;
-					distanceTravelled = 0;
-					secondsTaken = 0;
-					currSpeed = 0;
-					lastLocation = null;
-					updates=0;
-					
-					speedTxt.setText("0.0 km/h");
-					timer.setText("0:00");
-					distanceTxt.setText("0m");
-                    currentSession = null;
 				}
 
+				stopTimer(v);
+				fab.setSelected(false);
+				stopUpdates(v);
+				resetValues();
+			}
+
+			private void resetValues() {
+				distance = 0;
+				time = 0;
+				s = 0;
+				m = 0;
+				distanceTravelled = 0;
+				secondsTaken = 0;
+				currSpeed = 0;
+				lastLocation = null;
+				updates = 0;
+
+				speedTxt.setText("0.0 km/h");
+				timer.setText("0:00");
+				distanceTxt.setText("0m");
+				currentSession = null;
 			}
 		});
 		return v;
@@ -305,7 +409,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 		getView();
 	}
 
-	public class LoadEvents extends AsyncTask<Void, Void, Boolean> {
+	public class LoadMap extends AsyncTask<Void, Void, Boolean> {
 
 		@Override
 		protected void onPreExecute() {
@@ -319,7 +423,8 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 
 		@Override
 		protected Boolean doInBackground(Void... arg0) {
-
+			DatabaseHelper db = new DatabaseHelper(getActivity());
+			points = MapUtil.setPoints(db, queryStatement);
 			// insertData();
 			return null;
 
@@ -328,6 +433,18 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
+
+			if (activity.equals("bike")) {
+				gMap.addTileOverlay(new TileOverlayOptions().tileProvider(new CustomTileProvider(points, Color.rgb(0,
+						0, 153))));
+
+			} else if (activity.equals("hike")) {
+				gMap.addTileOverlay(new TileOverlayOptions().tileProvider(new CustomTileProvider(points, Color.rgb(255,
+						0, 0))));
+			} else if (activity.equals("run")) {
+				gMap.addTileOverlay(new TileOverlayOptions().tileProvider(new CustomTileProvider(points, Color.rgb(0,
+						102, 51))));
+			}
 			pDialog.dismiss();
 
 		}
@@ -581,7 +698,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 
 						if (distanceTravelled != 0) {
 							currSpeed = distanceTravelled / secondsTaken;
-							speedTxt.setText(String.format("%.2f", currSpeed*3.6) + " km/h");
+							speedTxt.setText(String.format("%.2f", currSpeed * 3.6) + " km/h");
 							distanceTravelled = 0;
 							secondsTaken = 0;
 						} else if (secondsTaken > 15) {
@@ -600,12 +717,18 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	}
 
 	public void stopTimer(View view) {
-		if(currSessionTimer != null){
-		currSessionTimer.cancel();
+		if (currSessionTimer != null) {
+			currSessionTimer.cancel();
 		}
 		currSessionTimer = null;
 		// s = 0;
 		// m = 0;
+	}
+
+	public int dpToPx(int dp) {
+		DisplayMetrics displayMetrics = getActivity().getResources().getDisplayMetrics();
+		int px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+		return px;
 	}
 
 }

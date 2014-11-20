@@ -83,9 +83,10 @@ public class EventsFragment extends ListFragment {
 				// TODO Auto-generated method stub
 				handler.post(refreshing);
 				new UpdateEvents().execute();
-				swipeLayout.setRefreshing(false);
+//				swipeLayout.setRefreshing(false);
 			}
 		});
+		
 		swipeLayout.setColorScheme(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
 				android.R.color.holo_orange_light, android.R.color.holo_red_light);
 
@@ -286,6 +287,7 @@ public class EventsFragment extends ListFragment {
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
 			updateList();
+			swipeLayout.setRefreshing(false);
 
 		}
 	}

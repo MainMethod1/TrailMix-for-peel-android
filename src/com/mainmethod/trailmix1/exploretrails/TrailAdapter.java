@@ -31,7 +31,7 @@ public class TrailAdapter extends RecyclerView.Adapter<TrailViewHolder>  {
 		// TODO Auto-generated method stub
 		Trail trail = trailList.get(arg1);
 		trailViewHolder.vName.setText(trail.getTrailName());
-		trailViewHolder.vLength.setText(String.valueOf(trail.getLength()));
+		trailViewHolder.vLength.setText(String.valueOf(trail.getLength()) +" km" );
 		trailViewHolder.vSurface.setText(trail.getSurface());
 		
 	}
@@ -45,6 +45,6 @@ public class TrailAdapter extends RecyclerView.Adapter<TrailViewHolder>  {
     
 		return new TrailViewHolder(itemView);
 	}
-
+	
 
 }

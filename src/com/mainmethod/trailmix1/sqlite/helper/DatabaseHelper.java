@@ -8,12 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
-
 import com.google.android.gms.maps.model.LatLng;
 import com.mainmethod.trailmix1.kmlparsing.NavigationSaxHandler;
 import com.mainmethod.trailmix1.kmlparsing.PlacemarkObj;
@@ -51,7 +45,7 @@ import android.util.Log;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private static final int DATABASE_VERSION = 1;
-	private static final String DATABASE_NAME = "trailmixDB.db";
+	private static final String DATABASE_NAME = "trailmix_final.db";
 
 	private static String DB_PATH = "/data/data/com.mainmethod.trailmix1/databases/";
 	private SQLiteDatabase myDatabase;
@@ -66,6 +60,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String PLACEMARK_TABLE = "placemarks";
 	private static final String SESSION_TABLE = "sessions";
 	private static final String SESSION_GEOPOINT_TABLE = "sessionGeoPoints";
+	private static final String ACTIVITY_REPORT_TABLE = "activityReport";
+	private static final String TRAIL_REPORT_TABLE = "trailReport";
 
 	// Common column names
 	private static final String KEY_ID = "_id";
@@ -119,6 +115,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	// placemark table columns
 	private static final String KEY_TRAIL_ID = "trail_id";
 
+	// activityReport table columns
+	private static final String KEY_ACTIVITY = "activity";
+
+	// trailReport table columns
+	private static final String KEY_TRAIL_NAME = "trail_name";
+
 	// Table Create Statements
 	// Trail table create statement
 	private static final String CREATE_TABLE_TRAIL = "CREATE TABLE IF NOT EXISTS " + TRAIL_TABLE + "(" + KEY_ID
@@ -159,6 +161,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			+ " TEXT NOT NULL," + KEY_CONTACT_EMAIL + " TEXT NOT NULL," + KEY_CREATED_AT
 			+ " DATETIME DEFAULT CURRENT_TIMESTAMP" + ");";
 
+	// ActivityReport table create statement
+	private static final String CREATE_TABLE_ACTIVITY_REPORT = "CREATE TABLE IF NOT EXISTS " + ACTIVITY_REPORT_TABLE
+			+ "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_ACTIVITY + " TEXT, " + KEY_CREATED_AT
+			+ " DATETIME DEFAULT CURRENT_TIMESTAMP" + ");";
+
+	// TrailReport table create statement
+	private static final String CREATE_TABLE_TRAIL_REPORT = "CREATE TABLE IF NOT EXISTS " + TRAIL_REPORT_TABLE + "("
+			+ KEY_ID + " INTEGER PRIMARY KEY," + KEY_TRAIL_NAME + " TEXT, " + KEY_CREATED_AT
+			+ " DATETIME DEFAULT CURRENT_TIMESTAMP" + ");";
+
+	// Trail Index
+	private static final String CREATE_TABLE_TRAIL_INDEX = "CREATE INDEX trail_index " + "ON " + TRAIL_TABLE + " ("
+			+ KEY_NAME + ");";
+
+	// Trail Index 
+	private static final String CREATE_TABLE_PLACEMARK_INDEX = "CREATE INDEX placemark_index " + "ON " + PLACEMARK_TABLE
+			+ " (" + KEY_TRAIL_CLASS + ");";
+
+	// Trail Index
+	private static final String CREATE_TABLE_GEOPOINT_INDEX = "CREATE INDEX geopoint_index " + "ON " + GEOPOINT_TABLE
+			+ " (" + KEY_PLACEMARK_ID + ");";
+
 	private InputStream file;
 
 	public DatabaseHelper(Context context, InputStream file) {
@@ -182,9 +206,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		db.execSQL(CREATE_TABLE_EVENT);
 		db.execSQL(CREATE_TABLE_SESSION);
 		db.execSQL(CREATE_TABLE_SESSION_GEOPOINT);
+		db.execSQL(CREATE_TABLE_ACTIVITY_REPORT);
+		db.execSQL(CREATE_TABLE_TRAIL_REPORT);
 
-		// HashMap<String,TrailObj> trailCollection = parser();
-		// doInsert(trailCollection);
+		db.execSQL(CREATE_TABLE_TRAIL_INDEX);
+		db.execSQL(CREATE_TABLE_PLACEMARK_INDEX);
+		db.execSQL(CREATE_TABLE_GEOPOINT_INDEX);
 
 	}
 
@@ -237,7 +264,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public Trail getTrailByName(String trail_name) {
 		SQLiteDatabase db = this.getReadableDatabase();
 
-		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " INDEXED BY trail_index  WHERE " + KEY_NAME + " = '" + trail_name + "';";
+		String selectQuery = "SELECT  * FROM " + TRAIL_TABLE + " INDEXED BY trail_index  WHERE " + KEY_NAME + " = '"
+				+ trail_name + "';";
 
 		Log.e(LOG, selectQuery);
 
@@ -263,6 +291,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		trail.setMidPointLat(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LAT)));
 		trail.setMidPointLng(c.getDouble(c.getColumnIndex(KEY_MIDPOINT_LNG)));
 
+		c.close();
 		return trail;
 	}
 
@@ -294,16 +323,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				namedTrails.put(trail.getTrailName(), trail);
 			} while (c.moveToNext());
 		}
+		c.close();
 		closeDB();
 		return namedTrails;
-		
+
 	}
-	
+
 	public HashMap<String, Trail> getAllTrailsWithInfo(String trailClass) {
 		HashMap<String, Trail> namedTrails = new HashMap<String, Trail>();
 		SQLiteDatabase db = this.getReadableDatabase();
 
-		Cursor c = db.query(TRAIL_TABLE, null, KEY_AMENITIES + " IS NOT NULL AND " +KEY_TRAIL_CLASS+ " LIKE '"+trailClass+"'", null, null, null, null);
+		Cursor c = db.query(TRAIL_TABLE, null, KEY_AMENITIES + " IS NOT NULL AND " + KEY_TRAIL_CLASS + " LIKE '"
+				+ trailClass + "'", null, null, null, null);
 
 		Trail trail;
 		if (c.moveToFirst()) {
@@ -328,9 +359,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				namedTrails.put(trail.getTrailName(), trail);
 			} while (c.moveToNext());
 		}
+		c.close();
 		closeDB();
 		return namedTrails;
-		
+
 	}
 
 	/*
@@ -364,6 +396,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				namedTrails.put(trail.getTrailName(), trail);
 			} while (c.moveToNext());
 		}
+		c.close();
 		return namedTrails;
 	}
 
@@ -384,9 +417,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		values.put(KEY_PETS, trail.getPets());
 		values.put(KEY_NOTES, trail.getNotes());
 		values.put(KEY_CITY, trail.getCity());
-		values.put(KEY_MIDPOINT_LAT,trail.getMidPointLat());
-		values.put(KEY_MIDPOINT_LNG,trail.getMidPointLng());
-		
+		values.put(KEY_MIDPOINT_LAT, trail.getMidPointLat());
+		values.put(KEY_MIDPOINT_LNG, trail.getMidPointLng());
+
 		// updating row
 		return db.update(TRAIL_TABLE, values, KEY_ID + " = ?", new String[] { String.valueOf(trail.getId()) });
 	}
@@ -465,9 +498,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			}
 		}
 		placemarks.add(points);
+		c.close();
 		return placemarks;
 	}
-	
+
+	// Not used
 	public ArrayList<ArrayList<LatLng>> getPoints() {
 		ArrayList<ArrayList<LatLng>> placemarks = new ArrayList<ArrayList<LatLng>>();
 		SQLiteDatabase db = this.getReadableDatabase();
@@ -502,11 +537,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			}
 		}
 		placemarks.add(points);
+		c.close();
 		return placemarks;
 	}
-	
-	
-	
 
 	// get geopoints for placemark
 	public ArrayList<GeoPoint> getPlacemarkGeoPoints(int placemarkID) {
@@ -515,11 +548,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		String selectQuery = "SELECT  * FROM " + PLACEMARK_TABLE + " INNER JOIN " + GEOPOINT_TABLE + " ON "
 				+ PLACEMARK_TABLE + "." + KEY_ID + " = " + GEOPOINT_TABLE + "." + KEY_PLACEMARK_ID + " WHERE "
 				+ PLACEMARK_TABLE + "." + KEY_ID + " = " + placemarkID + ";";
-		String selectQuery1 = "SELECT  * FROM " + GEOPOINT_TABLE + " INDEXED BY test WHERE "
-				+  KEY_PLACEMARK_ID + " = " + placemarkID + ";";
-		
-		String selectQuery2 = "SELECT  * FROM " + GEOPOINT_TABLE +";";
-		
+		String selectQuery1 = "SELECT  * FROM " + GEOPOINT_TABLE + " INDEXED BY geopoint_index WHERE " + KEY_PLACEMARK_ID + " = "
+				+ placemarkID + ";";
+
+		String selectQuery2 = "SELECT  * FROM " + GEOPOINT_TABLE + ";";
+
 		Log.e(LOG, selectQuery1);
 
 		Cursor c = db.rawQuery(selectQuery1, null);
@@ -536,8 +569,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			} while (c.moveToNext());
 		}
 		c.close();
-		
-		
 		return placemarkGeoPoints;
 	}
 
@@ -563,17 +594,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 			} while (c.moveToNext());
 		}
+		c.close();
 		return trailPlacemarks;
 	}
 
 	public ArrayList<Placemark> getTrailPlacemarksByClass(String trailClass) {
 		ArrayList<Placemark> trailPlacemarks = new ArrayList<Placemark>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT * FROM " + PLACEMARK_TABLE + " INDEXED BY placemark_index WHERE " + KEY_TRAIL_CLASS + " IN ('" + trailClass
-				+ "');";
+		String selectQuery = "SELECT * FROM " + PLACEMARK_TABLE + " INDEXED BY placemark_index WHERE "
+				+ KEY_TRAIL_CLASS + " IN ('" + trailClass + "');";
 		String selectQuery2 = "SELECT * FROM " + PLACEMARK_TABLE + " WHERE " + KEY_TRAIL_CLASS + " ='" + trailClass
 				+ "'";
-		
+
 		Log.e(LOG, selectQuery);
 
 		Cursor c = db.rawQuery(selectQuery, null);
@@ -585,7 +617,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				// +"."+KEY_ID)));
 				p.setId(c.getInt(c.getColumnIndex(KEY_ID)));
 				p.setTrail_id(c.getInt(c.getColumnIndex(KEY_TRAIL_ID)));
-                p.setTrail_class(c.getString(c.getColumnIndex(KEY_TRAIL_CLASS)));
+				p.setTrail_class(c.getString(c.getColumnIndex(KEY_TRAIL_CLASS)));
 				trailPlacemarks.add(p);
 
 			} while (c.moveToNext());
@@ -601,7 +633,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		values.put(KEY_TRAIL_ID, p.getTrail_id());
 		values.put(KEY_TRAIL_CLASS, p.getTrail_class());
-		
+
 		long column_id = db.insert(PLACEMARK_TABLE, null, values);
 
 		return column_id;
@@ -665,6 +697,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				eventCollection.add(event);
 			} while (c.moveToNext());
 		}
+		c.close();
 		return eventCollection;
 	}
 
@@ -700,7 +733,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 			} while (c.moveToNext());
 		}
-
+		c.close();
 		return event;
 	}
 
@@ -733,7 +766,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 		// insert row
 		long session_id = db.insert(SESSION_TABLE, null, values);
-
 		return session_id;
 	}
 
@@ -760,7 +792,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				sessions.add(session);
 			} while (c.moveToNext());
 		}
-
+		c.close();
 		return sessions;
 	}
 
@@ -785,7 +817,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				session.setCreated_at(c.getString(c.getColumnIndex(KEY_CREATED_AT)));
 			} while (c.moveToNext());
 		}
-
+		c.close();
 		return session;
 	}
 
@@ -832,6 +864,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 			} while (c.moveToNext());
 		}
+		c.close();
 		return sessionGeoPoints;
 	}
 
@@ -856,6 +889,87 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		String query = "SELECT COUNT(*) FROM " + table + ";";
 		count = db.compileStatement(query).simpleQueryForLong();
 		return count;
+	}
+
+	// Create Activity Report
+	public long createActivityReportItem(String activity) {
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		ContentValues values = new ContentValues();
+		values.put(KEY_ACTIVITY, activity);
+
+		// insert row
+		long activity_report_id = db.insert(ACTIVITY_REPORT_TABLE, null, values);
+
+		return activity_report_id;
+	}
+
+	// Create Trail Report
+	public long createTrailReportItem(String trailName) {
+		SQLiteDatabase db = this.getWritableDatabase();
+
+		ContentValues values = new ContentValues();
+		values.put(KEY_TRAIL_NAME, trailName);
+
+		// insert row
+		long trail_report_id = db.insert(TRAIL_REPORT_TABLE, null, values);
+
+		return trail_report_id;
+	}
+
+	// get trailReport data
+	public HashMap<String,String> getTrailReportData() {
+			HashMap<String,String> trailReportData = new HashMap<String,String>();
+			SQLiteDatabase db = this.getReadableDatabase();
+			String selectQuery = "SELECT  * FROM " + TRAIL_REPORT_TABLE +";";
+
+			Log.e(LOG, selectQuery);
+
+			Cursor c = db.rawQuery(selectQuery, null);
+
+			if (c.moveToFirst()) {
+				do {
+				
+					String name = c.getString(c.getColumnIndex(KEY_TRAIL_NAME));  
+					String dateTime = c.getString(c.getColumnIndex(KEY_CREATED_AT));
+
+					trailReportData.put(dateTime,name);
+
+				} while (c.moveToNext());
+			}
+			c.close();
+			return trailReportData;
+		}
+	// get activityReport data
+		public HashMap<String,String> getActivityReportData() {
+				HashMap<String,String> activityReportData = new HashMap<String,String>();
+				SQLiteDatabase db = this.getReadableDatabase();
+				String selectQuery = "SELECT  * FROM " + ACTIVITY_REPORT_TABLE +";";
+                
+				Log.e(LOG, selectQuery);
+
+				Cursor c = db.rawQuery(selectQuery, null);
+
+				if (c.moveToFirst()) {
+					do {
+					
+						String name = c.getString(c.getColumnIndex(KEY_ACTIVITY));  
+						String dateTime = c.getString(c.getColumnIndex(KEY_CREATED_AT));
+
+						activityReportData.put(dateTime,name);
+
+					} while (c.moveToNext());
+				}
+				c.close();
+				return activityReportData;
+			}
+	// delete event
+	public void clearTable(String tableName) {
+
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(tableName, null, null);
+
+		db.close();
 	}
 
 	// closing database

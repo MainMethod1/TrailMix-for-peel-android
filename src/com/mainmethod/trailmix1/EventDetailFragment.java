@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class EventDetailFragment extends Fragment {
@@ -57,7 +58,6 @@ public class EventDetailFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_event_detail,
 				container, false);
-
 		// Show the dummy content as text in a TextView.
 		if (eventItem != null) {
 			((TextView) rootView.findViewById(R.id.eventTitle))

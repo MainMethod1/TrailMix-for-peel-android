@@ -27,7 +27,7 @@ public class PrefActivity extends Activity {
 		tintManager.setStatusBarTintEnabled(true);
 		// enable navigation bar tint
 		tintManager.setNavigationBarTintEnabled(true);
-		tintManager.setTintColor(Color.parseColor("#00796b"));
+		tintManager.setTintColor(Color.parseColor("#303F9F"));
 
 		// Display the fragment as the main content.
 		getFragmentManager().beginTransaction()

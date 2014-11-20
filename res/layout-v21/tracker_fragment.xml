@@ -17,7 +17,7 @@
     <RelativeLayout
         android:id="@+id/bar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="#000000"
         android:elevation="2dp"
@@ -62,20 +62,6 @@
     </RelativeLayout>
 
     <ImageButton
-        android:id="@+id/fab_playPauseBtn"
-        android:layout_width="@dimen/fab_size"
-        android:layout_height="@dimen/fab_size"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="76dp"
-        android:layout_marginLeft="20dp"
-        
-        android:src="@drawable/btn_play_pause" 
-        android:elevation="4dp"
-android:stateListAnimator="@anim/anim"
-android:background="@drawable/ripple"/>
-
-    <ImageButton
         android:id="@+id/fab_stopBtn"
         android:layout_width="@dimen/fab_size"
         android:layout_height="@dimen/fab_size"
@@ -87,5 +73,18 @@ android:background="@drawable/ripple"/>
         android:elevation="4dp"
 android:stateListAnimator="@anim/anim"
 android:background="@drawable/ripple"/>
+
+    <ImageButton
+        android:id="@+id/fab_playPauseBtn"
+        android:layout_width="@dimen/fab_size"
+        android:layout_height="@dimen/fab_size"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="26dp"
+        android:layout_marginLeft="21dp"
+        android:background="@drawable/ripple"
+        android:elevation="4dp"
+        android:src="@drawable/btn_play_pause"
+        android:stateListAnimator="@anim/anim" />
 
 </RelativeLayout>

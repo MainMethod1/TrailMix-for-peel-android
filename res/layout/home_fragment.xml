@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical" 
-    android:background="#FFFFFF">
+    android:background="#F2F2F2">
 
     <com.fortysevendeg.swipelistview.SwipeListView
         xmlns:swipe="http://schemas.android.com/apk/res-auto"

@@ -2,6 +2,7 @@ package com.mainmethod.trailmix1;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
@@ -9,11 +10,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class TrailDetailFragment extends Fragment {
@@ -22,6 +25,7 @@ public class TrailDetailFragment extends Fragment {
 	GoogleMap googleMap;
 	SupportMapFragment mapFrag;
 	UiSettings mapSettings;
+	DatabaseHelper db ;
 	
 	private static final LatLng PEEL = new LatLng(43.6719449, -79.65912);
 
@@ -58,7 +62,9 @@ public class TrailDetailFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_trail_detail, container, false);
-
+		LinearLayout titleBar = (LinearLayout) rootView.findViewById(R.id.title_bar);
+		titleBar.getBackground().setAlpha(40);
+		
 		// Show the dummy content as text in a TextView.
 		if (trailItem != null) {
 			((TextView) rootView.findViewById(R.id.txt_trailName)).setText(trailItem.getTrailName());
@@ -86,6 +92,7 @@ public class TrailDetailFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
+		db = new DatabaseHelper(getActivity());
 		if (googleMap == null) {
 			googleMap = mapFrag.getMap();
 			// googleMap.addMarker(new MarkerOptions().position(new LatLng(0,
@@ -96,12 +103,27 @@ public class TrailDetailFragment extends Fragment {
 			
 			LatLng trailMarker = new LatLng(trailItem.getMidPointLat(),trailItem.getMidPointLng());
 			googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(trailMarker, 13));
-			googleMap.addMarker(new MarkerOptions()
-			 .position(trailMarker)
-			 .title(trailItem.getTrailName()));
+//			googleMap.addMarker(new MarkerOptions()
+//			 .position(trailMarker)
+//			 .title(trailItem.getTrailName()));
+			
+			
+			googleMap.setOnMapClickListener( new OnMapClickListener(){
+
+				@Override
+				public void onMapClick(LatLng arg0) {
+					// TODO Auto-generated method stub
+					db.createTrailReportItem(trailItem.getTrailName());
+					Intent i = new Intent(getActivity(),MainActivity.class);
+					i.putExtra(TrailDetailActivity.ARG_TRAIL_FLAG,
+							trailItem.getTrailName());
+					startActivity(i);
+				}
+				
+			});
 			
 			mapSettings.setZoomControlsEnabled(false);
-			DatabaseHelper db = new DatabaseHelper(getActivity());
+			
 			
 			
 			MapUtil.drawTrailByName(googleMap, trailItem.getTrailName(), db);

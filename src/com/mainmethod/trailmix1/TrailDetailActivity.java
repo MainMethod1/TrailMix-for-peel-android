@@ -1,7 +1,9 @@
 package com.mainmethod.trailmix1;
 
+import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,7 +16,7 @@ public class TrailDetailActivity extends FragmentActivity {
 
 	protected static final String ARG_TRAIL_FLAG = "trailFlag";
 	String arg_trail_selected;
-	
+	Context c = this;
 	public TrailDetailActivity() {
 		// TODO Auto-generated constructor stub
 	}
@@ -63,6 +65,9 @@ public class TrailDetailActivity extends FragmentActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_tracker) {
+			DatabaseHelper db = new DatabaseHelper(c);
+			db.createTrailReportItem(arg_trail_selected);
+			db.closeDB();
 			Intent i = new Intent(this,MainActivity.class);
 			i.putExtra(TrailDetailActivity.ARG_TRAIL_FLAG,
 					arg_trail_selected);

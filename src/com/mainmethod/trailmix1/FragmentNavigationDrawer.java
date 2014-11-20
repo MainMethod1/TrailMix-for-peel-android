@@ -128,11 +128,11 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 		// Insert the fragment by replacing any existing fragment
 		FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 		FragmentTransaction transaction =  fragmentManager.beginTransaction().replace(drawerContainerRes, fragment);
-		if(fragment == HomeFragment.newInstance()){
-			//do not add it to back stack 
-		}else{
-			transaction.addToBackStack(null);
-		}
+//		if(fragment == HomeFragment.newInstance()){
+//			//do not add it to back stack 
+//		}else{
+//			transaction.addToBackStack(null);
+//		}
 		
 		transaction.commit();
 

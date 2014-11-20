@@ -3,6 +3,8 @@ package com.mainmethod.trailmix1;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.xml.parsers.SAXParser;
@@ -21,10 +23,12 @@ import com.mainmethod.trailmix1.sqlite.model.Placemark;
 import com.mainmethod.trailmix1.sqlite.model.Trail;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Outline;
@@ -33,6 +37,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +45,7 @@ import android.view.ViewOutlineProvider;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 /***
  * <h1> TrailMix for Android Capstone Project </h1>
@@ -52,6 +58,7 @@ import android.widget.SearchView;
 
 public class MainActivity extends FragmentActivity {
 	
+	private static final String mySharedPreferences = "previousUpdate";
 	/**
 	 * <p> The FragmentNavigationDrawer is a custom class which extends the DrawerLayout class.
 	 * In turn, the DrawerLayout allows views to be pulled from the edge of the window
@@ -81,6 +88,11 @@ public class MainActivity extends FragmentActivity {
 		// Set color changes for the tint
 		tintManager.setTintColor(Color.parseColor("#0288d1"));
          
+		
+		//to push local data to server for reports
+		SharedPreferences sharedPrefs= getSharedPreferences(mySharedPreferences, Activity.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sharedPrefs.edit();
+		Calendar calobj = Calendar.getInstance();
 		DatabaseHelper db = new DatabaseHelper(this);
 		try {
 			db.createDataBase();
@@ -88,7 +100,28 @@ public class MainActivity extends FragmentActivity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		if(sharedPrefs.getInt("previousUpdateDate", 0) == 0){
+			editor.putInt("previousUpdateDate", calobj.get(Calendar.DATE));
+			Toast.makeText(this, "hey from shared prefs 1", Toast.LENGTH_LONG).show();
+			editor.commit();
+		} else if(sharedPrefs.getInt("previousUpdateDate", 0) == calobj.get(Calendar.DATE)){
+			editor.putInt("previousUpdateDate", calobj.get(Calendar.DATE));
+			editor.commit();
+			Toast.makeText(this, "hey from shared prefs", Toast.LENGTH_LONG).show();
+			
+			String json=makeJSON(db.getActivityReportData(), "Activity");
+			//for trailReportData
+			
+			Log.e("POST JSON", json);
+			//update
+			db.clearTable("activityReport");
+			db.clearTable("trailReport");
+		} 
 		db.closeDB();
+		
+		
+		
         
 		
 		
@@ -177,7 +210,26 @@ public class MainActivity extends FragmentActivity {
 		
 	}
 	
-
+ public String makeJSON(HashMap<String, String> data, String firstField)
+ {
+	 String json="[";
+	 for (String date :data.keySet())
+		{
+			json+="{\""+firstField+"\":\"";
+			json+=data.get(date);
+			json+="\", \"Date\":\"";
+			json+=date+"\"},";
+		}
+		String temp = json;	
+		if(temp.substring(temp.length()-1, temp.length()).equals(","))
+		{
+			json = temp.substring(0, temp.length()-1);
+		}
+		
+		json+="]";
+		
+		return json;
+ }
 	
 	
 	@Override
@@ -196,9 +248,9 @@ public class MainActivity extends FragmentActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		
 		
-		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-		SearchView searchView = (SearchView) menu.findItem(R.id.searchOption).getActionView();
-		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+//		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//		SearchView searchView = (SearchView) menu.findItem(R.id.searchOption).getActionView();
+//		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 		return super.onCreateOptionsMenu(menu);
 	}
 

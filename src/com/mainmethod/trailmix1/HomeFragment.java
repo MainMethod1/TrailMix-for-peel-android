@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fortysevendeg.swipelistview.BaseSwipeListViewListener;
 import com.fortysevendeg.swipelistview.SwipeListView;
+import com.mainmethod.trailmix1.sqlite.helper.DatabaseHelper;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -46,16 +47,23 @@ public class HomeFragment extends Fragment {
 		swipelistview.setSwipeListViewListener(new BaseSwipeListViewListener() {
 	         @Override
 	         public void onOpened(int position, boolean toRight) {
-	        	 
+	        	 DatabaseHelper db = new DatabaseHelper(getActivity());
 	        	 if(position == 0){
+	        		
+	        		 db.createActivityReportItem("bike");
+	        		 db.closeDB();
 	        		 Intent intent = new Intent(getActivity(), MapActivity.class);
 	 				intent.putExtra(ARG_ACTIVITY,"bike");
 	 				startActivity(intent);
 	        	 }else if(position == 1){
+	        		 db.createActivityReportItem("run");
+	        		 db.closeDB();
 	        		 Intent intent = new Intent(getActivity(), MapActivity.class);
 		 				intent.putExtra(ARG_ACTIVITY,"run");
 		 				startActivity(intent);
 	        	 }else{
+	        		 db.createActivityReportItem("hike");
+	        		 db.closeDB();
 	        		 Intent intent = new Intent(getActivity(), MapActivity.class);
 		 				intent.putExtra(ARG_ACTIVITY,"hike");
 		 				startActivity(intent);
@@ -116,9 +124,29 @@ public class HomeFragment extends Fragment {
 		 swipelistview.setAdapter(adapter);
 		 
 		
-		     itemData.add(new SwipeListItemRow("Bike",getResources().getDrawable(R.drawable.btn_biking),Color.rgb(0, 153, 204)));
-		     itemData.add(new SwipeListItemRow("Walk",getResources().getDrawable(R.drawable.btn_running),Color.rgb(102,153, 0) ));
-		     itemData.add(new SwipeListItemRow("Hike",getResources().getDrawable(R.drawable.btn_hiking),Color.rgb(204, 0, 0)));
+		 ArrayList<Integer> bikeImgIds = new ArrayList<Integer>();
+			ArrayList<Integer> walkImgIds = new ArrayList<Integer>();
+			ArrayList<Integer> hikeImgIds = new ArrayList<Integer>();
+
+			bikeImgIds.add(R.drawable.bike_img_1);
+			bikeImgIds.add(R.drawable.bike_img_2);
+			bikeImgIds.add(R.drawable.bike_img_3);
+			bikeImgIds.add(R.drawable.bike_img_4);
+
+			walkImgIds.add(R.drawable.walk_img_1);
+			walkImgIds.add(R.drawable.walk_img_2);
+			walkImgIds.add(R.drawable.walk_img_3);
+
+			hikeImgIds.add(R.drawable.hike_img_1);
+			hikeImgIds.add(R.drawable.hike_img_2);
+			hikeImgIds.add(R.drawable.hike_img_3);
+
+			itemData.add(new SwipeListItemRow("Bike", getResources().getDrawable(
+					R.drawable.act_biking), bikeImgIds));
+			itemData.add(new SwipeListItemRow("Walk", getResources().getDrawable(
+					R.drawable.act_run), walkImgIds));
+			itemData.add(new SwipeListItemRow("Hike", getResources().getDrawable(
+					R.drawable.act_hike), hikeImgIds));
 		
 		  
 		 adapter.notifyDataSetChanged();
