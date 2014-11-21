@@ -8,12 +8,16 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical" >
 
-    <fragment
+     <fragment
         android:id="@+id/trackerMap"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+        
+        class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="match_parent" /> 
+    <!--   <FrameLayout
+            android:id="@+id/container_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" /> -->
     <RelativeLayout
         android:id="@+id/bar"
         android:layout_width="match_parent"

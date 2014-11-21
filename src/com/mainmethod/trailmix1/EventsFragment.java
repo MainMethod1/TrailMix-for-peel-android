@@ -36,7 +36,7 @@ import java.util.HashMap;
 
 public class EventsFragment extends ListFragment {
 
-	private static final String SERVICE_URL = "http://142.55.49.125/trailmixadmin/api/eventapi";
+	private static final String SERVICE_URL = "http://142.55.49.125/trailmixadmin/api/eventsapi";
 
 	private static final String TAG_EventName = "eventName";
 	private static final String TAG_EventLocation = "eventLocation";
@@ -139,10 +139,10 @@ public class EventsFragment extends ListFragment {
 				for (int i = 0; i < jsonArray.length(); i++) {
 					JSONObject jsonObj = jsonArray.getJSONObject(i);
 
-					JSONArray cityArray = jsonObj.getJSONArray(TAG_City);
-					if (cityArray.length() != 0) {
-
-					}
+					//JSONArray cityArray = jsonObj.getJSONArray(TAG_City);
+//					if (cityArray.length() != 0) {
+//
+//					}
 					int id = Integer.parseInt(jsonObj.getString(TAG_ID));
 					String title = jsonObj.getString(TAG_EventName);
 					String location = jsonObj.getString(TAG_EventLocation);

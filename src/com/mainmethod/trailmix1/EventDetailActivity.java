@@ -25,7 +25,7 @@ public class EventDetailActivity extends FragmentActivity {
 				tintManager.setStatusBarTintEnabled(true);
 				// enable navigation bar tint
 				tintManager.setNavigationBarTintEnabled(true);
-				tintManager.setTintColor(Color.parseColor("#00796b"));
+				tintManager.setTintColor(Color.parseColor("#303F9F"));
 				
 				
 		getActionBar().setDisplayHomeAsUpEnabled(true);

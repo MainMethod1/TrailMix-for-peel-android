@@ -1,57 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="88dp"
     android:orientation="horizontal"
-    android:padding="10dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="8dp" >
+     >
 
-    <LinearLayout 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    <!-- Name Label -->
-
-    <TextView
-        android:id="@+id/eventName"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:paddingBottom="2dip"
-        android:paddingTop="6dip"
-        android:textColor="#E6E91E63"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:paddingBottom="2dip"
-        android:textColor="#8C000000" />
-
-    <TextView
-        android:id="@+id/date"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:gravity="left"
-        android:textColor="#8C000000"
-        android:textStyle="italic" />
-    
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" 
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="20dp">
+
+        <!-- Name Label -->
+
+        <TextView
+            android:id="@+id/eventName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="sans-serif-light"
+            android:paddingBottom="2dip"
+            android:paddingTop="6dip"
+            android:textColor="#E6E91E63"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:paddingBottom="2dip"
+            android:textColor="#8C000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="left"
+            android:textColor="#8C000000"
+            android:textSize="14sp" />
     </LinearLayout>
-        <ImageView
-        android:id="@+id/img_event_poster_list_item"
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_event_default"/>
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/img_event_poster_list_item"
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:scaleType="fitXY"
+             />
+    </LinearLayout>
 
 </LinearLayout>

@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment {
 		View v = inflater.inflate(R.layout.home_fragment, container, false);
 		swipelistview=(SwipeListView)v.findViewById(R.id.example_swipe_lv_list);
 		itemData=new ArrayList<SwipeListItemRow>();
+	
 		adapter=new SwipeListItemAdapter(getActivity(),R.layout.swipe_row_layout,itemData);
 		
 		swipelistview.setSwipeListViewListener(new BaseSwipeListViewListener() {
@@ -96,7 +97,7 @@ public class HomeFragment extends Fragment {
 	         public void onClickFrontView(int position) {
 	             Log.d("swipe", String.format("onClickFrontView %d", position));
 	 
-	             //swipelistview.openAnimate(position); //when you touch front view it will open
+	             swipelistview.openAnimate(position); //when you touch front view it will open
 	 
 	         }
 	 
@@ -114,12 +115,13 @@ public class HomeFragment extends Fragment {
 	 
 	     });
 			swipelistview.setSwipeMode(SwipeListView.SWIPE_MODE_RIGHT); // there are five swiping modes
-		// swipelistview.setSwipeActionLeft(SwipeListView.SWIPE_ACTION_REVEAL); //there are four swipe actions
+		// swipelistview.setSwipeActionLeft(SwipeListView.SWIPE_ACTION_NONE); //there are four swipe actions
 		 swipelistview.setSwipeActionRight(SwipeListView.SWIPE_ACTION_REVEAL);
 		 swipelistview.setOffsetLeft(convertDpToPixel(260f)); // left side offset
 		 swipelistview.setOffsetRight(convertDpToPixel(0f)); // right side offset
 		 swipelistview.setAnimationTime(50); // animarion time
 		 swipelistview.setSwipeOpenOnLongPress(true); // enable or disable SwipeOpenOnLongPress
+         //swipelistview.setSwipeActionLeft(SwipeListView.SWIPE_ACTION_NONE);
          
 		 swipelistview.setAdapter(adapter);
 		 
@@ -150,40 +152,7 @@ public class HomeFragment extends Fragment {
 		
 		  
 		 adapter.notifyDataSetChanged();
-//		Button buttonRun = (Button) v.findViewById(R.id.button_run);
-//		buttonRun.setOnClickListener(new View.OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				
-//				Intent intent = new Intent(getActivity(), MapActivity.class);
-//				intent.putExtra(ARG_ACTIVITY,"run");
-//				startActivity(intent);
-//			}
-//		});
-//		
-//		Button buttonHike = (Button) v.findViewById(R.id.button_hike);
-//		buttonHike.setOnClickListener(new View.OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				
-//				Intent intent = new Intent(getActivity(), MapActivity.class);
-//				intent.putExtra(ARG_ACTIVITY,"hike");
-//				startActivity(intent);
-//			}
-//		});
-//		Button buttonBike = (Button) v.findViewById(R.id.button_bike);
-//		buttonBike.setOnClickListener(new View.OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				
-//				Intent intent = new Intent(getActivity(), MapActivity.class);
-//				intent.putExtra(ARG_ACTIVITY,"bike");
-//				startActivity(intent);
-//			}
-//		});
+
 		return v;
 
 	}
@@ -205,4 +174,17 @@ public class HomeFragment extends Fragment {
 	       float px = dp * (metrics.densityDpi / 160f);
 	       return (int) px;
 	   }
+	
+	@Override
+	public void onPause() {
+		super.onPause();
+		swipelistview.closeOpenedItems();
+	}
+	
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		
+	}
 }

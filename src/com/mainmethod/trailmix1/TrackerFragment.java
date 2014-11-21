@@ -44,6 +44,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.InflateException;
@@ -51,6 +52,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -73,7 +76,8 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	Session currentSession;
 	double distance;
 	int time;
-
+	SupportMapFragment mapFrag;
+    Context c = null;
 	TimerTask currSessionTimer;
 	int s = 0;
 	int m = 0;
@@ -129,7 +133,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+       c = getActivity();
 	}
 
 	@Override
@@ -149,12 +153,12 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 			if (getArguments().containsKey(MapActivity.ARG_TRACKER_FLAG)) {
 				Log.i("ActLoadError", "intent contans activity extra");
 				DatabaseHelper db = new DatabaseHelper(getActivity());
+				
 				if (getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("hike")) {
 					if (initMap())
 						MapUtil.drawTrailMarkersByClass(gMap, "Hiking%", db);
 					queryStatement = MapUtil.hikeStatement;
 					activity = "hike";
-					
 
 				} else if (getArguments().getString(MapActivity.ARG_TRACKER_FLAG).equals("run")) {
 					if (initMap())
@@ -176,6 +180,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 			} else if (getArguments().containsKey(TrailDetailActivity.ARG_TRAIL_FLAG)) {
 				DatabaseHelper db = new DatabaseHelper(getActivity());
 				MapUtil.isComingFromTrailDetail = true;
+				db.createTrailReportItem(getArguments().getString(TrailDetailActivity.ARG_TRAIL_FLAG));
 				if (initMap())
 					MapUtil.drawTrailByName(gMap, getArguments().getString(TrailDetailActivity.ARG_TRAIL_FLAG), db);
 			}
@@ -221,12 +226,11 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 			mapSettings = gMap.getUiSettings();
 			gMap.setBuildingsEnabled(true);
 			gMap.setMyLocationEnabled(true);
-			if(!MapUtil.isComingFromTrailDetail){
+			if (!MapUtil.isComingFromTrailDetail) {
 				gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(PEEL, 11));
-			} else{
+			} else {
 				MapUtil.isComingFromTrailDetail = false;
 			}
-			
 
 			mapSettings.setZoomControlsEnabled(false);
 
@@ -292,7 +296,9 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 						anim.start();
 
 						fab_stop.animate().alpha(1).setStartDelay(1000);
-
+					
+					
+//						fab.animate().
 						speedTxt.animate().alpha(1).setStartDelay(1000);
 						distanceTxt.animate().alpha(1).setStartDelay(1000);
 						timer.animate().alpha(1).setStartDelay(1000);
@@ -338,7 +344,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 							}
 						});
 						anim.setDuration(1000);
-					
+
 						anim.start();
 						fab.animate().translationYBy(dpToPx(38)).setDuration(1000);
 					}
@@ -346,7 +352,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 				speedTxt.animate().alpha(0);
 				distanceTxt.animate().alpha(0);
 				timer.animate().alpha(0);
-				
+
 				fab_stop.animate().alpha(0).withEndAction(endAction);
 
 				// fab_stop.animate().translationYBy(dpToPx(37)).setDuration(1000).start();;
@@ -453,10 +459,10 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
-		Fragment mapFragment = getChildFragmentManager().findFragmentById(R.id.trackerMap);
-		if (mapFragment != null) {
-			getActivity().getSupportFragmentManager().beginTransaction().remove(mapFragment).commit();
-		}
+//		Fragment mapFragment = getChildFragmentManager().findFragmentById(R.id.trackerMap);
+//		if (mapFragment != null) {
+//			getActivity().getSupportFragmentManager().beginTransaction().remove(mapFragment).commitAllowingStateLoss();
+//		}
 	}
 
 	@Override
@@ -668,12 +674,15 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 
 	private boolean initMap() {
 		if (gMap == null) {
-			SupportMapFragment mapFrag = (SupportMapFragment) getActivity().getSupportFragmentManager()
-					.findFragmentById(R.id.trackerMap);
+		    FragmentManager fm = getChildFragmentManager();
+			mapFrag = (SupportMapFragment) fm.findFragmentById(R.id.trackerMap);
+			if (mapFrag == null) {
+				mapFrag = SupportMapFragment.newInstance();
+//				getChildFragmentManager().beginTransaction().replace(R.id.container_map, mapFrag).commit();
+			}
 			gMap = mapFrag.getMap();
 		}
 		return (gMap != null);
-
 	}
 
 	// Timer logic

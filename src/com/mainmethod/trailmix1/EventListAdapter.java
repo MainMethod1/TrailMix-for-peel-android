@@ -71,8 +71,8 @@ public class EventListAdapter extends BaseAdapter  {
 		 txtDate.setText(eList.get(position).getDate());
 		 
 		 ImageView poster = (ImageView) convertView.findViewById(R.id.img_event_poster_list_item);
-		 poster.setImageResource(R.drawable.img_event_default);
-		 //new ImageLoadingTask(eList.get(position).getPoster_url(), poster).execute(null, null);
+		//poster.setImageResource(R.drawable.img_event_default);
+		 new ImageLoadingTask(eList.get(position).getPoster_url(), poster).execute(null, null);
 		 
 		return convertView;
 	}

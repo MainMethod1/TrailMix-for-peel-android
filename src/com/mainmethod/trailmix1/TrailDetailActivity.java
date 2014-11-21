@@ -32,7 +32,7 @@ public class TrailDetailActivity extends FragmentActivity {
 				tintManager.setStatusBarTintEnabled(true);
 				// enable navigation bar tint
 				tintManager.setNavigationBarTintEnabled(true);
-				tintManager.setTintColor(Color.parseColor("#00796b"));
+				tintManager.setTintColor(Color.parseColor("#303F9F"));
 				
 				
 		getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -65,9 +65,6 @@ public class TrailDetailActivity extends FragmentActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_tracker) {
-			DatabaseHelper db = new DatabaseHelper(c);
-			db.createTrailReportItem(arg_trail_selected);
-			db.closeDB();
 			Intent i = new Intent(this,MainActivity.class);
 			i.putExtra(TrailDetailActivity.ARG_TRAIL_FLAG,
 					arg_trail_selected);

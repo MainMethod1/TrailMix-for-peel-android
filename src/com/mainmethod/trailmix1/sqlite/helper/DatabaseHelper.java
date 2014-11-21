@@ -955,7 +955,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 					
 						String name = c.getString(c.getColumnIndex(KEY_ACTIVITY));  
 						String dateTime = c.getString(c.getColumnIndex(KEY_CREATED_AT));
-
+                        
 						activityReportData.put(dateTime,name);
 
 					} while (c.moveToNext());
