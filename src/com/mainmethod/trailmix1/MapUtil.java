@@ -163,7 +163,7 @@ public class MapUtil {
 			map.addMarker(new MarkerOptions()
 			 .position(center)
 			 .title(trail.getTrailName())
-			 .snippet("Length: "+ trail.getLength()+"km Surface: "+trail.getSurface())
+			 .snippet("Length: "+ String.format("%.2f",trail.getLength()/1000)+"km Surface: "+trail.getSurface())
 			 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker)));
 		}
 	}

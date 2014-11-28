@@ -705,7 +705,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public Event getEventByName(String name) {
 		Event event = null;
 		SQLiteDatabase db = this.getReadableDatabase();
-		String selectQuery = "SELECT * FROM " + EVENT_TABLE + " WHERE " + KEY_TITLE + " = " + "'" + name + "';";
+		String selectQuery = "SELECT * FROM " + EVENT_TABLE + " WHERE " + KEY_TITLE + " = " + "\"" + name + "\";";
 
 		Log.e(LOG, selectQuery);
 

@@ -11,11 +11,11 @@
         />
     
 
-    <item
+  <!--   <item
         android:id="@+id/action_preferences"
         android:orderInCategory="102"
         android:showAsAction="never"
-        android:title="@string/action_preferences"/>
+        android:title="@string/action_preferences"/>  -->
     
      <item
         android:id="@+id/action_tracker"

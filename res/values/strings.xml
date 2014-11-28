@@ -19,7 +19,9 @@
     <string name="pref_about_title">About</string>
     <string name="pref_about_developer">Developer</string>
     <string name="pref_about_developer_summary">Created by MainMethod Inc.</string>
-
+    <string name="pref_privacy_title">Privacy</string>
+    <string name="pref_privacy_note">Send anonymous data</string>
+    
     <string-array name="menu_items">
         <item>Home</item>
         <item>Explore Trails</item>

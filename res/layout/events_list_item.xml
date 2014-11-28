@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="88dp"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
      >
 
@@ -58,10 +58,11 @@
 
         <ImageView
             android:id="@+id/img_event_poster_list_item"
-            android:layout_width="112dp"
+            android:layout_width="112dp" 
             android:layout_height="112dp"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_vertical"
              />
     </LinearLayout>
-
+   
 </LinearLayout>

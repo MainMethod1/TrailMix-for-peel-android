@@ -8,7 +8,7 @@
         />
      -->
 
-    <item
+  <item
         android:id="@+id/action_preferences"
         android:orderInCategory="101"
         android:showAsAction="never"

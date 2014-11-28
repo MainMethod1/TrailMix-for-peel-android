@@ -121,12 +121,12 @@ public class MainActivity extends FragmentActivity {
 
 		if (sharedPrefs.getInt("previousUpdateDate", 0) == 0) {
 			editor.putInt("previousUpdateDate", calobj.get(Calendar.DATE));
-			Toast.makeText(this, "hey from shared prefs 1", Toast.LENGTH_LONG).show();
+			//Toast.makeText(this, "hey from shared prefs 1", Toast.LENGTH_LONG).show();
 			editor.commit();
-		} else if (sharedPrefs.getInt("previousUpdateDate", 0) != calobj.get(Calendar.DATE)) {
+		} else if (true) {   //sharedPrefs.getInt("previousUpdateDate", 0) != calobj.get(Calendar.DATE)
 			editor.putInt("previousUpdateDate", calobj.get(Calendar.DATE));
 			editor.commit();
-			Toast.makeText(this, "hey from shared prefs", Toast.LENGTH_LONG).show();
+			//Toast.makeText(this, "hey from shared prefs", Toast.LENGTH_LONG).show();
 
 			activityReportData = db.getActivityReportData();
 			trailReportData = db.getTrailReportData();
@@ -137,7 +137,7 @@ public class MainActivity extends FragmentActivity {
 			 db.clearTable("activityReport");
 			 db.clearTable("trailReport");
 		} else {
-			Toast.makeText(this, "NADA", Toast.LENGTH_LONG).show();
+			//Toast.makeText(this, "NADA", Toast.LENGTH_LONG).show();
 		}
 		db.closeDB();
 
@@ -154,9 +154,9 @@ public class MainActivity extends FragmentActivity {
 		dlDrawer.addNavItem("Home", R.drawable.ic_drawer_home, "Select Activity", HomeFragment.class); // HomeFragment.java
 		dlDrawer.addNavItem("Explore Trails", R.drawable.ic_drawer_explore, "Explore Trails",
 				ExploreTrailsFragment.class);
-		dlDrawer.addNavItem("Tracker", R.drawable.ic_drawer_tracker, "Tracker", TrackerFragment.class); // TrackerFragment.java
-
+		dlDrawer.addNavItem("Tracker", R.drawable.ic_drawer_tracker, "Tracker", TrackerFragment.class); // TrackerFragment.java 
 		dlDrawer.addNavItem("History", R.drawable.ic_drawer_history, "History", HistoryFragment.class);
+		dlDrawer.addNavItem("Statistics", R.drawable.ic_drawer_stats, "Statistics", StatsFragment.class);
 		dlDrawer.addNavItem("Events", R.drawable.ic_drawer_event, "Events", EventsFragment.class); // EventsFragment.java
 		// ExploreTrailsFragment.java
 

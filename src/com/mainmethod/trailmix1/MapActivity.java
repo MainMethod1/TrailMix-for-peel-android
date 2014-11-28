@@ -327,7 +327,7 @@ public class MapActivity extends FragmentActivity implements LoaderCallbacks<Cur
 			map.addMarker(new MarkerOptions()
 			 .position(center)
 			 .title(trail.getTrailName())
-			 .snippet("Length: "+ trail.getLength()+"km Surface: "+trail.getSurface())
+			 .snippet("Length: "+ String.format("%.2f", trail.getLength()/1000) +"km Surface: "+trail.getSurface())
 			 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_marker)));
 		}
 	}
@@ -659,10 +659,11 @@ public class MapActivity extends FragmentActivity implements LoaderCallbacks<Cur
 					arg_act_selected);
 			startActivity(i);
 			return true;
-		} else if(item.getItemId() == R.id.action_preferences){
-			Intent i = new Intent(this,PrefActivity.class);
-			startActivity(i);
 		}
+		//  else if(item.getItemId() == R.id.action_preferences){
+		// Intent i = new Intent(this,PrefActivity.class);
+		// startActivity(i);
+		// }
 		return super.onOptionsItemSelected(item);
 	}
 

@@ -27,8 +27,16 @@ public class Trail {
 	String city;
 	double midPointLat;
 	double midPointLng;
-
+    int imageID;
 	
+
+	public int getImageID() {
+		return imageID;
+	}
+
+	public void setImageID(int imageID) {
+		this.imageID = imageID;
+	}
 
 	/***
 	 * Create the constructor for the model

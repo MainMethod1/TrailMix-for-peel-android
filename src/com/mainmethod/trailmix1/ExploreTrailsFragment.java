@@ -109,7 +109,7 @@ public class ExploreTrailsFragment extends Fragment {
 		protected Boolean doInBackground(Void... arg0) {
 			db = new DatabaseHelper(getActivity());
 			tList = new ArrayList<Trail>(db.getAllTrailsWithInfo().values());
-
+            
 			db.close();
 
 			return null;

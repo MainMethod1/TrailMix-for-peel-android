@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
+   <PreferenceCategory
         android:key="pref_key_storage_settings"
-        android:title="@string/pref_map_layer_title" >
+        android:title="@string/pref_privacy_title" >
         <CheckBoxPreference
             android:defaultValue="true"
-            android:key="pref_bicycle_lane"
-            android:title="@string/pref_bicycle_lane" />
-        <CheckBoxPreference
+            android:key="pref_privacy"
+            android:title="@string/pref_privacy_note" />
+        <!-- <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_signed_bike_route"
             android:title="@string/pref_signed_bike_route" />
@@ -27,8 +27,8 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_unpaved_multi_use_trail"
-            android:title="@string/pref_unpaved_multi_use_trail" />
-    </PreferenceCategory>
+            android:title="@string/pref_unpaved_multi_use_trail" /> -->
+    </PreferenceCategory> 
     
     <PreferenceCategory
         android:key="pref_about"

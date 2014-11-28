@@ -367,7 +367,7 @@ public class TrackerFragment extends Fragment implements GooglePlayServicesClien
 					currentSession = new Session();
 					currentSession.setDistance(Double.parseDouble(String.format("%.2f", distance)));
 					currentSession.setTime(time);
-					currentSession.setSpeed(distance / time);
+					currentSession.setSpeed((distance / time) *3.6);
 					DateFormat dFormat = DateFormat.getDateTimeInstance();
 					dFormat.setTimeZone(TimeZone.getTimeZone("GMT-05:00"));
 					Date now = new Date();
